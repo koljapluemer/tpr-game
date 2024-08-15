@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch1dasi7hoqmq"]
+[gd_scene load_steps=6 format=3 uid="uid://disqdvylc8ir8"]
 
-[ext_resource type="Texture2D" uid="uid://b6gmtxc0liv3b" path="res://src/tests/concrete_test.jpg" id="1_b5w0w"]
-[ext_resource type="PackedScene" uid="uid://t2veddctapga" path="res://src/components/player/player.tscn" id="2_q5wjv"]
+[ext_resource type="Texture2D" uid="uid://b6gmtxc0liv3b" path="res://src/tests/concrete_test.jpg" id="1_po8pd"]
+[ext_resource type="PackedScene" uid="uid://t2veddctapga" path="res://src/components/player/player.tscn" id="2_ubx50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svvk0"]
 size = Vector2(987.5, 145)
@@ -17,7 +17,7 @@ size = Vector2(148.5, 372.5)
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 987.0
 offset_bottom = 294.0
-texture = ExtResource("1_b5w0w")
+texture = ExtResource("1_po8pd")
 stretch_mode = 1
 
 [node name="Limits" type="StaticBody2D" parent="."]
@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_2oayx")
 position = Vector2(73.75, -42.75)
 shape = SubResource("RectangleShape2D_wr6to")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_q5wjv")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_ubx50")]
 position = Vector2(305, -59)
 scale = Vector2(0.200001, 0.200001)
 
