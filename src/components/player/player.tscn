@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://t2veddctapga"]
+[gd_scene load_steps=22 format=3 uid="uid://t2veddctapga"]
 
+[ext_resource type="Script" path="res://src/components/player/player.gd" id="1_2d3xg"]
 [ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="1_ckk4k"]
 [ext_resource type="Texture2D" uid="uid://u1n84tc01or2" path="res://src/components/player/spritesheet.png" id="1_t3d4v"]
 
@@ -131,10 +132,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="AnimatedSprite2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fv5gy"]
+radius = 79.0
+height = 516.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2d3xg")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_iuu6p")
 sprite_frames = SubResource("SpriteFrames_jtdga")
 animation = &"walk"
 autoplay = "idle"
 frame = 1
 frame_progress = 0.409103
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fv5gy")
