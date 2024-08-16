@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://c44wwskit3qax"]
 
-[ext_resource type="Script" path="res://src/managers/quest_manager/quest.gd" id="1_jet3s"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_h1i22"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_cdhx3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_wksq3"]
@@ -8,12 +7,14 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="6_m47a7"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="7_yv21v"]
 
+[sub_resource type="GDScript" id="GDScript_g1dms"]
+
 [sub_resource type="Resource" id="Resource_uhrcq"]
 script = ExtResource("6_m47a7")
 expression = "is_available == true"
 
 [node name="Quest" type="Node2D"]
-script = ExtResource("1_jet3s")
+script = SubResource("GDScript_g1dms")
 
 [node name="StateChart" type="Node" parent="."]
 unique_name_in_owner = true

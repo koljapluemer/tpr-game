@@ -11,7 +11,7 @@ func _ready():
 	dialog_box.visible = false
 
 func say(dialog, kill_after=5):
-	var text = dialog.dialog_content
+	var text = dialog.content
 	kill_all_timer_children()
 	dialog_content.text = text
 	dialog_box.visible = true
@@ -23,7 +23,6 @@ func kill_all_timer_children():
 	for child in get_children():
 		if child is Timer:
 			child.queue_free()
-
 
 func finish():
 	dialog_content.text = ""
