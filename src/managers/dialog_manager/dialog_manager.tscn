@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://c135vycbcihty"]
+
+[ext_resource type="Script" path="res://src/managers/dialog_manager/dialog_manager.gd" id="1_wdfdh"]
+
+[node name="DialogManager" type="Node"]
+script = ExtResource("1_wdfdh")
+
+[node name="DialogBox" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Panel" type="Panel" parent="DialogBox"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogBox/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogIcon" type="TextureRect" parent="DialogBox/Panel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 3
+
+[node name="DialogContent" type="Label" parent="DialogBox/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
