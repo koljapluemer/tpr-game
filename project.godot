@@ -14,6 +14,10 @@ config/name="Tpr-game"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="mobile"
