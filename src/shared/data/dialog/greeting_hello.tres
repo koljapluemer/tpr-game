@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://dgdesc84q06sb"]
+
+[ext_resource type="Script" path="res://src/managers/dialog_manager/dialog.gd" id="1_0u1eu"]
+
+[resource]
+script = ExtResource("1_0u1eu")
+content = "Hallo!"

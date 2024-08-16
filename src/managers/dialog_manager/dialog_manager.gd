@@ -1,19 +1,20 @@
-extends Node
+class_name DialogManager extends Node
 
 signal dialog_finished
 
-@onready var dialog_box: CanvasLayer = %Dialogdialog_box
-@onready var dialog_icon: TextureRect = %DialogIcon
-@onready var dialog_content: Label = %DialogContent
 
+const DIALOG_BOX = preload("res://src/managers/dialog_manager/dialog_box.tscn")
+var  dialog_box: CanvasLayer 
 
 func _ready():
+	dialog_box = DIALOG_BOX.instantiate()
+	add_child(dialog_box)
 	dialog_box.visible = false
 
 func say(dialog, kill_after=5):
 	var text = dialog.content
 	kill_all_timer_children()
-	dialog_content.text = text
+	dialog_box.get_node("%DialogContent").text = text
 	dialog_box.visible = true
 	# 0 kill_after means infinite
 	if not kill_after == 0:
@@ -25,7 +26,7 @@ func kill_all_timer_children():
 			child.queue_free()
 
 func finish():
-	dialog_content.text = ""
+	dialog_box.get_node("%DialogContent").text = ""
 	dialog_box.visible = false
 	emit_signal("dialog_finished")
 

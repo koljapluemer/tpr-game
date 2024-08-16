@@ -7,7 +7,7 @@ const TUTOR = preload("res://src/components/level_elements/tutor/tutor.tscn")
 @export var parallax_background_scene: PackedScene
 @export var arena_scene : PackedScene
 
-@export var initial_sequence: Sequence
+@onready var start_sequence: Sequence = %StartSequence
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,12 +19,12 @@ func _ready() -> void:
 	if arena_scene:
 		var arena = arena_scene.instantiate()
 		add_child(arena)
-	if initial_sequence:
-		initial_sequence.run_random_ready_event()
+	if start_sequence:
+		start_sequence.run_random_ready_event()
 	# always the same (for now, who knows)
 	var player_and_camera = PLAYER_CAMERA_COMBO.instantiate()
 	add_child(player_and_camera)
 	# just a test. this will be event-driven later, me thinks
 	# after all, tutor may spawn later, or level without tutor, even
-	var tutor = TUTOR.instantiate()
-	add_child(tutor)
+	#var tutor = TUTOR.instantiate()
+	#add_child(tutor)

@@ -7,3 +7,5 @@
 script = ExtResource("1_xi68k")
 sprite = ExtResource("2_pomlk")
 resize_factor = 0.3
+offset = Vector2(0, 0)
+collision_radius = 100

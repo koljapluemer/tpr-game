@@ -1,4 +1,4 @@
-class_name EventTalk extends Event
+class_name EventWalk extends Event
 
 @export var destination_node: Node2D
 @export var walker: Node2D
