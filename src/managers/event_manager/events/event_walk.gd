@@ -16,4 +16,3 @@ func _on_walker_reached_target():
 	
 func finish():
 	super()
-

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b3boma12f35xs"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_wje3y"]
+[ext_resource type="Texture2D" uid="uid://b4kvykwf4jk7x" path="res://possible_assets/aboodi-vesakaran-lkdpPi60uxM-unsplash-Photoroom-Photoroom.png" id="2_7a3xm"]
+
+[resource]
+script = ExtResource("1_wje3y")
+sprite = ExtResource("2_7a3xm")
+resize_factor = 0.3
+offset = Vector2(0, 0)
+collision_radius = 300

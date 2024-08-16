@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmkkynr7tuq88"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/map_object.gd" id="1_naxtc"]
+[ext_resource type="Resource" uid="uid://gum1xb3bksu3" path="res://src/components/level_elements/object/demo/demo_item.tres" id="2_fv48i"]
+
+[node name="DemoObject" type="Node2D"]
+script = ExtResource("1_naxtc")
+item = ExtResource("2_fv48i")

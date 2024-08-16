@@ -14,4 +14,3 @@ func run():
 func _on_walker_reached_target():
 	finish()
 	
-

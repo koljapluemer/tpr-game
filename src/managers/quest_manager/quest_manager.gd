@@ -7,6 +7,3 @@ class_name QuestManager extends Node
 
 @onready var quest_box: CanvasLayer = %QuestBox
 @onready var quest_label: Label = %QuestLabel
-
-
-

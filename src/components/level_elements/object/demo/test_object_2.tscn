@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://drxji5qistp3u"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/map_object.gd" id="1_3akg8"]
+[ext_resource type="Resource" uid="uid://b3boma12f35xs" path="res://src/components/level_elements/object/demo/demo_item_2.tres" id="2_mof5t"]
+
+[node name="TestObject2" type="Node2D"]
+script = ExtResource("1_3akg8")
+item = ExtResource("2_mof5t")

@@ -24,4 +24,3 @@ func _ready() -> void:
 	# after all, tutor may spawn later, or level without tutor, even
 	var tutor = TUTOR.instantiate()
 	add_child(tutor)
-
