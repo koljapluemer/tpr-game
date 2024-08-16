@@ -1,4 +1,4 @@
-class_name Quest extends Resource
+class_name Quest extends Node2D
 
 @export_group("Quest Settings")
 @export var quest_description: String
@@ -15,3 +15,6 @@ enum QuestStatus {
 }
 
 @export var quest_status: QuestStatus = QuestStatus.available
+
+func finish():
+	pass
