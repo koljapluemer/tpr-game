@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7bvdnscnjkto"]
 
-[ext_resource type="Texture2D" uid="uid://b6gmtxc0liv3b" path="res://src/tests/concrete_test.jpg" id="1_pbfrp"]
+[ext_resource type="Texture2D" uid="uid://b6gmtxc0liv3b" path="res://src/components/level_elements/arena/concrete_test.jpg" id="1_lw0rg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svvk0"]
 size = Vector2(2009, 145)
@@ -21,7 +21,7 @@ offset_left = -1773.0
 offset_right = 669.0
 offset_bottom = 294.0
 grow_horizontal = 2
-texture = ExtResource("1_pbfrp")
+texture = ExtResource("1_lw0rg")
 stretch_mode = 1
 
 [node name="Limits" type="StaticBody2D" parent="."]

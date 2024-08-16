@@ -2,6 +2,7 @@
 extends Node2D
 
 const PLAYER_CAMERA_COMBO = preload("res://src/components/level_elements/player_camera_combo/player_camera_combo.tscn")
+const TUTOR = preload("res://src/components/level_elements/tutor/tutor.tscn")
 
 @export var parallax_background_scene: PackedScene
 @export var arena_scene : PackedScene
@@ -19,4 +20,8 @@ func _ready() -> void:
 	# always the same (for now, who knows)
 	var player_and_camera = PLAYER_CAMERA_COMBO.instantiate()
 	add_child(player_and_camera)
+	# just a test. this will be event-driven later, me thinks
+	# after all, tutor may spawn later, or level without tutor, even
+	var tutor = TUTOR.instantiate()
+	add_child(tutor)
 
