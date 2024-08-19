@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3u07sqhdaa1l"]
+[gd_scene load_steps=18 format=3 uid="uid://d3u07sqhdaa1l"]
 
 [ext_resource type="PackedScene" uid="uid://ch1dasi7hoqmq" path="res://src/components/level_map/level_map.tscn" id="1_y552k"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="3_kvqdn"]
@@ -8,12 +8,13 @@
 [ext_resource type="Resource" uid="uid://dgdesc84q06sb" path="res://src/shared/data/dialog/greeting_hello.tres" id="7_7e06b"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="7_mufcj"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_nothing.gd" id="7_tnsbv"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_time_passed.gd" id="8_7xvbw"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear.gd" id="9_5tcyo"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="10_6usqd"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_event_finished.gd" id="11_8ngdb"]
 [ext_resource type="PackedScene" uid="uid://cfdydj1akl3a1" path="res://src/components/level_elements/tutor/tutor.tscn" id="11_tr4b5"]
 [ext_resource type="Script" path="res://src/levels/001_tutorial/canvas_layer.gd" id="12_fre7a"]
+[ext_resource type="Script" path="res://src/components/level_elements/object/map_object.gd" id="15_o0lbs"]
+[ext_resource type="Resource" uid="uid://gum1xb3bksu3" path="res://src/components/level_elements/object/demo/demo_item.tres" id="16_ibox7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7nty"]
 size = Vector2(60, 80)
@@ -68,19 +69,26 @@ event = NodePath("../../../EventShowControlScheme")
 [node name="ConditionNothing" type="Node" parent="LevelMap/Events/EventTutorShow"]
 script = ExtResource("7_tnsbv")
 
-[node name="EventSayGreeting" type="Node2D" parent="LevelMap/Events" node_paths=PackedStringArray("dialog_manager", "end_condition")]
+[node name="EventSayGreeting" type="Node2D" parent="LevelMap/Events" node_paths=PackedStringArray("dialog_manager", "start_condition")]
 script = ExtResource("6_grxgg")
 dialog = ExtResource("7_7e06b")
 dialog_manager = NodePath("../../DialogManager")
-end_condition = NodePath("ConditionTimePassed")
-delay_before_start = 3
-
-[node name="ConditionTimePassed" type="Node" parent="LevelMap/Events/EventSayGreeting"]
-script = ExtResource("8_7xvbw")
+start_condition = NodePath("ConditionEventFinished")
+delay_before_start = 2
 
 [node name="ConditionEventFinished" type="Node" parent="LevelMap/Events/EventSayGreeting" node_paths=PackedStringArray("event")]
 script = ExtResource("11_8ngdb")
 event = NodePath("../../EventTutorShow")
+
+[node name="EventAppear" type="Node2D" parent="LevelMap/Events" node_paths=PackedStringArray("appearing_node", "start_condition")]
+script = ExtResource("9_5tcyo")
+appearing_node = NodePath("../../Objects/MapObject")
+start_condition = NodePath("ConditionEventGreetingFinished")
+delay_before_start = 8
+
+[node name="ConditionEventGreetingFinished" type="Node" parent="LevelMap/Events/EventAppear" node_paths=PackedStringArray("event")]
+script = ExtResource("11_8ngdb")
+event = NodePath("../../EventSayGreeting")
 
 [node name="Objects" type="Node2D" parent="LevelMap"]
 
@@ -129,6 +137,12 @@ shape = SubResource("RectangleShape2D_wdcif")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelMap/Objects/TutorAppearTrigger"]
 position = Vector2(-349, -40)
 shape = SubResource("RectangleShape2D_wdcif")
+
+[node name="MapObject" type="Node2D" parent="LevelMap/Objects"]
+visible = false
+position = Vector2(160, -22)
+script = ExtResource("15_o0lbs")
+item = ExtResource("16_ibox7")
 
 [editable path="LevelMap"]
 [editable path="LevelMap/PlayerCameraCombo"]

@@ -13,6 +13,7 @@ func _run():
 	dialog_manager.dialog_finished.connect(_on_dialog_finished)
 
 func _on_dialog_finished(finished_dialog):
-	if finished_dialog == dialog:
-		dialog_manager.dialog_finished.disconnect(_on_dialog_finished)
-		finish()
+	print("dialog finished, finishing event")
+	# TODO: will this be trouble if dialog manager gets multiple dialogs?
+	dialog_manager.dialog_finished.disconnect(_on_dialog_finished)
+	finish()
