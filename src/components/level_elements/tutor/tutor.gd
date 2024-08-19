@@ -54,9 +54,16 @@ func update_facing_direction():
 		
 # wrapper for show()
 func show_object():
+	print("showing tutor")
 	if player:
 		if global_position.x > player.global_position.x:
 			animated_sprite.flip_h = true
 		else:
 			animated_sprite.flip_h = false
 	show()
+	
+# would be amazing if this worked	
+func _get_configuration_warnings() -> PackedStringArray:
+	if not player:
+		return PackedStringArray(["Player Object not set, tutor cannot turn to player."])
+	return PackedStringArray([])

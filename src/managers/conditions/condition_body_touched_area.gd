@@ -10,5 +10,7 @@ func _ready() -> void:
 		print("condition for body touching area missing area or body", name)
 	
 func _check_if_entered_body_matches(body_that_entered):
+	print("body entered area", body_that_entered)
+	print("checking against: ", body )
 	if body_that_entered == body:
 		fulfilled.emit()

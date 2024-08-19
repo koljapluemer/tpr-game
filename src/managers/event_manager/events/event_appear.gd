@@ -3,6 +3,7 @@ class_name EventAppear extends Event
 @export var appearing_node: Node
 
 func _run():
+	print("Running Appear Event", name)
 	if appearing_node.has_method("show_object"):
 		appearing_node.show_object()
 	else:

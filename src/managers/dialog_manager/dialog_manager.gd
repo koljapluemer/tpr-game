@@ -6,6 +6,8 @@ signal dialog_finished
 const DIALOG_BOX = preload("res://src/managers/dialog_manager/dialog_box.tscn")
 var  dialog_box: CanvasLayer 
 
+var current_dialog: Dialog
+
 func _ready():
 	dialog_box = DIALOG_BOX.instantiate()
 	add_child(dialog_box)
@@ -28,7 +30,8 @@ func kill_all_timer_children():
 func finish():
 	dialog_box.get_node("%DialogContent").text = ""
 	dialog_box.visible = false
-	emit_signal("dialog_finished")
+	dialog_finished.emit(current_dialog)
+	current_dialog = null
 
 func create_kill_timer(n):
 	var timer := Timer.new()

@@ -206,7 +206,6 @@ script = ExtResource("1_pcugg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ywbsb")
 position = Vector2(0, 15)
-rotation = 0.0431485
 sprite_frames = SubResource("SpriteFrames_lhysl")
 animation = &"idle"
 autoplay = "idle"
