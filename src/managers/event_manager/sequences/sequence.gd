@@ -16,7 +16,7 @@ func run_random_ready_event():
 		if event.current_status == Event.EventStatus.ready:
 			ready_events.append(event)
 	current_event = ready_events.pick_random()
-	current_event.run()
+	current_event.request_run()
 	current_event.finished.connect(run_random_ready_event)
 	
 			

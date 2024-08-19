@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3u07sqhdaa1l"]
+[gd_scene load_steps=9 format=3 uid="uid://d3u07sqhdaa1l"]
 
 [ext_resource type="Script" path="res://src/components/level_map/level_map.gd" id="1_xxrf4"]
 [ext_resource type="PackedScene" uid="uid://dslr4smifj6r" path="res://src/components/level_elements/parallax/basic_black.tscn" id="2_t4tgp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/managers/dialog_manager/dialog_manager.gd" id="5_rt2mb"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_say.gd" id="6_grxgg"]
 [ext_resource type="Resource" uid="uid://dgdesc84q06sb" path="res://src/shared/data/dialog/greeting_hello.tres" id="7_7e06b"]
+[ext_resource type="Resource" uid="uid://eq7qmlhs32fm" path="res://src/shared/data/dialog/tutorial_move.tres" id="8_gduk0"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_xxrf4")
@@ -18,18 +19,23 @@ script = ExtResource("5_rt2mb")
 
 [node name="Sequences" type="Node2D" parent="."]
 
-[node name="DemoSequence" type="Node2D" parent="Sequences"]
-script = ExtResource("4_s2alp")
-
 [node name="StartSequence" type="Node2D" parent="Sequences" node_paths=PackedStringArray("events")]
 unique_name_in_owner = true
 script = ExtResource("4_s2alp")
-events = [NodePath("../../Events/EventSay")]
+events = [NodePath("../../Events/EventSayGreeting"), NodePath("../../Events/EventSayControls")]
 
 [node name="Events" type="Node2D" parent="."]
 
-[node name="EventSay" type="Node2D" parent="Events" node_paths=PackedStringArray("dialog_manager")]
+[node name="EventSayGreeting" type="Node2D" parent="Events" node_paths=PackedStringArray("dialog_manager", "readies_events")]
 script = ExtResource("6_grxgg")
 dialog = ExtResource("7_7e06b")
 dialog_manager = NodePath("../../DialogManager")
-current_status = 1
+duration = 3
+delay_before_start = 3
+is_initially_blocked = false
+readies_events = [NodePath("../EventSayControls")]
+
+[node name="EventSayControls" type="Node2D" parent="Events" node_paths=PackedStringArray("dialog_manager")]
+script = ExtResource("6_grxgg")
+dialog = ExtResource("8_gduk0")
+dialog_manager = NodePath("../../DialogManager")

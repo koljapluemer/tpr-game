@@ -3,7 +3,7 @@ class_name EventWalk extends Event
 @export var destination_node: Node2D
 @export var walker: Node2D
 
-func run():
+func _run():
 	if walker.has_method("walk_to_node"):
 		walker.walk_to_node(destination_node)
 		walker.has_reached_target.connect(_on_walker_reached_target)
