@@ -1,6 +1,3 @@
-- implement mechanism for users to give feedback
-- remove dead code
-- check all files for insufficient inline-comments
-- refactor 1 function
-- think about accessibility strategies
-- think about SEO strategies
+- guard against export variables in the various script being simply not set
+- make a condition type resource that can do stuff like "end event once player moved in both direction"
+- Sequence class is probably superflous, can just expect an Events:Node2D holder and execute in "order", with Conditionals?

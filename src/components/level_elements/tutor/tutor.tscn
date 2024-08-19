@@ -205,12 +205,14 @@ script = ExtResource("1_pcugg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ywbsb")
+position = Vector2(0, 15)
+rotation = 0.0431485
 sprite_frames = SubResource("SpriteFrames_lhysl")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
-frame = 5
-frame_progress = 0.78988
+frame_progress = 0.602777
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 7)
+position = Vector2(2, 22)
+scale = Vector2(1.14957, 1.0853)
 shape = SubResource("CapsuleShape2D_dx0ah")

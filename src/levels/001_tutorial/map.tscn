@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3u07sqhdaa1l"]
+[gd_scene load_steps=12 format=3 uid="uid://d3u07sqhdaa1l"]
 
 [ext_resource type="Script" path="res://src/components/level_map/level_map.gd" id="1_xxrf4"]
 [ext_resource type="PackedScene" uid="uid://dslr4smifj6r" path="res://src/components/level_elements/parallax/basic_black.tscn" id="2_t4tgp"]
@@ -7,7 +7,12 @@
 [ext_resource type="Script" path="res://src/managers/dialog_manager/dialog_manager.gd" id="5_rt2mb"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_say.gd" id="6_grxgg"]
 [ext_resource type="Resource" uid="uid://dgdesc84q06sb" path="res://src/shared/data/dialog/greeting_hello.tres" id="7_7e06b"]
-[ext_resource type="Resource" uid="uid://eq7qmlhs32fm" path="res://src/shared/data/dialog/tutorial_move.tres" id="8_gduk0"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear.gd" id="9_5tcyo"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_when_object_in_area.gd" id="10_u2wdp"]
+[ext_resource type="PackedScene" uid="uid://cfdydj1akl3a1" path="res://src/components/level_elements/tutor/tutor.tscn" id="11_tr4b5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdcif"]
+size = Vector2(165.5, 80)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_xxrf4")
@@ -22,7 +27,7 @@ script = ExtResource("5_rt2mb")
 [node name="StartSequence" type="Node2D" parent="Sequences" node_paths=PackedStringArray("events")]
 unique_name_in_owner = true
 script = ExtResource("4_s2alp")
-events = [NodePath("../../Events/EventSayGreeting"), NodePath("../../Events/EventSayControls")]
+events = [NodePath("")]
 
 [node name="Events" type="Node2D" parent="."]
 
@@ -33,9 +38,40 @@ dialog_manager = NodePath("../../DialogManager")
 duration = 3
 delay_before_start = 3
 is_initially_blocked = false
-readies_events = [NodePath("../EventSayControls")]
+readies_events = [null]
 
-[node name="EventSayControls" type="Node2D" parent="Events" node_paths=PackedStringArray("dialog_manager")]
-script = ExtResource("6_grxgg")
-dialog = ExtResource("8_gduk0")
-dialog_manager = NodePath("../../DialogManager")
+[node name="EventAppear" type="Node2D" parent="Events"]
+script = ExtResource("9_5tcyo")
+
+[node name="EventAppearWhenInArea" type="Node2D" parent="Events" node_paths=PackedStringArray("appearing_node", "target_area")]
+script = ExtResource("10_u2wdp")
+appearing_node = NodePath("../../Objects/Tutor")
+target_area = NodePath("../../Objects/Area2D")
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Tutor" parent="Objects" instance=ExtResource("11_tr4b5")]
+position = Vector2(-138, -54)
+
+[node name="Area2D" type="Area2D" parent="Objects"]
+position = Vector2(-32, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Area2D"]
+position = Vector2(-61.75, -40)
+shape = SubResource("RectangleShape2D_wdcif")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "move with the arrow keys."

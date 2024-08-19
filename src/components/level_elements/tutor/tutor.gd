@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal target_reached
 
 @export var speed : float = 100.0
+@export var player: CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
@@ -51,3 +52,11 @@ func update_facing_direction():
 	elif direction.x < 0:
 		animated_sprite.flip_h = false
 		
+# wrapper for show()
+func show_object():
+	if player:
+		if global_position.x > player.global_position.x:
+			animated_sprite.flip_h = true
+		else:
+			animated_sprite.flip_h = false
+	show()
