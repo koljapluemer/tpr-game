@@ -8,6 +8,7 @@ signal level_started
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("emitting map start")
 	level_started.emit()
 	# scenes with props
 	if parallax_background_scene:

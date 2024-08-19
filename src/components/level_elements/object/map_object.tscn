@@ -1,8 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3kb11aex0ss6"]
+[gd_scene load_steps=7 format=3 uid="uid://c3kb11aex0ss6"]
 
+[ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="1_k250f"]
 [ext_resource type="Script" path="res://src/components/level_elements/object/map_object.gd" id="1_ryau8"]
-[ext_resource type="Resource" uid="uid://gum1xb3bksu3" path="res://src/components/level_elements/object/demo/demo_item.tres" id="2_yihsq"]
+[ext_resource type="Resource" uid="uid://d2w0tf6r11w6s" path="res://src/shared/data/objects/items/laptop.tres" id="2_pex58"]
+[ext_resource type="Texture2D" uid="uid://da8jqwrm7t021" path="res://possible_assets/laptop.png" id="4_e0jpj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
+radius = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
+shader = ExtResource("1_k250f")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 8.0
 
 [node name="Object" type="Node2D"]
 script = ExtResource("1_ryau8")
-item = ExtResource("2_yihsq")
+item = ExtResource("2_pex58")
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_dgiar")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_plrww")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_e0jpj")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

@@ -1,6 +1,6 @@
 class_name QuestTalk extends Quest
 
-@export var destination_node: Node2D
+@export var destination_node: MapObject
 @export var walker: Node2D
 
 func run():

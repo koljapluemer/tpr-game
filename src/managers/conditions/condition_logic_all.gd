@@ -15,6 +15,7 @@ func _on_condition_fulfilled(condition_that_was_fulfilled):
 		conditionStates[condition_that_was_fulfilled] = true
 		var all_conditions_fulfilled = true
 		for condition in conditions:
+			print("condition fulfilled? ", condition.name, ": ", conditionStates[condition])
 			if not conditionStates[condition]:
 				all_conditions_fulfilled = false
 		if all_conditions_fulfilled:

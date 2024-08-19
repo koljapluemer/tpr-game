@@ -1,30 +1,22 @@
 @tool
 class_name MapObject extends Node2D
 
-@export var item: Item
+signal body_entered
 
-const MAP_OBJECT_SPRITE = preload("res://src/components/level_elements/object/map_object_sprite.tscn")
-const MAP_OBJECT_COLLISION = preload("res://src/components/level_elements/object/map_object_collision.tscn")
+@export var item:Item
 
+@onready var sprite: Sprite2D = %Sprite
+@onready var collision_shape: CollisionShape2D = %CollisionShape2D
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if item:
-		var sprite_2d = MAP_OBJECT_SPRITE.instantiate()
-		add_child(sprite_2d)
-		# size and position
-		sprite_2d.texture = item.sprite
-		sprite_2d.scale = Vector2(item.resize_factor, item.resize_factor)
-		sprite_2d.position = item.offset
-		# collision shape
-		var collision_shape = MAP_OBJECT_COLLISION.instantiate()
-		add_child(collision_shape)
-		collision_shape.get_node("%CollisionShape2D").shape.radius = item.collision_radius
+		sprite.texture = item.sprite
+		sprite.scale = Vector2(item.resize_factor, item.resize_factor)
+		sprite.position = item.offset
+		collision_shape.shape.radius = item.collision_radius
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func show_object():
-	show()
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	print("body entered me (", name, "): ", body.name)
+	body_entered.emit(body)

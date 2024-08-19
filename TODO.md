@@ -4,3 +4,6 @@
 
 - prompt user to walk to the trigger areas in tutorial level
 - some way of auto-setting the children of an event as condition export vars?
+
+- find a way to start scene at a specific event
+- find out how to check for signals existing and use for quest_walk (check if walker has a signal when arrived)

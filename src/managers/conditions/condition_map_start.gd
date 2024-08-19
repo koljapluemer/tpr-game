@@ -6,6 +6,11 @@ class_name ConditionMapStart extends Condition
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if map:
-		map.level_started.connect(_fulfill)
+		print("connecting to map")
+		map.level_started.connect(_on_map_started)
 	else:
-		print("start of map trigger missing map", name)
+		push_warning("start of map trigger missing map", name)
+
+func _on_map_started():
+	print("map start registered by condition")
+	_fulfill()

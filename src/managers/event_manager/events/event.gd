@@ -7,33 +7,22 @@ signal finished
 @export var end_condition: Condition
 @export var delay_before_start = 0
 
-
-enum EventStatus {
-	blocked,
-	ready,
-	started, 
-	done
-}
-
-# TODO: is this still relevant? maybe for debugging
-var current_status = EventStatus.blocked
-
 func _ready() -> void:
+	print("Event: event ready")
 	if start_condition:
 		start_condition.fulfilled.connect(request_run)
+		print("connected to start condition")
 	else:
-		print("warning: no start condition", name)
-	if end_condition:
-		end_condition.fulfilled.connect(finish)
-	else:
-		print("warning: no end condition", name)
+		push_warning("warning: no start condition", name)
 
 func request_run():
+	print(name, ": Run requested")
 	get_tree().create_timer(delay_before_start).connect("timeout", _run)
 
 # run function, but allows delay after run call
 func _run():
-	current_status = Event.EventStatus.started
+	if end_condition:
+		end_condition.fulfilled.connect(finish)
 
 func finish():
 	finished.emit()
