@@ -1,13 +1,12 @@
 class_name Event extends Node2D
 
-@export var duration = 0
-@export var delay_before_start = 0
-@export var is_initially_blocked = true
-
-@export var readies_events:Array[Event]
-
-
 signal finished
+
+
+@export var start_condition: Condition
+@export var end_condition: Condition
+@export var delay_before_start = 0
+
 
 enum EventStatus {
 	blocked,
@@ -16,25 +15,25 @@ enum EventStatus {
 	done
 }
 
-var current_status: EventStatus 
+# TODO: is this still relevant? maybe for debugging
+var current_status = EventStatus.blocked
 
 func _ready() -> void:
-	if is_initially_blocked:
-		current_status = EventStatus.blocked
+	if start_condition:
+		start_condition.fulfilled.connect(request_run)
 	else:
-		current_status = EventStatus.ready
+		print("warning: no start condition", name)
+	if end_condition:
+		end_condition.fulfilled.connect(finish)
+	else:
+		print("warning: no end condition", name)
 
 func request_run():
 	get_tree().create_timer(delay_before_start).connect("timeout", _run)
 
-
 # run function, but allows delay after run call
 func _run():
 	current_status = Event.EventStatus.started
-	if duration != 0:
-		get_tree().create_timer(duration).connect("timeout", finish)
 
 func finish():
-	for event in readies_events:
-		event.current_status = Event.EventStatus.ready
 	finished.emit()
