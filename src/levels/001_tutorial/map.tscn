@@ -1,14 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3u07sqhdaa1l"]
+[gd_scene load_steps=13 format=3 uid="uid://d3u07sqhdaa1l"]
 
-[ext_resource type="Script" path="res://src/components/level_map/level_map.gd" id="1_xxrf4"]
-[ext_resource type="PackedScene" uid="uid://dslr4smifj6r" path="res://src/components/level_elements/parallax/basic_black.tscn" id="2_t4tgp"]
-[ext_resource type="PackedScene" uid="uid://b7bvdnscnjkto" path="res://src/components/level_elements/arena/small_concrete.tscn" id="3_yc5bb"]
+[ext_resource type="PackedScene" uid="uid://ch1dasi7hoqmq" path="res://src/components/level_map/level_map.tscn" id="1_y552k"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="3_kvqdn"]
 [ext_resource type="Script" path="res://src/managers/dialog_manager/dialog_manager.gd" id="5_rt2mb"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_say.gd" id="6_grxgg"]
 [ext_resource type="Resource" uid="uid://dgdesc84q06sb" path="res://src/shared/data/dialog/greeting_hello.tres" id="7_7e06b"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="7_mufcj"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_time_passed.gd" id="8_7xvbw"]
-[ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear.gd" id="9_5tcyo"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="10_6usqd"]
 [ext_resource type="PackedScene" uid="uid://cfdydj1akl3a1" path="res://src/components/level_elements/tutor/tutor.tscn" id="11_tr4b5"]
 [ext_resource type="Script" path="res://src/levels/001_tutorial/canvas_layer.gd" id="12_fre7a"]
@@ -19,58 +17,59 @@ size = Vector2(165.5, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7nty"]
 size = Vector2(60, 80)
 
-[node name="Map" type="Node2D"]
-script = ExtResource("1_xxrf4")
-parallax_background_scene = ExtResource("2_t4tgp")
-arena_scene = ExtResource("3_yc5bb")
+[node name="level" type="Node2D"]
 
-[node name="DialogManager" type="Node" parent="."]
+[node name="LevelMap" parent="." instance=ExtResource("1_y552k")]
+
+[node name="DialogManager" type="Node" parent="LevelMap"]
 script = ExtResource("5_rt2mb")
 
-[node name="Events" type="Node2D" parent="."]
+[node name="Events" type="Node2D" parent="LevelMap"]
 
-[node name="EventExplainControls" type="Node2D" parent="Events" node_paths=PackedStringArray("appearing_node", "start_condition", "end_condition")]
-script = ExtResource("9_5tcyo")
+[node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" node_paths=PackedStringArray("appearing_node", "start_condition", "end_condition")]
+script = ExtResource("3_kvqdn")
 appearing_node = NodePath("../../Objects/CanvasLayer")
 start_condition = NodePath("ConditionMapStart")
 end_condition = NodePath("ConditionBodyTouchedArea")
 
-[node name="ConditionMapStart" type="Node" parent="Events/EventExplainControls" node_paths=PackedStringArray("map")]
+[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/EventShowControlScheme" node_paths=PackedStringArray("map")]
 script = ExtResource("7_mufcj")
 map = NodePath("../../..")
 
-[node name="ConditionBodyTouchedArea" type="Node" parent="Events/EventExplainControls" node_paths=PackedStringArray("area")]
+[node name="ConditionBodyTouchedArea" type="Node" parent="LevelMap/Events/EventShowControlScheme" node_paths=PackedStringArray("body", "area")]
 script = ExtResource("10_6usqd")
+body = NodePath("../../../PlayerCameraCombo/Player")
 area = NodePath("../../../Objects/AreaProvesPlayerWalked")
 
-[node name="EventSayGreeting" type="Node2D" parent="Events" node_paths=PackedStringArray("dialog_manager", "end_condition")]
+[node name="EventSayGreeting" type="Node2D" parent="LevelMap/Events" node_paths=PackedStringArray("dialog_manager", "end_condition")]
 script = ExtResource("6_grxgg")
 dialog = ExtResource("7_7e06b")
 dialog_manager = NodePath("../../DialogManager")
 end_condition = NodePath("ConditionTimePassed")
 delay_before_start = 3
 
-[node name="ConditionTimePassed" type="Node" parent="Events/EventSayGreeting"]
+[node name="ConditionTimePassed" type="Node" parent="LevelMap/Events/EventSayGreeting"]
 script = ExtResource("8_7xvbw")
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="Objects" type="Node2D" parent="LevelMap"]
 
-[node name="Tutor" parent="Objects" instance=ExtResource("11_tr4b5")]
+[node name="Tutor" parent="LevelMap/Objects" instance=ExtResource("11_tr4b5")]
+visible = false
 position = Vector2(-138, -54)
 
-[node name="TutorAppearTrigger" type="Area2D" parent="Objects/Tutor"]
+[node name="TutorAppearTrigger" type="Area2D" parent="LevelMap/Objects/Tutor"]
 position = Vector2(530, 270)
 scale = Vector2(5, 5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tutor/TutorAppearTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/Tutor/TutorAppearTrigger"]
 position = Vector2(-61.75, -40)
 shape = SubResource("RectangleShape2D_wdcif")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Objects"]
+[node name="CanvasLayer" type="CanvasLayer" parent="LevelMap/Objects"]
 visible = false
 script = ExtResource("12_fre7a")
 
-[node name="Label" type="Label" parent="Objects/CanvasLayer"]
+[node name="Label" type="Label" parent="LevelMap/Objects/CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -84,16 +83,19 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "move with the arrow keys."
 
-[node name="AreaProvesPlayerWalked" type="Area2D" parent="Objects"]
+[node name="AreaProvesPlayerWalked" type="Area2D" parent="LevelMap/Objects"]
 position = Vector2(-32, -3.8147e-06)
 scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/AreaProvesPlayerWalked"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/AreaProvesPlayerWalked"]
 position = Vector2(-129, -40)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o7nty")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/AreaProvesPlayerWalked"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelMap/Objects/AreaProvesPlayerWalked"]
 position = Vector2(135, -40)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o7nty")
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

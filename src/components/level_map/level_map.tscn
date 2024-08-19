@@ -3,37 +3,11 @@
 [ext_resource type="Script" path="res://src/components/level_map/level_map.gd" id="1_ijymf"]
 [ext_resource type="PackedScene" uid="uid://dslr4smifj6r" path="res://src/components/level_elements/parallax/basic_black.tscn" id="2_322wn"]
 [ext_resource type="PackedScene" uid="uid://b7bvdnscnjkto" path="res://src/components/level_elements/arena/small_concrete.tscn" id="3_sr5wl"]
-
-[sub_resource type="GDScript" id="GDScript_kyhwu"]
-script/source = "class_name Sequence extends Node2D
-
-@export var events:Array[Event] = []
-@export var activates_quests: Array[Quest] = []
-@export var activates_sequence: Sequence
-
-var current_event: Event 
-
-func start():
-	run_random_ready_event()
-	
-func run_random_ready_event():
-	var ready_events = []
-	for event in events:
-		print('Event', event)
-		if event.current_status == Event.EventStatus.ready:
-			ready_events.append(event)
-	current_event = ready_events.pick_random()
-	current_event.request_run()
-	current_event.finished.connect(run_random_ready_event)
-	
-			
-"
+[ext_resource type="PackedScene" uid="uid://seow8j0oejp0" path="res://src/components/level_elements/player_camera_combo/player_camera_combo.tscn" id="4_yma7s"]
 
 [node name="LevelMap" type="Node2D"]
 script = ExtResource("1_ijymf")
 parallax_background_scene = ExtResource("2_322wn")
 arena_scene = ExtResource("3_sr5wl")
 
-[node name="StartSequence" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = SubResource("GDScript_kyhwu")
+[node name="PlayerCameraCombo" parent="." instance=ExtResource("4_yma7s")]
