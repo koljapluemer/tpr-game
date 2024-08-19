@@ -1,6 +1,6 @@
 class_name EventAppear extends Event
 
-@export var appearing_node: Node2D
+@export var appearing_node: Node
 
 func _run():
 	if appearing_node.has_method("show_object"):
