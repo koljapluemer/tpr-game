@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch1dasi7hoqmq"]
+
+[ext_resource type="Script" path="res://src/components/level_map/level_map.gd" id="1_ijymf"]
+[ext_resource type="PackedScene" uid="uid://dslr4smifj6r" path="res://src/components/level_elements/parallax/basic_black.tscn" id="2_322wn"]
+[ext_resource type="PackedScene" uid="uid://b7bvdnscnjkto" path="res://src/components/level_elements/arena/small_concrete.tscn" id="3_sr5wl"]
+[ext_resource type="PackedScene" uid="uid://seow8j0oejp0" path="res://src/components/level_elements/player_camera_combo/player_camera_combo.tscn" id="4_yma7s"]
+
+[node name="LevelMap" type="Node2D"]
+script = ExtResource("1_ijymf")
+parallax_background_scene = ExtResource("2_322wn")
+arena_scene = ExtResource("3_sr5wl")
+
+[node name="PlayerCameraCombo" parent="." instance=ExtResource("4_yma7s")]

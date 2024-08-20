@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch1dasi7hoqmq"]
+[gd_scene load_steps=8 format=3 uid="uid://cijyqmhnatnfp"]
 
 [ext_resource type="Script" path="res://src/components/level_map/level_map.gd" id="1_ijymf"]
 [ext_resource type="PackedScene" uid="uid://dslr4smifj6r" path="res://src/components/level_elements/parallax/basic_black.tscn" id="2_322wn"]
 [ext_resource type="PackedScene" uid="uid://b7bvdnscnjkto" path="res://src/components/level_elements/arena/small_concrete.tscn" id="3_sr5wl"]
 [ext_resource type="PackedScene" uid="uid://seow8j0oejp0" path="res://src/components/level_elements/player_camera_combo/player_camera_combo.tscn" id="4_yma7s"]
+[ext_resource type="Script" path="res://src/managers/dialog_manager/dialog_manager.gd" id="5_jly1b"]
+[ext_resource type="PackedScene" uid="uid://b7wlk7sk53ern" path="res://src/managers/quest_manager/quest_manager.tscn" id="6_6x1ty"]
+[ext_resource type="PackedScene" uid="uid://cfdydj1akl3a1" path="res://src/components/level_elements/tutor/tutor.tscn" id="17_7x5lk"]
 
 [node name="LevelMap" type="Node2D"]
 script = ExtResource("1_ijymf")
@@ -11,3 +14,21 @@ parallax_background_scene = ExtResource("2_322wn")
 arena_scene = ExtResource("3_sr5wl")
 
 [node name="PlayerCameraCombo" parent="." instance=ExtResource("4_yma7s")]
+
+[node name="DialogManager" type="Node" parent="."]
+script = ExtResource("5_jly1b")
+
+[node name="QuestManager" parent="." instance=ExtResource("6_6x1ty")]
+
+[node name="Events" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Tutor" parent="Objects" node_paths=PackedStringArray("player") instance=ExtResource("17_7x5lk")]
+visible = false
+position = Vector2(-138, -54)
+player = NodePath("../../PlayerCameraCombo/Player")
+
+[node name="Level" type="Node2D" parent="."]
+
+[editable path="PlayerCameraCombo"]
