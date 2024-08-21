@@ -16,6 +16,10 @@ func start_quest(quest):
 	current_quests.append(quest)
 	update_ui()
 	
+func finish_quest(quest):
+	current_quests.erase(quest)
+	update_ui()
+	
 func update_ui():
 	for child in quests_holder.get_children():
 		child.queue_free()

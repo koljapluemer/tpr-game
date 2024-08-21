@@ -10,7 +10,7 @@ class_name QuestWalkToNode extends Quest
 func _ready() -> void:
 	if initially_hide_target:
 		target.hide()
-	if end_condition:
+	if success_condition:
 		push_warning("QUEST - ", name, ": walk quest should likely not have a manual end condition")
 	super()
 	
@@ -49,6 +49,10 @@ func _activate():
 	instruction = "Geh " + target.item.dative_form
 	e_demo_instruct.start_condition = c_demo_done
 	add_child(e_demo_instruct)
+	
+	# success condition
+	success_condition = ConditionBodyTouchedMapObject.create(player, target)
+	add_child(success_condition)
 	
 	# defined in parent class 
 	quest_hot_condition = c_demo_done
