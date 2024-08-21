@@ -54,7 +54,7 @@ func _call_quest_mngr():
 func _finish():
 	finished.emit()
 	Globals.quest_mngr.finish_quest(self)
-	if start_condition:
-		start_condition.queue_free()
-	if success_condition:
-		success_condition.queue_free()
+	#if start_condition:
+		#start_condition.queue_free()
+	#if success_condition:
+		#success_condition.queue_free()

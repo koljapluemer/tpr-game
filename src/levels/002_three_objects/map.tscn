@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bl0n6sp8twn82"]
+[gd_scene load_steps=11 format=3 uid="uid://bl0n6sp8twn82"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_ajb2b"]
 [ext_resource type="PackedScene" uid="uid://ojrhcnm3gqbo" path="res://src/components/level_elements/parallax/basic_alt.tscn" id="2_exapo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="4_u6qa2"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="5_bmu0k"]
 [ext_resource type="Resource" uid="uid://i7nm4oqeftva" path="res://src/shared/data/objects/items/chair.tres" id="5_t380e"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="6_362ax"]
 [ext_resource type="Resource" uid="uid://cg2hb2hxbougb" path="res://src/shared/data/objects/items/ladder.tres" id="6_n3kmf"]
 [ext_resource type="Resource" uid="uid://btjlors6i0c2h" path="res://src/shared/data/objects/items/guitar.tres" id="7_6fso2"]
 
@@ -16,7 +17,7 @@
 parallax_background_scene = ExtResource("2_exapo")
 arena_scene = ExtResource("3_1i8nv")
 
-[node name="QuestWalkToNode" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "tutor", "start_condition", "player")]
+[node name="QuestChair1" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "tutor", "start_condition", "player")]
 script = ExtResource("4_u6qa2")
 target = NodePath("../../Objects/Chair")
 tutor = NodePath("../../Objects/Tutor")
@@ -24,9 +25,58 @@ delay_before_start = 5.0
 start_condition = NodePath("ConditionMapStart")
 player = NodePath("../../PlayerCameraCombo/Player")
 
-[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/QuestWalkToNode" node_paths=PackedStringArray("map")]
+[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/QuestChair1" node_paths=PackedStringArray("map")]
 script = ExtResource("5_bmu0k")
 map = NodePath("../../..")
+
+[node name="QuestLadder1" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("target", "tutor", "start_condition", "player")]
+script = ExtResource("4_u6qa2")
+target = NodePath("../../Objects/Ladder")
+tutor = NodePath("../../Objects/Tutor")
+delay_before_start = 5.0
+start_condition = NodePath("ConditionQuestFinished")
+player = NodePath("../../PlayerCameraCombo/Player")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestLadder1" node_paths=PackedStringArray("quest")]
+script = ExtResource("6_362ax")
+quest = NodePath("../../QuestChair1")
+
+[node name="QuestChair2" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("target", "tutor", "start_condition", "player")]
+script = ExtResource("4_u6qa2")
+target = NodePath("../../Objects/Chair")
+tutor = NodePath("../../Objects/Tutor")
+delay_before_start = 5.0
+start_condition = NodePath("ConditionQuestFinished2")
+player = NodePath("../../PlayerCameraCombo/Player")
+
+[node name="ConditionQuestFinished2" type="Node" parent="LevelMap/Events/QuestChair2" node_paths=PackedStringArray("quest")]
+script = ExtResource("6_362ax")
+quest = NodePath("../../QuestLadder1")
+
+[node name="QuestLadder2" type="Node2D" parent="LevelMap/Events" index="3" node_paths=PackedStringArray("target", "tutor", "start_condition", "player")]
+script = ExtResource("4_u6qa2")
+target = NodePath("../../Objects/Ladder")
+tutor = NodePath("../../Objects/Tutor")
+delay_before_start = 5.0
+start_condition = NodePath("ConditionQuestFinished")
+player = NodePath("../../PlayerCameraCombo/Player")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestLadder2" node_paths=PackedStringArray("quest")]
+script = ExtResource("6_362ax")
+quest = NodePath("../../QuestChair2")
+
+[node name="QuestChair3" type="Node2D" parent="LevelMap/Events" index="4" node_paths=PackedStringArray("target", "tutor", "start_condition", "player")]
+script = ExtResource("4_u6qa2")
+target = NodePath("../../Objects/Chair")
+tutor = NodePath("../../Objects/Tutor")
+give_demo = false
+delay_before_start = 5.0
+start_condition = NodePath("ConditionQuestFinished2")
+player = NodePath("../../PlayerCameraCombo/Player")
+
+[node name="ConditionQuestFinished2" type="Node" parent="LevelMap/Events/QuestChair3" node_paths=PackedStringArray("quest")]
+script = ExtResource("6_362ax")
+quest = NodePath("../../QuestLadder2")
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true
