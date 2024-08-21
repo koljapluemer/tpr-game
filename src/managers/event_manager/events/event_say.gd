@@ -17,3 +17,11 @@ func _on_dialog_finished(finished_dialog):
 	dialog_manager.dialog_finished.disconnect(_on_dialog_finished)
 	print(name, ": dialog event finished")
 	finish()
+	
+	
+static func create_from_map_object(instruction, map_object: MapObject):
+	var instance = EventSay.new()
+	var dialog = Dialog.create_from_map_object(instruction, map_object)
+	instance.dialog = dialog
+	instance.dialog_manager = Globals.dialog_mngr
+	return instance

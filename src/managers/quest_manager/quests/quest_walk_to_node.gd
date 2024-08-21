@@ -27,3 +27,7 @@ func _activate():
 	add_child(e_demo_walk)
 	e_demo_walk.request_run()
 	
+	e_demo_talk = EventSay.create_from_map_object("Ich gehe ", target)
+	add_child(e_demo_talk)
+	e_demo_talk.request_run()
+	

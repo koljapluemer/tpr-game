@@ -7,3 +7,5 @@
 
 - find a way to start scene at a specific event
 - find out how to check for signals existing and use for quest_walk (check if walker has a signal when arrived)
+
+- write a service provider for stuff like DialogManager, its silly to always pass

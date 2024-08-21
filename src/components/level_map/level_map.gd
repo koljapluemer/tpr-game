@@ -6,9 +6,12 @@ signal level_started
 @export var parallax_background_scene: PackedScene
 @export var arena_scene : PackedScene
 
+
+@onready var dialog_manager: DialogManager = %DialogManager
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("emitting map start")
+	Globals.dialog_mngr = dialog_manager
 	level_started.emit()
 	# scenes with props
 	if parallax_background_scene:

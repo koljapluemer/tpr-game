@@ -16,6 +16,7 @@ arena_scene = ExtResource("3_sr5wl")
 [node name="PlayerCameraCombo" parent="." instance=ExtResource("4_yma7s")]
 
 [node name="DialogManager" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("5_jly1b")
 
 [node name="QuestManager" parent="." instance=ExtResource("6_6x1ty")]
