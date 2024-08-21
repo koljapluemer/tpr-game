@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d2w0tf6r11w6s"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dj71ugqghf3iy"]
 
 [ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_o2300"]
 [ext_resource type="Texture2D" uid="uid://da8jqwrm7t021" path="res://possible_assets/laptop.png" id="2_3jpwh"]
@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_o2300")
 sprite = ExtResource("2_3jpwh")
-resize_factor = 0.05
+resize_factor = 1.0
 offset = Vector2(0, 0)
-collision_radius = 20
+collision_radius = 100
 dative_form = "zum Laptop"
 word = "Laptop"

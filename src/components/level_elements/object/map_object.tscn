@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="1_k250f"]
 [ext_resource type="Script" path="res://src/components/level_elements/object/map_object.gd" id="1_ryau8"]
-[ext_resource type="Resource" uid="uid://d2w0tf6r11w6s" path="res://src/shared/data/objects/items/laptop.tres" id="2_pex58"]
+[ext_resource type="Resource" uid="uid://d2w0tf6r11w6s" path="res://src/shared/data/objects/items/laptop_old.tres" id="2_pex58"]
 [ext_resource type="Texture2D" uid="uid://da8jqwrm7t021" path="res://possible_assets/laptop.png" id="4_e0jpj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]

@@ -1,6 +1,7 @@
 class_name Quest extends Node2D
 
 signal finished
+signal started
 
 @export_category("Conditions")
 @export var delay_before_start = 0.0
@@ -12,6 +13,8 @@ signal finished
 @export_category("Annoying Vars to keep independent")
 @export var player: CharacterBody2D
 
+
+var instruction: String
 
 
 func _ready():
@@ -28,6 +31,8 @@ func request_activation():
 	get_tree().create_timer(delay_before_start).connect("timeout", _activate)
 
 func _activate():
+	Globals.quest_mngr.start_quest(self)
+	
 	if end_condition:
 		end_condition.fulfilled.connect(_finish)
 

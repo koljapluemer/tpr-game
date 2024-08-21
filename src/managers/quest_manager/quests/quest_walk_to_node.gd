@@ -31,16 +31,22 @@ func _activate():
 
 	e_demo_walk = EventWalk.create(target, tutor)
 	e_demo_walk.start_condition = c_object_appeared
+	e_demo_walk.delay_before_start = 3
 	add_child(e_demo_walk)
 	
 	e_demo_talk = EventSay.create_from_map_object("Ich gehe ", target)
+	e_demo_walk.delay_before_start = 2
 	e_demo_talk.start_condition = c_object_appeared
 	add_child(e_demo_talk)
 	
 	e_demo_instruct = EventSay.create_from_map_object("Geh ", target)
+	instruction = "Geh " + target.item.dative_form
 	var condition_demo_finished = ConditionEventFinished.new()
 	condition_demo_finished.event = e_demo_talk
+	# TODO: *could* make sure that both demo talk and walk finished with condition_logic_all 
 	add_child(condition_demo_finished)
 	e_demo_instruct.start_condition = condition_demo_finished
 	add_child(e_demo_instruct)
+	
+	super()
 	
