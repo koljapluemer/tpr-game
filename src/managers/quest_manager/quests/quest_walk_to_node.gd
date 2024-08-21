@@ -21,14 +21,21 @@ func _ready() -> void:
 	
 func _activate():
 	print("QUEST - ", name, ": activated")
-	target.show()
+	
+	var e_appear_object = EventAppear.create_from_map_object(target)
+	add_child(e_appear_object)
+	var c_object_appeared = ConditionEventFinished.new()
+	c_object_appeared.event = e_appear_object
+	add_child(c_object_appeared)
+	e_appear_object.request_run()
+
 	e_demo_walk = EventWalk.create(target, tutor)
+	e_demo_walk.start_condition = c_object_appeared
 	add_child(e_demo_walk)
-	e_demo_walk.request_run()
 	
 	e_demo_talk = EventSay.create_from_map_object("Ich gehe ", target)
+	e_demo_talk.start_condition = c_object_appeared
 	add_child(e_demo_talk)
-	e_demo_talk.request_run()
 	
 	e_demo_instruct = EventSay.create_from_map_object("Geh ", target)
 	var condition_demo_finished = ConditionEventFinished.new()

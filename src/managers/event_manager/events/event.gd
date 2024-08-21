@@ -26,6 +26,8 @@ func _run():
 func finish():
 	finished.emit()
 	if start_condition:
-		start_condition.queue_free()
+		if is_instance_valid(start_condition):
+			start_condition.queue_free()
 	if end_condition:
-		end_condition.queue_free()
+		if is_instance_valid(end_condition):
+			end_condition.queue_free()

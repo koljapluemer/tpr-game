@@ -14,3 +14,8 @@ func _run():
 		appearing_node.show()
 		push_warning("warning: object sheduled to appear, but missing method")
 	finish()
+
+static func create_from_map_object(map_object:MapObject):
+	var instance = EventAppear.new()
+	instance.appearing_node = map_object
+	return instance 
