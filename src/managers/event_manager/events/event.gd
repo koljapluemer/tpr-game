@@ -2,7 +2,6 @@ class_name Event extends Node2D
 
 signal finished
 
-
 @export var start_condition: Condition
 @export var end_condition: Condition
 @export var delay_before_start = 0

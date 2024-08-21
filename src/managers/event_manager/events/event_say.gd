@@ -15,4 +15,5 @@ func _run():
 func _on_dialog_finished(finished_dialog):
 	# TODO: will this be trouble if dialog manager gets multiple dialogs?
 	dialog_manager.dialog_finished.disconnect(_on_dialog_finished)
+	print(name, ": dialog event finished")
 	finish()

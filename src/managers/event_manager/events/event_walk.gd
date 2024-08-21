@@ -3,6 +3,12 @@ class_name EventWalk extends Event
 @export var destination_node: Node2D
 @export var walker: Node2D
 
+static func create(_destination_node, _walker):
+	var instance = EventWalk.new()
+	instance.destination_node = _destination_node
+	instance.walker = _walker
+	return instance
+
 func _ready() -> void:
 	if end_condition:
 		push_warning("walk event should not have a manual end condition", name)
