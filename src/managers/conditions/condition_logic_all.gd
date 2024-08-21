@@ -4,12 +4,19 @@ class_name ConditionLogicAll extends Condition
 
 var conditionStates = {} 
 
+static func create(_conditions: Array[Condition]):
+	var instance = ConditionLogicAll.new()
+	instance.conditions = _conditions
+	instance._create_condition_state_array()
+	return instance
 
 func _ready() -> void:
+	_create_condition_state_array()
+
+func _create_condition_state_array(): 
 	for condition in conditions:
 		conditionStates[condition] = false
 		condition.fulfilled.connect(_on_condition_fulfilled.bind(condition))
-		
 		
 func _on_condition_fulfilled(condition_that_was_fulfilled):
 		conditionStates[condition_that_was_fulfilled] = true

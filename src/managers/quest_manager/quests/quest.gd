@@ -13,9 +13,10 @@ signal started
 @export_category("Annoying Vars to keep independent")
 @export var player: CharacterBody2D
 
+const delay_unitl_manager_is_informed = 2.0
 
 var instruction: String
-
+var quest_hot_condition: Condition
 
 func _ready():
 	if not player:
@@ -25,16 +26,31 @@ func _ready():
 	else:
 		print(name, " connecting to start connection: ",start_condition.name)
 		start_condition.fulfilled.connect(request_activation)
+	
+
+		
 # FIY: following three function are very similar to event.gd
 func request_activation():
 	print("QUEST - ", "quest activation requested: ", name)
 	get_tree().create_timer(delay_before_start).connect("timeout", _activate)
+	
 
 func _activate():
-	Globals.quest_mngr.start_quest(self)
-	
 	if end_condition:
 		end_condition.fulfilled.connect(_finish)
+		
+	if not quest_hot_condition:
+		push_warning(name, ": no condition to set quest hot")
+	else:
+		quest_hot_condition.fulfilled.connect(_on_quest_hot)
+
+func _on_quest_hot():
+	get_tree().create_timer(delay_unitl_manager_is_informed).connect("timeout", _call_quest_mngr)
+	
+
+func _call_quest_mngr():
+	Globals.quest_mngr.start_quest(self)
+	
 
 func _finish():
 	finished.emit()
