@@ -21,7 +21,6 @@ func _ready() -> void:
 	
 func _activate():
 	print("QUEST - ", name, ": activated")
-	# todo: create the events
 	target.show()
 	e_demo_walk = EventWalk.create(target, tutor)
 	add_child(e_demo_walk)
@@ -30,4 +29,11 @@ func _activate():
 	e_demo_talk = EventSay.create_from_map_object("Ich gehe ", target)
 	add_child(e_demo_talk)
 	e_demo_talk.request_run()
+	
+	e_demo_instruct = EventSay.create_from_map_object("Geh ", target)
+	var condition_demo_finished = ConditionEventFinished.new()
+	condition_demo_finished.event = e_demo_talk
+	add_child(condition_demo_finished)
+	e_demo_instruct.start_condition = condition_demo_finished
+	add_child(e_demo_instruct)
 	
