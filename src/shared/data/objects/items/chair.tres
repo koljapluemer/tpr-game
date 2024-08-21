@@ -9,5 +9,5 @@ sprite = ExtResource("2_oall7")
 resize_factor = 0.07
 offset = Vector2(0, -40)
 collision_radius = 70
-dative_form = "zum Laptop"
-word = "Laptop"
+dative_form = "zum Stuhl"
+word = "Stuhl"

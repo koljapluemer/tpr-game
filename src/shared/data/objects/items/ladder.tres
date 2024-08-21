@@ -9,5 +9,5 @@ sprite = ExtResource("2_bgkpl")
 resize_factor = 0.15
 offset = Vector2(0, -80)
 collision_radius = 70
-dative_form = "zum Laptop"
-word = "Laptop"
+dative_form = "zur Leiter"
+word = "Leiter"
