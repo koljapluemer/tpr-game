@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://btjlors6i0c2h"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_gqy6o"]
+[ext_resource type="Texture2D" uid="uid://coxisbf7kp1qq" path="res://src/shared/data/objects/items/guitar.png" id="2_l63hf"]
+
+[resource]
+script = ExtResource("1_gqy6o")
+sprite = ExtResource("2_l63hf")
+resize_factor = 0.08
+offset = Vector2(0, -36)
+collision_radius = 40
+dative_form = "zum Laptop"
+word = "Laptop"

@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://bl0n6sp8twn82"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_ajb2b"]
+[ext_resource type="PackedScene" uid="uid://ojrhcnm3gqbo" path="res://src/components/level_elements/parallax/basic_alt.tscn" id="2_exapo"]
+[ext_resource type="PackedScene" uid="uid://deskuldamobhe" path="res://src/components/level_elements/arena/tiny_concrete.tscn" id="3_1i8nv"]
+[ext_resource type="PackedScene" uid="uid://c3kb11aex0ss6" path="res://src/components/level_elements/object/map_object.tscn" id="4_mvuxs"]
+[ext_resource type="Resource" uid="uid://i7nm4oqeftva" path="res://src/shared/data/objects/items/chair.tres" id="5_t380e"]
+[ext_resource type="Resource" uid="uid://cg2hb2hxbougb" path="res://src/shared/data/objects/items/ladder.tres" id="6_n3kmf"]
+[ext_resource type="Resource" uid="uid://btjlors6i0c2h" path="res://src/shared/data/objects/items/guitar.tres" id="7_6fso2"]
+
+[node name="Map" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_ajb2b")]
+parallax_background_scene = ExtResource("2_exapo")
+arena_scene = ExtResource("3_1i8nv")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="Chair" parent="LevelMap/Objects" index="1" instance=ExtResource("4_mvuxs")]
+z_index = 2
+position = Vector2(232, 0)
+item = ExtResource("5_t380e")
+
+[node name="Ladder" parent="LevelMap/Objects" index="2" instance=ExtResource("4_mvuxs")]
+z_index = -2
+position = Vector2(-256, 0)
+item = ExtResource("6_n3kmf")
+
+[node name="Guitar" parent="LevelMap/Objects" index="3" instance=ExtResource("4_mvuxs")]
+z_index = -2
+position = Vector2(48, 0)
+item = ExtResource("7_6fso2")
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

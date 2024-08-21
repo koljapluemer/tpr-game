@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cg2hb2hxbougb"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_clcp0"]
+[ext_resource type="Texture2D" uid="uid://cbjrvvkwmo6gt" path="res://src/shared/data/objects/items/ladder.png" id="2_bgkpl"]
+
+[resource]
+script = ExtResource("1_clcp0")
+sprite = ExtResource("2_bgkpl")
+resize_factor = 0.15
+offset = Vector2(0, -80)
+collision_radius = 70
+dative_form = "zum Laptop"
+word = "Laptop"
