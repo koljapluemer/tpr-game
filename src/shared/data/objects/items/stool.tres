@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://de33umesducp3"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_nujf0"]
+[ext_resource type="Texture2D" uid="uid://bn12ixhy5o778" path="res://src/shared/data/objects/items/stool_crop.png" id="2_3abtk"]
+
+[resource]
+script = ExtResource("1_nujf0")
+sprite = ExtResource("2_3abtk")
+resize_factor = 0.13
+offset = Vector2(0, -20)
+collision_radius = 50
+interaction_radius = 200
+dative_form = "zum Laptop"
+word = "Laptop"
+interact_prompt = ""
+interact_demo = ""
