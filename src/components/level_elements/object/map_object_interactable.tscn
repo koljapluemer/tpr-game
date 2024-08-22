@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0ih74a4ofoin"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/map_object_interactable.gd" id="1_52nio"]
+[ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="3_p618r"]
+[ext_resource type="Texture2D" uid="uid://da8jqwrm7t021" path="res://possible_assets/laptop.png" id="4_bqnpv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
+radius = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
+shader = ExtResource("3_p618r")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hq71m"]
+radius = 300.0
+
+[node name="Object" type="Node2D"]
+script = ExtResource("1_52nio")
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_dgiar")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_plrww")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_bqnpv")
+
+[node name="InteractionShape2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="InteractionShape2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_hq71m")
+debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="input_event" from="Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="body_entered" from="InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
+[connection signal="body_exited" from="InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]

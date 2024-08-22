@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://p0gibb5ueeky"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_sdo21"]
+[ext_resource type="PackedScene" uid="uid://c0ih74a4ofoin" path="res://src/components/level_elements/object/map_object_interactable.tscn" id="2_0og6s"]
+[ext_resource type="Resource" uid="uid://ncbwl71kxb1f" path="res://src/shared/data/objects/items/cat.tres" id="3_h6qca"]
+
+[node name="Map" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_sdo21")]
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="Cat" parent="LevelMap/Objects" index="1" instance=ExtResource("2_0og6s")]
+position = Vector2(88, 0)
+item = ExtResource("3_h6qca")
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

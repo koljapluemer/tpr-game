@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ncbwl71kxb1f"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_yg5nf"]
+[ext_resource type="Texture2D" uid="uid://m8eo716l2a3s" path="res://possible_assets/cat_alt.png" id="2_revaj"]
+
+[resource]
+script = ExtResource("1_yg5nf")
+sprite = ExtResource("2_revaj")
+resize_factor = 0.07
+offset = Vector2(0, -40)
+collision_radius = 70
+interaction_radius = 100
+dative_form = "zur Katze"
+word = "Katze"
+interact_prompt = "Streichel die Katze!"
+interact_demo = "Ich streichel die Katze."
