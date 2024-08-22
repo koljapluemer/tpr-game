@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyvrf5g4g8cyl"]
+
+[ext_resource type="Texture2D" uid="uid://lqpfingtpo6a" path="res://src/managers/dialog_manager/speechbubble_small.png" id="1_mudrb"]
+[ext_resource type="Script" path="res://src/managers/dialog_manager/speech_bubble.gd" id="1_v6dvv"]
+
+[node name="SpeechBubble" type="MarginContainer"]
+script = ExtResource("1_v6dvv")
+letter_time = null
+space_time = null
+punctuation_time = null
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+z_index = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(0.114897, 0.114897, 0.114897, 1)
+text = "hi wt no nothing works? aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("1_mudrb")
+region_rect = Rect2(-1.86705, -2.2408, 59.7592, 53.2408)
+patch_margin_left = 13
+patch_margin_top = 9
+patch_margin_right = 34
+patch_margin_bottom = 16
