@@ -16,8 +16,6 @@
 
 [node name="LevelMap" parent="." instance=ExtResource("1_sdo21")]
 
-[node name="DialogManager" parent="LevelMap" index="1" groups=["dialog_manager"]]
-
 [node name="QuestInteractWithCat" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "move_target_after_demo", "start_condition")]
 script = ExtResource("2_3p7th")
 target = NodePath("../../Objects/Cat")

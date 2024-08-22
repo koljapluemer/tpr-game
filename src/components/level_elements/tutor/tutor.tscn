@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://cfdydj1akl3a1"]
+[gd_scene load_steps=31 format=3 uid="uid://cfdydj1akl3a1"]
 
 [ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="1_fq6vu"]
 [ext_resource type="Script" path="res://src/components/level_elements/tutor/tutor.gd" id="1_pcugg"]
 [ext_resource type="Texture2D" uid="uid://ddxhxab8sgalh" path="res://src/components/level_elements/tutor/spritesheet_tutor.png" id="2_1dtqw"]
+[ext_resource type="PackedScene" uid="uid://c135vycbcihty" path="res://src/managers/dialog_manager/dialog_manager.tscn" id="4_3rgnm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ywbsb"]
 shader = ExtResource("1_fq6vu")
@@ -227,3 +228,9 @@ frame_progress = 1.0
 position = Vector2(2, 22)
 scale = Vector2(1.14957, 1.0853)
 shape = SubResource("CapsuleShape2D_dx0ah")
+
+[node name="DialogManager" parent="." instance=ExtResource("4_3rgnm")]
+offset_left = 21.0
+offset_top = -264.0
+offset_right = 21.0
+offset_bottom = -264.0

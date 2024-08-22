@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c135vycbcihty"]
+[gd_scene load_steps=3 format=3 uid="uid://c135vycbcihty"]
 
 [ext_resource type="Script" path="res://src/managers/dialog_manager/dialog_manager.gd" id="1_wdfdh"]
+[ext_resource type="PackedScene" uid="uid://cyvrf5g4g8cyl" path="res://src/managers/dialog_manager/speech_bubble.tscn" id="2_g2uch"]
 
-[node name="DialogManager" type="Node" groups=["dialog_manager"]]
+[node name="DialogManager" type="Control" groups=["dialog_manager"]]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -599.0
+offset_top = -44.0
+offset_right = -599.0
+offset_bottom = -44.0
 script = ExtResource("1_wdfdh")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeechBubble" parent="." instance=ExtResource("2_g2uch")]
+unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true
