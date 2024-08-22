@@ -74,5 +74,11 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/Tutor Move Out The Way"]
 shape = SubResource("CircleShape2D_8ard5")
 
+[node name="Particles1" parent="LevelMap" index="6"]
+position = Vector2(-280, 80)
+
+[node name="Particles2" parent="LevelMap" index="7"]
+position = Vector2(280, 80)
+
 [editable path="LevelMap"]
 [editable path="LevelMap/PlayerCameraCombo"]

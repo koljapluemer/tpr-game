@@ -19,6 +19,7 @@ var instruction: String
 @onready var quest_manager: QuestManager = get_tree().get_first_node_in_group("quest_manager")
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var audio_player: AudioStreamPlayer2D = get_tree().get_first_node_in_group("audio_player")
+@onready var level_map: LevelMap = get_tree().get_first_node_in_group("level_map")
 
 func _ready():
 	if not player:
@@ -58,3 +59,4 @@ func _finish():
 	quest_manager.finish_quest(self)
 	audio_player.stream = SUCCESS
 	audio_player.play()
+	level_map.fire_celebration_particles()

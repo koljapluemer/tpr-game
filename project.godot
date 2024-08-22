@@ -25,6 +25,7 @@ dialog_manager=""
 quest_manager=""
 tutor=""
 audio_player=""
+level_map=""
 
 [rendering]
 
