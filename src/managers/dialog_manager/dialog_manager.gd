@@ -21,6 +21,8 @@ func say(dialog, kill_after=5):
 	# 0 kill_after means infinite
 	if not kill_after == 0:
 		create_kill_timer(kill_after)
+	
+	write_content_to_file(text)
 
 func kill_all_timer_children():
 	for child in get_children():
@@ -40,3 +42,14 @@ func create_kill_timer(n):
 	timer.one_shot = true
 	timer.connect("timeout", finish)
 	timer.start()
+	
+	
+func write_content_to_file(text):
+	if not FileAccess.file_exists("user://dialogs.txt"):
+		var	file = FileAccess.open("user://dialogs.txt", FileAccess.WRITE)
+		file.close()
+		
+	var file = FileAccess.open("user://dialogs.txt", FileAccess.READ_WRITE)
+	file.seek_end()
+	file.store_line(text)
+	file.close()
