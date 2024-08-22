@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://da8jqwrm7t021" path="res://possible_assets/laptop.png" id="4_bqnpv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
-radius = 20.0
+radius = 70.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
 shader = ExtResource("3_p618r")
@@ -13,7 +13,7 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq71m"]
-radius = 300.0
+radius = 100.0
 
 [node name="Object" type="Node2D"]
 script = ExtResource("1_52nio")

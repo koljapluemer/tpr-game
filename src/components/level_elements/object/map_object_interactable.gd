@@ -11,6 +11,7 @@ var player_within_interaction_range = false
 func _ready() -> void:
 	if item:
 		interaction_collision_shape_2d.shape.radius = item.interaction_radius
+	super()
 
 
 func _on_interaction_shape_2d_body_entered(body: Node2D) -> void:
