@@ -43,6 +43,7 @@ func _physics_process(delta):
 						animated_sprite.flip_h = false
 
 func walk_to_node(tar):
+	print(name, ": got walking to node request:", tar)
 	target = tar
 	current_state = State.IsWalking
 	

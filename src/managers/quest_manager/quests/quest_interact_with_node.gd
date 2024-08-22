@@ -4,6 +4,9 @@ class_name QuestInteractWithNode extends Quest
 @export var initially_hide_target = false
 
 @export var give_demo = true
+@export var move_target_after_demo: Node2D
+
+@onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,6 +46,12 @@ func _activate():
 		var c_demo_done = ConditionLogicAll.create([c_talk_done, c_talk_done])
 		add_child(c_demo_done)
 		
+		if move_target_after_demo:
+			var e_demo_walk_away = EventWalk.create(move_target_after_demo, tutor)
+			e_demo_walk_away.start_condition = c_demo_done
+			e_demo_walk_away.delay_before_start = 2
+			add_child(e_demo_walk_away)
+			
 		quest_hot_condition = c_demo_done
 	else:
 		quest_hot_condition = c_object_appeared
