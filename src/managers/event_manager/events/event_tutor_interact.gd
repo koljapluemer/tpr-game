@@ -4,10 +4,9 @@ class_name EventInteract extends Event
 
 @onready var walker: Node2D = get_tree().get_first_node_in_group("tutor")
 
-static func create(_destination_node, _walker):
+static func create(_destination_node):
 	var instance = EventWalk.new()
 	instance.destination_node = _destination_node
-	instance.walker = _walker
 	return instance
 
 func _ready() -> void:

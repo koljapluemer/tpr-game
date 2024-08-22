@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_sdo21"]
 [ext_resource type="PackedScene" uid="uid://c0ih74a4ofoin" path="res://src/components/level_elements/object/map_object_interactable.tscn" id="2_0og6s"]
-[ext_resource type="Script" path="res://src/managers/event_manager/events/event_tutor_interact.gd" id="2_u2k8q"]
+[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_interact_with_node.gd" id="2_3p7th"]
 [ext_resource type="Resource" uid="uid://ncbwl71kxb1f" path="res://src/shared/data/objects/items/cat.tres" id="3_h6qca"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_x565a"]
 [ext_resource type="Resource" uid="uid://de33umesducp3" path="res://src/shared/data/objects/items/stool.tres" id="6_w7ihj"]
@@ -11,12 +11,14 @@
 
 [node name="LevelMap" parent="." instance=ExtResource("1_sdo21")]
 
-[node name="EventInteract2" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("destination_node", "start_condition")]
-script = ExtResource("2_u2k8q")
-destination_node = NodePath("../../Objects/Cat")
+[node name="DialogManager" parent="LevelMap" index="1" groups=["dialog_manager"]]
+
+[node name="QuestInteractWithNode" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_3p7th")
+target = NodePath("../../Objects/Cat")
 start_condition = NodePath("ConditionMapStart")
 
-[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/EventInteract2" node_paths=PackedStringArray("map")]
+[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/QuestInteractWithNode" node_paths=PackedStringArray("map")]
 script = ExtResource("3_x565a")
 map = NodePath("../../..")
 
