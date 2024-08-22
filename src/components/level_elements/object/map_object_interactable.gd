@@ -1,6 +1,7 @@
 @tool
 class_name MapObjectInteractable extends MapObject
 
+signal was_interacted_with
 
 @onready var player = get_tree().get_first_node_in_group("player")
 var player_within_interaction_range = false
@@ -34,5 +35,5 @@ func _on_area_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int
 		if player_within_interaction_range:
 			# TODO: is this a bad idea; should this be a signal?
 			# on the other hand it's basically mouse-click based...
-			print("interacting with me :)")
 			player.interact_with_object(self)
+			was_interacted_with.emit(player)

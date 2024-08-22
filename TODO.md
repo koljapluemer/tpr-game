@@ -9,3 +9,7 @@
 - find out how to check for signals existing and use for quest_walk (check if walker has a signal when arrived)
 
 - write a service provider for stuff like DialogManager, its silly to always pass
+
+- how to elegantly prevent quests/events from being triggered multiple times unless I want that?
+	- maybe that logic in condition.gd actually prevents this
+	- but we still haven't had conditions that turn on and off...

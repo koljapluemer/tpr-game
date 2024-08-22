@@ -158,8 +158,6 @@ material = SubResource("ShaderMaterial_iuu6p")
 sprite_frames = SubResource("SpriteFrames_jtdga")
 animation = &"interact"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -10)

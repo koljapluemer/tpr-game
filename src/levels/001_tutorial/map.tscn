@@ -68,14 +68,13 @@ delay_before_start = 2
 script = ExtResource("11_8ngdb")
 event = NodePath("../../EventTutorShow")
 
-[node name="QuestWalkToLaptop" type="Node2D" parent="LevelMap/Events" index="3" node_paths=PackedStringArray("target", "tutor", "start_condition", "player")]
+[node name="QuestWalkToLaptop" type="Node2D" parent="LevelMap/Events" index="3" node_paths=PackedStringArray("target", "tutor", "start_condition")]
 script = ExtResource("2_kms15")
 target = NodePath("../../Objects/Laptop")
 initially_hide_target = true
 tutor = NodePath("../../Objects/Tutor")
 delay_before_start = 2.0
 start_condition = NodePath("ConditionEventFinished2")
-player = NodePath("../../PlayerCameraCombo/Player")
 
 [node name="ConditionEventFinished2" type="Node" parent="LevelMap/Events/QuestWalkToLaptop" node_paths=PackedStringArray("event")]
 script = ExtResource("11_8ngdb")

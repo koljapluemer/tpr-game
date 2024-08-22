@@ -36,11 +36,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		# interacting cannot be interrupted by doing nothing
 		if current_state != State.Interacting:
-			current_state = State.Idle
+			set_idle()
 			
 	update_animation()
 
-	
+func set_idle():
+	current_state = State.Idle
 
 	
 func update_animation():
@@ -67,3 +68,4 @@ func interact_with_object(object):
 		
 	current_state = State.Interacting
 	update_animation()
+	player_sprite.animation_finished.connect(set_idle)

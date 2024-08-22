@@ -13,12 +13,12 @@
 
 [node name="DialogManager" parent="LevelMap" index="1" groups=["dialog_manager"]]
 
-[node name="QuestInteractWithNode" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "start_condition")]
+[node name="QuestInteractWithCat" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_3p7th")
 target = NodePath("../../Objects/Cat")
 start_condition = NodePath("ConditionMapStart")
 
-[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/QuestInteractWithNode" node_paths=PackedStringArray("map")]
+[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/QuestInteractWithCat" node_paths=PackedStringArray("map")]
 script = ExtResource("3_x565a")
 map = NodePath("../../..")
 

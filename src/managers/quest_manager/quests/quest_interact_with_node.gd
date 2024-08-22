@@ -58,7 +58,7 @@ func _activate():
 	add_child(e_demo_instruct)
 	
 	# success condition
-	success_condition = ConditionBodyTouchedMapObject.create(player, target)
+	success_condition = ConditionBodyInteractedWithMapObject.create(player, target)
 	add_child(success_condition)
 	# used in parent
 	
