@@ -15,4 +15,4 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SpeechBubble" parent="." instance=ExtResource("2_g2uch")]
 unique_name_in_owner = true
-metadata/_edit_use_anchors_ = true
+layout_mode = 0

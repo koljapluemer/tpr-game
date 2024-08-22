@@ -12,12 +12,13 @@ signal started
 @export_category("Annoying Vars to keep independent")
 # TODO: magic number that is manually syned w/ another manual delay in quest_walk_to_node
 const delay_unitl_manager_is_informed = 3.5
-
+const SUCCESS = preload("res://src/managers/quest_manager/success.wav")
 var quest_hot_condition: Condition
 var instruction: String
 
 @onready var quest_manager: QuestManager = get_tree().get_first_node_in_group("quest_manager")
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
+@onready var audio_player: AudioStreamPlayer2D = get_tree().get_first_node_in_group("audio_player")
 
 func _ready():
 	if not player:
@@ -55,3 +56,5 @@ func _call_quest_mngr():
 func _finish():
 	finished.emit()
 	quest_manager.finish_quest(self)
+	audio_player.stream = SUCCESS
+	audio_player.play()

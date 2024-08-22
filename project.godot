@@ -24,6 +24,7 @@ Globals="*res://src/components/globals.gd"
 dialog_manager=""
 quest_manager=""
 tutor=""
+audio_player=""
 
 [rendering]
 

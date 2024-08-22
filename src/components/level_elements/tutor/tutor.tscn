@@ -230,7 +230,7 @@ scale = Vector2(1.14957, 1.0853)
 shape = SubResource("CapsuleShape2D_dx0ah")
 
 [node name="DialogManager" parent="." instance=ExtResource("4_3rgnm")]
-offset_left = 21.0
-offset_top = -264.0
-offset_right = 21.0
-offset_bottom = -264.0
+offset_left = -579.0
+offset_top = -344.0
+offset_right = -579.0
+offset_bottom = -344.0

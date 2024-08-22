@@ -17,8 +17,6 @@
 parallax_background_scene = ExtResource("2_exapo")
 arena_scene = ExtResource("3_1i8nv")
 
-[node name="DialogManager" parent="LevelMap" index="1" groups=["dialog_manager"]]
-
 [node name="QuestChair1" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "tutor", "start_condition")]
 script = ExtResource("4_u6qa2")
 target = NodePath("../../Objects/Chair")

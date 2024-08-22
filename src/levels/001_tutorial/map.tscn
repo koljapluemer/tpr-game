@@ -22,8 +22,6 @@ size = Vector2(290, 80)
 
 [node name="LevelMap" parent="." instance=ExtResource("1_y552k")]
 
-[node name="DialogManager" parent="LevelMap" index="1" groups=["dialog_manager"]]
-
 [node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("appearing_node", "start_condition", "end_condition")]
 script = ExtResource("3_kvqdn")
 appearing_node = NodePath("../../Objects/CanvasLayer")
