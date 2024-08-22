@@ -18,7 +18,7 @@ size = Vector2(60, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdcif"]
 size = Vector2(290, 80)
 
-[node name="Map" type="Node2D"]
+[node name="Map2" type="Node2D"]
 
 [node name="LevelMap" parent="." instance=ExtResource("1_y552k")]
 

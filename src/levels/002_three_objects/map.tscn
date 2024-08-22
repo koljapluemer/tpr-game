@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://cg2hb2hxbougb" path="res://src/shared/data/objects/items/ladder.tres" id="6_n3kmf"]
 [ext_resource type="Resource" uid="uid://btjlors6i0c2h" path="res://src/shared/data/objects/items/guitar.tres" id="7_6fso2"]
 
-[node name="Map" type="Node2D"]
+[node name="Map3" type="Node2D"]
 
 [node name="LevelMap" parent="." instance=ExtResource("1_ajb2b")]
 parallax_background_scene = ExtResource("2_exapo")
