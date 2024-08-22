@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Tutor extends CharacterBody2D
 
 signal has_reached_target
 
@@ -12,7 +12,8 @@ var current_state = State.Idle
 
 enum State {
 	Idle,
-	IsDemonstrating
+	IsWalking,
+	Interact
 }
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -25,7 +26,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	if visible:
 		match current_state:
-			State.IsDemonstrating:
+			State.IsWalking:
 				direction = target.global_position - global_position
 				direction = direction.normalized()
 				velocity.x = direction.x * speed
@@ -43,15 +44,11 @@ func _physics_process(delta):
 
 func walk_to_node(tar):
 	target = tar
-	current_state = State.IsDemonstrating
+	current_state = State.IsWalking
 	
 func _on_body_entered_target_are(body):
 	if body == self:
 		has_reached_target.emit()
-		target = null
-		velocity = Vector2.ZERO
-		animated_sprite.play("idle")
-		current_state = State.Idle
 		
 func update_animation():
 	if direction.x != 0:
@@ -69,3 +66,14 @@ func update_facing_direction():
 func show_object():
 	show()
 	
+
+func set_idle():
+	target = null
+	velocity = Vector2.ZERO
+	animated_sprite.play("idle")
+	current_state = State.Idle
+	
+func set_interacting():
+	animated_sprite.play("interact")
+	animated_sprite.animation_finished.connect(set_idle)
+	current_state = State.Interact

@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://src/managers/dialog_manager/dialog_manager.gd" id="1_wdfdh"]
 
-[node name="DialogManager" type="Node"]
+[node name="DialogManager" type="Node" groups=["dialog_manager"]]
 script = ExtResource("1_wdfdh")

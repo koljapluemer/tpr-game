@@ -13,10 +13,13 @@ signal started
 @export_category("Annoying Vars to keep independent")
 @export var player: CharacterBody2D
 
-const delay_unitl_manager_is_informed = 2.0
+# TODO: magic number that is manually syned w/ another manual delay in quest_walk_to_node
+const delay_unitl_manager_is_informed = 3.5
 
 var instruction: String
 var quest_hot_condition: Condition
+
+@onready var quest_manager: QuestManager = get_tree().get_first_node_in_group("quest_manager")
 
 func _ready():
 	if not player:
@@ -48,12 +51,12 @@ func _on_quest_hot():
 
 
 func _call_quest_mngr():
-	Globals.quest_mngr.start_quest(self)
+	quest_manager.start_quest(self)
 	
 
 func _finish():
 	finished.emit()
-	Globals.quest_mngr.finish_quest(self)
+	quest_manager.finish_quest(self)
 	#if start_condition:
 		#start_condition.queue_free()
 	#if success_condition:

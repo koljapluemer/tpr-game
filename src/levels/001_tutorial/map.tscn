@@ -22,6 +22,8 @@ size = Vector2(290, 80)
 
 [node name="LevelMap" parent="." instance=ExtResource("1_y552k")]
 
+[node name="DialogManager" parent="LevelMap" index="1" groups=["dialog_manager"]]
+
 [node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("appearing_node", "start_condition", "end_condition")]
 script = ExtResource("3_kvqdn")
 appearing_node = NodePath("../../Objects/CanvasLayer")
@@ -56,10 +58,9 @@ area = NodePath("../../../../Objects/TutorAppearTrigger")
 script = ExtResource("11_8ngdb")
 event = NodePath("../../../EventShowControlScheme")
 
-[node name="EventSayGreeting" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("dialog_manager", "start_condition")]
+[node name="EventSayGreeting" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("start_condition")]
 script = ExtResource("6_grxgg")
 dialog = ExtResource("7_7e06b")
-dialog_manager = NodePath("../../DialogManager")
 start_condition = NodePath("ConditionEventFinished")
 delay_before_start = 2
 
@@ -79,6 +80,8 @@ player = NodePath("../../PlayerCameraCombo/Player")
 [node name="ConditionEventFinished2" type="Node" parent="LevelMap/Events/QuestWalkToLaptop" node_paths=PackedStringArray("event")]
 script = ExtResource("11_8ngdb")
 event = NodePath("../../EventSayGreeting")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0" groups=["tutor"]]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LevelMap/Objects" index="1"]
 visible = false

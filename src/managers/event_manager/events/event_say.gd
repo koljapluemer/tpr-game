@@ -1,7 +1,8 @@
 class_name EventSay extends Event
 
 @export var dialog: Dialog
-@export var dialog_manager: DialogManager
+
+@onready var dialog_manager: DialogManager = get_tree().get_first_node_in_group("dialog_manager")
 
 func _ready() -> void:
 	if end_condition:

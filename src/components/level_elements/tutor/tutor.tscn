@@ -137,9 +137,18 @@ animations = [{
 "texture": SubResource("AtlasTexture_81qg3")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eys2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc0uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81qg3")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nqlvd")
 }],
-"loop": true,
+"loop": false,
 "name": &"interact",
 "speed": 5.0
 }, {
@@ -205,12 +214,14 @@ collision_mask = 2
 script = ExtResource("1_pcugg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ywbsb")
 position = Vector2(0, 15)
 sprite_frames = SubResource("SpriteFrames_lhysl")
-animation = &"idle"
+animation = &"interact"
 autoplay = "idle"
-frame_progress = 0.602777
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 22)

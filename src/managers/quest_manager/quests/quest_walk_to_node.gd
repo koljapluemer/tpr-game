@@ -56,6 +56,9 @@ func _activate():
 	var e_demo_instruct = EventSay.create_from_map_object("Geh ", target)
 	instruction = "Geh " + target.item.dative_form
 	e_demo_instruct.start_condition = quest_hot_condition
+	# TODO: fix magic number
+	# this is the time between demo and task given to player
+	e_demo_instruct.delay_before_start = 3
 	add_child(e_demo_instruct)
 	
 	# success condition

@@ -99,6 +99,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_7bgab")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wrfjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bgab")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s6ddw")
 }, {
 "duration": 1.0,
@@ -106,7 +112,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"interact",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -152,7 +158,7 @@ material = SubResource("ShaderMaterial_iuu6p")
 sprite_frames = SubResource("SpriteFrames_jtdga")
 animation = &"interact"
 autoplay = "idle"
-frame = 4
+frame = 6
 frame_progress = 1.0
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
