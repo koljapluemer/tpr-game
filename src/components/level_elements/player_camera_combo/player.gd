@@ -5,6 +5,15 @@ const JUMP_VELOCITY = -400.0
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
+enum State {
+	Idle,
+	IsWalking,
+	Interacting
+}
+
+var current_state: State = State.Idle
+
 @onready var player_sprite: AnimatedSprite2D = $PlayerSprite
 
 
@@ -20,17 +29,41 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	update_animation(direction)
-	update_facing_direction(direction)
 	
-func update_animation(direction):
 	if direction != 0:
-		player_sprite.play("walk")
+		current_state = State.IsWalking
+		update_facing_direction(direction)
 	else:
-		player_sprite.play("idle")
+		# interacting cannot be interrupted by doing nothing
+		if current_state != State.Interacting:
+			current_state = State.Idle
+			
+	update_animation()
 
+	
+
+	
+func update_animation():
+	match current_state:
+		State.IsWalking:
+			player_sprite.play("walk")
+		State.Interacting:
+			player_sprite.play("interact")
+		State.Idle:
+			player_sprite.play("idle")
+			
 func update_facing_direction(direction):
 	if direction > 0:
 		player_sprite.flip_h = false
 	elif direction < 0:
 		player_sprite.flip_h = true
+
+func interact_with_object(object):
+	print("player interacting")
+	if object.global_position > global_position:
+		player_sprite.flip_h = false
+	else:
+		player_sprite.flip_h = true
+		
+	current_state = State.Interacting
+	update_animation()

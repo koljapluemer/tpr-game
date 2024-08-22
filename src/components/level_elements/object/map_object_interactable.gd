@@ -13,7 +13,8 @@ const MATERIAL_OUTLINE = preload("res://src/shared/material_outline.tres")
 func _ready() -> void:
 	print(name, "interaction _ready func")
 	if item:
-		interaction_collision_shape_2d.shape.radius = item.interaction_radius
+		#interaction_collision_shape_2d.shape.radius = item.interaction_radius
+		interaction_collision_shape_2d.shape.radius = 50
 	super()
 
 
@@ -31,4 +32,7 @@ func _on_interaction_shape_2d_body_exited(body: Node2D) -> void:
 func _on_area_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if player_within_interaction_range:
-			print(name, ": I got interacted with")
+			# TODO: is this a bad idea; should this be a signal?
+			# on the other hand it's basically mouse-click based...
+			print("interacting with me :)")
+			player.interact_with_object(self)

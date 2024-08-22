@@ -14,6 +14,7 @@ func _ready() -> void:
 		sprite.texture = item.sprite
 		sprite.scale = Vector2(item.resize_factor, item.resize_factor)
 		sprite.position = item.offset
+		# TODO: why doesn't this work with the item collision radius??
 		#collision_shape.shape.radius = item.collision_radius
 		collision_shape.shape.radius = 20
 		print(name, ": set item radius etc")
