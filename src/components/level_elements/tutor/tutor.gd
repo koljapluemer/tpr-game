@@ -1,6 +1,7 @@
 class_name Tutor extends CharacterBody2D
 
 signal has_reached_target
+signal done_with_interacting
 
 @export var speed : float = 100.0
 @export var player: CharacterBody2D
@@ -76,5 +77,9 @@ func set_idle():
 	
 func set_interacting():
 	animated_sprite.play("interact")
-	animated_sprite.animation_finished.connect(set_idle)
+	animated_sprite.animation_finished.connect(_on_done_with_interacting)
 	current_state = State.Interact
+	
+func _on_done_with_interacting():
+	set_idle()
+	done_with_interacting.emit()

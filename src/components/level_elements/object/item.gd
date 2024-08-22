@@ -11,3 +11,5 @@ class_name Item extends Resource
 @export var word: String
 @export var interact_prompt: String
 @export var interact_demo: String
+@export var take_prompt: String
+@export var take_demo: String

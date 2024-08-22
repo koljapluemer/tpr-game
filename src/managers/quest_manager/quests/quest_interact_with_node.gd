@@ -6,7 +6,12 @@ class_name QuestInteractWithNode extends Quest
 @export var give_demo = true
 @export var move_target_after_demo: Node2D
 
+@export_category("Taking Quests")
+@export var take_target = false
+@export var target_for_tutor = MapObjectInteractable
+
 @onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,7 +34,11 @@ func _activate():
 	
 	if give_demo:
 		# tutor demo
-		var e_demo_walk = EventInteract.create(target)
+		var e_demo_walk: Event
+		if take_target:
+			e_demo_walk = EventTake.create(target)
+		else:
+			e_demo_walk = EventInteract.create(target)
 		e_demo_walk.start_condition = c_object_appeared
 		e_demo_walk.delay_before_start = 3
 		add_child(e_demo_walk)
