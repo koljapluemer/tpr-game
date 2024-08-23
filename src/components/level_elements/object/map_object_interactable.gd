@@ -3,8 +3,12 @@ class_name MapObjectInteractable extends MapObject
 
 signal was_interacted_with
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@export var hide_after_interaction = false
+
 var player_within_interaction_range = false
+
+
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var interaction_shape: Area2D = %InteractionShape2D
 @onready var interaction_collision_shape_2d: CollisionShape2D = %InteractionCollisionShape2D
 
@@ -37,3 +41,6 @@ func _on_area_2d_2_input_event(_viewport: Node, event: InputEvent, _shape_idx: i
 			# on the other hand it's basically mouse-click based...
 			player.interact_with_object(self)
 			was_interacted_with.emit(player)
+			
+			if hide_after_interaction:
+				hide()

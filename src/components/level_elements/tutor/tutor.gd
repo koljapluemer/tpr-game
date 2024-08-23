@@ -81,5 +81,6 @@ func set_interacting():
 	current_state = State.Interact
 	
 func _on_done_with_interacting():
+	print(name, ": done with interacting")
 	set_idle()
 	done_with_interacting.emit()

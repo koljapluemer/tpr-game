@@ -4,10 +4,7 @@ class_name QuestTakeNode extends Quest
 
 @export var give_demo = true
 @export var move_target_after_demo: Node2D
-
-@export_category("Taking Quests")
-@export var take_target = false
-@export var target_for_tutor = MapObjectInteractable
+@export var target_for_tutor: MapObjectInteractable
 
 @onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor")
 
@@ -15,10 +12,11 @@ class_name QuestTakeNode extends Quest
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if success_condition:
-		push_warning("QUEST - ", name, ": interact quest should likely not have a manual end condition")
+		push_warning("QUEST - ", name, ": take quest should likely not have a manual end condition")
 	super()
 	
 func _activate():
+	# TODO: deadlock when player takes object before quest start
 	print("QUEST - ", name, ": activated")
 	
 	# appear object	
@@ -31,16 +29,12 @@ func _activate():
 	
 	if give_demo:
 		# tutor demo
-		var e_demo_walk: Event
-		if take_target:
-			e_demo_walk = EventTake.create(target)
-		else:
-			e_demo_walk = EventInteract.create(target)
+		var e_demo_walk = EventTake.create(target_for_tutor)
 		e_demo_walk.start_condition = c_object_appeared
 		e_demo_walk.delay_before_start = 3
 		add_child(e_demo_walk)
 		
-		var e_demo_talk = EventSay.create(target.item.interact_demo)
+		var e_demo_talk = EventSay.create(target.item.take_demo)
 		e_demo_walk.delay_before_start = 2
 		e_demo_talk.start_condition = c_object_appeared
 		add_child(e_demo_talk)
@@ -64,7 +58,7 @@ func _activate():
 		
 	
 	# instruct and start quest
-	instruction = target.item.interact_prompt
+	instruction = target.item.take_prompt
 	var e_demo_instruct = EventSay.create(instruction)
 	e_demo_instruct.start_condition = quest_hot_condition
 	# TODO: fix magic number

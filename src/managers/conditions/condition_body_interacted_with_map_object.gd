@@ -18,5 +18,5 @@ func _ready() -> void:
 	
 func _check_if_body_matches(body_that_interacted):
 	if body_that_interacted == body:
-		print(name, ": map_object condition fulfilled")
+		print(name, ": body interactiond condition fulfilled")
 		fulfilled.emit()

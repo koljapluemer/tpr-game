@@ -29,7 +29,7 @@ unique_name_in_owner = true
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Tutor" parent="Objects" node_paths=PackedStringArray("player") instance=ExtResource("17_7x5lk")]
+[node name="Tutor" parent="Objects" node_paths=PackedStringArray("player") groups=["tutor"] instance=ExtResource("17_7x5lk")]
 visible = false
 position = Vector2(-138, -54)
 player = NodePath("../../PlayerCameraCombo/Player")
@@ -42,7 +42,7 @@ unique_name_in_owner = true
 [node name="Particles1" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(280, 80.0001)
+position = Vector2(-280, 80)
 scale = Vector2(0.2, 0.2)
 emitting = false
 amount = 32
@@ -65,7 +65,7 @@ color = Color(0.29393, 0.752749, 0.607188, 1)
 [node name="Particles2" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(280, 80.0001)
+position = Vector2(280, 80)
 scale = Vector2(0.2, 0.2)
 emitting = false
 amount = 32

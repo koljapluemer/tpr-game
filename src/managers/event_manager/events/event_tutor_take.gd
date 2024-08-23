@@ -5,7 +5,7 @@ class_name EventTake extends Event
 @onready var walker: Node2D = get_tree().get_first_node_in_group("tutor")
 
 static func create(_destination_node):
-	var instance = EventInteract.new()
+	var instance = EventTake.new()
 	instance.destination_node = _destination_node
 	return instance
 
@@ -26,7 +26,7 @@ func _run():
 func _on_walker_reached_target():
 	walker.set_interacting()
 	walker.done_with_interacting.connect(_on_tutor_done_with_interacting)
-	
+	print(name, ": taking started")
 
 func _on_tutor_done_with_interacting():
 	destination_node.hide()

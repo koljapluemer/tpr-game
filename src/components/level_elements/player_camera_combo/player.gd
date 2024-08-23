@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+signal interacting_with
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var object_currently_interacting_with: MapObjectInteractable
 
 enum State {
 	Idle,
@@ -60,6 +62,7 @@ func update_facing_direction(direction):
 		player_sprite.flip_h = true
 
 func interact_with_object(object):
+	# TODO: what happens if interacting w/ objects rapidly?
 	print("player interacting")
 	if object.global_position > global_position:
 		player_sprite.flip_h = false
@@ -68,4 +71,10 @@ func interact_with_object(object):
 		
 	current_state = State.Interacting
 	update_animation()
-	player_sprite.animation_finished.connect(set_idle)
+	object_currently_interacting_with = object
+	player_sprite.animation_finished.connect(finish_interacting)
+	interacting_with.emit(object_currently_interacting_with)
+
+
+func finish_interacting():
+	current_state = State.Idle

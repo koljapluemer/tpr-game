@@ -1,3 +1,4 @@
+@tool
 class_name LevelMap extends Node2D
 # effectively a per-level game manager
 

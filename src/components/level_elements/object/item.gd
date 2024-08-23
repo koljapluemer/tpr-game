@@ -9,7 +9,7 @@ class_name Item extends Resource
 @export_category("German")
 @export var dative_form: String
 @export var word: String
-@export var interact_prompt: String
 @export var interact_demo: String
-@export var take_prompt: String
+@export var interact_prompt: String
 @export var take_demo: String
+@export var take_prompt: String

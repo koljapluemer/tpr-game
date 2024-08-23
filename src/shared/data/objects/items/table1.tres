@@ -6,11 +6,13 @@
 [resource]
 script = ExtResource("1_fp88a")
 sprite = ExtResource("2_gotwv")
-resize_factor = 0.13
-offset = Vector2(0, 36)
+resize_factor = 0.16
+offset = Vector2(0, -10)
 collision_radius = 70
 interaction_radius = 200
 dative_form = "zum Stuhl"
 word = "Stuhl"
 interact_prompt = ""
 interact_demo = ""
+take_prompt = ""
+take_demo = ""
