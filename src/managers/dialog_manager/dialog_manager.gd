@@ -2,7 +2,7 @@ class_name DialogManager extends Node
 
 signal dialog_finished
 
-var current_dialog: Dialog
+var current_dialog: String
 
 @onready var speech_bubble: MarginContainer = %SpeechBubble
 
@@ -13,9 +13,9 @@ func say(dialog, kill_after=5):
 	# TODO: instead of kill_after, at least have
 	# the option to see how long the audio is and do that times something or so
 	# maybe even a user test how fast u can read
-	speech_bubble.set_text(dialog.content)
+	speech_bubble.set_text(dialog)
 	speech_bubble.visible = true
-	write_content_to_file(dialog.content)
+	write_content_to_file(dialog)
 	get_tree().create_timer(kill_after).connect("timeout", finish)
 
 
@@ -23,7 +23,7 @@ func say(dialog, kill_after=5):
 func finish():
 	speech_bubble.visible = false
 	dialog_finished.emit(current_dialog)
-	current_dialog = null
+	current_dialog = ""
 	
 	
 func write_content_to_file(text):

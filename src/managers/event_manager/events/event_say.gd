@@ -1,6 +1,6 @@
 class_name EventSay extends Event
 
-@export var dialog: Dialog
+@export var text: String
 
 @onready var dialog_manager: DialogManager = get_tree().get_first_node_in_group("dialog_manager")
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 	super()
 
 func _run():
-	dialog_manager.say(dialog)
+	dialog_manager.say(text)
 	dialog_manager.dialog_finished.connect(_on_dialog_finished)
 
 func _on_dialog_finished(finished_dialog):
@@ -18,16 +18,8 @@ func _on_dialog_finished(finished_dialog):
 	dialog_manager.dialog_finished.disconnect(_on_dialog_finished)
 	print(name, ": dialog event finished", finished_dialog)
 	finish()
-	
-	
-static func create_from_map_object(instruction, map_object: MapObject):
-	var instance = EventSay.new()
-	var dia = Dialog.create_from_map_object(instruction, map_object)
-	instance.dialog = dia
-	return instance
 
 static func create(say_what: String):
 	var instance = EventSay.new()
-	var dia = Dialog.create(say_what)
-	instance.dialog = dia
+	instance.text = say_what
 	return instance

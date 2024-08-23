@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://br74x2wt3dhbw"]
+[gd_scene load_steps=6 format=3 uid="uid://sy2a0jkqit25"]
 
-[ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="1_k250f"]
-[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_ryau8"]
-[ext_resource type="Texture2D" uid="uid://b8jcpsh0qasdb" path="res://src/components/level_elements/object/png/laptop_crop.png" id="3_xnjj1"]
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_h3sao"]
+[ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="2_pyhfa"]
+[ext_resource type="Texture2D" uid="uid://b8jcpsh0qasdb" path="res://src/components/level_elements/object/png/laptop_crop.png" id="3_og3tj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
-shader = ExtResource("1_k250f")
+shader = ExtResource("2_pyhfa")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 10.0
 
@@ -13,14 +13,15 @@ shader_parameter/line_thickness = 10.0
 radius = 20.0
 
 [node name="Object" type="Node2D"]
-script = ExtResource("1_ryau8")
+script = ExtResource("1_h3sao")
+dative_form = "zum Laptop"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_plrww")
-position = Vector2(0, -11)
+position = Vector2(0, -5)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_xnjj1")
+texture = ExtResource("3_og3tj")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]
 scale = Vector2(20, 20)

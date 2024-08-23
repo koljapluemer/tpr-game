@@ -1,12 +1,10 @@
 class_name QuestWalkToNode extends Quest
 
-@export var target: Node2D
+@export var target: MapObject
 @export var initially_hide_target = false
-@export var tutor = CharacterBody2D
-
 @export var give_demo = true
 
-# TODO: how to handle whether demo is included?
+@onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor") 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +32,7 @@ func _activate():
 		e_demo_walk.delay_before_start = 3
 		add_child(e_demo_walk)
 		
-		var e_demo_talk = EventSay.create_from_map_object("Ich gehe ", target)
+		var e_demo_talk = EventSay.create("Ich gehe " + target.dative_form)
 		e_demo_walk.delay_before_start = 2
 		e_demo_talk.start_condition = c_object_appeared
 		add_child(e_demo_talk)
@@ -53,7 +51,7 @@ func _activate():
 	
 	# instruct and start quest
 	
-	var e_demo_instruct = EventSay.create_from_map_object("Geh ", target)
+	var e_demo_instruct = EventSay.create("Geh " + target.dative_form + "!")
 	instruction = "Geh " + target.dative_form
 	e_demo_instruct.start_condition = quest_hot_condition
 	# TODO: fix magic number
