@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_ok35u"]
 [ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="2_nujd6"]
-[ext_resource type="Texture2D" uid="uid://c6jj86c42ii8c" path="res://src/components/level_elements/object/png/motor_bike_crop.png" id="3_5wdky"]
+[ext_resource type="Texture2D" uid="uid://cuwkdlah7jod4" path="res://src/components/level_elements/object/png/motor_bike_crop.png" id="3_5wdky"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
 shader = ExtResource("2_nujd6")

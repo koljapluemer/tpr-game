@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_h3sao"]
 [ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="2_pyhfa"]
-[ext_resource type="Texture2D" uid="uid://b8jcpsh0qasdb" path="res://src/components/level_elements/object/png/laptop_crop.png" id="3_og3tj"]
+[ext_resource type="Texture2D" uid="uid://bhn5s6dom8ow3" path="res://src/components/level_elements/object/png/laptop_crop.png" id="3_og3tj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
 shader = ExtResource("2_pyhfa")
