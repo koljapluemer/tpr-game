@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://hsmti7clescp"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_iv8kl"]
+
+[node name="Map" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_iv8kl")]
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]
