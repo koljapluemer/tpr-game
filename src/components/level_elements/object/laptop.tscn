@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
 shader = ExtResource("2_pyhfa")
 shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 10.0
+shader_parameter/line_thickness = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
 radius = 20.0
@@ -19,8 +19,8 @@ dative_form = "zum Laptop"
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_plrww")
-position = Vector2(0, -5)
-scale = Vector2(0.05, 0.05)
+position = Vector2(0.825028, -7.5375)
+scale = Vector2(0.0707666, 0.0707666)
 texture = ExtResource("3_og3tj")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]

@@ -2,6 +2,10 @@ class_name EventAppear extends Event
 
 @export var appearing_node: Node
 
+const FINGERPLOP = preload("res://src/managers/event_manager/fingerplop.mp3")
+
+@onready var audio_player = get_tree().get_first_node_in_group("audio_player")
+
 func _ready() -> void:
 	if end_condition:
 		push_warning("appear event is over instantly and should not have an end condition", name)
@@ -13,6 +17,8 @@ func _run():
 	else:
 		appearing_node.show()
 		push_warning("warning: object sheduled to appear, but missing method")
+	audio_player.stream = FINGERPLOP
+	audio_player.play()
 	finish()
 
 static func create_from_map_object(map_object:MapObject):
