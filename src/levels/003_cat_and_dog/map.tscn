@@ -12,7 +12,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ard5"]
 
-[node name="Map" type="Node2D"]
+[node name="Map2" type="Node2D"]
 
 [node name="LevelMap" parent="." instance=ExtResource("1_sdo21")]
 

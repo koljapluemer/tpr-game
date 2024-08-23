@@ -9,5 +9,11 @@
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true
 
+[node name="Particles1" parent="LevelMap" index="6"]
+position = Vector2(-280, 80)
+
+[node name="Particles2" parent="LevelMap" index="7"]
+position = Vector2(280, 80)
+
 [editable path="LevelMap"]
 [editable path="LevelMap/PlayerCameraCombo"]
