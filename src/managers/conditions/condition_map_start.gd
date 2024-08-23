@@ -1,6 +1,6 @@
 class_name ConditionMapStart extends Condition
 
-@export var map: LevelMap
+@onready var map: LevelMap = get_tree().get_first_node_in_group("level_map")
 
 
 # Called when the node enters the scene tree for the first time.

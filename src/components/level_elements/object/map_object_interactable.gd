@@ -30,7 +30,7 @@ func _on_interaction_shape_2d_body_exited(body: Node2D) -> void:
 		player_within_interaction_range = false
 		
 # watch out: this uses collision shape, not interaction shape
-func _on_area_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_2_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if player_within_interaction_range:
 			# TODO: is this a bad idea; should this be a signal?

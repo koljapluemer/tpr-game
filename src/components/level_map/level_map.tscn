@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7wlk7sk53ern" path="res://src/managers/quest_manager/quest_manager.tscn" id="6_6x1ty"]
 [ext_resource type="PackedScene" uid="uid://cfdydj1akl3a1" path="res://src/components/level_elements/tutor/tutor.tscn" id="17_7x5lk"]
 
-[node name="LevelMap" type="Node2D"]
+[node name="LevelMap" type="Node2D" groups=["level_map"]]
 script = ExtResource("1_ijymf")
 parallax_background_scene = ExtResource("2_322wn")
 arena_scene = ExtResource("3_sr5wl")

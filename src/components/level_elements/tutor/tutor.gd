@@ -24,7 +24,7 @@ func _ready() -> void:
 		print("Player Object not set, tutor cannot turn to player.")
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if visible:
 		match current_state:
 			State.IsWalking:
