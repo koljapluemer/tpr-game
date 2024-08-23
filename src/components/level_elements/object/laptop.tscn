@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
 shader = ExtResource("2_pyhfa")
 shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 9.0
+shader_parameter/line_thickness = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
 radius = 20.0
