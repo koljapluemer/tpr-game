@@ -9,11 +9,18 @@ signal finished
 
 # TODO: can I *not* smartly get those somewhere?
 @export_category("Annoying Vars to keep independent")
-# TODO: magic number that is manually syned w/ another manual delay in quest_walk_to_node
-const delay_unitl_manager_is_informed = 3.5
 const SUCCESS = preload("res://src/managers/quest_manager/success.wav")
 var quest_hot_condition: Condition
 var instruction: String
+
+enum State {
+	Inactive,
+	Active,
+	Hot, 
+	Done
+}
+
+var current_state:State = State.Inactive
 
 @onready var quest_manager: QuestManager = get_tree().get_first_node_in_group("quest_manager")
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
@@ -29,7 +36,6 @@ func _ready():
 		print(name, " connecting to start connection: ",start_condition.name)
 		start_condition.fulfilled.connect(request_activation)
 	
-
 # FIY: following three function are very similar to event.gd
 func request_activation():
 	print("QUEST - ", "quest activation requested: ", name)
@@ -37,6 +43,8 @@ func request_activation():
 	
 
 func _activate():
+	if current_state == State.Inactive:
+		current_state = State.Active
 	if not quest_hot_condition:
 		push_warning(name, ": no condition to set quest hot")
 	else:
@@ -44,18 +52,20 @@ func _activate():
 
 
 func _on_quest_hot():
-	get_tree().create_timer(delay_unitl_manager_is_informed).connect("timeout", _call_quest_mngr)
+	if current_state == State.Active:
+		current_state = State.Hot
+		quest_manager.start_quest(self)
 	if success_condition:
 		success_condition.fulfilled.connect(_finish)
 
 
-func _call_quest_mngr():
-	quest_manager.start_quest(self)
 	
 
 func _finish():
-	finished.emit()
-	quest_manager.finish_quest(self)
-	audio_player.stream = SUCCESS
-	audio_player.play()
-	level_map.fire_celebration_particles()
+	if current_state == State.Hot:
+		current_state = State.Done
+		finished.emit()
+		quest_manager.finish_quest(self)
+		audio_player.stream = SUCCESS
+		audio_player.play()
+		level_map.fire_celebration_particles()

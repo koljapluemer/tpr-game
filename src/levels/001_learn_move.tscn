@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqupxb6h0f68k"]
+[gd_scene load_steps=17 format=3 uid="uid://dqupxb6h0f68k"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_28ge3"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="2_5e8di"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_say.gd" id="8_mcbtf"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="9_7fk16"]
 [ext_resource type="PackedScene" uid="uid://sy2a0jkqit25" path="res://src/components/level_elements/object/laptop.tscn" id="10_thec0"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_go_to_scene.gd" id="10_xyp20"]
+[ext_resource type="PackedScene" uid="uid://65iqdp50t0v2" path="res://src/levels/002_bike_bicycle.tscn" id="11_s1lso"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="11_x7wmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_saeo1"]
 size = Vector2(20, 104)
@@ -29,6 +32,7 @@ script = ExtResource("2_5e8di")
 appearing_node = NodePath("../../Objects/Tutorial")
 start_condition = NodePath("ConditionMapStart")
 end_condition = NodePath("ConditionBodyTouchedArea")
+delay_before_start = 2
 
 [node name="ConditionMapStart" type="Node" parent="LevelMap/Events/EventShowControlScheme"]
 script = ExtResource("3_iv3s7")
@@ -78,6 +82,16 @@ start_condition = NodePath("ConditionEventFinished2")
 script = ExtResource("7_bg3ye")
 event = NodePath("../../EventSayGreeting")
 
+[node name="EventGoToScene" type="Node2D" parent="LevelMap/Events" index="4" node_paths=PackedStringArray("start_condition")]
+script = ExtResource("10_xyp20")
+scene = ExtResource("11_s1lso")
+start_condition = NodePath("ConditionQuestFinished")
+delay_before_start = 3
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventGoToScene" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("11_x7wmg")
+quest_that_we_await = NodePath("../../QuestWalkToLaptop")
+
 [node name="Laptop" parent="LevelMap/Objects" index="1" instance=ExtResource("10_thec0")]
 z_index = 1
 position = Vector2(143, 0)
@@ -89,8 +103,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -93.0
+offset_top = 64.0
 offset_right = 93.0
-offset_bottom = 23.0
+offset_bottom = 87.0
 grow_horizontal = 2
 text = "Use arrow keys to move"
 
