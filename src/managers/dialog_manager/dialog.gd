@@ -5,7 +5,7 @@ class_name Dialog extends Resource
 
 static func create_from_map_object(instruction, map_object:MapObject):
 	var instance = Dialog.new()
-	instance.content = instruction + map_object.item.dative_form
+	instance.content = instruction + map_object.dative_form
 	return instance
 	
 static func create(say_what: String):

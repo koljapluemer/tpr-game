@@ -34,7 +34,7 @@ func _activate():
 		e_demo_walk.delay_before_start = 3
 		add_child(e_demo_walk)
 		
-		var e_demo_talk = EventSay.create(target.item.interact_demo)
+		var e_demo_talk = EventSay.create(target.interact_demo)
 		e_demo_walk.delay_before_start = 2
 		e_demo_talk.start_condition = c_object_appeared
 		add_child(e_demo_talk)
@@ -58,7 +58,7 @@ func _activate():
 		
 	
 	# instruct and start quest
-	instruction = target.item.interact_prompt
+	instruction = target.interact_prompt
 	var e_demo_instruct = EventSay.create(instruction)
 	e_demo_instruct.start_condition = quest_hot_condition
 	# TODO: fix magic number

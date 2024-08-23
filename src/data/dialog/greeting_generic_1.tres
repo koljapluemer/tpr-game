@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://dn2pi7k11uxd2"]
-
-[ext_resource type="AudioStream" uid="uid://x66myfxw3u4g" path="res://src/data/dialog/audio/shroom_task.mp3" id="1_oihes"]
-[ext_resource type="Script" path="res://src/managers/dialog_manager/dialog.gd" id="2_i24b5"]
-
-[resource]
-script = ExtResource("2_i24b5")
-content = "Geh zum Pilz!"
-audio = ExtResource("1_oihes")

@@ -54,7 +54,7 @@ func _activate():
 	# instruct and start quest
 	
 	var e_demo_instruct = EventSay.create_from_map_object("Geh ", target)
-	instruction = "Geh " + target.item.dative_form
+	instruction = "Geh " + target.dative_form
 	e_demo_instruct.start_condition = quest_hot_condition
 	# TODO: fix magic number
 	# this is the time between demo and task given to player

@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://eq7qmlhs32fm"]
-
-[ext_resource type="Script" path="res://src/managers/dialog_manager/dialog.gd" id="1_t0wj2"]
-
-[resource]
-script = ExtResource("1_t0wj2")
-content = "Move with arrow keys"

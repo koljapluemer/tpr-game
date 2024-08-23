@@ -14,13 +14,6 @@ var player_within_interaction_range = false
 
 const MATERIAL_OUTLINE_SELECTABLE = preload("res://src/shared/material_outline_selectable.tres")
 const MATERIAL_OUTLINE = preload("res://src/shared/material_outline.tres")
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print(name, "interaction _ready func")
-	if item:
-		#interaction_collision_shape_2d.shape.radius = item.interaction_radius
-		interaction_collision_shape_2d.shape.radius = 50
-	super()
 
 
 func _on_interaction_shape_2d_body_entered(body: Node2D) -> void:
