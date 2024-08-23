@@ -1,7 +1,6 @@
 class_name Quest extends Node2D
 
 signal finished
-signal started
 
 @export_category("Conditions")
 @export var delay_before_start = 0.0

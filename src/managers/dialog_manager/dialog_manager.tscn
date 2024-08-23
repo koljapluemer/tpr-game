@@ -16,3 +16,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SpeechBubble" parent="." instance=ExtResource("2_g2uch")]
 unique_name_in_owner = true
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 612.0
+offset_bottom = 50.0

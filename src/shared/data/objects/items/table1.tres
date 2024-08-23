@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://blfd1nv3yf40a"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_fp88a"]
+[ext_resource type="Texture2D" uid="uid://dftrng6452ulc" path="res://src/shared/data/objects/items/table.png" id="2_gotwv"]
+
+[resource]
+script = ExtResource("1_fp88a")
+sprite = ExtResource("2_gotwv")
+resize_factor = 0.13
+offset = Vector2(0, 36)
+collision_radius = 70
+interaction_radius = 200
+dative_form = "zum Stuhl"
+word = "Stuhl"
+interact_prompt = ""
+interact_demo = ""

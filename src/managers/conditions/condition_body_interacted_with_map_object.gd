@@ -3,10 +3,10 @@ class_name ConditionBodyInteractedWithMapObject extends Condition
 @export var body: PhysicsBody2D
 @export var map_object: MapObjectInteractable
 
-static func create(body, map_object):
+static func create(_body, _map_object):
 	var instance = ConditionBodyInteractedWithMapObject.new()
-	instance.body = body
-	instance.map_object = map_object
+	instance.body = _body
+	instance.map_object = _map_object
 	return instance
 
 

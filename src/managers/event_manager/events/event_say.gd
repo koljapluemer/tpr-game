@@ -16,18 +16,18 @@ func _run():
 func _on_dialog_finished(finished_dialog):
 	# TODO: will this be trouble if dialog manager gets multiple dialogs?
 	dialog_manager.dialog_finished.disconnect(_on_dialog_finished)
-	print(name, ": dialog event finished")
+	print(name, ": dialog event finished", finished_dialog)
 	finish()
 	
 	
 static func create_from_map_object(instruction, map_object: MapObject):
 	var instance = EventSay.new()
-	var dialog = Dialog.create_from_map_object(instruction, map_object)
-	instance.dialog = dialog
+	var dia = Dialog.create_from_map_object(instruction, map_object)
+	instance.dialog = dia
 	return instance
 
 static func create(say_what: String):
 	var instance = EventSay.new()
-	var dialog = Dialog.create(say_what)
-	instance.dialog = dialog
+	var dia = Dialog.create(say_what)
+	instance.dialog = dia
 	return instance

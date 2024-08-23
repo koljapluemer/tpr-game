@@ -27,11 +27,12 @@ func finish():
 	
 	
 func write_content_to_file(text):
+	var	file
 	if not FileAccess.file_exists("user://dialogs.txt"):
-		var	file = FileAccess.open("user://dialogs.txt", FileAccess.WRITE)
+		file = FileAccess.open("user://dialogs.txt", FileAccess.WRITE)
 		file.close()
 		
-	var file = FileAccess.open("user://dialogs.txt", FileAccess.READ_WRITE)
+	file = FileAccess.open("user://dialogs.txt", FileAccess.READ_WRITE)
 	file.seek_end()
 	file.store_line(text)
 	file.close()

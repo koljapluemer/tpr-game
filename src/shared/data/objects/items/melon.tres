@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dupip7g0pcu64"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/item.gd" id="1_pekac"]
+[ext_resource type="Texture2D" uid="uid://cocs5vhpa0v8d" path="res://src/shared/data/objects/items/melon.png" id="2_efgeb"]
+
+[resource]
+script = ExtResource("1_pekac")
+sprite = ExtResource("2_efgeb")
+resize_factor = 0.03
+offset = Vector2(0, 0)
+collision_radius = 10
+interaction_radius = 60
+dative_form = "zur Katze"
+word = "Katze"
+interact_prompt = "Streichel die Katze!"
+interact_demo = "Ich streichel die Katze."
+take_prompt = "Ich nehme eine Melone."
+take_demo = "Nimm eine Melone!"
