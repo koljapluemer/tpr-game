@@ -29,11 +29,11 @@ func _activate():
 		# tutor demo
 		var e_demo_walk = EventWalk.create(target, tutor)
 		e_demo_walk.start_condition = c_object_appeared
-		e_demo_walk.delay_before_start = 3
+		e_demo_walk.delay_before_start = 5
 		add_child(e_demo_walk)
 		
 		var e_demo_talk = EventSay.create("Ich gehe " + target.dative_form)
-		e_demo_walk.delay_before_start = 2
+		e_demo_talk.delay_before_start = 4
 		e_demo_talk.start_condition = c_object_appeared
 		add_child(e_demo_talk)
 		

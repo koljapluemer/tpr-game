@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bni8753vbwold"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_ok35u"]
+[ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="2_nujd6"]
+[ext_resource type="Texture2D" uid="uid://c6jj86c42ii8c" path="res://src/components/level_elements/object/png/motor_bike_crop.png" id="3_5wdky"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
+shader = ExtResource("2_nujd6")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5on6c"]
+radius = 14.4639
+height = 53.3452
+
+[node name="Object" type="Node2D"]
+script = ExtResource("1_ok35u")
+dative_form = "zum Motorrad"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_plrww")
+position = Vector2(6.45204, -26.6125)
+scale = Vector2(0.105824, 0.105824)
+texture = ExtResource("3_5wdky")
+
+[node name="Area2D2" type="Area2D" parent="Sprite"]
+scale = Vector2(20, 20)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+unique_name_in_owner = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5on6c")
+
+[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
