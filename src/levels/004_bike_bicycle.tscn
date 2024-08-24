@@ -87,9 +87,11 @@ visible = true
 
 [node name="bike" parent="LevelMap/Objects" index="1" instance=ExtResource("6_1von3")]
 position = Vector2(112, 0)
+key = null
 
 [node name="bicycle" parent="LevelMap/Objects" index="2" instance=ExtResource("7_lkldi")]
 position = Vector2(-248, 0)
+key = null
 
 [editable path="LevelMap"]
 [editable path="LevelMap/PlayerCameraCombo"]

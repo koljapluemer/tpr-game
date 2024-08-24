@@ -49,16 +49,19 @@ visible = true
 [node name="Table" parent="LevelMap/Objects" index="1" instance=ExtResource("4_7j47q")]
 z_index = 1
 position = Vector2(136, 0)
+key = null
 
 [node name="Melon_T" parent="LevelMap/Objects/Table" instance=ExtResource("5_2l1rt")]
 position = Vector2(0, -49)
 hide_after_interaction = true
+key = null
 take_demo = "Ich nehme eine Melone."
 take_prompt = "Nimm eine Melone!"
 
 [node name="Melon_P" parent="LevelMap/Objects/Table" instance=ExtResource("5_2l1rt")]
 position = Vector2(14, -49)
 hide_after_interaction = true
+key = null
 
 [node name="Area2D" parent="LevelMap/Objects" index="2" instance=ExtResource("6_gtgws")]
 position = Vector2(317, -10)

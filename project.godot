@@ -27,6 +27,10 @@ tutor=""
 audio_player=""
 level_map=""
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://src/translations/tpr-game - Sheet1.arz.translation", "res://src/translations/tpr-game - Sheet1.de.translation")
+
 [rendering]
 
 renderer/rendering_method="mobile"

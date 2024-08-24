@@ -86,10 +86,12 @@ visible = true
 
 [node name="bus" parent="LevelMap/Objects" index="1" instance=ExtResource("5_5s5fj")]
 position = Vector2(-560, 0)
+key = null
 
 [node name="tuktuk" parent="LevelMap/Objects" index="2" instance=ExtResource("6_td7y3")]
 z_index = 1
 position = Vector2(136, 0)
+key = null
 dative_form = "zum Tuk-Tuk"
 
 [editable path="LevelMap"]

@@ -10,6 +10,7 @@ height = 55.1066
 
 [node name="Object" type="Node2D"]
 script = ExtResource("1_mbju8")
+key = "TUK-TUK"
 dative_form = "zum Bus"
 
 [node name="Sprite" type="Sprite2D" parent="."]

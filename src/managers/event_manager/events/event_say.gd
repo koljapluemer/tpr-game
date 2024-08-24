@@ -1,6 +1,6 @@
 class_name EventSay extends Event
 
-@export var text: String
+@export var key: String
 
 @onready var dialog_manager: DialogManager = get_tree().get_first_node_in_group("dialog_manager")
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 	super()
 
 func _run():
-	dialog_manager.say(text)
+	dialog_manager.say(tr(key))
 	dialog_manager.dialog_finished.connect(_on_dialog_finished)
 
 func _on_dialog_finished(finished_dialog):

@@ -69,7 +69,7 @@ event = NodePath("../../../EventShowControlScheme")
 
 [node name="EventSayGreeting" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("start_condition")]
 script = ExtResource("8_mcbtf")
-text = "Hallo!"
+key = "GREETING"
 start_condition = NodePath("ConditionEventFinished")
 delay_before_start = 2
 

@@ -4,6 +4,7 @@ class_name MapObject extends Node2D
 signal body_entered
 
 @export var show_outline = true
+@export var key:String = ""
 @export_category("German")
 @export var dative_form: String = ""
 @export var word: String = ""

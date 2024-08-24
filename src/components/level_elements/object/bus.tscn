@@ -10,6 +10,7 @@ height = 82.6392
 
 [node name="Object" type="Node2D"]
 script = ExtResource("1_hf3w4")
+key = "BUS"
 dative_form = "zum Bus"
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -51,10 +51,12 @@ visible = true
 [node name="Stool" parent="LevelMap/Objects" index="1" instance=ExtResource("3_0fp20")]
 z_index = 1
 position = Vector2(192, 0)
+key = null
 
 [node name="Cat" parent="LevelMap/Objects" index="2" instance=ExtResource("4_l7nob")]
 z_index = 2
 position = Vector2(189, -46)
+key = null
 interact_demo = "Ich streichele die Katze."
 interact_prompt = "Streichel die Katze!"
 

@@ -10,6 +10,7 @@ height = 76.1666
 
 [node name="Object" type="Node2D"]
 script = ExtResource("1_so485")
+key = "BICYCLE"
 dative_form = "zum Fahrrad"
 
 [node name="Sprite" type="Sprite2D" parent="."]
