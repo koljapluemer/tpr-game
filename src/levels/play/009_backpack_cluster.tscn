@@ -21,7 +21,6 @@ delay_signal_by = 2
 [node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
 script = ExtResource("3_6augn")
 objects = [NodePath("../../Objects/blue"), NodePath("../../Objects/red")]
-nr_of_reps = 2
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true

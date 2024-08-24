@@ -8,7 +8,14 @@ class_name QuestInteractWithNode extends Quest
 
 @onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor")
 
-# Called when the node enters the scene tree for the first time.
+static func create(_target, _initially_hide_target, _give_demo, _move_target_after_demo = null):
+	var instance = QuestInteractWithNode.new()
+	instance.target = _target
+	instance.initially_hide_target = _initially_hide_target
+	instance.give_demo = _give_demo
+	instance.move_target_after_demo = _move_target_after_demo
+	return instance
+
 func _ready() -> void:
 	if initially_hide_target:
 		target.hide()
