@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvlyrw8rudo7c"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_8lgo1"]
+[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_jx3bu"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_iwomb"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_k8mx0"]
+[ext_resource type="PackedScene" uid="uid://o8mxy7xl5kb1" path="res://src/levels/010_learn_interact.tscn" id="5_k4m8y"]
+[ext_resource type="PackedScene" uid="uid://c861jqularxx4" path="res://src/components/level_elements/object/car_silver.tscn" id="6_x76pf"]
+[ext_resource type="PackedScene" uid="uid://croq1utgswkbj" path="res://src/components/level_elements/object/car_red_side.tscn" id="7_q6pmi"]
+[ext_resource type="PackedScene" uid="uid://dm1w5ii6fmri2" path="res://src/components/level_elements/object/car_yellow.tscn" id="8_ivh2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1g6y"]
+size = Vector2(64, 103)
+
+[node name="002BikeBicycle" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_8lgo1")]
+
+[node name="Player" parent="LevelMap/PlayerCameraCombo" index="1"]
+z_index = 4
+
+[node name="Explain" type="Node2D" parent="LevelMap/Events" index="0"]
+
+[node name="QuestWalkToAMG" type="Node2D" parent="LevelMap/Events/Explain" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_jx3bu")
+target = NodePath("../../../Objects/AMG_silver")
+initially_hide_target = true
+delay_before_start = 3.0
+start_condition = NodePath("ConditionMapStart")
+
+[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/Explain/QuestWalkToAMG"]
+script = ExtResource("3_iwomb")
+
+[node name="QuestWalkToRed" type="Node2D" parent="LevelMap/Events/Explain" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_jx3bu")
+target = NodePath("../../../Objects/red car")
+initially_hide_target = true
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToRed" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_k8mx0")
+quest_that_we_await = NodePath("../../QuestWalkToAMG")
+
+[node name="QuestWalkToYellow" type="Node2D" parent="LevelMap/Events/Explain" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_jx3bu")
+target = NodePath("../../../Objects/yellow car")
+initially_hide_target = true
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToYellow" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_k8mx0")
+quest_that_we_await = NodePath("../../QuestWalkToRed")
+
+[node name="Practice" type="Node2D" parent="LevelMap/Events" index="1"]
+
+[node name="QuestWalkToAMG" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_jx3bu")
+target = NodePath("../../../Objects/AMG_silver")
+give_demo = false
+delay_before_start = 3.0
+start_condition = NodePath("")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToAMG" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_k8mx0")
+quest_that_we_await = NodePath("../../QuestWalkToYellow")
+
+[node name="QuestWalkToRed" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_jx3bu")
+target = NodePath("../../../Objects/red car")
+give_demo = false
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToRed" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_k8mx0")
+quest_that_we_await = NodePath("../../../Explain/QuestWalkToYellow")
+
+[node name="QuestWalkToYellow" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_jx3bu")
+target = NodePath("../../../Objects/yellow car")
+give_demo = false
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToYellow" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_k8mx0")
+quest_that_we_await = NodePath("../../QuestWalkToRed")
+
+[node name="EventGoToScene" parent="LevelMap/Events" index="2"]
+scene = ExtResource("5_k4m8y")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="AMG_silver" parent="LevelMap/Objects" index="1" instance=ExtResource("6_x76pf")]
+position = Vector2(176, 0)
+key = "SILVER_CAR"
+
+[node name="perspective block" type="StaticBody2D" parent="LevelMap/Objects/AMG_silver"]
+position = Vector2(-17, -96)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/AMG_silver/perspective block"]
+position = Vector2(22, 41.5)
+shape = SubResource("RectangleShape2D_g1g6y")
+debug_color = Color(0, 0.646732, 0.229734, 0.42)
+
+[node name="red car" parent="LevelMap/Objects" index="2" instance=ExtResource("7_q6pmi")]
+position = Vector2(-128, 0)
+
+[node name="yellow car" parent="LevelMap/Objects" index="3" instance=ExtResource("8_ivh2i")]
+position = Vector2(-352, 0)
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

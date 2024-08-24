@@ -20,7 +20,6 @@ func say(key, kill_after=5):
 	# maybe even a user test how fast u can read
 	speech_bubble.set_text(dialog)
 	speech_bubble.visible = true
-	write_content_to_file(dialog)
 	get_tree().create_timer(kill_after).connect("timeout", finish)
 
 func check_for_matching_audio(key):
@@ -28,6 +27,8 @@ func check_for_matching_audio(key):
 	if ResourceLoader.exists(path):
 		audio_player.stream = load(path)
 		audio_player.play()
+	else:
+		write_missing_key_to_file(key)
 	
 func finish():
 	speech_bubble.visible = false
@@ -36,13 +37,13 @@ func finish():
 	
 
 # this is just for now to have an overview what sound/dialog i need	
-func write_content_to_file(text):
+func write_missing_key_to_file(text):
 	var	file
-	if not FileAccess.file_exists("dialogs.txt"):
-		file = FileAccess.open("dialogs.txt", FileAccess.WRITE)
+	if not FileAccess.file_exists("missing_keys.txt"):
+		file = FileAccess.open("missing_keys.txt", FileAccess.WRITE)
 		file.close()
 		
-	file = FileAccess.open("dialogs.txt", FileAccess.READ_WRITE)
+	file = FileAccess.open("missing_keys.txt", FileAccess.READ_WRITE)
 	file.seek_end()
 	file.store_line(text)
 	file.close()

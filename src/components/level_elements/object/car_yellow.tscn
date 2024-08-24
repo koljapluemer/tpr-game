@@ -1,25 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0ih74a4ofoin"]
+[gd_scene load_steps=6 format=3 uid="uid://dm1w5ii6fmri2"]
 
-[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object_interactable.gd" id="1_52nio"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_1bvw3"]
-[ext_resource type="Texture2D" uid="uid://b5plkbb45x5j3" path="res://src/components/level_elements/object/png/cat_alt_crop.png" id="3_oi5c0"]
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object_interactable.gd" id="1_ae3h2"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_m7urn"]
+[ext_resource type="Texture2D" uid="uid://dvsqo8ig0sg1c" path="res://src/components/level_elements/object/png/car_yellow_crop.png" id="3_0s1o5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
-radius = 20.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgbwh"]
+radius = 8.30268
+height = 40.7062
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hq71m"]
-radius = 50.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36a0r"]
+radius = 7.35678
+height = 23.3904
 
 [node name="Object" type="Node2D"]
-script = ExtResource("1_52nio")
+z_index = 3
+script = ExtResource("1_ae3h2")
+is_interactable = false
 hide_after_interaction = null
+key = "CAR_YELLOW"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("2_1bvw3")
-position = Vector2(0, -10)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_oi5c0")
+material = ExtResource("2_m7urn")
+position = Vector2(2.84215, -41.7684)
+scale = Vector2(0.257558, 0.257558)
+texture = ExtResource("3_0s1o5")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]
 scale = Vector2(20, 20)
@@ -27,7 +32,8 @@ collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
 unique_name_in_owner = true
-shape = SubResource("CircleShape2D_dgiar")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lgbwh")
 
 [node name="InteractionShape2D" type="Area2D" parent="Sprite"]
 unique_name_in_owner = true
@@ -36,7 +42,9 @@ scale = Vector2(20, 20)
 
 [node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="Sprite/InteractionShape2D"]
 unique_name_in_owner = true
-shape = SubResource("CircleShape2D_hq71m")
+position = Vector2(1.43691, -10.8013)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_36a0r")
 debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
 
 [connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]

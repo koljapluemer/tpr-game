@@ -1,17 +1,10 @@
-@tool
 class_name MapObject extends Node2D
 
 signal body_entered
 
 @export var show_outline = true
 @export var key:String = ""
-@export_category("German")
-@export var dative_form: String = ""
-@export var word: String = ""
-@export var interact_demo: String = ""
-@export var interact_prompt: String = ""
-@export var take_demo: String = ""
-@export var take_prompt: String = ""
+
 
 @onready var sprite: Sprite2D = %Sprite
 @onready var collision_shape: CollisionShape2D = %CollisionShape2D

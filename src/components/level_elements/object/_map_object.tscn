@@ -1,13 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://4siql3xkbb6u"]
+[gd_scene load_steps=4 format=3 uid="uid://4siql3xkbb6u"]
 
 [ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_y5h3g"]
-[ext_resource type="Shader" path="res://src/shared/shader_cutout_outline.gdshader" id="2_gnwn2"]
 [ext_resource type="Texture2D" uid="uid://bhn5s6dom8ow3" path="res://src/components/level_elements/object/png/laptop_crop.png" id="3_6gk1n"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_plrww"]
-shader = ExtResource("2_gnwn2")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
 radius = 20.0
@@ -15,10 +9,15 @@ radius = 20.0
 [node name="Object" type="Node2D"]
 script = ExtResource("1_y5h3g")
 show_outline = null
+dative_form = ""
+word = ""
+interact_demo = ""
+interact_prompt = ""
+take_demo = ""
+take_prompt = ""
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_plrww")
 position = Vector2(0, -11)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_6gk1n")

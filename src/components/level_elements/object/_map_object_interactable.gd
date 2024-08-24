@@ -1,4 +1,3 @@
-@tool
 class_name MapObjectInteractable extends MapObject
 
 signal was_interacted_with
