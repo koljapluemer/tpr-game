@@ -9,6 +9,11 @@ const _006_LEFT_RIGHT = preload("res://src/levels/play/006_left-right.tscn")
 const _007_LEARN_INTERACT = preload("res://src/levels/play/007_learn_interact.tscn")
 const _008_LEARN_TAKE = preload("res://src/levels/play/008_learn_take.tscn")
 
+const _009_BACKPACK_CLUSTER = preload("res://src/levels/play/009_backpack_cluster.tscn")
+const _010_FRUIT_TABLE_CLUSTER = preload("res://src/levels/play/010_fruit_table_cluster.tscn")
+const _011_TAKE_ANY = preload("res://src/levels/play/011_take_any.tscn")
+const _012_PETTING_CLUSTER = preload("res://src/levels/play/012_petting_cluster.tscn")
+
 const levels: Array[PackedScene] = [
 	_001_LEARN_MOVE,
 	_002_TRAM_BUS,
@@ -17,7 +22,11 @@ const levels: Array[PackedScene] = [
 	_006_LEFT_RIGHT,
 	_005_CAR_COLORS,
 	_007_LEARN_INTERACT,
-	_008_LEARN_TAKE
+	_012_PETTING_CLUSTER,
+	_008_LEARN_TAKE,
+	_011_TAKE_ANY,
+	_009_BACKPACK_CLUSTER,
+	_010_FRUIT_TABLE_CLUSTER
 ]
 
 var next_level = 0
