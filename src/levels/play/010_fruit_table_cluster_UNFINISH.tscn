@@ -23,7 +23,7 @@ delay_signal_by = 2
 
 [node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
 script = ExtResource("3_paixq")
-objects = [null, null]
+objects = [NodePath("../../Objects/table/apple"), NodePath("../../Objects/table2/coconut3"), NodePath("../../Objects/table2/pear2")]
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true
@@ -49,6 +49,9 @@ rotation = 0.217131
 
 [node name="coconut" parent="LevelMap/Objects/table" instance=ExtResource("6_e75dc")]
 position = Vector2(26, -48)
+
+[node name="coconut2" parent="LevelMap/Objects/table" instance=ExtResource("6_e75dc")]
+position = Vector2(42, -48)
 
 [node name="table2" parent="LevelMap/Objects" index="2" instance=ExtResource("4_v7sbh")]
 z_index = 1
