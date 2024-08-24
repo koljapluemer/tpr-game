@@ -55,12 +55,11 @@ quest_that_we_await = NodePath("../../QuestWalkToRed")
 
 [node name="Practice" type="Node2D" parent="LevelMap/Events" index="1"]
 
-[node name="QuestWalkToAMG" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
+[node name="QuestWalkToAMG" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target")]
 script = ExtResource("2_jx3bu")
 target = NodePath("../../../Objects/AMG_silver")
 give_demo = false
 delay_before_start = 3.0
-start_condition = NodePath("")
 
 [node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToAMG" node_paths=PackedStringArray("quest_that_we_await")]
 script = ExtResource("4_k8mx0")
