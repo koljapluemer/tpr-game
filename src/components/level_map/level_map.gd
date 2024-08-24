@@ -32,3 +32,7 @@ func fire_celebration_particles():
 
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_next_button_pressed() -> void:
+	LevelManager.load_next_level()

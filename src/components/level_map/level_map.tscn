@@ -103,6 +103,18 @@ offset_bottom = 42.0
 grow_horizontal = 0
 text = "Restart Level"
 
+[node name="NextButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -242.0
+offset_top = 11.0
+offset_right = -133.0
+offset_bottom = 42.0
+grow_horizontal = 0
+text = "Next Level"
+
 [connection signal="pressed" from="CanvasLayer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
 
 [editable path="PlayerCameraCombo"]

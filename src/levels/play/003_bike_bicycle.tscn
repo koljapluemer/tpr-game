@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://65iqdp50t0v2"]
+[gd_scene load_steps=6 format=3 uid="uid://65iqdp50t0v2"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_g16uy"]
-[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_sogko"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_1xe4w"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_srlu1"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished_internal.gd" id="5_ktikj"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_cluster_finished.gd" id="2_emkk1"]
+[ext_resource type="Script" path="res://src/managers/quest_cluster/quest_cluster.gd" id="2_gmfup"]
 [ext_resource type="PackedScene" uid="uid://bni8753vbwold" path="res://src/components/level_elements/object/bike.tscn" id="6_1von3"]
 [ext_resource type="PackedScene" uid="uid://7w8cg6jya7rp" path="res://src/components/level_elements/object/bicycle.tscn" id="7_lkldi"]
 
@@ -12,72 +10,17 @@
 
 [node name="LevelMap" parent="." instance=ExtResource("1_g16uy")]
 
-[node name="QuestWalkToNode" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_sogko")
-target = NodePath("../../Objects/bike")
-initially_hide_target = true
-delay_before_start = 3.0
-start_condition = NodePath("ConditionMapStart")
+[node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("ConditionClusterFinished")
 
-[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/QuestWalkToNode"]
-script = ExtResource("3_1xe4w")
+[node name="ConditionClusterFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("cluster_that_we_await")]
+script = ExtResource("2_emkk1")
+cluster_that_we_await = NodePath("../../QuestCluster")
 
-[node name="QuestWalkToNode2" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_sogko")
-target = NodePath("../../Objects/bicycle")
-initially_hide_target = true
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode2"]
-script = ExtResource("4_srlu1")
-
-[node name="QuestWalkToNode3" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_sogko")
-target = NodePath("../../Objects/bike")
-delay_before_start = 2.0
-start_condition = NodePath("NConditionQuestFinished")
-
-[node name="NConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode3"]
-script = ExtResource("4_srlu1")
-
-[node name="QuestWalkToNode4" type="Node2D" parent="LevelMap/Events" index="3" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_sogko")
-target = NodePath("../../Objects/bicycle")
-give_demo = false
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode4"]
-script = ExtResource("4_srlu1")
-
-[node name="QuestWalkToNode5Unassisted" type="Node2D" parent="LevelMap/Events" index="4" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_sogko")
-target = NodePath("../../Objects/bike")
-give_demo = false
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted"]
-script = ExtResource("4_srlu1")
-
-[node name="QuestWalkToNode5Unassisted2" type="Node2D" parent="LevelMap/Events" index="5" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_sogko")
-target = NodePath("../../Objects/bicycle")
-give_demo = false
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted2"]
-script = ExtResource("4_srlu1")
-
-[node name="EventEndLevel" parent="LevelMap/Events" index="6" node_paths=PackedStringArray("start_condition")]
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
-script = ExtResource("5_ktikj")
-quest_that_we_await = NodePath("../../QuestWalkToNode5Unassisted2")
-delay_signal_by = 2
+[node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
+script = ExtResource("2_gmfup")
+objects = [NodePath("../../Objects/bike"), NodePath("../../Objects/bicycle")]
+nr_of_reps = 4
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true
