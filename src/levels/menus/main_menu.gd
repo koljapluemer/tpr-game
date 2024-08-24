@@ -16,3 +16,11 @@ func _on_lang_select_item_selected(index: int) -> void:
 			Globals.set_locale("de")
 		1:
 			Globals.set_locale("ar")
+
+
+func _ready() -> void:
+	match lang_select.selected:
+		0:
+			Globals.set_locale("de")
+		1:
+			Globals.set_locale("ar")
