@@ -13,7 +13,7 @@ signal finished
 
 enum QuestType {
 	WalkTo,
-	#Take,
+	Take,
 	InteractWith
 }
 
@@ -31,6 +31,8 @@ func _ready() -> void:
 					quest = QuestWalkToNode.create(obj, true, true)
 				QuestType.InteractWith:
 					quest = QuestInteractWithNode.create(obj, true, true, tutor_home)
+				QuestType.Take:
+					quest = QuestTakeNode.create(obj, true, tutor_home)
 					
 			var start_condition: Condition
 			if last_quest != null:
@@ -59,8 +61,15 @@ func _ready() -> void:
 		match quest_type:
 			QuestType.WalkTo:
 				quest = QuestWalkToNode.create(obj, false, false)
+			QuestType.Take:
+				# TODO: count whether that is still possible
+				# after all, items vanish
+				quest = QuestTakeNode.create(obj, false, tutor_home)
 			QuestType.InteractWith:
+				# TODO: test this mode
 				quest = QuestInteractWithNode.create(obj, false, false, tutor_home)
+				
+
 		var start_condition: Condition
 		if last_quest != null:
 			# not using static constructor because it randomly doesn't work

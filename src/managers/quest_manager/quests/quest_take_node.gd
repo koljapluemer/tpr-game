@@ -9,6 +9,12 @@ var target_object_list:Array = []
 
 @onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor")
 
+static func create(_target, _give_demo, _move_target_after_demo = null):
+	var instance = QuestTakeNode.new()
+	instance.target = _target
+	instance.give_demo = _give_demo
+	instance.move_target_after_demo = _move_target_after_demo
+	return instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

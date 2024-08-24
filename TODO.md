@@ -10,3 +10,7 @@
 
 
 - handle tutor being already on target
+
+- fix all kinds of edge cases with pickupable items
+- fix that you can currently pick up multiple items at once, see maybe: https://forum.godotengine.org/t/solved-with-solution-how-to-click-only-the-top-area2d/13319/3
+- prevent picking up wrong item overall
