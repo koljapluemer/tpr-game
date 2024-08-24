@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_7mq5m"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_4mv4o"]
 [ext_resource type="PackedScene" uid="uid://tmo3bahqdb0e" path="res://src/components/level_elements/object/bus.tscn" id="5_5s5fj"]
-[ext_resource type="PackedScene" uid="uid://65iqdp50t0v2" path="res://src/levels/004_bike_bicycle.tscn" id="5_ek8ef"]
+[ext_resource type="PackedScene" uid="uid://65iqdp50t0v2" path="res://src/levels/play/003_bike_bicycle.tscn" id="5_ek8ef"]
 [ext_resource type="PackedScene" uid="uid://ddwar6wt6xx3b" path="res://src/components/level_elements/object/tuktuk.tscn" id="6_td7y3"]
 
 [node name="002BikeBicycle" type="Node2D"]

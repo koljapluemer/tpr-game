@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_interact_with_node.gd" id="2_ccjyk"]
 [ext_resource type="PackedScene" uid="uid://dkau0y0q6i4ie" path="res://src/components/level_elements/object/stool.tscn" id="3_0fp20"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_wrp2h"]
-[ext_resource type="PackedScene" uid="uid://l2jfxgguv0dt" path="res://src/levels/020_learn_take.tscn" id="4_cacg6"]
+[ext_resource type="PackedScene" uid="uid://l2jfxgguv0dt" path="res://src/levels/play/008_learn_take.tscn" id="4_cacg6"]
 [ext_resource type="PackedScene" uid="uid://dvuijgst0i82m" path="res://src/components/level_elements/object/cat.tscn" id="4_l7nob"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="5_1ageo"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="6_gcv2p"]

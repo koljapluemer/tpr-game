@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2g5sn18qahh4"]
 
 [ext_resource type="Script" path="res://src/levels/menus/main_menu.gd" id="1_hnqkd"]
-[ext_resource type="PackedScene" uid="uid://dqupxb6h0f68k" path="res://src/levels/001_learn_move.tscn" id="2_8ivo2"]
+[ext_resource type="PackedScene" uid="uid://dqupxb6h0f68k" path="res://src/levels/play/001_learn_move.tscn" id="2_8ivo2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

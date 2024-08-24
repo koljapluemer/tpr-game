@@ -1,18 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4eiynjd230au"]
+[gd_scene load_steps=6 format=3 uid="uid://c4eiynjd230au"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_1plns"]
 [ext_resource type="Script" path="res://src/managers/quest_cluster/quest_cluster.gd" id="3_8kjoc"]
 [ext_resource type="PackedScene" uid="uid://c1ov4n745ulsq" path="res://src/components/level_elements/object/washing_machine.tscn" id="3_ehv6q"]
 [ext_resource type="PackedScene" uid="uid://djnkg6ysff85s" path="res://src/components/level_elements/object/cupboard_1.tscn" id="4_26wln"]
 [ext_resource type="PackedScene" uid="uid://cjrqej5dqvxrf" path="res://src/components/level_elements/object/toilet.tscn" id="5_o0ji3"]
-[ext_resource type="PackedScene" uid="uid://o8mxy7xl5kb1" path="res://src/levels/010_learn_interact.tscn" id="5_pv804"]
 
 [node name="002BikeBicycle" type="Node2D"]
 
 [node name="LevelMap" parent="." instance=ExtResource("1_1plns")]
-
-[node name="EventGoToScene" parent="LevelMap/Events" index="0"]
-scene = ExtResource("5_pv804")
 
 [node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
 script = ExtResource("3_8kjoc")

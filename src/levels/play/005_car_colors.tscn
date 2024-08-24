@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_jx3bu"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_iwomb"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_k8mx0"]
-[ext_resource type="PackedScene" uid="uid://o8mxy7xl5kb1" path="res://src/levels/010_learn_interact.tscn" id="5_k4m8y"]
+[ext_resource type="PackedScene" uid="uid://o8mxy7xl5kb1" path="res://src/levels/play/007_learn_interact.tscn" id="5_k4m8y"]
 [ext_resource type="PackedScene" uid="uid://c861jqularxx4" path="res://src/components/level_elements/object/car_silver.tscn" id="6_x76pf"]
 [ext_resource type="PackedScene" uid="uid://croq1utgswkbj" path="res://src/components/level_elements/object/car_red_side.tscn" id="7_q6pmi"]
 [ext_resource type="PackedScene" uid="uid://dm1w5ii6fmri2" path="res://src/components/level_elements/object/car_yellow.tscn" id="8_ivh2i"]

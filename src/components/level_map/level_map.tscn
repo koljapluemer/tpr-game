@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7bvdnscnjkto" path="res://src/components/level_elements/arena/small_concrete.tscn" id="3_sr5wl"]
 [ext_resource type="PackedScene" uid="uid://seow8j0oejp0" path="res://src/components/level_elements/player_camera_combo/player_camera_combo.tscn" id="4_yma7s"]
 [ext_resource type="PackedScene" uid="uid://b7wlk7sk53ern" path="res://src/managers/quest_manager/quest_manager.tscn" id="6_6x1ty"]
-[ext_resource type="Script" path="res://src/managers/event_manager/events/event_go_to_scene.gd" id="6_ueex2"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_end_level.gd" id="6_pbsts"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="7_x11e0"]
 [ext_resource type="PackedScene" uid="uid://cfdydj1akl3a1" path="res://src/components/level_elements/tutor/tutor.tscn" id="17_7x5lk"]
 
@@ -29,12 +29,10 @@ unique_name_in_owner = true
 
 [node name="Events" type="Node2D" parent="."]
 
-[node name="EventGoToScene" type="Node2D" parent="Events" node_paths=PackedStringArray("start_condition")]
-script = ExtResource("6_ueex2")
-start_condition = NodePath("ConditionQuestFinished")
-delay_before_start = 3
+[node name="EventEndLevel" type="Node2D" parent="Events"]
+script = ExtResource("6_pbsts")
 
-[node name="ConditionQuestFinished" type="Node" parent="Events/EventGoToScene"]
+[node name="ConditionQuestFinished" type="Node" parent="Events/EventEndLevel"]
 script = ExtResource("7_x11e0")
 
 [node name="Objects" type="Node2D" parent="."]
