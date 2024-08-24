@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://l2jfxgguv0dt"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_yaojt"]
+[ext_resource type="PackedScene" uid="uid://bfcqknkfpd7g" path="res://src/components/level_elements/object/table.tscn" id="2_ew4fg"]
+[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_take_node.gd" id="2_wkccp"]
+[ext_resource type="PackedScene" uid="uid://thmefnlrwetj" path="res://src/components/level_elements/object/melon.tscn" id="3_4fw64"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_6yuh1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_doe18"]
+radius = 28.1603
+
+[node name="010LearnTake" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_yaojt")]
+
+[node name="QuestTakeNode" type="Node2D" parent="LevelMap/QuestManager" index="1" node_paths=PackedStringArray("target", "move_target_after_demo", "target_for_tutor", "start_condition")]
+script = ExtResource("2_wkccp")
+target = NodePath("../../Objects/Table/Melon_T")
+move_target_after_demo = NodePath("../../Objects/Area2D")
+target_for_tutor = NodePath("../../Objects/Table/Melon_P")
+delay_before_start = 2.0
+start_condition = NodePath("ConditionMapStart")
+
+[node name="ConditionMapStart" type="Node" parent="LevelMap/QuestManager/QuestTakeNode"]
+script = ExtResource("3_6yuh1")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="Table" parent="LevelMap/Objects" index="1" instance=ExtResource("2_ew4fg")]
+z_index = 1
+position = Vector2(136, 0)
+
+[node name="Melon_T" parent="LevelMap/Objects/Table" instance=ExtResource("3_4fw64")]
+position = Vector2(0, -49)
+take_demo = "Ich nehme eine Melone."
+take_prompt = "Nimm eine Melone!"
+
+[node name="Melon_P" parent="LevelMap/Objects/Table" instance=ExtResource("3_4fw64")]
+position = Vector2(14, -49)
+hide_after_interaction = true
+
+[node name="Area2D" type="Area2D" parent="LevelMap/Objects" index="2"]
+position = Vector2(280, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/Area2D"]
+shape = SubResource("CircleShape2D_doe18")
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

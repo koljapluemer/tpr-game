@@ -25,14 +25,15 @@ func finish():
 	dialog_finished.emit(current_dialog)
 	current_dialog = ""
 	
-	
+
+# this is just for now to have an overview what sound/dialog i need	
 func write_content_to_file(text):
 	var	file
-	if not FileAccess.file_exists("user://dialogs.txt"):
-		file = FileAccess.open("user://dialogs.txt", FileAccess.WRITE)
+	if not FileAccess.file_exists("dialogs.txt"):
+		file = FileAccess.open("dialogs.txt", FileAccess.WRITE)
 		file.close()
 		
-	file = FileAccess.open("user://dialogs.txt", FileAccess.READ_WRITE)
+	file = FileAccess.open("dialogs.txt", FileAccess.READ_WRITE)
 	file.seek_end()
 	file.store_line(text)
 	file.close()

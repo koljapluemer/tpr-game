@@ -27,31 +27,16 @@ visible = true
 [node name="Table" parent="LevelMap/Objects" index="1" instance=ExtResource("4_romqn")]
 z_index = 2
 position = Vector2(104, 0)
-dative_form = ""
-word = ""
-interact_demo = ""
-interact_prompt = ""
-take_demo = ""
-take_prompt = ""
+show_outline = null
 
 [node name="Melon" parent="LevelMap/Objects/Table" instance=ExtResource("4_romqn")]
 position = Vector2(0, -55)
-dative_form = ""
-word = ""
-interact_demo = ""
-interact_prompt = ""
-take_demo = ""
-take_prompt = ""
+show_outline = null
 
 [node name="Melon2" parent="LevelMap/Objects/Table" instance=ExtResource("4_romqn")]
 position = Vector2(9, -55)
 hide_after_interaction = true
-dative_form = ""
-word = ""
-interact_demo = ""
-interact_prompt = ""
-take_demo = ""
-take_prompt = ""
+show_outline = null
 
 [node name="movehere" type="Area2D" parent="LevelMap/Objects" index="2"]
 position = Vector2(248, -24)

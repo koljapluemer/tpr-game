@@ -143,10 +143,12 @@ debug_color = Color(0.868938, 0.000519235, 0.852872, 0.42)
 [node name="Object" parent="LevelMap/Objects" index="5" instance=ExtResource("14_1tbwu")]
 z_index = 1
 position = Vector2(20, 0)
+show_outline = false
 
 [node name="Object2" parent="LevelMap/Objects" index="6" instance=ExtResource("14_1tbwu")]
 z_index = 1
 position = Vector2(-260, 0)
+show_outline = null
 
 [node name="Particles1" parent="LevelMap" index="6"]
 position = Vector2(-344, 80)

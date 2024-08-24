@@ -3,6 +3,7 @@ class_name MapObject extends Node2D
 
 signal body_entered
 
+@export var show_outline = true
 @export_category("German")
 @export var dative_form: String = ""
 @export var word: String = ""
@@ -16,7 +17,8 @@ signal body_entered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if not show_outline:
+		sprite.material = null
 	
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	print("body entered me (", name, "): ", body.name)
