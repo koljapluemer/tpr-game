@@ -57,13 +57,11 @@ func _activate():
 		quest_hot_condition = c_object_appeared
 		
 	
+	quest_hot_condition.delay_signal_by = 3
 	# instruct and start quest
 	instruction = target.take_prompt
 	var e_demo_instruct = EventSay.create(instruction)
 	e_demo_instruct.start_condition = quest_hot_condition
-	# TODO: fix magic number
-	# this is the time between demo and task given to player
-	e_demo_instruct.delay_before_start = 3
 	add_child(e_demo_instruct)
 	
 	# success condition

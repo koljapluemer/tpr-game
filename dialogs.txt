@@ -77,3 +77,11 @@ Hallo!
 Hallo!
 Ich gehe zum Laptop
 Geh zum Laptop!
+Ich streichele die Katze.
+Streichel die Katze!
+Ich streichele die Katze.
+Streichel die Katze!
+Ich nehme eine Melone.
+Nimm eine Melone!
+Ich nehme eine Melone.
+Nimm eine Melone!

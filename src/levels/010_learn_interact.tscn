@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o8mxy7xl5kb1"]
+[gd_scene load_steps=11 format=3 uid="uid://o8mxy7xl5kb1"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_fcupu"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_interact_with_node.gd" id="2_ccjyk"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_wrp2h"]
 [ext_resource type="PackedScene" uid="uid://l2jfxgguv0dt" path="res://src/levels/020_learn_take.tscn" id="4_cacg6"]
 [ext_resource type="PackedScene" uid="uid://dvuijgst0i82m" path="res://src/components/level_elements/object/cat.tscn" id="4_l7nob"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="5_1ageo"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="6_gcv2p"]
+[ext_resource type="PackedScene" uid="uid://chk5302mnlix6" path="res://src/components/level_elements/special/tutorial/tutorial_ui.tscn" id="9_xwvel"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xkjtd"]
 radius = 41.0122
@@ -30,6 +33,18 @@ scene = ExtResource("4_cacg6")
 [node name="ConditionQuestFinished" parent="LevelMap/Events/EventGoToScene" index="0" node_paths=PackedStringArray("quest_that_we_await")]
 quest_that_we_await = NodePath("../../../QuestManager/QuestInteractWithNode")
 
+[node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("appearing_node", "start_condition", "end_condition")]
+script = ExtResource("5_1ageo")
+appearing_node = NodePath("../../Objects/Tutorial")
+start_condition = NodePath("ConditionBodyTouchedArea")
+end_condition = NodePath("")
+delay_before_start = 2
+
+[node name="ConditionBodyTouchedArea" type="Node" parent="LevelMap/Events/EventShowControlScheme" node_paths=PackedStringArray("body", "area")]
+script = ExtResource("6_gcv2p")
+body = NodePath("../../../Objects/Tutor")
+area = NodePath("../../../Objects/Area2D")
+
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true
 
@@ -50,6 +65,9 @@ collision_mask = 255
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/Area2D"]
 position = Vector2(-15, -5)
 shape = SubResource("CircleShape2D_xkjtd")
+
+[node name="Tutorial" parent="LevelMap/Objects" index="4" instance=ExtResource("9_xwvel")]
+tutorial_text = "To interact with an object, walk to it and click it."
 
 [connection signal="body_entered" from="LevelMap/Objects/Area2D" to="LevelMap/Objects/Area2D" method="_on_body_entered"]
 
