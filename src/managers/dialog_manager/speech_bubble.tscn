@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyvrf5g4g8cyl"]
+[gd_scene load_steps=4 format=3 uid="uid://cyvrf5g4g8cyl"]
 
 [ext_resource type="Texture2D" uid="uid://lqpfingtpo6a" path="res://src/managers/dialog_manager/speechbubble_small.png" id="1_mudrb"]
+[ext_resource type="Theme" uid="uid://t22640th1p8v" path="res://src/shared/basic_theme.tres" id="1_rj08u"]
 [ext_resource type="Script" path="res://src/managers/dialog_manager/speech_bubble.gd" id="1_v6dvv"]
 
 [node name="SpeechBubble" type="MarginContainer"]
@@ -9,6 +10,7 @@ offset_left = -600.0
 offset_top = -48.0
 offset_right = 12.0
 offset_bottom = 2.0
+theme = ExtResource("1_rj08u")
 script = ExtResource("1_v6dvv")
 metadata/_edit_use_anchors_ = true
 

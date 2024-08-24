@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2g5sn18qahh4"]
+[gd_scene load_steps=4 format=3 uid="uid://b2g5sn18qahh4"]
 
+[ext_resource type="Theme" uid="uid://t22640th1p8v" path="res://src/shared/basic_theme.tres" id="1_01a1u"]
 [ext_resource type="Script" path="res://src/levels/menus/main_menu.gd" id="1_hnqkd"]
 [ext_resource type="PackedScene" uid="uid://dqupxb6h0f68k" path="res://src/levels/play/001_learn_move.tscn" id="2_8ivo2"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_01a1u")
 script = ExtResource("1_hnqkd")
 first_level = ExtResource("2_8ivo2")
 
