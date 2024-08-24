@@ -25,5 +25,6 @@ func _run():
 func _on_body_entered_target_area(body):
 	print(name, ": Body entered")
 	if body == walker:
+		destination_node.body_entered.disconnect(_on_body_entered_target_area)
 		walker.set_interacting()
 		walker.done_with_interacting.connect(finish)

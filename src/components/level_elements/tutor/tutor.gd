@@ -65,7 +65,6 @@ func update_facing_direction():
 func show_object():
 	visible = true
 	
-
 func set_idle():
 	target = null
 	velocity = Vector2.ZERO
