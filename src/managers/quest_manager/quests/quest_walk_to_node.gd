@@ -32,7 +32,7 @@ func _activate():
 		e_demo_walk.delay_before_start = 5
 		add_child(e_demo_walk)
 		
-		var e_demo_talk = EventSay.create("Ich gehe " + target.dative_form)
+		var e_demo_talk = EventSay.create("GOING_" + target.key)
 		e_demo_talk.delay_before_start = 4
 		e_demo_talk.start_condition = c_object_appeared
 		add_child(e_demo_talk)
@@ -51,9 +51,8 @@ func _activate():
 	quest_hot_condition.delay_signal_by = 3
 	
 	# instruct and start quest
-	
-	var e_demo_instruct = EventSay.create("Geh " + target.dative_form + "!")
-	instruction = "Geh " + target.dative_form
+	instruction = "GO_" + target.key
+	var e_demo_instruct = EventSay.create(instruction)
 	e_demo_instruct.start_condition = quest_hot_condition
 	add_child(e_demo_instruct)
 	

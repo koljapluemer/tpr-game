@@ -10,7 +10,7 @@ func _ready() -> void:
 	super()
 
 func _run():
-	dialog_manager.say(tr(key))
+	dialog_manager.say(key)
 	dialog_manager.dialog_finished.connect(_on_dialog_finished)
 
 func _on_dialog_finished(finished_dialog):
@@ -19,7 +19,7 @@ func _on_dialog_finished(finished_dialog):
 	print(name, ": dialog event finished", finished_dialog)
 	finish()
 
-static func create(say_what: String):
+static func create(key: String):
 	var instance = EventSay.new()
-	instance.text = say_what
+	instance.key = key
 	return instance

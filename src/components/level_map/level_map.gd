@@ -13,7 +13,6 @@ signal level_started
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	TranslationServer.set_locale(Globals.language_code)
 	level_started.emit()
 	# scenes with props
 	if parallax_background_scene:

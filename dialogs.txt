@@ -87,3 +87,17 @@ Ich nehme eine Melone.
 Nimm eine Melone!
 GREETING
 Hallo!
+Hallo!
+Hallo!
+WALKING_LAPTOP
+Hallo!
+WALKING_LAPTOP
+Hallo!
+WALKING_LAPTOP
+Hallo!
+WALKING_LAPTOP
+Hallo!
+Ich gehe zum Laptop
+Geh zum Laptop!
+Ich gehe zum Bus
+Geh zum Bus!

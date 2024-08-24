@@ -8,8 +8,13 @@ var current_dialog: String
 
 func _ready():
 	speech_bubble.visible = false
+	TranslationServer.set_locale(Globals.language_code)
 
-func say(dialog, kill_after=5):
+
+func say(key, kill_after=5):
+	print("key is: ", key)
+	var dialog = tr(key)
+	print("dialog is", dialog)
 	# TODO: instead of kill_after, at least have
 	# the option to see how long the audio is and do that times something or so
 	# maybe even a user test how fast u can read
