@@ -17,9 +17,6 @@ size = Vector2(64, 103)
 [node name="Player" parent="LevelMap/PlayerCameraCombo" index="1"]
 z_index = 4
 
-[node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
-start_condition = NodePath("")
-
 [node name="ConditionClusterFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("cluster_that_we_await")]
 script = ExtResource("2_o1v0j")
 cluster_that_we_await = NodePath("../../QuestCluster")

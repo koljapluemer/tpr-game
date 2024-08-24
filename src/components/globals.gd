@@ -1,6 +1,6 @@
 extends Node
 
-var language_code: String = "de"
+var language_code: String = "ar"
 
 
 func set_locale(locale):

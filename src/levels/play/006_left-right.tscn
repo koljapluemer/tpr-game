@@ -13,9 +13,8 @@
 [node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0"]
 script = ExtResource("5_hg3j7")
-quest_that_we_await = NodePath("")
 delay_signal_by = 2
 
 [node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
