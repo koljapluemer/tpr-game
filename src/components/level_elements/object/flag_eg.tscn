@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf86lydv1v0cn"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object_interactable.gd" id="1_ohr3m"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_0h33y"]
+[ext_resource type="Texture2D" uid="uid://s4wo1t0yf1lr" path="res://src/components/level_elements/object/png/flag_eg_crop.png" id="3_65rar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xd15"]
+size = Vector2(6.95279, 23.5935)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hibi"]
+
+[node name="Object" type="Node2D"]
+script = ExtResource("1_ohr3m")
+hide_after_interaction = null
+key = "FLAG_EGYPT"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_0h33y")
+position = Vector2(45.275, -127.032)
+scale = Vector2(0.165401, 0.165401)
+texture = ExtResource("3_65rar")
+
+[node name="Area2D2" type="Area2D" parent="Sprite"]
+scale = Vector2(20, 20)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+unique_name_in_owner = true
+position = Vector2(-15.3491, 27.2236)
+shape = SubResource("RectangleShape2D_4xd15")
+
+[node name="InteractionShape2D" type="Area2D" parent="Sprite"]
+unique_name_in_owner = true
+position = Vector2(0, 200)
+scale = Vector2(20, 20)
+
+[node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="Sprite/InteractionShape2D"]
+unique_name_in_owner = true
+position = Vector2(-13.9887, 19.0302)
+shape = SubResource("RectangleShape2D_1hibi")
+debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
+
+[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="body_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
+[connection signal="body_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]
