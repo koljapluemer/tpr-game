@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcota1xyq1kgd"]
+[gd_scene load_steps=8 format=3 uid="uid://bcota1xyq1kgd"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_oqaub"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_1n1ar"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_qbovu"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_3e40g"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished_internal.gd" id="5_hg3j7"]
 [ext_resource type="PackedScene" uid="uid://djnkg6ysff85s" path="res://src/components/level_elements/object/cupboard_1.tscn" id="6_gb63k"]
 [ext_resource type="PackedScene" uid="uid://vp70vgsm6xut" path="res://src/components/level_elements/object/cupboard_2.tscn" id="7_8ljf6"]
 
@@ -87,6 +88,14 @@ start_condition = NodePath("ConditionQuestFinished")
 
 [node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted4"]
 script = ExtResource("4_3e40g")
+
+[node name="EventEndLevel" parent="LevelMap/Events" index="8" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("5_hg3j7")
+quest_that_we_await = NodePath("../../QuestWalkToNode5Unassisted4")
+delay_signal_by = 2
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true

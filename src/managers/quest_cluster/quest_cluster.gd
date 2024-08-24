@@ -64,12 +64,12 @@ func _ready() -> void:
 			if is_last_cluster_of_level:
 				print("is last level")
 				var end_level_condition = ConditionQuestFinishedInternal.new()
-				add_child(end_level_condition)
 				print("last quest: ", last_quest)
 				end_level_condition.quest_that_we_await = last_quest
 				end_level_condition.fulfilled.connect(finish)
+				add_child(end_level_condition)
 						
 					
 func finish():
-	print("finished cluster")
+	print(name, ": finished cluster")
 	finished.emit()
