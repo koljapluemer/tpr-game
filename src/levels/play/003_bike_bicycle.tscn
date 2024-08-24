@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://65iqdp50t0v2"]
+[gd_scene load_steps=7 format=3 uid="uid://65iqdp50t0v2"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_g16uy"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_sogko"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_1xe4w"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_srlu1"]
-[ext_resource type="PackedScene" uid="uid://o8mxy7xl5kb1" path="res://src/levels/play/007_learn_interact.tscn" id="5_wnxb2"]
 [ext_resource type="PackedScene" uid="uid://bni8753vbwold" path="res://src/components/level_elements/object/bike.tscn" id="6_1von3"]
 [ext_resource type="PackedScene" uid="uid://7w8cg6jya7rp" path="res://src/components/level_elements/object/bicycle.tscn" id="7_lkldi"]
 
@@ -76,10 +75,7 @@ start_condition = NodePath("ConditionQuestFinished")
 script = ExtResource("4_srlu1")
 quest_that_we_await = NodePath("../../QuestWalkToNode5Unassisted")
 
-[node name="EventGoToScene" parent="LevelMap/Events" index="6"]
-scene = ExtResource("5_wnxb2")
-
-[node name="ConditionQuestFinished" parent="LevelMap/Events/EventGoToScene" index="0" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
 quest_that_we_await = NodePath("../../QuestWalkToNode5Unassisted2")
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]

@@ -1,27 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqupxb6h0f68k"]
+[gd_scene load_steps=13 format=3 uid="uid://dqupxb6h0f68k"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_28ge3"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="2_5e8di"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_iv3s7"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="4_v8xsk"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear.gd" id="5_6bq42"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_logic_all.gd" id="6_vk3t7"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_event_finished.gd" id="7_bg3ye"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_say.gd" id="8_mcbtf"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="9_7fk16"]
-[ext_resource type="PackedScene" uid="uid://dan38ncuc31u4" path="res://src/levels/play/002_tram_bus.tscn" id="10_ihmcg"]
 [ext_resource type="PackedScene" uid="uid://sy2a0jkqit25" path="res://src/components/level_elements/object/laptop.tscn" id="10_thec0"]
 [ext_resource type="PackedScene" uid="uid://chk5302mnlix6" path="res://src/components/level_elements/special/tutorial/tutorial_ui.tscn" id="13_u6w0y"]
 [ext_resource type="PackedScene" uid="uid://b46anditi4djg" path="res://src/components/level_elements/object/carpet1.tscn" id="14_1tbwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_saeo1"]
 size = Vector2(20, 104)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_54csk"]
-size = Vector2(114, 104)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhsd6"]
-size = Vector2(112, 104)
 
 [node name="L001LearnMove" type="Node2D"]
 
@@ -51,27 +43,18 @@ area = NodePath("../../../Objects/ProofPlayerWalked")
 [node name="EventTutorShow" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("appearing_node", "start_condition")]
 script = ExtResource("5_6bq42")
 appearing_node = NodePath("../../Objects/Tutor")
-start_condition = NodePath("ConditionLogicAll")
+start_condition = NodePath("ConditionEventFinished")
 delay_before_start = 3
 
-[node name="ConditionLogicAll" type="Node" parent="LevelMap/Events/EventTutorShow" node_paths=PackedStringArray("conditions")]
-script = ExtResource("6_vk3t7")
-conditions = [NodePath("ConditionBodyTouchedArea"), NodePath("ConditionEventFinished")]
-
-[node name="ConditionBodyTouchedArea" type="Node" parent="LevelMap/Events/EventTutorShow/ConditionLogicAll" node_paths=PackedStringArray("body", "area")]
-script = ExtResource("4_v8xsk")
-body = NodePath("../../../../PlayerCameraCombo/Player")
-area = NodePath("../../../../Objects/SpawnTutorTrigger")
-
-[node name="ConditionEventFinished" type="Node" parent="LevelMap/Events/EventTutorShow/ConditionLogicAll" node_paths=PackedStringArray("event")]
+[node name="ConditionEventFinished" type="Node" parent="LevelMap/Events/EventTutorShow" node_paths=PackedStringArray("event")]
 script = ExtResource("7_bg3ye")
-event = NodePath("../../../EventShowControlScheme")
+event = NodePath("../../EventShowControlScheme")
 
 [node name="EventSayGreeting" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("start_condition")]
 script = ExtResource("8_mcbtf")
 key = "GREETING"
 start_condition = NodePath("ConditionEventFinished")
-delay_before_start = 2
+delay_before_start = 1
 
 [node name="ConditionEventFinished" type="Node" parent="LevelMap/Events/EventSayGreeting" node_paths=PackedStringArray("event")]
 script = ExtResource("7_bg3ye")
@@ -88,20 +71,20 @@ start_condition = NodePath("ConditionEventFinished2")
 script = ExtResource("7_bg3ye")
 event = NodePath("../../EventSayGreeting")
 
-[node name="EventGoToScene" parent="LevelMap/Events" index="4"]
-scene = ExtResource("10_ihmcg")
+[node name="EventEndLevel" parent="LevelMap/Events" index="4" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" parent="LevelMap/Events/EventGoToScene" index="0" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
 quest_that_we_await = NodePath("../../QuestWalkToLaptop")
 
 [node name="Laptop" parent="LevelMap/Objects" index="1" instance=ExtResource("10_thec0")]
-z_index = 1
-position = Vector2(143, 0)
+z_index = 3
+position = Vector2(39, 0)
 
 [node name="ProofPlayerWalked" type="Area2D" parent="LevelMap/Objects" index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/ProofPlayerWalked"]
-position = Vector2(82, -46)
+position = Vector2(-6, -46)
 shape = SubResource("RectangleShape2D_saeo1")
 debug_color = Color(0.309112, 0.626842, 3.85046e-07, 0.42)
 
@@ -110,28 +93,16 @@ position = Vector2(-208, -46)
 shape = SubResource("RectangleShape2D_saeo1")
 debug_color = Color(0.309112, 0.626842, 3.85046e-07, 0.42)
 
-[node name="SpawnTutorTrigger" type="Area2D" parent="LevelMap/Objects" index="3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/SpawnTutorTrigger"]
-position = Vector2(30, -46)
-shape = SubResource("RectangleShape2D_54csk")
-debug_color = Color(0.857311, 0.000730817, 0.88234, 0.42)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelMap/Objects/SpawnTutorTrigger"]
-position = Vector2(-250, -46)
-shape = SubResource("RectangleShape2D_qhsd6")
-debug_color = Color(0.868938, 0.000519235, 0.852872, 0.42)
-
-[node name="Object" parent="LevelMap/Objects" index="4" instance=ExtResource("14_1tbwu")]
+[node name="Object" parent="LevelMap/Objects" index="3" instance=ExtResource("14_1tbwu")]
 z_index = 1
-position = Vector2(20, 0)
+position = Vector2(-4, 0)
 show_outline = false
 
-[node name="Object2" parent="LevelMap/Objects" index="5" instance=ExtResource("14_1tbwu")]
+[node name="Object2" parent="LevelMap/Objects" index="4" instance=ExtResource("14_1tbwu")]
 z_index = 1
-position = Vector2(-260, 0)
+position = Vector2(-220, 0)
 
-[node name="Tutorial" parent="LevelMap/Objects" index="6" instance=ExtResource("13_u6w0y")]
+[node name="Tutorial" parent="LevelMap/Objects" index="5" instance=ExtResource("13_u6w0y")]
 tutorial_text = "Use the arrow keys to move."
 
 [node name="Particles1" parent="LevelMap" index="6"]
