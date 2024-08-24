@@ -48,10 +48,6 @@ func walk_to_node(tar):
 	target = tar
 	current_state = State.IsWalking
 	
-func _on_body_entered_target_are(body):
-	if body == self:
-		print("tutor has reached walk target")
-		has_reached_target.emit()
 		
 func update_animation():
 	if direction.x != 0:

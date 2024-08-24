@@ -17,12 +17,13 @@ func _ready() -> void:
 func _run():
 	if walker.has_method("walk_to_node"):
 		walker.walk_to_node(destination_node)
-		destination_node.body_entered.connect(walker._on_body_entered_target_are)
-		walker.has_reached_target.connect(_on_walker_reached_target)
+		destination_node.body_entered.connect(_on_body_entered_target_area)
 	else:
 		push_warning(name, ": Warning: Walker has no walk_to_node method.")
 
 
-func _on_walker_reached_target():
-	print(name, ": INTERACT event told tutor to interact")
-	walker.set_interacting()
+func _on_body_entered_target_area(body):
+	print(name, ": Body entered")
+	if body == walker:
+		walker.set_interacting()
+		walker.done_with_interacting.connect(finish)

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvuijgst0i82m" path="res://src/components/level_elements/object/cat.tscn" id="4_l7nob"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xkjtd"]
+radius = 41.0122
 
 [node name="010LearnInteract" type="Node2D"]
 
@@ -37,9 +38,13 @@ interact_prompt = "Streichel die Katze!"
 
 [node name="Area2D" type="Area2D" parent="LevelMap/Objects" index="3"]
 position = Vector2(344, -10)
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/Area2D"]
+position = Vector2(-15, -5)
 shape = SubResource("CircleShape2D_xkjtd")
+
+[connection signal="body_entered" from="LevelMap/Objects/Area2D" to="LevelMap/Objects/Area2D" method="_on_body_entered"]
 
 [editable path="LevelMap"]
 [editable path="LevelMap/PlayerCameraCombo"]
