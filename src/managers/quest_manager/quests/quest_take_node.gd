@@ -4,7 +4,8 @@ class_name QuestTakeNode extends Quest
 
 @export var give_demo = true
 @export var move_target_after_demo: Node2D
-@export var target_for_tutor: MapObjectInteractable
+
+var target_object_list:Array = []
 
 @onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor")
 
@@ -13,6 +14,12 @@ class_name QuestTakeNode extends Quest
 func _ready() -> void:
 	if success_condition:
 		push_warning("QUEST - ", name, ": take quest should likely not have a manual end condition")
+	if target:
+		# target isn't just -the- target, it's key defines which objects can be taken
+		# aka if target has key MELON, all objects with -group- KEY-MELON can be taken
+		target_object_list = get_tree().get_nodes_in_group("KEY-" + target.key)
+		print("found this many obj", len(target_object_list))
+		
 	super()
 	
 func _activate():
@@ -29,7 +36,9 @@ func _activate():
 	
 	if give_demo:
 		# tutor demo
-		var e_demo_walk = EventTake.create(target_for_tutor)
+		var random_target_obj = target_object_list.pick_random()
+		print("random target obj: ", random_target_obj)
+		var e_demo_walk = EventTake.create(random_target_obj)
 		e_demo_walk.start_condition = c_object_appeared
 		e_demo_walk.delay_before_start = 3
 		add_child(e_demo_walk)
@@ -65,7 +74,11 @@ func _activate():
 	add_child(e_demo_instruct)
 	
 	# success condition
-	success_condition = ConditionBodyInteractedWithMapObject.create(player, target)
+	
+	# doing it w/o create init because that randomly fails again
+	success_condition = ConditionBodyInteractedWithMapObjectWithGroup.new()
+	success_condition.body = player
+	success_condition.group_string = "KEY-" + target.key
 	add_child(success_condition)
 	# used in parent
 	

@@ -21,11 +21,10 @@ position = Vector2(26, 0)
 [node name="Player" parent="LevelMap/PlayerCameraCombo" index="1"]
 position = Vector2(26, 0)
 
-[node name="QuestTakeNode" type="Node2D" parent="LevelMap/QuestManager" index="1" node_paths=PackedStringArray("target", "move_target_after_demo", "target_for_tutor", "start_condition")]
+[node name="QuestTakeNode" type="Node2D" parent="LevelMap/QuestManager" index="1" node_paths=PackedStringArray("target", "move_target_after_demo", "start_condition")]
 script = ExtResource("2_cq4dc")
 target = NodePath("../../Objects/Table/Melon_T")
 move_target_after_demo = NodePath("../../Objects/Area2D")
-target_for_tutor = NodePath("../../Objects/Table/Melon_P")
 delay_before_start = 2.0
 start_condition = NodePath("ConditionMapStart")
 
