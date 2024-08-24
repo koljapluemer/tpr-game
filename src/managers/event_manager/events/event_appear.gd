@@ -12,13 +12,15 @@ func _ready() -> void:
 	super()
 	
 func _run():
-	if appearing_node.has_method("show_object"):
-		appearing_node.show_object()
-	else:
-		appearing_node.show()
-		push_warning("warning: object sheduled to appear, but missing method")
-	audio_player.stream = FINGERPLOP
-	audio_player.play()
+	if appearing_node.visible == false:
+		audio_player.stream = FINGERPLOP
+		audio_player.play()
+		if appearing_node.has_method("show_object"):
+			appearing_node.show_object()
+		else:
+			appearing_node.visible = true
+			push_warning("warning: object sheduled to appear, but missing method")
+
 	finish()
 
 static func create_from_map_object(map_object:MapObject):

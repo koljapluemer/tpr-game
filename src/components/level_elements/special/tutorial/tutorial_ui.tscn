@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://chk5302mnlix6"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/special/tutorial/tutorial_ui.gd" id="1_w2ec1"]
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_w2ec1")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 64.0
+offset_right = 93.0
+offset_bottom = 87.0
+grow_horizontal = 2
+text = "Use arrow keys to move"

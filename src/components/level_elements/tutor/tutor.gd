@@ -63,7 +63,7 @@ func update_facing_direction():
 		
 # wrapper for show()
 func show_object():
-	show()
+	visible = true
 	
 
 func set_idle():

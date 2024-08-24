@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://o8mxy7xl5kb1"]
+[gd_scene load_steps=8 format=3 uid="uid://o8mxy7xl5kb1"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_fcupu"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_interact_with_node.gd" id="2_ccjyk"]
 [ext_resource type="PackedScene" uid="uid://dkau0y0q6i4ie" path="res://src/components/level_elements/object/stool.tscn" id="3_0fp20"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_wrp2h"]
+[ext_resource type="PackedScene" uid="uid://l2jfxgguv0dt" path="res://src/levels/020_learn_take.tscn" id="4_cacg6"]
 [ext_resource type="PackedScene" uid="uid://dvuijgst0i82m" path="res://src/components/level_elements/object/cat.tscn" id="4_l7nob"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xkjtd"]
@@ -22,6 +23,12 @@ start_condition = NodePath("ConditionMapStart")
 
 [node name="ConditionMapStart" type="Node" parent="LevelMap/QuestManager/QuestInteractWithNode"]
 script = ExtResource("3_wrp2h")
+
+[node name="EventGoToScene" parent="LevelMap/Events" index="0"]
+scene = ExtResource("4_cacg6")
+
+[node name="ConditionQuestFinished" parent="LevelMap/Events/EventGoToScene" index="0" node_paths=PackedStringArray("quest_that_we_await")]
+quest_that_we_await = NodePath("../../../QuestManager/QuestInteractWithNode")
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://7w8cg6jya7rp"]
+[gd_scene load_steps=5 format=3 uid="uid://7w8cg6jya7rp"]
 
 [ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_so485"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_wte23"]
 [ext_resource type="Texture2D" uid="uid://dnh6j4n4l1xuq" path="res://src/components/level_elements/object/png/bike_crop.png" id="3_tuccl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1beeo"]
@@ -13,6 +14,7 @@ dative_form = "zum Fahrrad"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = ExtResource("2_wte23")
 position = Vector2(-0.42035, -28.2125)
 scale = Vector2(0.0690324, 0.0690324)
 texture = ExtResource("3_tuccl")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddwar6wt6xx3b"]
+[gd_scene load_steps=5 format=3 uid="uid://ddwar6wt6xx3b"]
 
 [ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_mbju8"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_dbdr8"]
 [ext_resource type="Texture2D" uid="uid://dnsxeoej7lfsr" path="res://src/components/level_elements/object/png/tuktuk_crop.png" id="2_fcqrr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5on6c"]
@@ -13,6 +14,7 @@ dative_form = "zum Bus"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = ExtResource("2_dbdr8")
 position = Vector2(-3.74359, -44.5948)
 rotation = 0.0143806
 scale = Vector2(0.100298, 0.100298)
