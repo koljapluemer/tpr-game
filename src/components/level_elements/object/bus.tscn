@@ -1,21 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bni8753vbwold"]
+[gd_scene load_steps=4 format=3 uid="uid://tmo3bahqdb0e"]
 
-[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_ok35u"]
-[ext_resource type="Texture2D" uid="uid://cuwkdlah7jod4" path="res://src/components/level_elements/object/png/motor_bike_crop.png" id="3_5wdky"]
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_hf3w4"]
+[ext_resource type="Texture2D" uid="uid://bahwak3nrmsdx" path="res://src/components/level_elements/object/png/bus_big_crop.png" id="2_vpl7u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5on6c"]
-radius = 14.4639
-height = 53.3452
+radius = 10.684
+height = 82.6392
 
 [node name="Object" type="Node2D"]
-script = ExtResource("1_ok35u")
-dative_form = "zum Motorrad"
+script = ExtResource("1_hf3w4")
+dative_form = "zum Bus"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(6.45204, -26.6125)
-scale = Vector2(0.105824, 0.105824)
-texture = ExtResource("3_5wdky")
+position = Vector2(31.2026, -76.0177)
+rotation = 0.0143806
+scale = Vector2(0.367985, 0.367985)
+texture = ExtResource("2_vpl7u")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]
 scale = Vector2(20, 20)

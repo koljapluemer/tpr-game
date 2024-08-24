@@ -13,7 +13,6 @@ var player_within_interaction_range = false
 @onready var interaction_collision_shape_2d: CollisionShape2D = %InteractionCollisionShape2D
 
 const MATERIAL_OUTLINE_SELECTABLE = preload("res://src/shared/material_outline_selectable.tres")
-const MATERIAL_OUTLINE = preload("res://src/shared/material_outline.tres")
 
 
 func _on_interaction_shape_2d_body_entered(body: Node2D) -> void:

@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://dan38ncuc31u4"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_fbw0t"]
+[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_16fvi"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_7mq5m"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_4mv4o"]
+[ext_resource type="PackedScene" uid="uid://tmo3bahqdb0e" path="res://src/components/level_elements/object/bus.tscn" id="5_5s5fj"]
+[ext_resource type="PackedScene" uid="uid://ddwar6wt6xx3b" path="res://src/components/level_elements/object/tuktuk.tscn" id="6_td7y3"]
+
+[node name="002BikeBicycle" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_fbw0t")]
+
+[node name="QuestWalkToNode" type="Node2D" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_16fvi")
+target = NodePath("../../Objects/bus")
+initially_hide_target = true
+delay_before_start = 3.0
+start_condition = NodePath("ConditionMapStart")
+
+[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/QuestWalkToNode"]
+script = ExtResource("3_7mq5m")
+
+[node name="QuestWalkToNode2" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_16fvi")
+target = NodePath("../../Objects/tuktuk")
+initially_hide_target = true
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode2" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_4mv4o")
+quest_that_we_await = NodePath("../../QuestWalkToNode")
+
+[node name="QuestWalkToNode3" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_16fvi")
+target = NodePath("../../Objects/bus")
+delay_before_start = 2.0
+start_condition = NodePath("NConditionQuestFinished")
+
+[node name="NConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode3" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_4mv4o")
+quest_that_we_await = NodePath("../../QuestWalkToNode2")
+
+[node name="QuestWalkToNode4" type="Node2D" parent="LevelMap/Events" index="3" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_16fvi")
+target = NodePath("../../Objects/tuktuk")
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode4" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_4mv4o")
+quest_that_we_await = NodePath("../../QuestWalkToNode3")
+
+[node name="QuestWalkToNode5Unassisted" type="Node2D" parent="LevelMap/Events" index="4" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_16fvi")
+target = NodePath("../../Objects/bus")
+give_demo = false
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_4mv4o")
+quest_that_we_await = NodePath("../../QuestWalkToNode4")
+
+[node name="QuestWalkToNode5Unassisted2" type="Node2D" parent="LevelMap/Events" index="5" node_paths=PackedStringArray("target", "start_condition")]
+script = ExtResource("2_16fvi")
+target = NodePath("../../Objects/tuktuk")
+give_demo = false
+delay_before_start = 2.0
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted2" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_4mv4o")
+quest_that_we_await = NodePath("../../QuestWalkToNode5Unassisted")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="bus" parent="LevelMap/Objects" index="1" instance=ExtResource("5_5s5fj")]
+position = Vector2(-560, 0)
+
+[node name="tuktuk" parent="LevelMap/Objects" index="2" instance=ExtResource("6_td7y3")]
+z_index = 1
+position = Vector2(136, 0)
+dative_form = "zum Tuk-Tuk"
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]
