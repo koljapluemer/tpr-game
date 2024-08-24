@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4eiynjd230au"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_1plns"]
+[ext_resource type="PackedScene" uid="uid://c1ov4n745ulsq" path="res://src/components/level_elements/object/washing_machine.tscn" id="3_ehv6q"]
+[ext_resource type="PackedScene" uid="uid://djnkg6ysff85s" path="res://src/components/level_elements/object/cupboard_1.tscn" id="4_26wln"]
+[ext_resource type="PackedScene" uid="uid://cjrqej5dqvxrf" path="res://src/components/level_elements/object/toilet.tscn" id="5_o0ji3"]
+[ext_resource type="PackedScene" uid="uid://o8mxy7xl5kb1" path="res://src/levels/010_learn_interact.tscn" id="5_pv804"]
+
+[node name="002BikeBicycle" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_1plns")]
+
+[node name="EventGoToScene" parent="LevelMap/Events" index="0"]
+scene = ExtResource("5_pv804")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="washing_machine" parent="LevelMap/Objects" index="1" instance=ExtResource("3_ehv6q")]
+position = Vector2(79, 0)
+
+[node name="cupboard" parent="LevelMap/Objects" index="2" instance=ExtResource("4_26wln")]
+position = Vector2(-200, 0)
+
+[node name="Object" parent="LevelMap/Objects" index="3" instance=ExtResource("5_o0ji3")]
+position = Vector2(-72, 0)
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

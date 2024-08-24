@@ -92,7 +92,6 @@ key = null
 z_index = 1
 position = Vector2(136, 0)
 key = null
-dative_form = "zum Tuk-Tuk"
 
 [editable path="LevelMap"]
 [editable path="LevelMap/PlayerCameraCombo"]
