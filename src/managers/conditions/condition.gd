@@ -13,6 +13,5 @@ func _fulfill():
 		condition_fulfilled = true
 		get_tree().create_timer(delay_signal_by).connect("timeout", _actually_fulfill)
 
-
 func _actually_fulfill():
 		fulfilled.emit()

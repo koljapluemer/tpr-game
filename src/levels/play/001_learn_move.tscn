@@ -71,12 +71,6 @@ start_condition = NodePath("ConditionEventFinished2")
 script = ExtResource("7_bg3ye")
 event = NodePath("../../EventSayGreeting")
 
-[node name="EventEndLevel" parent="LevelMap/Events" index="4" node_paths=PackedStringArray("start_condition")]
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
-quest_that_we_await = NodePath("../../QuestWalkToLaptop")
-
 [node name="Laptop" parent="LevelMap/Objects" index="1" instance=ExtResource("10_thec0")]
 z_index = 3
 position = Vector2(39, 0)

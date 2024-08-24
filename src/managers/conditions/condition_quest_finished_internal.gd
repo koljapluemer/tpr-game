@@ -1,7 +1,6 @@
-class_name ConditionQuestFinishedInternal extends Condition
-# sibling where stuff isn't export
+class_name ConditionQuestFinished extends Condition
 
-var quest_that_we_await: Quest
+@export var quest_that_we_await: Quest
 
 func _ready() -> void:
 	print(name, ": will call when quest finished:", quest_that_we_await)
@@ -17,5 +16,5 @@ static func create(_quest):
 	return instance
 
 func _fulfill():
-	print("quest finish internal condition fulfilled", name)
+	print("quest finish condition fulfilled", name)
 	super ()

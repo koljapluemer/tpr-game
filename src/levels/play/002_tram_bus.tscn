@@ -28,9 +28,8 @@ initially_hide_target = true
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode2" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode2"]
 script = ExtResource("4_4mv4o")
-quest_that_we_await = NodePath("../../QuestWalkToNode")
 
 [node name="QuestWalkToNode3" type="Node2D" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_16fvi")
@@ -38,9 +37,8 @@ target = NodePath("../../Objects/bus")
 delay_before_start = 2.0
 start_condition = NodePath("NConditionQuestFinished")
 
-[node name="NConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode3" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="NConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode3"]
 script = ExtResource("4_4mv4o")
-quest_that_we_await = NodePath("../../QuestWalkToNode2")
 
 [node name="QuestWalkToNode4" type="Node2D" parent="LevelMap/Events" index="3" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_16fvi")
@@ -48,9 +46,8 @@ target = NodePath("../../Objects/tuktuk")
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode4" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode4"]
 script = ExtResource("4_4mv4o")
-quest_that_we_await = NodePath("../../QuestWalkToNode3")
 
 [node name="QuestWalkToNode5Unassisted" type="Node2D" parent="LevelMap/Events" index="4" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_16fvi")
@@ -59,9 +56,8 @@ give_demo = false
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted"]
 script = ExtResource("4_4mv4o")
-quest_that_we_await = NodePath("../../QuestWalkToNode4")
 
 [node name="QuestWalkToNode5Unassisted2" type="Node2D" parent="LevelMap/Events" index="5" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_16fvi")
@@ -70,12 +66,8 @@ give_demo = false
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted2" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/QuestWalkToNode5Unassisted2"]
 script = ExtResource("4_4mv4o")
-quest_that_we_await = NodePath("../../QuestWalkToNode5Unassisted")
-
-[node name="ConditionQuestFinished" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
-quest_that_we_await = NodePath("../../QuestWalkToNode5Unassisted2")
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true

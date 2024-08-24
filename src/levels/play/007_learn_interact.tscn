@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://o8mxy7xl5kb1"]
+[gd_scene load_steps=10 format=3 uid="uid://o8mxy7xl5kb1"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_fcupu"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_interact_with_node.gd" id="2_ccjyk"]
 [ext_resource type="PackedScene" uid="uid://dkau0y0q6i4ie" path="res://src/components/level_elements/object/stool.tscn" id="3_0fp20"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_wrp2h"]
-[ext_resource type="PackedScene" uid="uid://l2jfxgguv0dt" path="res://src/levels/play/008_learn_take.tscn" id="4_cacg6"]
 [ext_resource type="PackedScene" uid="uid://dvuijgst0i82m" path="res://src/components/level_elements/object/cat.tscn" id="4_l7nob"]
 [ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="5_1ageo"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="6_gcv2p"]
@@ -27,12 +26,6 @@ start_condition = NodePath("ConditionMapStart")
 [node name="ConditionMapStart" type="Node" parent="LevelMap/QuestManager/QuestInteractWithNode"]
 script = ExtResource("3_wrp2h")
 
-[node name="EventGoToScene" parent="LevelMap/Events" index="0"]
-scene = ExtResource("4_cacg6")
-
-[node name="ConditionQuestFinished" parent="LevelMap/Events/EventGoToScene" index="0" node_paths=PackedStringArray("quest_that_we_await")]
-quest_that_we_await = NodePath("../../../QuestManager/QuestInteractWithNode")
-
 [node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("appearing_node", "start_condition")]
 script = ExtResource("5_1ageo")
 appearing_node = NodePath("../../Objects/Tutorial")
@@ -54,8 +47,6 @@ position = Vector2(192, 0)
 [node name="Cat" parent="LevelMap/Objects" index="2" instance=ExtResource("4_l7nob")]
 z_index = 2
 position = Vector2(189, -46)
-interact_demo = "Ich streichele die Katze."
-interact_prompt = "Streichel die Katze!"
 
 [node name="Area2D" type="Area2D" parent="LevelMap/Objects" index="3"]
 position = Vector2(344, -10)

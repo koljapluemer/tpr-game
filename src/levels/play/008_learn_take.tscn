@@ -31,9 +31,6 @@ start_condition = NodePath("ConditionMapStart")
 [node name="ConditionMapStart" type="Node" parent="LevelMap/QuestManager/QuestTakeNode"]
 script = ExtResource("3_wo0we")
 
-[node name="ConditionQuestFinished" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
-quest_that_we_await = NodePath("../../../QuestManager/QuestTakeNode")
-
 [node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("appearing_node", "start_condition")]
 script = ExtResource("4_pjb2h")
 appearing_node = NodePath("../../Objects/Tutorial")

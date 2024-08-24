@@ -10,9 +10,14 @@
 
 [node name="LevelMap" parent="." instance=ExtResource("1_1plns")]
 
+[node name="ConditionClusterFinished" parent="LevelMap/Events/EventEndLevel/ConditionLogicAny" index="1" node_paths=PackedStringArray("cluster_that_we_await")]
+cluster_that_we_await = NodePath("../../../QuestCluster")
+
 [node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
 script = ExtResource("3_8kjoc")
 objects = [NodePath("../../Objects/washing_machine"), NodePath("../../Objects/cupboard"), NodePath("../../Objects/toilet")]
+nr_of_tutorial_runs = 0
+nr_of_reps = 1
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true

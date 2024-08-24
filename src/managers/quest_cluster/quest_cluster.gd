@@ -1,15 +1,19 @@
 class_name QuestCluster extends Node
 
+signal finished
+
+@export var quest_type:QuestType
+@export var objects:Array[MapObject] = []
+@export var nr_of_tutorial_runs = 1
+@export var nr_of_reps = 3
+@export var is_last_cluster_of_level = true
+
 enum QuestType {
 	WalkTo,
 	#Take,
 	#IteractWith
 }
 
-@export var quest_type:QuestType
-@export var objects:Array[MapObject] = []
-@export var nr_of_tutorial_runs = 1
-@export var nr_of_reps = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,14 +48,28 @@ func _ready() -> void:
 					continue
 				last_used_object = obj
 				var quest = QuestWalkToNode.create(obj, false, false)
-				# not using static constructor because it randomly doesn't work
-				var start_condition = ConditionQuestFinished.new()
-				start_condition.quest_that_we_await = last_quest
+				var start_condition: Condition
+				if last_quest != null:
+					# not using static constructor because it randomly doesn't work
+					start_condition = ConditionQuestFinished.new()
+					start_condition.quest_that_we_await = last_quest
+				else:
+					start_condition = ConditionMapStart.create()
 				start_condition.delay_signal_by = 1.5
 				add_child(start_condition)
 				quest.start_condition = start_condition
 				add_child(quest)	
 				last_quest = quest
+			
+			if is_last_cluster_of_level:
+				print("is last level")
+				var end_level_condition = ConditionQuestFinishedInternal.new()
+				add_child(end_level_condition)
+				print("last quest: ", last_quest)
+				end_level_condition.quest_that_we_await = last_quest
+				end_level_condition.fulfilled.connect(finish)
 						
 					
-			
+func finish():
+	print("finished cluster")
+	finished.emit()

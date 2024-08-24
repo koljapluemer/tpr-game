@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvlyrw8rudo7c"]
+[gd_scene load_steps=9 format=3 uid="uid://dvlyrw8rudo7c"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_8lgo1"]
 [ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_jx3bu"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_iwomb"]
 [ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_k8mx0"]
-[ext_resource type="PackedScene" uid="uid://o8mxy7xl5kb1" path="res://src/levels/play/007_learn_interact.tscn" id="5_k4m8y"]
 [ext_resource type="PackedScene" uid="uid://c861jqularxx4" path="res://src/components/level_elements/object/car_silver.tscn" id="6_x76pf"]
 [ext_resource type="PackedScene" uid="uid://croq1utgswkbj" path="res://src/components/level_elements/object/car_red_side.tscn" id="7_q6pmi"]
 [ext_resource type="PackedScene" uid="uid://dm1w5ii6fmri2" path="res://src/components/level_elements/object/car_yellow.tscn" id="8_ivh2i"]
@@ -38,9 +37,8 @@ initially_hide_target = true
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToRed" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToRed"]
 script = ExtResource("4_k8mx0")
-quest_that_we_await = NodePath("../../QuestWalkToAMG")
 
 [node name="QuestWalkToYellow" type="Node2D" parent="LevelMap/Events/Explain" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_jx3bu")
@@ -49,9 +47,8 @@ initially_hide_target = true
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToYellow" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToYellow"]
 script = ExtResource("4_k8mx0")
-quest_that_we_await = NodePath("../../QuestWalkToRed")
 
 [node name="Practice" type="Node2D" parent="LevelMap/Events" index="1"]
 
@@ -61,9 +58,8 @@ target = NodePath("../../../Objects/AMG_silver")
 give_demo = false
 delay_before_start = 3.0
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToAMG" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToAMG"]
 script = ExtResource("4_k8mx0")
-quest_that_we_await = NodePath("../../QuestWalkToYellow")
 
 [node name="QuestWalkToRed" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_jx3bu")
@@ -72,23 +68,18 @@ give_demo = false
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToRed" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToRed"]
 script = ExtResource("4_k8mx0")
-quest_that_we_await = NodePath("../../../Explain/QuestWalkToYellow")
 
-[node name="QuestWalkToYellow" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
+[node name="QuestWalkToYellowUnass" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
 script = ExtResource("2_jx3bu")
 target = NodePath("../../../Objects/yellow car")
 give_demo = false
 delay_before_start = 2.0
 start_condition = NodePath("ConditionQuestFinished")
 
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToYellow" node_paths=PackedStringArray("quest_that_we_await")]
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToYellowUnass"]
 script = ExtResource("4_k8mx0")
-quest_that_we_await = NodePath("../../QuestWalkToRed")
-
-[node name="EventGoToScene" parent="LevelMap/Events" index="2"]
-scene = ExtResource("5_k4m8y")
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true
