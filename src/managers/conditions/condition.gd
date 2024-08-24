@@ -6,6 +6,7 @@ var condition_fulfilled = false
 
 @export var delay_signal_by = 0
 
+
 func _fulfill():
 	print("condition fulfilled")
 	if not condition_fulfilled:

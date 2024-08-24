@@ -6,6 +6,13 @@ class_name QuestWalkToNode extends Quest
 
 @onready var tutor: CharacterBody2D = get_tree().get_first_node_in_group("tutor") 
 
+static func create(_target, _initially_hide_target, _give_demo):
+	var instance = QuestWalkToNode.new()
+	instance.target = _target
+	instance.initially_hide_target = _initially_hide_target
+	instance.give_demo = _give_demo
+	return instance
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if initially_hide_target:

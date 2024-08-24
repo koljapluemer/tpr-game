@@ -2,7 +2,10 @@ class_name ConditionMapStart extends Condition
 
 @onready var map: LevelMap = get_tree().get_first_node_in_group("level_map")
 
-
+static func create():
+	var instance = ConditionMapStart.new()
+	return instance
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if map:
