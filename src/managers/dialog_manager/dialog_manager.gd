@@ -5,6 +5,7 @@ signal dialog_finished
 var current_dialog: String
 
 @onready var speech_bubble: MarginContainer = %SpeechBubble
+@onready var audio_player = get_tree().get_first_node_in_group("audio_player")
 
 func _ready():
 	speech_bubble.visible = false
@@ -12,9 +13,8 @@ func _ready():
 
 
 func say(key, kill_after=5):
-	print("key is: ", key)
+	check_for_matching_audio(key)
 	var dialog = tr(key)
-	print("dialog is", dialog)
 	# TODO: instead of kill_after, at least have
 	# the option to see how long the audio is and do that times something or so
 	# maybe even a user test how fast u can read
@@ -23,8 +23,12 @@ func say(key, kill_after=5):
 	write_content_to_file(dialog)
 	get_tree().create_timer(kill_after).connect("timeout", finish)
 
-
-
+func check_for_matching_audio(key):
+	var path = "res://src/translations/audio/" + Globals.language_code + "/" + key + ".mp3"
+	if ResourceLoader.exists(path):
+		audio_player.stream = load(path)
+		audio_player.play()
+	
 func finish():
 	speech_bubble.visible = false
 	dialog_finished.emit(current_dialog)
