@@ -44,22 +44,10 @@ visible = true
 
 [node name="Cat" parent="LevelMap/Objects" index="1" instance=ExtResource("7_j0a0m")]
 position = Vector2(110, -48)
-dative_form = ""
-word = ""
-interact_demo = ""
-interact_prompt = ""
-take_demo = ""
-take_prompt = ""
 
 [node name="Stool" parent="LevelMap/Objects" index="2" instance=ExtResource("7_j0a0m")]
 z_index = 2
 position = Vector2(104, 1)
-dative_form = ""
-word = ""
-interact_demo = ""
-interact_prompt = ""
-take_demo = ""
-take_prompt = ""
 
 [node name="Tutorial" type="CanvasLayer" parent="LevelMap/Objects" index="3"]
 visible = false

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkau0y0q6i4ie"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_ahyi1"]
+[ext_resource type="Texture2D" uid="uid://bd0e86o1yo488" path="res://src/components/level_elements/object/png/stool_crop.png" id="2_j7vs8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
+radius = 20.0
+
+[node name="Object" type="Node2D"]
+script = ExtResource("1_ahyi1")
+show_outline = null
+dative_form = "zum Laptop"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-3.21382, -16.4435)
+scale = Vector2(0.126443, 0.126443)
+texture = ExtResource("2_j7vs8")
+
+[node name="Area2D2" type="Area2D" parent="Sprite"]
+scale = Vector2(20, 20)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_dgiar")
+
+[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]

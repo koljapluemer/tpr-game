@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0ih74a4ofoin"]
+[gd_scene load_steps=6 format=3 uid="uid://dvuijgst0i82m"]
 
-[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object_interactable.gd" id="1_52nio"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_1bvw3"]
-[ext_resource type="Texture2D" uid="uid://b5plkbb45x5j3" path="res://src/components/level_elements/object/png/cat_alt_crop.png" id="3_oi5c0"]
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object_interactable.gd" id="1_uvhrf"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_hrgsc"]
+[ext_resource type="Texture2D" uid="uid://b5plkbb45x5j3" path="res://src/components/level_elements/object/png/cat_alt_crop.png" id="3_4vvnc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
 radius = 20.0
@@ -11,15 +11,15 @@ radius = 20.0
 radius = 50.0
 
 [node name="Object" type="Node2D"]
-script = ExtResource("1_52nio")
+script = ExtResource("1_uvhrf")
 hide_after_interaction = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("2_1bvw3")
-position = Vector2(0, -10)
+material = ExtResource("2_hrgsc")
+position = Vector2(0, -7)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_oi5c0")
+texture = ExtResource("3_4vvnc")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]
 scale = Vector2(20, 20)

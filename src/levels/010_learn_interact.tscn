@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://o8mxy7xl5kb1"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_fcupu"]
+[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_interact_with_node.gd" id="2_ccjyk"]
+[ext_resource type="PackedScene" uid="uid://dkau0y0q6i4ie" path="res://src/components/level_elements/object/stool.tscn" id="3_0fp20"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_wrp2h"]
+[ext_resource type="PackedScene" uid="uid://dvuijgst0i82m" path="res://src/components/level_elements/object/cat.tscn" id="4_l7nob"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xkjtd"]
+
+[node name="010LearnInteract" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_fcupu")]
+
+[node name="QuestInteractWithNode" type="Node2D" parent="LevelMap/QuestManager" index="1" node_paths=PackedStringArray("target", "move_target_after_demo", "start_condition")]
+script = ExtResource("2_ccjyk")
+target = NodePath("../../Objects/Cat")
+move_target_after_demo = NodePath("../../Objects/Area2D")
+delay_before_start = 2.0
+start_condition = NodePath("ConditionMapStart")
+
+[node name="ConditionMapStart" type="Node" parent="LevelMap/QuestManager/QuestInteractWithNode"]
+script = ExtResource("3_wrp2h")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="Stool" parent="LevelMap/Objects" index="1" instance=ExtResource("3_0fp20")]
+z_index = 1
+position = Vector2(192, 0)
+
+[node name="Cat" parent="LevelMap/Objects" index="2" instance=ExtResource("4_l7nob")]
+z_index = 2
+position = Vector2(189, -46)
+interact_demo = "Ich streichele die Katze."
+interact_prompt = "Streichel die Katze!"
+
+[node name="Area2D" type="Area2D" parent="LevelMap/Objects" index="3"]
+position = Vector2(344, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/Area2D"]
+shape = SubResource("CircleShape2D_xkjtd")
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]
