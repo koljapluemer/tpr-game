@@ -10,7 +10,6 @@ radius = 20.0
 [node name="Object" type="Node2D"]
 script = ExtResource("1_h3sao")
 key = "LAPTOP"
-dative_form = "zum Laptop"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
