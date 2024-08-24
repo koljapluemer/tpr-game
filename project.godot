@@ -29,7 +29,7 @@ level_map=""
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://src/translations/tpr-game - Sheet1.arz.translation", "res://src/translations/tpr-game - Sheet1.de.translation")
+locale/translations=PackedStringArray("res://src/translations/tpr-game - Sheet1.arz.translation", "res://src/translations/tpr-game - Sheet1.de.translation", "res://src/translations/tpr-game - Sheet1.ar.translation")
 
 [rendering]
 

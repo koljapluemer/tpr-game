@@ -24,8 +24,18 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
+[node name="LangSelect" type="OptionButton" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "German"
+popup/item_1/text = "Modern Standard Arabic (Fus7a)"
+popup/item_1/id = 1
+
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/LangSelect" to="." method="_on_lang_select_item_selected"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

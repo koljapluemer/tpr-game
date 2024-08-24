@@ -6,10 +6,10 @@ uid="uid://v3uporycdunc"
 
 [deps]
 
-files=["res://src/translations/tpr-game - Sheet1.de.translation", "res://src/translations/tpr-game - Sheet1.arz.translation"]
+files=["res://src/translations/tpr-game - Sheet1.de.translation", "res://src/translations/tpr-game - Sheet1.ar.translation", "res://src/translations/tpr-game - Sheet1.arz.translation"]
 
 source_file="res://src/translations/tpr-game - Sheet1.csv"
-dest_files=["res://src/translations/tpr-game - Sheet1.de.translation", "res://src/translations/tpr-game - Sheet1.arz.translation"]
+dest_files=["res://src/translations/tpr-game - Sheet1.de.translation", "res://src/translations/tpr-game - Sheet1.ar.translation", "res://src/translations/tpr-game - Sheet1.arz.translation"]
 
 [params]
 
