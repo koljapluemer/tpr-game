@@ -33,11 +33,10 @@ scene = ExtResource("4_cacg6")
 [node name="ConditionQuestFinished" parent="LevelMap/Events/EventGoToScene" index="0" node_paths=PackedStringArray("quest_that_we_await")]
 quest_that_we_await = NodePath("../../../QuestManager/QuestInteractWithNode")
 
-[node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("appearing_node", "start_condition", "end_condition")]
+[node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("appearing_node", "start_condition")]
 script = ExtResource("5_1ageo")
 appearing_node = NodePath("../../Objects/Tutorial")
 start_condition = NodePath("ConditionBodyTouchedArea")
-end_condition = NodePath("")
 delay_before_start = 2
 
 [node name="ConditionBodyTouchedArea" type="Node" parent="LevelMap/Events/EventShowControlScheme" node_paths=PackedStringArray("body", "area")]
@@ -51,12 +50,10 @@ visible = true
 [node name="Stool" parent="LevelMap/Objects" index="1" instance=ExtResource("3_0fp20")]
 z_index = 1
 position = Vector2(192, 0)
-key = null
 
 [node name="Cat" parent="LevelMap/Objects" index="2" instance=ExtResource("4_l7nob")]
 z_index = 2
 position = Vector2(189, -46)
-key = null
 interact_demo = "Ich streichele die Katze."
 interact_prompt = "Streichel die Katze!"
 

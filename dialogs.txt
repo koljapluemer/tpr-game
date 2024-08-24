@@ -142,3 +142,5 @@ Hallo!
 الحيوانات الأليفة القطة!
 سآخذ البطيخ.
 خذ البطيخ!
+Ich streichle die Katze.
+Streichel die Katze!
