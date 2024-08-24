@@ -28,9 +28,8 @@ unique_name_in_owner = true
 
 [node name="Events" type="Node2D" parent="."]
 
-[node name="EventEndLevel" type="Node2D" parent="Events" node_paths=PackedStringArray("start_condition")]
+[node name="EventEndLevel" type="Node2D" parent="Events"]
 script = ExtResource("6_pbsts")
-start_condition = NodePath("")
 delay_before_start = 2
 
 [node name="Objects" type="Node2D" parent="."]
@@ -90,5 +89,20 @@ linear_accel_max = 30.0
 scale_amount_min = 10.0
 scale_amount_max = 20.0
 color = Color(0.29393, 0.752749, 0.607188, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RestartButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_top = 11.0
+offset_right = -5.0
+offset_bottom = 42.0
+grow_horizontal = 0
+text = "Restart Level"
+
+[connection signal="pressed" from="CanvasLayer/RestartButton" to="." method="_on_restart_button_pressed"]
 
 [editable path="PlayerCameraCombo"]

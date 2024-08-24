@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvlyrw8rudo7c"]
+[gd_scene load_steps=8 format=3 uid="uid://dvlyrw8rudo7c"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_8lgo1"]
-[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_walk_to_node.gd" id="2_jx3bu"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_iwomb"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished.gd" id="4_k8mx0"]
-[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished_internal.gd" id="5_3fpdc"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_cluster_finished.gd" id="2_o1v0j"]
+[ext_resource type="Script" path="res://src/managers/quest_cluster/quest_cluster.gd" id="3_llvbc"]
 [ext_resource type="PackedScene" uid="uid://c861jqularxx4" path="res://src/components/level_elements/object/car_silver.tscn" id="6_x76pf"]
 [ext_resource type="PackedScene" uid="uid://croq1utgswkbj" path="res://src/components/level_elements/object/car_red_side.tscn" id="7_q6pmi"]
 [ext_resource type="PackedScene" uid="uid://dm1w5ii6fmri2" path="res://src/components/level_elements/object/car_yellow.tscn" id="8_ivh2i"]
@@ -19,76 +17,18 @@ size = Vector2(64, 103)
 [node name="Player" parent="LevelMap/PlayerCameraCombo" index="1"]
 z_index = 4
 
-[node name="Explain" type="Node2D" parent="LevelMap/Events" index="0"]
+[node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("")
 
-[node name="QuestWalkToAMG" type="Node2D" parent="LevelMap/Events/Explain" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_jx3bu")
-target = NodePath("../../../Objects/AMG_silver")
-initially_hide_target = true
-delay_before_start = 3.0
-start_condition = NodePath("ConditionMapStart")
-
-[node name="ConditionMapStart" type="Node" parent="LevelMap/Events/Explain/QuestWalkToAMG"]
-script = ExtResource("3_iwomb")
-
-[node name="QuestWalkToRed" type="Node2D" parent="LevelMap/Events/Explain" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_jx3bu")
-target = NodePath("../../../Objects/red car")
-initially_hide_target = true
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToRed"]
-script = ExtResource("4_k8mx0")
-
-[node name="QuestWalkToYellow" type="Node2D" parent="LevelMap/Events/Explain" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_jx3bu")
-target = NodePath("../../../Objects/yellow car")
-initially_hide_target = true
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Explain/QuestWalkToYellow"]
-script = ExtResource("4_k8mx0")
-
-[node name="Practice" type="Node2D" parent="LevelMap/Events" index="1"]
-
-[node name="QuestWalkToAMG" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target")]
-script = ExtResource("2_jx3bu")
-target = NodePath("../../../Objects/AMG_silver")
-give_demo = false
-delay_before_start = 3.0
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToAMG"]
-script = ExtResource("4_k8mx0")
-
-[node name="QuestWalkToRed" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_jx3bu")
-target = NodePath("../../../Objects/red car")
-give_demo = false
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToRed"]
-script = ExtResource("4_k8mx0")
-
-[node name="QuestWalkToYellowUnass" type="Node2D" parent="LevelMap/Events/Practice" node_paths=PackedStringArray("target", "start_condition")]
-script = ExtResource("2_jx3bu")
-target = NodePath("../../../Objects/yellow car")
-give_demo = false
-delay_before_start = 2.0
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/Practice/QuestWalkToYellowUnass"]
-script = ExtResource("4_k8mx0")
-
-[node name="EventEndLevel" parent="LevelMap/Events" index="2" node_paths=PackedStringArray("start_condition")]
-start_condition = NodePath("ConditionQuestFinished")
-
-[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
-script = ExtResource("5_3fpdc")
-quest_that_we_await = NodePath("../../Practice/QuestWalkToAMG")
+[node name="ConditionClusterFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("cluster_that_we_await")]
+script = ExtResource("2_o1v0j")
+cluster_that_we_await = NodePath("../../QuestCluster")
 delay_signal_by = 2
+
+[node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
+script = ExtResource("3_llvbc")
+objects = [NodePath("../../Objects/AMG_silver"), NodePath("../../Objects/red car"), NodePath("../../Objects/yellow car")]
+nr_of_tutorial_runs = 2
 
 [node name="Tutor" parent="LevelMap/Objects" index="0"]
 visible = true

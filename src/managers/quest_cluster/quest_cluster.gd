@@ -3,6 +3,7 @@ class_name QuestCluster extends Node
 signal finished
 
 @export var quest_type:QuestType
+@export var initially_hide_objects = true
 @export var tutor_home: Area2D = null
 @export var objects:Array[MapObject] = []
 @export var nr_of_tutorial_runs = 1
@@ -28,7 +29,7 @@ func _ready() -> void:
 			var quest: Quest
 			match quest_type:
 				QuestType.WalkTo:
-					quest = QuestWalkToNode.create(obj, true, true)
+					quest = QuestWalkToNode.create(obj, initially_hide_objects, true)
 				QuestType.InteractWith:
 					quest = QuestInteractWithNode.create(obj, true, true, tutor_home)
 				QuestType.Take:

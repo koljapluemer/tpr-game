@@ -28,3 +28,7 @@ func fire_celebration_particles():
 	particles_1.emitting = true
 	particles_2.emitting = true
 	
+
+
+func _on_restart_button_pressed() -> void:
+	get_tree().reload_current_scene()
