@@ -4,3 +4,9 @@
 possible_assets
 possible_assets/
 missing_keys.txt
+
+
+dist/
+dist
+dist*
+
