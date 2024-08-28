@@ -3,6 +3,7 @@ extends Control
 @export var first_level: PackedScene
 
 @onready var lang_select: OptionButton = %LangSelect
+@onready var play_button: Button = %PlayButton
 
 
 func _on_play_button_pressed() -> void:
@@ -10,21 +11,15 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_lang_select_item_selected(index: int) -> void:
-	print(index)
+	Globals.set_locale(lang_from_index(index))
+	play_button.disabled = false
+
+
+func lang_from_index(index):	
 	match index:
 		0:
-			Globals.set_locale("arz")
+			return "arz"
 		1:
-			Globals.set_locale("de")
+			return "de"
 		2:
-			Globals.set_locale("ar")
-
-
-func _ready() -> void:
-	match lang_select.selected:
-		0:
-			Globals.set_locale("arz")
-		1:
-			Globals.set_locale("de")
-		2:
-			Globals.set_locale("ar")
+			return "ar"
