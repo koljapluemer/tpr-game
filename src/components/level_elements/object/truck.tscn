@@ -27,7 +27,6 @@ collision_mask = 255
 unique_name_in_owner = true
 position = Vector2(9.05139, 5.64205)
 rotation = 1.6075
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_oa604")
 
 [connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
