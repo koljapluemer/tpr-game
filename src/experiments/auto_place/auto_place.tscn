@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmxoop36kb0s7"]
 
 [ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_kfp5s"]
-[ext_resource type="Script" path="res://src/experiments/auto_place.gd" id="1_meeib"]
+[ext_resource type="Script" path="res://src/experiments/auto_place/auto_place.gd" id="1_meeib"]
 
 [node name="AutoPlace" type="Node2D"]
 script = ExtResource("1_meeib")
