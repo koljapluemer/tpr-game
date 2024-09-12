@@ -17,3 +17,6 @@
 - prevent picking up wrong item overall
 
 - fix speech bubble on LTR, generally translation flow is weird when changed...
+
+
+- if doing the "understand this content" thing, what content? yt apparently not supported...
