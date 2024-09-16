@@ -20,4 +20,14 @@ position = Vector2(-92, 213)
 [node name="Marker2D4" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(-291, 211)
 
+[node name="ToolSpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(485, -100)
+
+[node name="Marker2D" type="Marker2D" parent="ToolSpawnPoints"]
+position = Vector2(-182, 8)
+
+[node name="Marker2D2" type="Marker2D" parent="ToolSpawnPoints"]
+position = Vector2(-10, 295)
+
 [node name="Camera2D" type="Camera2D" parent="."]

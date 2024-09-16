@@ -7,6 +7,7 @@ const MELON = preload("res://src/components/level_elements/object/melon.tscn")
 
 const objects = [APPLE, COCONUT, PEAR, MELON]
 @onready var spawn_points: Node2D = %SpawnPoints
+@onready var tool_spawn_points: Node2D = %ToolSpawnPoints
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +16,12 @@ func _ready() -> void:
 		var obj = obj_to_spawn.instantiate()
 		add_child(obj)
 		obj.position = spawn_point.position
+	for spawn_point in tool_spawn_points.get_children():
+		var obj_to_spawn = objects.pick_random()
+		var obj = obj_to_spawn.instantiate()
+		add_child(obj)
+		obj.position = spawn_point.position
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
