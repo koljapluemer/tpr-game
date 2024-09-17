@@ -15,12 +15,12 @@ func _ready() -> void:
 		var obj_to_spawn = objects.pick_random()
 		var obj = obj_to_spawn.instantiate()
 		add_child(obj)
-		obj.position = spawn_point.position
+		obj.global_position = spawn_point.global_position
 	for spawn_point in tool_spawn_points.get_children():
 		var obj_to_spawn = objects.pick_random()
 		var obj = obj_to_spawn.instantiate()
 		add_child(obj)
-		obj.position = spawn_point.position
+		obj.global_position = spawn_point.global_position
 		
 
 
