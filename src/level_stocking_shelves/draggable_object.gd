@@ -1,8 +1,10 @@
-extends Node2D
+extends RigidBody2D
 
 var draggable = false
 var is_being_dragged = false
 var offset: Vector2
+
+var force_applied = false
 
 @onready var interaction_shape: Area2D = %InteractionShape2D
 # Called when the node enters the scene tree for the first time.
@@ -19,16 +21,18 @@ func _process(delta: float) -> void:
 	if is_being_dragged:
 		global_position = get_global_mouse_position() - offset
 	if Input.is_action_just_released("click"):
-		is_being_dragged = false
+		if is_being_dragged:
+			is_being_dragged = false
+	
+	
 			
-
+func _physics_process(delta: float) -> void:
+	pass
 
 func _on_interaction_shape_2d_mouse_entered() -> void:
 	draggable = true
-	scale = Vector2(1.2, 1.2)
 
 
 func _on_interaction_shape_2d_mouse_exited() -> void:
 	draggable = false
-	scale = Vector2(1, 1)
 	
