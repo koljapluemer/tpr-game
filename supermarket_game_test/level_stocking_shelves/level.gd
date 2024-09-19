@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var apple_spawn_area_object = %AppleSpawnArea
-const APPLE = preload("res://src/level_stocking_shelves/apple.tscn")
-const BANANA = preload("res://src/level_stocking_shelves/banana.tscn")
+const APPLE = preload("res://supermarket_game_test/level_stocking_shelves/apple.tscn")
+const BANANA = preload("res://supermarket_game_test/level_stocking_shelves/banana.tscn")
 
 const FRUIT = [APPLE, BANANA]
 

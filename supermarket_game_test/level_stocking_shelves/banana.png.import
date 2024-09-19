@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj14emuiqwntn"
-path="res://.godot/imported/banana.png-ef74e96c769c26e8520139d16cdd988a.ctex"
+path="res://.godot/imported/banana.png-275047cf0196d299e5d7f06d6cb6d4a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/level_stocking_shelves/banana.png"
-dest_files=["res://.godot/imported/banana.png-ef74e96c769c26e8520139d16cdd988a.ctex"]
+source_file="res://supermarket_game_test/level_stocking_shelves/banana.png"
+dest_files=["res://.godot/imported/banana.png-275047cf0196d299e5d7f06d6cb6d4a5.ctex"]
 
 [params]
 

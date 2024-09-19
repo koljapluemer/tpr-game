@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bt4qlhfp1y566"]
 
-[ext_resource type="Script" path="res://src/level_stocking_shelves/draggable_object.gd" id="1_4ll73"]
+[ext_resource type="Script" path="res://supermarket_game_test/level_stocking_shelves/draggable_object.gd" id="1_4ll73"]
 
 [sub_resource type="Shader" id="Shader_7pisy"]
 code = "shader_type canvas_item;

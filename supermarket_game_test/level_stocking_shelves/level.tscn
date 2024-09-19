@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d34wtehj6hi0v"]
 
-[ext_resource type="Script" path="res://src/level_stocking_shelves/level.gd" id="1_kk50w"]
+[ext_resource type="Script" path="res://supermarket_game_test/level_stocking_shelves/level.gd" id="1_kk50w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc471"]
 size = Vector2(294, 59)
