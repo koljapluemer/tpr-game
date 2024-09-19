@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4eiynjd230au"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_1plns"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_cluster_finished.gd" id="2_sekjc"]
+[ext_resource type="Script" path="res://src/managers/quest_cluster/quest_cluster.gd" id="3_8kjoc"]
+[ext_resource type="PackedScene" uid="uid://c1ov4n745ulsq" path="res://src/components/level_elements/object/washing_machine.tscn" id="3_ehv6q"]
+[ext_resource type="PackedScene" uid="uid://djnkg6ysff85s" path="res://src/components/level_elements/object/cupboard_1.tscn" id="4_26wln"]
+[ext_resource type="PackedScene" uid="uid://cjrqej5dqvxrf" path="res://src/components/level_elements/object/toilet.tscn" id="5_o0ji3"]
+
+[node name="002BikeBicycle" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_1plns")]
+
+[node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("ConditionClusterFinished")
+
+[node name="ConditionClusterFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("cluster_that_we_await")]
+script = ExtResource("2_sekjc")
+cluster_that_we_await = NodePath("../../QuestCluster")
+delay_signal_by = 2
+
+[node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
+script = ExtResource("3_8kjoc")
+objects = [NodePath("../../Objects/washing_machine"), NodePath("../../Objects/cupboard"), NodePath("../../Objects/toilet")]
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+position = Vector2(-266, -54)
+
+[node name="washing_machine" parent="LevelMap/Objects" index="1" instance=ExtResource("3_ehv6q")]
+position = Vector2(79, 0)
+
+[node name="cupboard" parent="LevelMap/Objects" index="2" instance=ExtResource("4_26wln")]
+position = Vector2(-200, 0)
+
+[node name="toilet" parent="LevelMap/Objects" index="3" instance=ExtResource("5_o0ji3")]
+position = Vector2(-72, 0)
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

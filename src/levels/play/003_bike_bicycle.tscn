@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://65iqdp50t0v2"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_g16uy"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_cluster_finished.gd" id="2_emkk1"]
+[ext_resource type="Script" path="res://src/managers/quest_cluster/quest_cluster.gd" id="2_gmfup"]
+[ext_resource type="PackedScene" uid="uid://bni8753vbwold" path="res://src/components/level_elements/object/bike.tscn" id="6_1von3"]
+[ext_resource type="PackedScene" uid="uid://7w8cg6jya7rp" path="res://src/components/level_elements/object/bicycle.tscn" id="7_lkldi"]
+
+[node name="002BikeBicycle" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_g16uy")]
+
+[node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("ConditionClusterFinished")
+
+[node name="ConditionClusterFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("cluster_that_we_await")]
+script = ExtResource("2_emkk1")
+cluster_that_we_await = NodePath("../../QuestCluster")
+
+[node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
+script = ExtResource("2_gmfup")
+objects = [NodePath("../../Objects/bike"), NodePath("../../Objects/bicycle")]
+nr_of_reps = 4
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="bike" parent="LevelMap/Objects" index="1" instance=ExtResource("6_1von3")]
+position = Vector2(112, 0)
+key = null
+
+[node name="bicycle" parent="LevelMap/Objects" index="2" instance=ExtResource("7_lkldi")]
+position = Vector2(-248, 0)
+key = null
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://croq1utgswkbj"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object_interactable.gd" id="1_2cjny"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_n3rl8"]
+[ext_resource type="Texture2D" uid="uid://08xms0jsr3fo" path="res://src/components/level_elements/object/png/car_red_crop.png" id="3_xa7fc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgbwh"]
+radius = 12.7256
+height = 77.981
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36a0r"]
+radius = 13.5269
+height = 42.9856
+
+[node name="Object" type="Node2D"]
+z_index = 3
+script = ExtResource("1_2cjny")
+is_interactable = false
+hide_after_interaction = null
+key = "CAR_RED"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_n3rl8")
+position = Vector2(5.1079, -31.2884)
+rotation = 0.0193609
+scale = Vector2(0.134022, 0.134022)
+texture = ExtResource("3_xa7fc")
+
+[node name="Area2D2" type="Area2D" parent="Sprite"]
+scale = Vector2(20, 20)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+unique_name_in_owner = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lgbwh")
+
+[node name="InteractionShape2D" type="Area2D" parent="Sprite"]
+unique_name_in_owner = true
+position = Vector2(0, 200)
+scale = Vector2(20, 20)
+
+[node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="Sprite/InteractionShape2D"]
+unique_name_in_owner = true
+position = Vector2(-1.06052, -10.8013)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_36a0r")
+debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
+
+[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="body_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
+[connection signal="body_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]

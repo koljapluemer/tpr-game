@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://thmefnlrwetj"]
+
+[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object_interactable.gd" id="1_tj0jf"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_jrwly"]
+[ext_resource type="Texture2D" uid="uid://gr5k1q40pxbl" path="res://src/components/level_elements/object/png/melon.png" id="2_ndrxt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hq71m"]
+radius = 50.0
+
+[node name="Object" type="Node2D"]
+script = ExtResource("1_tj0jf")
+hide_after_interaction = null
+key = "MELON"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_jrwly")
+position = Vector2(-0.175, -15.7571)
+scale = Vector2(0.0392429, 0.0392429)
+texture = ExtResource("2_ndrxt")
+
+[node name="Area2D2" type="Area2D" parent="Sprite"]
+scale = Vector2(20, 20)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_dgiar")
+
+[node name="InteractionShape2D" type="Area2D" parent="Sprite"]
+unique_name_in_owner = true
+position = Vector2(0, 200)
+scale = Vector2(20, 20)
+
+[node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="Sprite/InteractionShape2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_hq71m")
+debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
+
+[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="body_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
+[connection signal="body_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]

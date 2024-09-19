@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://l2jfxgguv0dt"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_ap4qe"]
+[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_take_node.gd" id="2_cq4dc"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_wo0we"]
+[ext_resource type="PackedScene" uid="uid://bfcqknkfpd7g" path="res://src/components/level_elements/object/table.tscn" id="4_7j47q"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished_internal.gd" id="4_myqg3"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="4_pjb2h"]
+[ext_resource type="PackedScene" uid="uid://thmefnlrwetj" path="res://src/components/level_elements/object/melon.tscn" id="5_2l1rt"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="5_sfcti"]
+[ext_resource type="PackedScene" uid="uid://c7vn0tcp0afm" path="res://src/components/level_elements/special/area_to_walk_to/area_to_walk_to.tscn" id="6_gtgws"]
+[ext_resource type="PackedScene" uid="uid://chk5302mnlix6" path="res://src/components/level_elements/special/tutorial/tutorial_ui.tscn" id="7_3hgkj"]
+
+[node name="010LearnTake" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_ap4qe")]
+
+[node name="Camera2D" parent="LevelMap/PlayerCameraCombo" index="0"]
+position = Vector2(26, 0)
+
+[node name="Player" parent="LevelMap/PlayerCameraCombo" index="1"]
+position = Vector2(26, 0)
+
+[node name="QuestTakeNode" type="Node2D" parent="LevelMap/QuestManager" index="1" node_paths=PackedStringArray("target", "move_target_after_demo", "start_condition")]
+script = ExtResource("2_cq4dc")
+target = NodePath("../../Objects/Table/Melon_T")
+move_target_after_demo = NodePath("../../Objects/Area2D")
+delay_before_start = 2.0
+start_condition = NodePath("ConditionMapStart")
+
+[node name="ConditionMapStart" type="Node" parent="LevelMap/QuestManager/QuestTakeNode"]
+script = ExtResource("3_wo0we")
+
+[node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_myqg3")
+quest_that_we_await = NodePath("../../../QuestManager/QuestTakeNode")
+delay_signal_by = 2
+
+[node name="EventShowControlScheme" type="Node2D" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("appearing_node", "start_condition")]
+script = ExtResource("4_pjb2h")
+appearing_node = NodePath("../../Objects/Tutorial")
+start_condition = NodePath("ConditionBodyTouchedArea")
+end_condition = NodePath("")
+delay_before_start = 2
+
+[node name="ConditionBodyTouchedArea" type="Node" parent="LevelMap/Events/EventShowControlScheme" node_paths=PackedStringArray("body", "area")]
+script = ExtResource("5_sfcti")
+body = NodePath("../../../Objects/Tutor")
+area = NodePath("../../../Objects/Area2D")
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="Table" parent="LevelMap/Objects" index="1" instance=ExtResource("4_7j47q")]
+z_index = 1
+position = Vector2(136, 0)
+key = null
+
+[node name="Melon_T" parent="LevelMap/Objects/Table" instance=ExtResource("5_2l1rt")]
+position = Vector2(0, -49)
+hide_after_interaction = true
+key = null
+
+[node name="Melon_P" parent="LevelMap/Objects/Table" instance=ExtResource("5_2l1rt")]
+position = Vector2(14, -49)
+hide_after_interaction = true
+key = null
+
+[node name="Area2D" parent="LevelMap/Objects" index="2" instance=ExtResource("6_gtgws")]
+position = Vector2(317, -10)
+
+[node name="Tutorial" parent="LevelMap/Objects" index="3" instance=ExtResource("7_3hgkj")]
+tutorial_text = "To take an object, walk to it and click it."
+
+[node name="Particles1" parent="LevelMap" index="6"]
+position = Vector2(-254, 80)
+
+[node name="Particles2" parent="LevelMap" index="7"]
+position = Vector2(306, 80)
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

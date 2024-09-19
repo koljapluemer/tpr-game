@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://nkowofnh7v8n"]
+
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_appear_temporarily.gd" id="1_45ydv"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="2_c55a7"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_body_touched_area.gd" id="3_g2031"]
+
+[node name="EventShowControlScheme" type="Node2D" node_paths=PackedStringArray("appearing_node", "start_condition", "end_condition")]
+script = ExtResource("1_45ydv")
+appearing_node = NodePath("")
+start_condition = NodePath("ConditionMapStart")
+end_condition = NodePath("ConditionBodyTouchedArea")
+delay_before_start = 2
+
+[node name="ConditionMapStart" type="Node" parent="."]
+script = ExtResource("2_c55a7")
+
+[node name="ConditionBodyTouchedArea" type="Node" parent="." node_paths=PackedStringArray("body", "area")]
+script = ExtResource("3_g2031")
+body = NodePath("")
+area = NodePath("")

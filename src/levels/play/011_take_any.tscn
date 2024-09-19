@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://w0auiujtp1uo"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_33wdu"]
+[ext_resource type="Script" path="res://src/managers/quest_manager/quests/quest_take_node.gd" id="2_kosfg"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_map_start.gd" id="3_gemd1"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_quest_finished_internal.gd" id="4_tvqcb"]
+[ext_resource type="PackedScene" uid="uid://cblcymtdj0ued" path="res://src/components/level_elements/object/backpack_blue.tscn" id="9_byw7c"]
+[ext_resource type="PackedScene" uid="uid://c7vn0tcp0afm" path="res://src/components/level_elements/special/area_to_walk_to/area_to_walk_to.tscn" id="9_x2qb2"]
+[ext_resource type="PackedScene" uid="uid://chk5302mnlix6" path="res://src/components/level_elements/special/tutorial/tutorial_ui.tscn" id="10_l0rm1"]
+[ext_resource type="PackedScene" uid="uid://dd0px1mdumoly" path="res://src/components/level_elements/object/backpack_red.tscn" id="10_s37rr"]
+
+[node name="010LearnTake" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_33wdu")]
+
+[node name="Camera2D" parent="LevelMap/PlayerCameraCombo" index="0"]
+position = Vector2(26, 0)
+
+[node name="Player" parent="LevelMap/PlayerCameraCombo" index="1"]
+position = Vector2(26, 0)
+
+[node name="QuestTakeNode" type="Node2D" parent="LevelMap/QuestManager" index="1" node_paths=PackedStringArray("target", "move_target_after_demo", "start_condition")]
+script = ExtResource("2_kosfg")
+target = NodePath("../../Objects/backpack_red")
+move_target_after_demo = NodePath("../../Objects/Area2D")
+delay_before_start = 2.0
+start_condition = NodePath("ConditionMapStart")
+
+[node name="ConditionMapStart" type="Node" parent="LevelMap/QuestManager/QuestTakeNode"]
+script = ExtResource("3_gemd1")
+
+[node name="EventEndLevel" parent="LevelMap/Events" index="0" node_paths=PackedStringArray("start_condition")]
+start_condition = NodePath("ConditionQuestFinished")
+
+[node name="ConditionQuestFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("quest_that_we_await")]
+script = ExtResource("4_tvqcb")
+quest_that_we_await = NodePath("../../../QuestManager/QuestTakeNode")
+delay_signal_by = 2
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="Area2D" parent="LevelMap/Objects" index="1" instance=ExtResource("9_x2qb2")]
+position = Vector2(317, -10)
+
+[node name="Tutorial" parent="LevelMap/Objects" index="2" instance=ExtResource("10_l0rm1")]
+tutorial_text = "To take an object, walk to it and click it."
+
+[node name="backpack" parent="LevelMap/Objects" index="3" groups=["KEY-A_BACKPACK"] instance=ExtResource("9_byw7c")]
+position = Vector2(96, 0)
+hide_after_interaction = true
+key = "A_BACKPACK"
+
+[node name="backpack2" parent="LevelMap/Objects" index="4" groups=["KEY-A_BACKPACK"] instance=ExtResource("9_byw7c")]
+position = Vector2(112, 0)
+hide_after_interaction = true
+key = "A_BACKPACK"
+
+[node name="backpack3" parent="LevelMap/Objects" index="5" groups=["KEY-A_BACKPACK"] instance=ExtResource("9_byw7c")]
+position = Vector2(184, 0)
+hide_after_interaction = true
+key = "A_BACKPACK"
+
+[node name="backpack_red" parent="LevelMap/Objects" index="6" groups=["KEY-A_BACKPACK"] instance=ExtResource("10_s37rr")]
+position = Vector2(71, 0)
+hide_after_interaction = true
+key = "A_BACKPACK"
+
+[node name="backpack_red2" parent="LevelMap/Objects" index="7" groups=["KEY-A_BACKPACK"] instance=ExtResource("10_s37rr")]
+position = Vector2(151, 0)
+hide_after_interaction = true
+key = "A_BACKPACK"
+
+[node name="backpack_red3" parent="LevelMap/Objects" index="8" groups=["KEY-A_BACKPACK"] instance=ExtResource("10_s37rr")]
+position = Vector2(167, 0)
+hide_after_interaction = true
+key = "A_BACKPACK"
+
+[node name="Particles1" parent="LevelMap" index="6"]
+position = Vector2(-254, 80)
+
+[node name="Particles2" parent="LevelMap" index="7"]
+position = Vector2(306, 80)
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]

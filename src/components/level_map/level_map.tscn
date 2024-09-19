@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://cijyqmhnatnfp"]
+
+[ext_resource type="Script" path="res://src/components/level_map/level_map.gd" id="1_ijymf"]
+[ext_resource type="PackedScene" uid="uid://dslr4smifj6r" path="res://src/components/level_elements/parallax/basic_black.tscn" id="2_322wn"]
+[ext_resource type="PackedScene" uid="uid://b7bvdnscnjkto" path="res://src/components/level_elements/arena/small_concrete.tscn" id="3_sr5wl"]
+[ext_resource type="PackedScene" uid="uid://seow8j0oejp0" path="res://src/components/level_elements/player_camera_combo/player_camera_combo.tscn" id="4_yma7s"]
+[ext_resource type="PackedScene" uid="uid://b7wlk7sk53ern" path="res://src/managers/quest_manager/quest_manager.tscn" id="6_6x1ty"]
+[ext_resource type="Script" path="res://src/managers/event_manager/events/event_end_level.gd" id="6_pbsts"]
+[ext_resource type="PackedScene" uid="uid://cfdydj1akl3a1" path="res://src/components/level_elements/tutor/tutor.tscn" id="17_7x5lk"]
+
+[node name="LevelMap" type="Node2D" groups=["level_map"]]
+script = ExtResource("1_ijymf")
+parallax_background_scene = ExtResource("2_322wn")
+arena_scene = ExtResource("3_sr5wl")
+
+[node name="PlayerCameraCombo" parent="." instance=ExtResource("4_yma7s")]
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="PlayerCameraCombo/Player" index="3"]
+position = Vector2(-1400, 400)
+remote_path = NodePath("../../../Particles1")
+
+[node name="RemoteTransform2D3" type="RemoteTransform2D" parent="PlayerCameraCombo/Player" index="4"]
+position = Vector2(1400, 400)
+remote_path = NodePath("../../../Particles2")
+
+[node name="QuestManager" parent="." instance=ExtResource("6_6x1ty")]
+unique_name_in_owner = true
+
+[node name="Events" type="Node2D" parent="."]
+
+[node name="EventEndLevel" type="Node2D" parent="Events"]
+script = ExtResource("6_pbsts")
+delay_before_start = 2
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Tutor" parent="Objects" node_paths=PackedStringArray("player") groups=["tutor"] instance=ExtResource("17_7x5lk")]
+visible = false
+position = Vector2(-138, -54)
+player = NodePath("../../PlayerCameraCombo/Player")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[node name="Particles1" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(-280, 80)
+scale = Vector2(0.2, 0.2)
+emitting = false
+amount = 32
+lifetime = 0.8
+one_shot = true
+randomness = 0.2
+local_coords = true
+direction = Vector2(1, -2)
+gravity = Vector2(0, 100)
+initial_velocity_min = 240.0
+initial_velocity_max = 600.0
+angular_velocity_min = 450.0
+angular_velocity_max = 450.0
+linear_accel_min = 30.0
+linear_accel_max = 30.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+color = Color(0.29393, 0.752749, 0.607188, 1)
+
+[node name="Particles2" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(280, 80)
+scale = Vector2(0.2, 0.2)
+emitting = false
+amount = 32
+lifetime = 0.8
+one_shot = true
+randomness = 0.2
+local_coords = true
+direction = Vector2(-1, -2)
+gravity = Vector2(0, 100)
+initial_velocity_min = 240.0
+initial_velocity_max = 600.0
+angular_velocity_min = 450.0
+angular_velocity_max = 450.0
+linear_accel_min = 30.0
+linear_accel_max = 30.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+color = Color(0.29393, 0.752749, 0.607188, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RestartButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_top = 11.0
+offset_right = -5.0
+offset_bottom = 42.0
+grow_horizontal = 0
+text = "Restart Level"
+
+[node name="NextButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -242.0
+offset_top = 11.0
+offset_right = -133.0
+offset_bottom = 42.0
+grow_horizontal = 0
+text = "Next Level"
+
+[connection signal="pressed" from="CanvasLayer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
+
+[editable path="PlayerCameraCombo"]

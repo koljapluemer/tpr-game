@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvlyrw8rudo7c"]
+
+[ext_resource type="PackedScene" uid="uid://cijyqmhnatnfp" path="res://src/components/level_map/level_map.tscn" id="1_8lgo1"]
+[ext_resource type="Script" path="res://src/managers/conditions/condition_cluster_finished.gd" id="2_o1v0j"]
+[ext_resource type="Script" path="res://src/managers/quest_cluster/quest_cluster.gd" id="3_llvbc"]
+[ext_resource type="PackedScene" uid="uid://c861jqularxx4" path="res://src/components/level_elements/object/car_silver.tscn" id="6_x76pf"]
+[ext_resource type="PackedScene" uid="uid://croq1utgswkbj" path="res://src/components/level_elements/object/car_red_side.tscn" id="7_q6pmi"]
+[ext_resource type="PackedScene" uid="uid://dm1w5ii6fmri2" path="res://src/components/level_elements/object/car_yellow.tscn" id="8_ivh2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1g6y"]
+size = Vector2(64, 103)
+
+[node name="002BikeBicycle" type="Node2D"]
+
+[node name="LevelMap" parent="." instance=ExtResource("1_8lgo1")]
+
+[node name="Player" parent="LevelMap/PlayerCameraCombo" index="1"]
+z_index = 4
+
+[node name="ConditionClusterFinished" type="Node" parent="LevelMap/Events/EventEndLevel" index="0" node_paths=PackedStringArray("cluster_that_we_await")]
+script = ExtResource("2_o1v0j")
+cluster_that_we_await = NodePath("../../QuestCluster")
+delay_signal_by = 2
+
+[node name="QuestCluster" type="Node" parent="LevelMap/Events" index="1" node_paths=PackedStringArray("objects")]
+script = ExtResource("3_llvbc")
+objects = [NodePath("../../Objects/AMG_silver"), NodePath("../../Objects/red car"), NodePath("../../Objects/yellow car")]
+nr_of_tutorial_runs = 2
+
+[node name="Tutor" parent="LevelMap/Objects" index="0"]
+visible = true
+
+[node name="AMG_silver" parent="LevelMap/Objects" index="1" instance=ExtResource("6_x76pf")]
+position = Vector2(176, 0)
+key = "SILVER_CAR"
+
+[node name="perspective block" type="StaticBody2D" parent="LevelMap/Objects/AMG_silver"]
+position = Vector2(-17, -96)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMap/Objects/AMG_silver/perspective block"]
+position = Vector2(22, 41.5)
+shape = SubResource("RectangleShape2D_g1g6y")
+debug_color = Color(0, 0.646732, 0.229734, 0.42)
+
+[node name="red car" parent="LevelMap/Objects" index="2" instance=ExtResource("7_q6pmi")]
+position = Vector2(-128, 0)
+
+[node name="yellow car" parent="LevelMap/Objects" index="3" instance=ExtResource("8_ivh2i")]
+position = Vector2(-352, 0)
+
+[editable path="LevelMap"]
+[editable path="LevelMap/PlayerCameraCombo"]
