@@ -10,11 +10,13 @@ var current_dialog: String
 func _ready():
 	speech_bubble.visible = false
 	TranslationServer.set_locale(Globals.language_code)
+	print("set locale to: ", Globals.language_code)
 
 
 func say(key, kill_after=5):
 	check_for_matching_audio(key)
 	var dialog = tr(key)
+	print("dialog:", dialog)
 	# TODO: instead of kill_after, at least have
 	# the option to see how long the audio is and do that times something or so
 	# maybe even a user test how fast u can read

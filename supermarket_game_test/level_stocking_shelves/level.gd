@@ -1,22 +1,25 @@
 extends Node2D
 
-@onready var apple_spawn_area_object = %AppleSpawnArea
 const APPLE = preload("res://supermarket_game_test/level_stocking_shelves/apple.tscn")
 const PEAR = preload("res://supermarket_game_test/level_stocking_shelves/pear.tscn")
 const FRUIT = [APPLE, PEAR]
+const SPAWN_DELAY = 0.02
 
 var apple_spawn_area
 var apple_spawn_origin
-
 var apples = []
 
-const SPAWN_DELAY = 0.02
+
+@onready var dialog_manager: DialogManager = get_tree().get_first_node_in_group("dialog_manager")
+@onready var apple_spawn_area_object = %AppleSpawnArea
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	apple_spawn_area = apple_spawn_area_object.shape.extents
 	apple_spawn_origin = apple_spawn_area_object.global_position -  apple_spawn_area
 	spawn_objects()
+	dialog_manager.say("TAKE_AN_APPLE")
 
 func spawn_objects():
 	var obj_to_inst = FRUIT.pick_random()
