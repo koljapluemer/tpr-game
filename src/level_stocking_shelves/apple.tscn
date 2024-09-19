@@ -34,13 +34,13 @@ shader_parameter/line_thickness = 12.0
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1sv36"]
 load_path = "res://.godot/imported/apple_crop.png-85450822e5a32d369e9bd72b455dc6b1.ctex"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
-radius = 20.2267
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq71m"]
 radius = 24.8818
 
-[node name="Object" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
+radius = 20.2267
+
+[node name="Object" type="RigidBody2D"]
 script = ExtResource("1_4ll73")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -49,15 +49,6 @@ material = SubResource("ShaderMaterial_blps1")
 position = Vector2(-0.715925, -13.4413)
 scale = Vector2(0.020095, 0.020095)
 texture = SubResource("CompressedTexture2D_1sv36")
-
-[node name="Area2D2" type="Area2D" parent="Sprite"]
-scale = Vector2(20, 20)
-collision_mask = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
-unique_name_in_owner = true
-position = Vector2(4.26954, 16.0272)
-shape = SubResource("CircleShape2D_dgiar")
 
 [node name="InteractionShape2D" type="Area2D" parent="Sprite"]
 unique_name_in_owner = true
@@ -70,9 +61,11 @@ position = Vector2(4.26953, 8.5153)
 shape = SubResource("CircleShape2D_hq71m")
 debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
 
-[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
-[connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
-[connection signal="body_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
-[connection signal="body_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -6.99997)
+scale = Vector2(0.4019, 0.4019)
+shape = SubResource("CircleShape2D_dgiar")
+
 [connection signal="mouse_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_mouse_exited"]
