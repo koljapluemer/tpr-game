@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt4qlhfp1y566"]
+[gd_scene load_steps=7 format=3 uid="uid://bt4qlhfp1y566"]
+
+[ext_resource type="Script" path="res://src/level_stocking_shelves/draggable_object.gd" id="1_4ll73"]
 
 [sub_resource type="Shader" id="Shader_7pisy"]
 code = "shader_type canvas_item;
@@ -39,6 +41,7 @@ radius = 20.2267
 radius = 24.8818
 
 [node name="Object" type="Node2D"]
+script = ExtResource("1_4ll73")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -71,3 +74,5 @@ debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
 [connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
 [connection signal="body_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
 [connection signal="body_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]
+[connection signal="mouse_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_mouse_exited"]

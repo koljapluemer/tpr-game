@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d34wtehj6hi0v"]
+[gd_scene load_steps=4 format=3 uid="uid://d34wtehj6hi0v"]
 
 [ext_resource type="Script" path="res://src/level_stocking_shelves/level.gd" id="1_kk50w"]
+[ext_resource type="PackedScene" uid="uid://bt4qlhfp1y566" path="res://src/level_stocking_shelves/apple.tscn" id="2_2o7nr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc471"]
 size = Vector2(1112.5, 161)
@@ -19,3 +20,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(-5.75, 218)
 shape = SubResource("RectangleShape2D_rc471")
+
+[node name="Object" parent="Spawners" instance=ExtResource("2_2o7nr")]
+position = Vector2(-260, 18)
