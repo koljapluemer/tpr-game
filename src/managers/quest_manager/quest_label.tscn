@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bdgcru3mw7ao7"]
-
-[node name="QuestLabel" type="Label"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "hello+"

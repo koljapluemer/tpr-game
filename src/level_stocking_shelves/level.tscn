@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d34wtehj6hi0v"]
+
+[ext_resource type="Script" path="res://src/level_stocking_shelves/level.gd" id="1_kk50w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc471"]
+size = Vector2(1112.5, 161)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_kk50w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="AppleArea" type="Area2D" parent="Spawners"]
+unique_name_in_owner = true
+
+[node name="AppleSpawnArea" type="CollisionShape2D" parent="Spawners/AppleArea"]
+unique_name_in_owner = true
+position = Vector2(-5.75, 218)
+shape = SubResource("RectangleShape2D_rc471")
