@@ -38,9 +38,10 @@ radius = 14.9291
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq71m"]
 radius = 68.0787
 
-[node name="Object" type="RigidBody2D"]
+[node name="Object" type="RigidBody2D" groups=["PEAR"]]
 mass = 0.3
 script = ExtResource("1_tgljm")
+key = "A_PEAR"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true

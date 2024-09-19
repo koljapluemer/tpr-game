@@ -40,9 +40,10 @@ radius = 24.8818
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgiar"]
 radius = 20.2267
 
-[node name="Object" type="RigidBody2D"]
+[node name="Object" type="RigidBody2D" groups=["APPLE"]]
 mass = 0.3
 script = ExtResource("1_4ll73")
+key = "AN_APPLE"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
