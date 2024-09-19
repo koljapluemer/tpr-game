@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://b58wr6fwg87xf"]
+
+[ext_resource type="Script" path="res://supermarket_game_test/level_stocking_shelves/draggable_object.gd" id="1_fqmy8"]
+[ext_resource type="Texture2D" uid="uid://dj14emuiqwntn" path="res://supermarket_game_test/level_stocking_shelves/banana.png" id="2_tg57h"]
+
+[sub_resource type="Shader" id="Shader_7pisy"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 20) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+	outline = min(outline, 1.0);
+
+	vec4 color = texture(TEXTURE, UV);
+	COLOR = mix(color, line_color, outline - color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blps1"]
+shader = SubResource("Shader_7pisy")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_refmg"]
+radius = 7.46454
+height = 49.7635
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6c4xh"]
+radius = 9.95272
+height = 51.8559
+
+[node name="Object" type="RigidBody2D"]
+mass = 0.3
+script = ExtResource("1_fqmy8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_blps1")
+position = Vector2(-0.380433, -9)
+scale = Vector2(0.0590164, 0.0590164)
+texture = ExtResource("2_tg57h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -6)
+rotation = 1.24191
+scale = Vector2(0.495947, 0.495947)
+shape = SubResource("CapsuleShape2D_refmg")
+
+[node name="InteractionShape2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-0.715925, -13.4223)
+scale = Vector2(0.521899, 0.521899)
+
+[node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="InteractionShape2D"]
+unique_name_in_owner = true
+position = Vector2(4.26953, 13.4917)
+rotation = 1.21765
+shape = SubResource("CapsuleShape2D_6c4xh")
+debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
+
+[connection signal="mouse_entered" from="InteractionShape2D" to="." method="_on_interaction_shape_2d_mouse_entered"]
+[connection signal="mouse_exited" from="InteractionShape2D" to="." method="_on_interaction_shape_2d_mouse_exited"]
