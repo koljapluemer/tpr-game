@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dipc85x4ni2gv"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/hot_bar.gd" id="1_j5rep"]
+[ext_resource type="Script" path="res://alchemy/001_test/level.gd" id="1_tide5"]
+[ext_resource type="Texture2D" uid="uid://b2cwd62vh1fop" path="res://alchemy/001_test/push.png" id="1_ucrvl"]
+[ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/001_test/snatch.png" id="2_bs0ii"]
+[ext_resource type="Script" path="res://alchemy/001_test/mode_button.gd" id="3_i81wg"]
+[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="4_4cxxn"]
+[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="6_qulks"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_tide5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HotBar" type="GridContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -40.0
+offset_right = 42.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 10
+script = ExtResource("1_j5rep")
+
+[node name="ButtonModeMove" type="Button" parent="CanvasLayer/HotBar"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("1_ucrvl")
+expand_icon = true
+script = ExtResource("3_i81wg")
+mode = ExtResource("4_4cxxn")
+
+[node name="ButtonModeTake" type="Button" parent="CanvasLayer/HotBar"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("2_bs0ii")
+expand_icon = true
+script = ExtResource("3_i81wg")
+mode = ExtResource("6_qulks")
+
+[node name="ModeDebug" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "current mode:"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/HotBar/ButtonModeTake" to="CanvasLayer/HotBar/ButtonModeMove" method="_on_button_mode_take_pressed"]

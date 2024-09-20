@@ -13,3 +13,10 @@
 
 - Fus7a speech gen: https://speechgen.io/, Ahmed
 - German speech gen: https://ttsmp3.com/text-to-speech/German/
+
+
+### Icons
+
+- have to look up exact license for both:
+	- Push: https://game-icons.net/1x1/delapouite/push.html
+	- Snatch: https://game-icons.net/1x1/lorc/snatch.html
