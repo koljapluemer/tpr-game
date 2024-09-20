@@ -1,5 +1,8 @@
 
 
+- access `DialogManager` like this: `@onready var dialog_manager: DialogManager = get_tree().get_first_node_in_group("dialog_manager")
+` (after instantiating child scene in your scene)
+
 ### Example of how 1 event was added to demo scene
 
 - level should have its own folder in `levels`, in this case `001_tutorial`
