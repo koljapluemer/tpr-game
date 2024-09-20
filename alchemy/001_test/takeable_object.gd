@@ -1,4 +1,6 @@
-class_name  TakeableObject extends Node2D
+class_name TakeableObject extends Node2D
+
+signal object_destroyed
 
 const ANCHOR_CROP = preload("res://alchemy/001_test/sprites/anchor_crop.png")
 const APPLE_CROP = preload("res://alchemy/001_test/sprites/apple_crop.png")
@@ -23,8 +25,6 @@ BALL_CROP, BANANA_CROP, BOOKS_CROP, BOTTLE_1_CROP, BOTTLE_2_CROP, BREAD_CROP, BU
 func _ready() -> void:
 	sprite_2d.texture = sprites.pick_random()
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -32,4 +32,5 @@ func _process(delta: float) -> void:
 
 func _on_touch_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
+		object_destroyed.emit(self)
 		queue_free()

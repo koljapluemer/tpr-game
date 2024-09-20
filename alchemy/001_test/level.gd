@@ -1,15 +1,20 @@
 extends Node2D
 
+const TAKEABLE_OBJECT = preload("res://alchemy/001_test/takeable_object.tscn")
+
+
 var currentMode: InteractionMode
 var objects: Array[TakeableObject] = []
 var spawn_area
 var spawn_origin
+var quest_active = false
+var current_target:String
 
 @onready var hot_bar: GridContainer = %HotBar
 @onready var mode_debug: Label = %ModeDebug
 @onready var spawn_area_object: CollisionShape2D = %SpawnArea
+@onready var dialog_manager: DialogManager = $DialogManager
 
-const TAKEABLE_OBJECT = preload("res://alchemy/001_test/takeable_object.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for button in hot_bar.get_children():
@@ -34,7 +39,21 @@ func spawn_object():
 	inst.global_position.y = y
 	add_child(inst)
 	objects.append(inst)
+	inst.object_destroyed.connect(_on_obj_destroyed)
+
+func _on_obj_destroyed(obj):
+	objects.erase(obj)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+
+func set_quest():
+	if not quest_active:
+		quest_active = true
+		current_target = objects.pick_random()
+		if current_target == "APPLE":
+			dialog_manager.say("TAKE_AN_APPLE")
+		else:	
+			dialog_manager.say("TAKE_A_" + current_target)
