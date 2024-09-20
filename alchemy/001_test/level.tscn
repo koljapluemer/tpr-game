@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dipc85x4ni2gv"]
+[gd_scene load_steps=9 format=3 uid="uid://dipc85x4ni2gv"]
 
 [ext_resource type="Script" path="res://alchemy/001_test/hot_bar.gd" id="1_j5rep"]
 [ext_resource type="Script" path="res://alchemy/001_test/level.gd" id="1_tide5"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://alchemy/001_test/mode_button.gd" id="3_i81wg"]
 [ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="4_4cxxn"]
 [ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="6_qulks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay326"]
+size = Vector2(1052, 504)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tide5")
@@ -51,5 +54,12 @@ offset_bottom = 23.0
 text = "current mode:"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="SpawnArea" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+position = Vector2(-1, -21)
+shape = SubResource("RectangleShape2D_ay326")
 
 [connection signal="pressed" from="CanvasLayer/HotBar/ButtonModeTake" to="CanvasLayer/HotBar/ButtonModeMove" method="_on_button_mode_take_pressed"]
