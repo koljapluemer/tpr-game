@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TakeableObject" load_steps=6 format=3 uid="uid://banxly61dniqk"]
+
+[ext_resource type="PackedScene" uid="uid://75hi1eqf57dd" path="res://alchemy/001_test/item/pear.tscn" id="1_ndqw1"]
+[ext_resource type="Script" path="res://alchemy/001_test/mode.gd" id="1_xeu6b"]
+[ext_resource type="Script" path="res://alchemy/001_test/takeable_object.gd" id="2_ltcxa"]
+[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="3_wno3b"]
+[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="4_snfnc"]
+
+[resource]
+script = ExtResource("2_ltcxa")
+instantiation = ExtResource("1_ndqw1")
+key = "PEAR"
+responds_to = Array[ExtResource("1_xeu6b")]([ExtResource("3_wno3b"), ExtResource("4_snfnc")])

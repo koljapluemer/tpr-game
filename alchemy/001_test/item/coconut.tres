@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TakeableObject" load_steps=6 format=3 uid="uid://jiwgpwo32mao"]
+
+[ext_resource type="PackedScene" uid="uid://bmb7l5tiec6b6" path="res://alchemy/001_test/item/coconut.tscn" id="1_a2k7f"]
+[ext_resource type="Script" path="res://alchemy/001_test/mode.gd" id="2_v5irc"]
+[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="3_d43uh"]
+[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="4_5i36y"]
+[ext_resource type="Script" path="res://alchemy/001_test/takeable_object.gd" id="5_euung"]
+
+[resource]
+script = ExtResource("5_euung")
+instantiation = ExtResource("1_a2k7f")
+key = "COCONUT"
+responds_to = Array[ExtResource("2_v5irc")]([ExtResource("3_d43uh"), ExtResource("4_5i36y")])

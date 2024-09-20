@@ -27,6 +27,7 @@ quest_manager=""
 tutor=""
 audio_player=""
 level_map=""
+click_shape=""
 
 [input]
 

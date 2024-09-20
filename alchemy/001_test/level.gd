@@ -1,7 +1,8 @@
 extends Node2D
 
-const TAKEABLE_OBJECT = preload("res://alchemy/001_test/takeable_object.tscn")
+@export var possible_objects:Array[TakeableObject] = []
 
+const TAKEABLE_OBJECT = preload("res://alchemy/001_test/takeable_object.tscn")
 
 var currentMode: InteractionMode
 var objects: Array[TakeableObject] = []
@@ -32,14 +33,15 @@ func spawn_objects():
 		spawn_object()
 	
 func spawn_object():
-	var inst = TAKEABLE_OBJECT.instantiate()
+	var random_item = possible_objects.pick_random()
+	var inst = random_item.instantiation.instantiate()
 	var x = randi_range(spawn_origin.x, spawn_area.x)
 	var y = randi_range(spawn_origin.y, spawn_area.y)
 	inst.global_position.x = x
 	inst.global_position.y = y
 	add_child(inst)
 	objects.append(inst)
-	inst.object_destroyed.connect(_on_obj_destroyed)
+	#inst.object_destroyed.connect(_on_obj_destroyed)
 
 func _on_obj_destroyed(obj):
 	objects.erase(obj)
