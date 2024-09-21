@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqcvc1qgajini"]
+
+[ext_resource type="Texture2D" uid="uid://dxbhd82k5m1bf" path="res://src/components/level_elements/object/png/dog_crop.png" id="1_ttnbw"]
+
+[node name="WordOverview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/HBoxContainer/ColorRect"]
+layout_mode = 2
+text = "DOG"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/CenterContainer/HBoxContainer/ColorRect"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ttnbw")
