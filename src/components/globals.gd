@@ -3,8 +3,7 @@ extends Node
 signal language_changed
 
 var language_code: String = "ar"
-
-enum MODE {TAKE, MOVE}
+var current_mode
 
 func set_locale(locale):
 	language_code = locale

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://83sovdvk6017"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/hot_bar.gd" id="1_wg1jh"]
+[ext_resource type="Texture2D" uid="uid://b2cwd62vh1fop" path="res://alchemy/001_test/push.png" id="2_rskrf"]
+[ext_resource type="Script" path="res://alchemy/001_test/mode_button.gd" id="3_7coes"]
+[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="4_cent8"]
+[ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/001_test/snatch.png" id="5_tgwau"]
+[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="6_lmpbb"]
+
+[node name="HotBar" type="GridContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -40.0
+offset_right = 42.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 10
+script = ExtResource("1_wg1jh")
+
+[node name="ButtonModeMove" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("2_rskrf")
+expand_icon = true
+script = ExtResource("3_7coes")
+mode = ExtResource("4_cent8")
+
+[node name="ButtonModeTake" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("5_tgwau")
+expand_icon = true
+script = ExtResource("3_7coes")
+mode = ExtResource("6_lmpbb")
+
+[connection signal="pressed" from="ButtonModeTake" to="ButtonModeMove" method="_on_button_mode_take_pressed"]
