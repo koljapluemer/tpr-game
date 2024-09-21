@@ -7,7 +7,7 @@ var objects: Array[AlchemyObject] = []
 var spawn_area
 var spawn_origin
 var quest_active = false
-var current_target:AlchemyObject
+var quest_key:String
 
 @onready var hot_bar: GridContainer = %HotBar
 @onready var mode_debug: Label = %ModeDebug
@@ -39,11 +39,16 @@ func spawn_object():
 	var y = randi_range(spawn_origin.y, spawn_area.y)
 	inst.global_position.x = x
 	inst.global_position.y = y
+	if inst.has_signal("alchemy_object_taken"):
+		inst.alchemy_object_taken.connect(_on_obj_taken)
 	add_child(inst)
 	objects.append(inst)
 
-func _on_obj_destroyed(obj):
+func _on_obj_taken(obj):
 	objects.erase(obj)
+	if obj.key == quest_key:
+		quest_active = false
+		set_quest()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -53,6 +58,8 @@ func _process(delta: float) -> void:
 func set_quest():
 	if not quest_active:
 		quest_active = true
-		current_target = objects.pick_random()
-		dialog_manager.say("TAKE_" + current_target.key)
+		var current_target = objects.pick_random()
+		if current_target:
+			dialog_manager.say("TAKE_" + current_target.key)
+			quest_key = current_target.key
 		

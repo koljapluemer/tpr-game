@@ -9,11 +9,9 @@ signal alchemy_object_taken
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if takeable_component:
-		print("connected component")
 		takeable_component.object_taken.connect(_on_taken)
 
 func _on_taken():
-	print("obj taken")
 	alchemy_object_taken.emit(self)
 	queue_free()
 
