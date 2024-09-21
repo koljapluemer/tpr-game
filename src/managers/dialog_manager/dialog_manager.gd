@@ -25,6 +25,7 @@ func say(key, kill_after=5):
 	get_tree().create_timer(kill_after).connect("timeout", finish)
 
 func check_for_matching_audio(key):
+	return
 	var path = "res://src/translations/audio/" + Globals.language_code + "/" + key + ".mp3"
 	if ResourceLoader.exists(path):
 		audio_player.stream = load(path)

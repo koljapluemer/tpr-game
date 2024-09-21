@@ -2,6 +2,8 @@ class_name AlchemyObject extends Node2D
 
 signal alchemy_object_taken
 
+@export var key:String
+@export_category("Components")
 @export var takeable_component: TakeableComponent
 
 # Called when the node enters the scene tree for the first time.

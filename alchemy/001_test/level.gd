@@ -7,7 +7,7 @@ var objects: Array[AlchemyObject] = []
 var spawn_area
 var spawn_origin
 var quest_active = false
-var current_target:String
+var current_target:AlchemyObject
 
 @onready var hot_bar: GridContainer = %HotBar
 @onready var mode_debug: Label = %ModeDebug
@@ -20,6 +20,7 @@ func _ready() -> void:
 	for button in hot_bar.get_children():
 		button.mode_button_pressed.connect(_on_mode_button_pressed)
 	spawn_objects()
+	set_quest()
 
 func _on_mode_button_pressed(mode):
 	currentMode = mode
@@ -53,4 +54,5 @@ func set_quest():
 	if not quest_active:
 		quest_active = true
 		current_target = objects.pick_random()
+		dialog_manager.say("TAKE_" + current_target.key)
 		
