@@ -1,11 +1,9 @@
 extends Node2D
 
-@export var possible_objects:Array[TakeableObject] = []
-
-const TAKEABLE_OBJECT = preload("res://alchemy/001_test/takeable_object.tscn")
+@export var possible_objects:Array[PackedScene] = []
 
 var currentMode: InteractionMode
-var objects: Array[TakeableObject] = []
+var objects: Array[AlchemyObject] = []
 var spawn_area
 var spawn_origin
 var quest_active = false
@@ -14,7 +12,8 @@ var current_target:String
 @onready var hot_bar: GridContainer = %HotBar
 @onready var mode_debug: Label = %ModeDebug
 @onready var spawn_area_object: CollisionShape2D = %SpawnArea
-@onready var dialog_manager: DialogManager = $DialogManager
+@onready var dialog_manager: DialogManager = %DialogManager
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,14 +33,13 @@ func spawn_objects():
 	
 func spawn_object():
 	var random_item = possible_objects.pick_random()
-	var inst = random_item.instantiation.instantiate()
+	var inst = random_item.instantiate()
 	var x = randi_range(spawn_origin.x, spawn_area.x)
 	var y = randi_range(spawn_origin.y, spawn_area.y)
 	inst.global_position.x = x
 	inst.global_position.y = y
 	add_child(inst)
 	objects.append(inst)
-	#inst.object_destroyed.connect(_on_obj_destroyed)
 
 func _on_obj_destroyed(obj):
 	objects.erase(obj)
@@ -55,7 +53,4 @@ func set_quest():
 	if not quest_active:
 		quest_active = true
 		current_target = objects.pick_random()
-		if current_target == "APPLE":
-			dialog_manager.say("TAKE_AN_APPLE")
-		else:	
-			dialog_manager.say("TAKE_A_" + current_target)
+		

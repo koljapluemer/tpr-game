@@ -1,14 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dipc85x4ni2gv"]
+[gd_scene load_steps=11 format=3 uid="uid://dipc85x4ni2gv"]
 
 [ext_resource type="Script" path="res://alchemy/001_test/hot_bar.gd" id="1_j5rep"]
 [ext_resource type="Script" path="res://alchemy/001_test/level.gd" id="1_tide5"]
 [ext_resource type="Texture2D" uid="uid://b2cwd62vh1fop" path="res://alchemy/001_test/push.png" id="1_ucrvl"]
 [ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/001_test/snatch.png" id="2_bs0ii"]
-[ext_resource type="Script" path="res://alchemy/001_test/takeable_object.gd" id="2_n3b31"]
+[ext_resource type="PackedScene" uid="uid://bmb7l5tiec6b6" path="res://alchemy/001_test/item/coconut.tscn" id="2_dkb7b"]
 [ext_resource type="Script" path="res://alchemy/001_test/mode_button.gd" id="3_i81wg"]
-[ext_resource type="Resource" uid="uid://jiwgpwo32mao" path="res://alchemy/001_test/item/coconut.tres" id="3_k485m"]
 [ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="4_4cxxn"]
-[ext_resource type="Resource" uid="uid://banxly61dniqk" path="res://alchemy/001_test/item/pear.tres" id="4_oybdx"]
 [ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="6_qulks"]
 [ext_resource type="PackedScene" uid="uid://c135vycbcihty" path="res://src/managers/dialog_manager/dialog_manager.tscn" id="8_3a3tn"]
 
@@ -17,7 +15,7 @@ size = Vector2(1052, 504)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tide5")
-possible_objects = Array[ExtResource("2_n3b31")]([ExtResource("3_k485m"), ExtResource("4_oybdx")])
+possible_objects = Array[PackedScene]([ExtResource("2_dkb7b")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -58,6 +56,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "current mode:"
 
+[node name="DialogManager" parent="CanvasLayer" instance=ExtResource("8_3a3tn")]
+unique_name_in_owner = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -66,7 +67,5 @@ text = "current mode:"
 unique_name_in_owner = true
 position = Vector2(-1, -21)
 shape = SubResource("RectangleShape2D_ay326")
-
-[node name="DialogManager" parent="." instance=ExtResource("8_3a3tn")]
 
 [connection signal="pressed" from="CanvasLayer/HotBar/ButtonModeTake" to="CanvasLayer/HotBar/ButtonModeMove" method="_on_button_mode_take_pressed"]
