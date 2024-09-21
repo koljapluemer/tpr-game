@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://qtglswrq150r"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/level_2_dog.gd" id="1_8qbn1"]
+[ext_resource type="PackedScene" uid="uid://d2f824kcew4hw" path="res://alchemy/001_test/item/dog.tscn" id="2_ful0n"]
+[ext_resource type="Script" path="res://alchemy/001_test/hot_bar.gd" id="4_r5hwi"]
+[ext_resource type="Texture2D" uid="uid://b2cwd62vh1fop" path="res://alchemy/001_test/push.png" id="5_il7hu"]
+[ext_resource type="Script" path="res://alchemy/001_test/mode_button.gd" id="6_qe7xe"]
+[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="7_mpsln"]
+[ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/001_test/snatch.png" id="8_25dxo"]
+[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="9_7cm7u"]
+[ext_resource type="PackedScene" uid="uid://c135vycbcihty" path="res://src/managers/dialog_manager/dialog_manager.tscn" id="10_2uqet"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay326"]
+size = Vector2(1052, 395)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_8qbn1")
+possible_objects = Array[PackedScene]([ExtResource("2_ful0n")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HotBar" type="GridContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -40.0
+offset_right = 42.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 10
+script = ExtResource("4_r5hwi")
+
+[node name="ButtonModeMove" type="Button" parent="CanvasLayer/HotBar"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("5_il7hu")
+expand_icon = true
+script = ExtResource("6_qe7xe")
+mode = ExtResource("7_mpsln")
+
+[node name="ButtonModeTake" type="Button" parent="CanvasLayer/HotBar"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("8_25dxo")
+expand_icon = true
+script = ExtResource("6_qe7xe")
+mode = ExtResource("9_7cm7u")
+
+[node name="ModeDebug" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "current mode:"
+
+[node name="DialogManager" parent="CanvasLayer" instance=ExtResource("10_2uqet")]
+unique_name_in_owner = true
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="SpawnArea" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+position = Vector2(-1, 33.5)
+shape = SubResource("RectangleShape2D_ay326")
+
+[connection signal="pressed" from="CanvasLayer/HotBar/ButtonModeTake" to="CanvasLayer/HotBar/ButtonModeMove" method="_on_button_mode_take_pressed"]

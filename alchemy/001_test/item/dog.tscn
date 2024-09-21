@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2f824kcew4hw"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/item/alchemy_item.gd" id="1_rwyc5"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_kwf0o"]
+[ext_resource type="Texture2D" uid="uid://dxbhd82k5m1bf" path="res://src/components/level_elements/object/png/dog_crop.png" id="3_ceeid"]
+[ext_resource type="Script" path="res://alchemy/001_test/components/takeable_component.gd" id="4_2dpoa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66y4e"]
+height = 52.0
+
+[node name="Object" type="Node2D" node_paths=PackedStringArray("takeable_component")]
+script = ExtResource("1_rwyc5")
+key = "AN_APPLE"
+takeable_component = NodePath("TakeableComponent")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_kwf0o")
+position = Vector2(1.47806, -24.5268)
+scale = Vector2(0.0464672, 0.0464672)
+texture = ExtResource("3_ceeid")
+
+[node name="TakeableComponent" type="Node2D" parent="." node_paths=PackedStringArray("takeable_area")]
+script = ExtResource("4_2dpoa")
+takeable_area = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -26)
+shape = SubResource("CapsuleShape2D_66y4e")
