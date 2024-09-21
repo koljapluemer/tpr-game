@@ -10,7 +10,6 @@ var quest_active = false
 var quest_key:String
 
 @onready var hot_bar: GridContainer = %HotBar
-@onready var mode_debug: Label = %ModeDebug
 @onready var spawn_area_object: CollisionShape2D = %SpawnArea
 @onready var dialog_manager: DialogManager = %DialogManager
 
@@ -24,7 +23,6 @@ func _ready() -> void:
 
 func _on_mode_button_pressed(mode):
 	currentMode = mode
-	mode_debug.text = currentMode.mode
 
 func spawn_objects():
 	spawn_area = spawn_area_object.shape.extents

@@ -17,12 +17,6 @@ possible_objects = Array[PackedScene]([ExtResource("2_ful0n")])
 [node name="HotBar" parent="CanvasLayer" instance=ExtResource("3_t6dwn")]
 unique_name_in_owner = true
 
-[node name="ModeDebug" type="Label" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
-text = "current mode:"
-
 [node name="DialogManager" parent="CanvasLayer" instance=ExtResource("10_2uqet")]
 unique_name_in_owner = true
 offset_left = 0.0

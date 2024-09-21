@@ -19,17 +19,18 @@ func _ready() -> void:
 		#object_taken.emit()
 
 func _process(delta: float) -> void:
-	if draggable:
-		if Input.is_action_just_pressed("click"):
-			print("dragging")
-			offset = get_global_mouse_position() - global_position
-			is_being_dragged = true
-			#object_clicked.emit(self)
-	if is_being_dragged:
-		get_parent().global_position = get_global_mouse_position() - offset
-	if Input.is_action_just_released("click"):
+	if Globals.current_mode == InteractionMode.MOVE:
+		if draggable:
+			if Input.is_action_just_pressed("click"):
+				print("dragging")
+				offset = get_global_mouse_position() - global_position
+				is_being_dragged = true
+				#object_clicked.emit(self)
 		if is_being_dragged:
-			is_being_dragged = false
+			get_parent().global_position = get_global_mouse_position() - offset
+		if Input.is_action_just_released("click"):
+			if is_being_dragged:
+				is_being_dragged = false
 	
 func _on_interaction_shape_2d_mouse_entered() -> void:
 	print("mouse entered")
