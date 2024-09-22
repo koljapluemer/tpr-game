@@ -24,6 +24,8 @@ LevelManager="*res://src/managers/level_manager/level_manager.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=300
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 
