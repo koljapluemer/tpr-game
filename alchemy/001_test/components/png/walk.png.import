@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8425as45pmuk"
-path="res://.godot/imported/expander.png-0875b2ac2e1f25f25b1c0cfe1be202d0.ctex"
+uid="uid://2grlen1n7537"
+path="res://.godot/imported/walk.png-8ccfc41b059e4170ac365da77349cc84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/expander.png"
-dest_files=["res://.godot/imported/expander.png-0875b2ac2e1f25f25b1c0cfe1be202d0.ctex"]
+source_file="res://alchemy/001_test/components/png/walk.png"
+dest_files=["res://.godot/imported/walk.png-8ccfc41b059e4170ac365da77349cc84.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj2ww68gqwfjo"
-path="res://.godot/imported/power-button.png-72d3264a7ea6ec1a719212f09e82e92c.ctex"
+uid="uid://ceoajyyy6hl5o"
+path="res://.godot/imported/blacksmith.png-1929f5438c614c4c99f0fb06cef38071.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/power-button.png"
-dest_files=["res://.godot/imported/power-button.png-72d3264a7ea6ec1a719212f09e82e92c.ctex"]
+source_file="res://alchemy/001_test/components/png/blacksmith.png"
+dest_files=["res://.godot/imported/blacksmith.png-1929f5438c614c4c99f0fb06cef38071.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2cwd62vh1fop"
-path="res://.godot/imported/push.png-80a2a788b29161d6d75d4c2ebb1c37c5.ctex"
+uid="uid://b0111vh03ak8n"
+path="res://.godot/imported/entry-door.png-a3791e16e30e598132ec2c0977f5f2ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/push.png"
-dest_files=["res://.godot/imported/push.png-80a2a788b29161d6d75d4c2ebb1c37c5.ctex"]
+source_file="res://alchemy/001_test/components/png/entry-door.png"
+dest_files=["res://.godot/imported/entry-door.png-a3791e16e30e598132ec2c0977f5f2ff.ctex"]
 
 [params]
 

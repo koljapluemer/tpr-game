@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pryycpq5tbo0"
-path="res://.godot/imported/snatch.png-0249de74970f2fc67df377bf6c293d40.ctex"
+uid="uid://vygngth4n0pf"
+path="res://.godot/imported/LOCK.png-6c6ee254c6df2c5f9533b2f4b9ef7af0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/snatch.png"
-dest_files=["res://.godot/imported/snatch.png-0249de74970f2fc67df377bf6c293d40.ctex"]
+source_file="res://alchemy/001_test/components/png/LOCK.png"
+dest_files=["res://.godot/imported/LOCK.png-6c6ee254c6df2c5f9533b2f4b9ef7af0.ctex"]
 
 [params]
 

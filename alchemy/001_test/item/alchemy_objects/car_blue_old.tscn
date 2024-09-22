@@ -14,8 +14,6 @@ height = 57.9413
 
 [node name="Object" type="Node2D"]
 script = ExtResource("1_ym2en")
-words = null
-color = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -45,9 +43,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_36a0r")
 debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
 
-[node name="LockableComponent" type="Node2D" parent="." node_paths=PackedStringArray("selectable_area")]
+[node name="Components" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="LockableComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("selectable_area")]
 script = ExtResource("4_nedfd")
-selectable_area = NodePath("../Sprite/Area2D2")
+selectable_area = NodePath("../../Sprite/Area2D2")
 
 [connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]

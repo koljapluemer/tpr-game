@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://citcjn8kn82ba"
-path="res://.godot/imported/closed-doors.png-cf3d58a067ad88cbeeae36cb449a5e8d.ctex"
+uid="uid://pryycpq5tbo0"
+path="res://.godot/imported/TAKE.png-1e467cab4da3d486e283a1855c710853.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/closed-doors.png"
-dest_files=["res://.godot/imported/closed-doors.png-cf3d58a067ad88cbeeae36cb449a5e8d.ctex"]
+source_file="res://alchemy/001_test/components/png/TAKE.png"
+dest_files=["res://.godot/imported/TAKE.png-1e467cab4da3d486e283a1855c710853.ctex"]
 
 [params]
 

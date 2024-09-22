@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vygngth4n0pf"
-path="res://.godot/imported/key-lock.png-a0296fbc12c35b1370a43845f8df1b06.ctex"
+uid="uid://b8425as45pmuk"
+path="res://.godot/imported/expander.png-f8a16d441e75e6b474e684bbfd63a5d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/key-lock.png"
-dest_files=["res://.godot/imported/key-lock.png-a0296fbc12c35b1370a43845f8df1b06.ctex"]
+source_file="res://alchemy/001_test/components/png/expander.png"
+dest_files=["res://.godot/imported/expander.png-f8a16d441e75e6b474e684bbfd63a5d0.ctex"]
 
 [params]
 

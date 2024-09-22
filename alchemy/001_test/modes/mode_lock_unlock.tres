@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="InteractionMode" load_steps=3 format=3 uid="uid://i46ukgjfuff8"]
-
-[ext_resource type="Script" path="res://alchemy/001_test/modes/mode.gd" id="1_7g440"]
-[ext_resource type="Texture2D" uid="uid://vygngth4n0pf" path="res://alchemy/button_icons/png/key-lock.png" id="1_bedjb"]
-
-[resource]
-resource_name = "LOCK_UNLOCK"
-script = ExtResource("1_7g440")
-button_texture = ExtResource("1_bedjb")

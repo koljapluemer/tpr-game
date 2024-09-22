@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbybk55iejmyl"
-path="res://.godot/imported/exit-door.png-cb3ba4d0bd0f5727c6c7bcde02d7db9b.ctex"
+uid="uid://cj2ww68gqwfjo"
+path="res://.godot/imported/power-button.png-6a18a672a4783342fb83d9ab42b0b604.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/exit-door.png"
-dest_files=["res://.godot/imported/exit-door.png-cb3ba4d0bd0f5727c6c7bcde02d7db9b.ctex"]
+source_file="res://alchemy/001_test/components/png/power-button.png"
+dest_files=["res://.godot/imported/power-button.png-6a18a672a4783342fb83d9ab42b0b604.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1krcck4xwcha"
-path="res://.godot/imported/kitchen-knives.png-042af6e9735ac1dacaece9cd0aa881db.ctex"
+uid="uid://dfm66thqvmb1l"
+path="res://.godot/imported/mountain-climbing.png-b3b33a5f7edf0ed4fab507edc9590ee7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/kitchen-knives.png"
-dest_files=["res://.godot/imported/kitchen-knives.png-042af6e9735ac1dacaece9cd0aa881db.ctex"]
+source_file="res://alchemy/001_test/components/png/mountain-climbing.png"
+dest_files=["res://.godot/imported/mountain-climbing.png-b3b33a5f7edf0ed4fab507edc9590ee7.ctex"]
 
 [params]
 

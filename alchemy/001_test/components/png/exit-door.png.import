@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kdwqp7lums1n"
-path="res://.godot/imported/crafting.png-6e211f29c727c36ab914d9095c1ca389.ctex"
+uid="uid://bbybk55iejmyl"
+path="res://.godot/imported/exit-door.png-ba77875e16d94a900575787f55fb4edb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/crafting.png"
-dest_files=["res://.godot/imported/crafting.png-6e211f29c727c36ab914d9095c1ca389.ctex"]
+source_file="res://alchemy/001_test/components/png/exit-door.png"
+dest_files=["res://.godot/imported/exit-door.png-ba77875e16d94a900575787f55fb4edb.ctex"]
 
 [params]
 

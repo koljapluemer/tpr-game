@@ -1,19 +1,12 @@
 extends Control
+const MODE_BUTTON = preload("res://alchemy/mode_button.tscn")
 
-@onready var button_mode_move: Button = %ButtonModeMove
-@onready var button_mode_take: Button = %ButtonModeTake
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	button_mode_move.pressed.connect(_set_mode_move)
-	button_mode_take.pressed.connect(_set_mode_take)
-
-func _set_mode_move():
-	Globals.current_mode = InteractionMode.MOVE
-	
-func _set_mode_take():
-	Globals.current_mode = InteractionMode.TAKE
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func set_buttons(modes:Dictionary):
+	for mode in modes:
+		if modes[mode]:
+			var btn = MODE_BUTTON.instantiate()
+			# TODO: this is rather dirty but I don't have better ideas either
+			# wouldn't know where to set this, except maybe global config?
+			btn.icon = load("res://alchemy/001_test/components/png/" + mode + ".png")
+			btn.mode = mode
+			add_child(btn)

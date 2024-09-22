@@ -1,10 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://83sovdvk6017"]
+[gd_scene load_steps=2 format=3 uid="uid://83sovdvk6017"]
 
 [ext_resource type="Script" path="res://alchemy/001_test/hot_bar.gd" id="1_wg1jh"]
-[ext_resource type="Texture2D" uid="uid://b2cwd62vh1fop" path="res://alchemy/button_icons/png/push.png" id="2_rskrf"]
-[ext_resource type="Script" path="res://alchemy/001_test/modes/mode_button.gd" id="3_7coes"]
-[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/modes/mode_move.tres" id="4_cent8"]
-[ext_resource type="PackedScene" uid="uid://du4q5emfej4a" path="res://alchemy/button_icons/button_mode.tscn" id="5_detl5"]
 
 [node name="HotBar" type="HBoxContainer"]
 anchors_preset = 7
@@ -19,16 +15,3 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_wg1jh")
-
-[node name="ButtonModeMove" type="Button" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-icon = ExtResource("2_rskrf")
-expand_icon = true
-script = ExtResource("3_7coes")
-mode = ExtResource("4_cent8")
-
-[node name="ButtonModeTake" parent="." instance=ExtResource("5_detl5")]
-unique_name_in_owner = true
-layout_mode = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceoajyyy6hl5o"
-path="res://.godot/imported/blacksmith.png-65a2d86c584a557312e91b66c7736a9d.ctex"
+uid="uid://b2cwd62vh1fop"
+path="res://.godot/imported/push.png-a5d0e09d510bbc457aaea5a606a7a1e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/blacksmith.png"
-dest_files=["res://.godot/imported/blacksmith.png-65a2d86c584a557312e91b66c7736a9d.ctex"]
+source_file="res://alchemy/001_test/components/png/push.png"
+dest_files=["res://.godot/imported/push.png-a5d0e09d510bbc457aaea5a606a7a1e9.ctex"]
 
 [params]
 

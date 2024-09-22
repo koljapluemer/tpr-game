@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfm66thqvmb1l"
-path="res://.godot/imported/mountain-climbing.png-2e50d22563e579509fee56dbc9afe8a8.ctex"
+uid="uid://kdwqp7lums1n"
+path="res://.godot/imported/crafting.png-1d56b770dac3c2332043655ced5c76d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/mountain-climbing.png"
-dest_files=["res://.godot/imported/mountain-climbing.png-2e50d22563e579509fee56dbc9afe8a8.ctex"]
+source_file="res://alchemy/001_test/components/png/crafting.png"
+dest_files=["res://.godot/imported/crafting.png-1d56b770dac3c2332043655ced5c76d6.ctex"]
 
 [params]
 

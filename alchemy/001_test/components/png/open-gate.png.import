@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlp0163v7w4ag"
-path="res://.godot/imported/click.png-18ff1a45b11e3146f846a93570c8f522.ctex"
+uid="uid://by5st7bck74cp"
+path="res://.godot/imported/open-gate.png-97c057d4e1d7e66c15255ae893935ac1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/click.png"
-dest_files=["res://.godot/imported/click.png-18ff1a45b11e3146f846a93570c8f522.ctex"]
+source_file="res://alchemy/001_test/components/png/open-gate.png"
+dest_files=["res://.godot/imported/open-gate.png-97c057d4e1d7e66c15255ae893935ac1.ctex"]
 
 [params]
 

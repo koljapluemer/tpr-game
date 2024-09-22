@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2grlen1n7537"
-path="res://.godot/imported/walk.png-bc17e64e4be5738daa2c5a11f6ff5856.ctex"
+uid="uid://cc0mcqxiyam0q"
+path="res://.godot/imported/clockwise-rotation.png-f3fceef7787ba6633ad1da45fe1572f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/walk.png"
-dest_files=["res://.godot/imported/walk.png-bc17e64e4be5738daa2c5a11f6ff5856.ctex"]
+source_file="res://alchemy/001_test/components/png/clockwise-rotation.png"
+dest_files=["res://.godot/imported/clockwise-rotation.png-f3fceef7787ba6633ad1da45fe1572f0.ctex"]
 
 [params]
 

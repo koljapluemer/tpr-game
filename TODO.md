@@ -20,3 +20,9 @@
 
 
 - if doing the "understand this content" thing, what content? yt apparently not supported...
+
+
+### New
+
+- Resources (Words) are messed up, I think there is some stuff going on with saving the wrong thing to the wrong thing
+  - maybe just get that table edit thing

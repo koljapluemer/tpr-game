@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="InteractionMode" load_steps=2 format=3 uid="uid://d2uybnogm5fgh"]
-
-[ext_resource type="Script" path="res://alchemy/001_test/modes/mode.gd" id="1_b6y8u"]
-
-[resource]
-resource_name = "OPEN_CLOSE"
-script = ExtResource("1_b6y8u")

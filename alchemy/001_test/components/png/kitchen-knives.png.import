@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by5st7bck74cp"
-path="res://.godot/imported/open-gate.png-b019bf7c68eed1145ba0f75a2f601b7f.ctex"
+uid="uid://c1krcck4xwcha"
+path="res://.godot/imported/kitchen-knives.png-ca064872a68de2e285f0fda73776db2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alchemy/button_icons/png/open-gate.png"
-dest_files=["res://.godot/imported/open-gate.png-b019bf7c68eed1145ba0f75a2f601b7f.ctex"]
+source_file="res://alchemy/001_test/components/png/kitchen-knives.png"
+dest_files=["res://.godot/imported/kitchen-knives.png-ca064872a68de2e285f0fda73776db2b.ctex"]
 
 [params]
 
