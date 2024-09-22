@@ -1,8 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqcvc1qgajini"]
+[gd_scene load_steps=26 format=3 uid="uid://bqcvc1qgajini"]
 
-[ext_resource type="Texture2D" uid="uid://dxbhd82k5m1bf" path="res://src/components/level_elements/object/png/dog_crop.png" id="1_ttnbw"]
-[ext_resource type="Texture2D" uid="uid://ul6acqahk0u3" path="res://src/components/level_elements/object/png/apple_crop.png" id="2_4evo7"]
-[ext_resource type="Texture2D" uid="uid://ism3tc6j6jcj" path="res://src/components/level_elements/object/png/car_blue_old_crop.png" id="3_vy6fv"]
+[ext_resource type="Script" path="res://alchemy/001_test/word_overview.gd" id="1_eed1p"]
+[ext_resource type="Script" path="res://alchemy/001_test/item/word.gd" id="2_peoij"]
+[ext_resource type="Resource" uid="uid://ca6e88mwc8hjv" path="res://alchemy/001_test/item/res/anchor.tres" id="3_qnnvi"]
+[ext_resource type="Resource" uid="uid://bvm5tgx5ydtf5" path="res://alchemy/001_test/item/res/truck.tres" id="4_h6y6x"]
+[ext_resource type="Resource" uid="uid://bj5qjr2qfjy06" path="res://alchemy/001_test/item/res/toilet.tres" id="5_6jeb7"]
+[ext_resource type="Resource" uid="uid://psm6tw676yvf" path="res://alchemy/001_test/item/res/table.tres" id="6_ctu5t"]
+[ext_resource type="Resource" uid="uid://co4m6embbfdbu" path="res://alchemy/001_test/item/res/stool.tres" id="7_egppq"]
+[ext_resource type="Resource" uid="uid://c8t8p2dcajak2" path="res://alchemy/001_test/item/res/plane.tres" id="8_1tm8e"]
+[ext_resource type="Resource" uid="uid://blovfyms7yd4n" path="res://alchemy/001_test/item/res/pear.tres" id="9_oeteg"]
+[ext_resource type="Resource" uid="uid://5i7pnsqukg21" path="res://alchemy/001_test/item/res/melon.tres" id="10_xvkgw"]
+[ext_resource type="Resource" uid="uid://hpcq1bxyis2u" path="res://alchemy/001_test/item/res/giraffe.tres" id="11_uqgfe"]
+[ext_resource type="Resource" uid="uid://crotyx1hosi3y" path="res://alchemy/001_test/item/res/flag.tres" id="12_xofmp"]
+[ext_resource type="Resource" uid="uid://ceurr2wrlbpvu" path="res://alchemy/001_test/item/res/dog.tres" id="13_1por6"]
+[ext_resource type="Resource" uid="uid://dmi2taqp3t0m5" path="res://alchemy/001_test/item/res/cupboard.tres" id="14_axnn1"]
+[ext_resource type="Resource" uid="uid://ccpxs8hhsbdme" path="res://alchemy/001_test/item/res/coconut.tres" id="15_siqpc"]
+[ext_resource type="Resource" uid="uid://drpuhg11oyx8p" path="res://alchemy/001_test/item/res/cat.tres" id="16_bj5r2"]
+[ext_resource type="Resource" uid="uid://d1bvjaato7jna" path="res://alchemy/001_test/item/res/car_taxi_old.tres" id="17_gnqvl"]
+[ext_resource type="Resource" uid="uid://d1ol1q1ppiyvp" path="res://alchemy/001_test/item/res/car_taxi_new.tres" id="18_a5kl4"]
+[ext_resource type="Resource" uid="uid://3d3ajcmsnegv" path="res://alchemy/001_test/item/res/car.tres" id="19_fvr3i"]
+[ext_resource type="Resource" uid="uid://tylybg0p2cgi" path="res://alchemy/001_test/item/res/bus.tres" id="20_se1hr"]
+[ext_resource type="Resource" uid="uid://dsdf38fa5wv7o" path="res://alchemy/001_test/item/res/bike.tres" id="21_usbbl"]
+[ext_resource type="Resource" uid="uid://ba87ayg32lpp6" path="res://alchemy/001_test/item/res/bicycle.tres" id="22_rk5qi"]
+[ext_resource type="Resource" uid="uid://duptkawptc8cn" path="res://alchemy/001_test/item/res/tuktuk.tres" id="23_otetp"]
+[ext_resource type="Resource" uid="uid://de84ysjdtj1y7" path="res://alchemy/001_test/item/res/washing_machine.tres" id="24_we4fx"]
+[ext_resource type="Resource" uid="uid://0xvxc6khfinv" path="res://alchemy/001_test/item/res/backpack.tres" id="25_kslih"]
 
 [node name="WordOverview" type="Control"]
 layout_mode = 3
@@ -11,109 +33,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eed1p")
+words = Array[ExtResource("2_peoij")]([ExtResource("3_qnnvi"), ExtResource("4_h6y6x"), ExtResource("5_6jeb7"), ExtResource("6_ctu5t"), ExtResource("7_egppq"), ExtResource("8_1tm8e"), ExtResource("9_oeteg"), ExtResource("10_xvkgw"), ExtResource("11_uqgfe"), ExtResource("12_xofmp"), ExtResource("13_1por6"), ExtResource("14_axnn1"), ExtResource("15_siqpc"), ExtResource("16_bj5r2"), ExtResource("17_gnqvl"), ExtResource("18_a5kl4"), ExtResource("19_fvr3i"), ExtResource("20_se1hr"), ExtResource("21_usbbl"), ExtResource("22_rk5qi"), ExtResource("23_otetp"), ExtResource("24_we4fx"), ExtResource("25_kslih")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="WordWrapper" type="HBoxContainer" parent="CanvasLayer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_constants/separation = 12
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/ColorRect"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-text = "DOG"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/ColorRect"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-texture = ExtResource("1_ttnbw")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/ColorRect"]
-layout_mode = 2
-value = 23.0
-
-[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer/ColorRect"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-text = "APPLE"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer/ColorRect"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-texture = ExtResource("2_4evo7")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer/ColorRect"]
-layout_mode = 2
-value = 23.0
-
-[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer3"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer/ColorRect"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-text = "CAR"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer/ColorRect"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-texture = ExtResource("3_vy6fv")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer/ColorRect"]
-layout_mode = 2
-value = 23.0

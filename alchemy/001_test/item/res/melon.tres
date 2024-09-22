@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Word" load_steps=3 format=3 uid="uid://5i7pnsqukg21"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/item/word.gd" id="1_pniq1"]
+[ext_resource type="Texture2D" uid="uid://gr5k1q40pxbl" path="res://src/components/level_elements/object/png/melon.png" id="2_2xqgb"]
+
+[resource]
+script = ExtResource("1_pniq1")
+key = "MELON"
+showcase_sprite = ExtResource("2_2xqgb")
+word_group = Array[String](["WORD", "NOUN"])

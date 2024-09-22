@@ -5,6 +5,7 @@ signal language_changed
 var language_code: String = "de"
 var current_mode
 
+
 func set_locale(locale):
 	language_code = locale
 	TranslationServer.set_locale(locale)

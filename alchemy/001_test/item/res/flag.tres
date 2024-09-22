@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Word" load_steps=3 format=3 uid="uid://crotyx1hosi3y"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/item/word.gd" id="1_ewpsp"]
+[ext_resource type="Texture2D" uid="uid://dflbvy51bhtly" path="res://src/components/level_elements/object/png/flag_jordan.png" id="2_sq1vg"]
+
+[resource]
+script = ExtResource("1_ewpsp")
+key = "FLAG"
+showcase_sprite = ExtResource("2_sq1vg")
+word_group = Array[String](["WORD", "NOUN"])
