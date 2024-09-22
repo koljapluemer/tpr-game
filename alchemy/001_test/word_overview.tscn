@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqcvc1qgajini"]
+[gd_scene load_steps=4 format=3 uid="uid://bqcvc1qgajini"]
 
 [ext_resource type="Texture2D" uid="uid://dxbhd82k5m1bf" path="res://src/components/level_elements/object/png/dog_crop.png" id="1_ttnbw"]
+[ext_resource type="Texture2D" uid="uid://ul6acqahk0u3" path="res://src/components/level_elements/object/png/apple_crop.png" id="2_4evo7"]
+[ext_resource type="Texture2D" uid="uid://ism3tc6j6jcj" path="res://src/components/level_elements/object/png/car_blue_old_crop.png" id="3_vy6fv"]
 
 [node name="WordOverview" type="Control"]
 layout_mode = 3
@@ -12,20 +14,106 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 
-[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/CenterContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/HBoxContainer/ColorRect"]
+[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 text = "DOG"
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/CenterContainer/HBoxContainer/ColorRect"]
-scale = Vector2(0.2, 0.2)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
 texture = ExtResource("1_ttnbw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/ColorRect"]
+layout_mode = 2
+value = 23.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "APPLE"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture = ExtResource("2_4evo7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer/PanelContainer2/MarginContainer/ColorRect"]
+layout_mode = 2
+value = 23.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "CAR"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture = ExtResource("3_vy6fv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer/PanelContainer3/MarginContainer/ColorRect"]
+layout_mode = 2
+value = 23.0
