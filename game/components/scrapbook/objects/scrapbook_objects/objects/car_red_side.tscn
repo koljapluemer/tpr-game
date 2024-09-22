@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbo5qaj4c4ro4"]
 
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/alchemy_object.gd" id="1_sw2rt"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_f2ftn"]
-[ext_resource type="Texture2D" uid="uid://08xms0jsr3fo" path="res://src/components/level_elements/object/png/car_red_crop.png" id="3_bhrdi"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/assets/material_outline.tres" id="2_f2ftn"]
+[ext_resource type="Texture2D" uid="uid://cp0psnhd72h42" path="res://game/components/scrapbook/objects/assets/object_pngs/car_red_crop.png" id="3_dn6av"]
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/lockable_component.gd" id="4_8weh4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgbwh"]
@@ -23,7 +23,7 @@ material = ExtResource("2_f2ftn")
 position = Vector2(5.1079, -31.2884)
 rotation = 0.0193609
 scale = Vector2(0.134022, 0.134022)
-texture = ExtResource("3_bhrdi")
+texture = ExtResource("3_dn6av")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]
 scale = Vector2(20, 20)

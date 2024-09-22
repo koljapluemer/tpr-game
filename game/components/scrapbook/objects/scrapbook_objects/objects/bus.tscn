@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cefr01y2mobbx"]
+[gd_scene load_steps=5 format=3 uid="uid://cefr01y2mobbx"]
 
-[ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_3jjj7"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_5kemm"]
-[ext_resource type="Texture2D" uid="uid://bahwak3nrmsdx" path="res://src/components/level_elements/object/png/bus_big_crop.png" id="3_2iw8i"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/assets/material_outline.tres" id="2_5kemm"]
+[ext_resource type="Texture2D" uid="uid://fv6mgijvg0fe" path="res://game/components/scrapbook/objects/assets/object_pngs/bus_big_crop.png" id="2_nw2dq"]
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/lockable_component.gd" id="4_ei5qu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5on6c"]
@@ -10,8 +9,6 @@ radius = 10.684
 height = 82.6392
 
 [node name="Object" type="Node2D"]
-script = ExtResource("1_3jjj7")
-key = "BUS"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -19,7 +16,7 @@ material = ExtResource("2_5kemm")
 position = Vector2(31.2026, -76.0177)
 rotation = 0.0143806
 scale = Vector2(0.367985, 0.367985)
-texture = ExtResource("3_2iw8i")
+texture = ExtResource("2_nw2dq")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]
 scale = Vector2(20, 20)
