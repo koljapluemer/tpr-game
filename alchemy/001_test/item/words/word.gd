@@ -1,3 +1,6 @@
+## Abstract representation of a word.
+## Raison d'etre is tracking progress of individual words,
+## and prioritizing which objects to load.
 class_name Word extends Resource
 
 @export var key:String

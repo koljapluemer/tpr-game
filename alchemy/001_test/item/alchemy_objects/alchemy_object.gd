@@ -1,9 +1,13 @@
 class_name AlchemyObject extends Node2D
+## Holds a concrete [Node2D] representing an object which can be interacted with in the game.
+## E.g. may be a car, a cat, or an apple.
+## usually is made out of a sprite and at least one [Area2D], which
+## is needed to make the [AlchemyObject] ineractable via components
 
-signal alchemy_object_taken
-
+## [Word] array with words that this concrete [Node2D] may stand for.
+## Likely nouns, such as CAR, TAXI, VEHICLE
 @export var words: Array[Word] = []
-@export var color:ObjectColor
+@export var color:ObjectColor ## A special type of [Word] that allows alternative descriptions to be used in quests
 
 @onready var components: Node2D = %Components
 
