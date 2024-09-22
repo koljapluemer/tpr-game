@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/001_test/snatch.png" id="5_tgwau"]
 [ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="6_lmpbb"]
 
-[node name="HotBar" type="GridContainer"]
+[node name="HotBar" type="HBoxContainer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -15,10 +15,10 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -42.0
 offset_top = -40.0
-offset_right = 42.0
+offset_right = 82.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 10
 script = ExtResource("1_wg1jh")
 
 [node name="ButtonModeMove" type="Button" parent="."]

@@ -9,7 +9,7 @@ var spawn_origin
 var quest_active = false
 var quest_key:String
 
-@onready var hot_bar: GridContainer = %HotBar
+@onready var hot_bar = %HotBar
 @onready var spawn_area_object: CollisionShape2D = %SpawnArea
 @onready var dialog_manager: DialogManager = %DialogManager
 
@@ -58,6 +58,6 @@ func set_quest():
 		quest_active = true
 		var current_target = objects.pick_random()
 		if current_target:
-			dialog_manager.say("TAKE_" + current_target.key)
+			#dialog_manager.say("TAKE_" + current_target.key)
 			quest_key = current_target.key
 		

@@ -1,4 +1,4 @@
-extends GridContainer
+extends Control
 
 @onready var button_mode_move: Button = %ButtonModeMove
 @onready var button_mode_take: Button = %ButtonModeTake
