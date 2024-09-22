@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Word" load_steps=3 format=3 uid="uid://dmi2taqp3t0m5"]
+
+[ext_resource type="Script" path="res://game/components/words/word.gd" id="1_yy0m4"]
+[ext_resource type="Texture2D" uid="uid://r6lhgm7s5h3f" path="res://src/components/level_elements/object/png/cupboard_1.png" id="2_67yhn"]
+
+[resource]
+script = ExtResource("1_yy0m4")
+key = "CUPBOARD"
+showcase_sprite = ExtResource("2_67yhn")
+word_group = Array[String](["WORD", "NOUN"])

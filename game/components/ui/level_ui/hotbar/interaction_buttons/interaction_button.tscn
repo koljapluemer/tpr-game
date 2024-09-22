@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4q5emfej4a"]
+
+[ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/TAKE.png" id="1_agqpf"]
+
+[sub_resource type="GDScript" id="GDScript_plc44"]
+script/source = "#class_name ModeButton extends Button
+extends Button
+
+signal mode_button_pressed
+
+var mode
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _pressed() -> void:
+	mode_button_pressed.emit(mode)
+	
+"
+
+[node name="ButtonMode" type="Button"]
+custom_minimum_size = Vector2(60, 60)
+icon = ExtResource("1_agqpf")
+expand_icon = true
+script = SubResource("GDScript_plc44")
