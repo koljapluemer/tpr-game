@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://du4q5emfej4a"]
+
+[ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/button_icons/png/snatch.png" id="1_hgk63"]
+[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/modes/mode_take.tres" id="3_f71a0"]
+
+[sub_resource type="GDScript" id="GDScript_plc44"]
+script/source = "#class_name ModeButton extends Button
+extends Button
+
+signal mode_button_pressed
+
+@export var mode: InteractionMode
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _pressed() -> void:
+	mode_button_pressed.emit(mode)
+	
+"
+
+[node name="ButtonMode" type="Button"]
+custom_minimum_size = Vector2(60, 60)
+icon = ExtResource("1_hgk63")
+expand_icon = true
+script = SubResource("GDScript_plc44")
+mode = ExtResource("3_f71a0")

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://alchemy/001_test/hot_bar.gd" id="1_j5rep"]
 [ext_resource type="Script" path="res://alchemy/001_test/level.gd" id="1_tide5"]
-[ext_resource type="Texture2D" uid="uid://b2cwd62vh1fop" path="res://alchemy/001_test/push.png" id="1_ucrvl"]
-[ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/001_test/snatch.png" id="2_bs0ii"]
+[ext_resource type="Texture2D" uid="uid://b2cwd62vh1fop" path="res://alchemy/button_icons/png/push.png" id="1_ucrvl"]
+[ext_resource type="Texture2D" uid="uid://pryycpq5tbo0" path="res://alchemy/button_icons/png/snatch.png" id="2_bs0ii"]
 [ext_resource type="PackedScene" uid="uid://bmb7l5tiec6b6" path="res://alchemy/001_test/item/coconut.tscn" id="2_dkb7b"]
-[ext_resource type="Script" path="res://alchemy/001_test/mode_button.gd" id="3_i81wg"]
+[ext_resource type="Script" path="res://alchemy/001_test/modes/mode_button.gd" id="3_i81wg"]
 [ext_resource type="PackedScene" uid="uid://bldknwdyltjs5" path="res://alchemy/001_test/item/apple.tscn" id="3_ml3tn"]
-[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/mode_move.tres" id="4_4cxxn"]
-[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/mode_take.tres" id="6_qulks"]
+[ext_resource type="Resource" uid="uid://c2wwpokcsbx3h" path="res://alchemy/001_test/modes/mode_move.tres" id="4_4cxxn"]
+[ext_resource type="Resource" uid="uid://dw6eql3pcgvja" path="res://alchemy/001_test/modes/mode_take.tres" id="6_qulks"]
 [ext_resource type="PackedScene" uid="uid://c135vycbcihty" path="res://src/managers/dialog_manager/dialog_manager.tscn" id="8_3a3tn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay326"]

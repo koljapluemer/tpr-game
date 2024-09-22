@@ -2,9 +2,11 @@ class_name AlchemyObject extends Node2D
 
 signal alchemy_object_taken
 
-@export var key:String
+@export var words: Array[Word] = []
+@export var color:ObjectColor
 @export_category("Components")
 @export var takeable_component: TakeableComponent
+@export var lockable_component: LockableComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

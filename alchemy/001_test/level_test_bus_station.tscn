@@ -53,3 +53,9 @@ z_index = 2
 position = Vector2(287, 245)
 accepts = Array[PackedScene]([ExtResource("6_1ui6e"), ExtResource("7_hgtwv"), ExtResource("8_aqskp"), ExtResource("9_npomm"), ExtResource("10_xs4b6"), ExtResource("11_2gall")])
 scale_factor = 1.5
+
+[node name="SpawnPoint2" parent="SpawnPoints" instance=ExtResource("5_fu60p")]
+z_index = 2
+position = Vector2(680, 245)
+accepts = Array[PackedScene]([ExtResource("6_1ui6e"), ExtResource("7_hgtwv"), ExtResource("8_aqskp"), ExtResource("9_npomm"), ExtResource("10_xs4b6"), ExtResource("11_2gall")])
+scale_factor = 1.5

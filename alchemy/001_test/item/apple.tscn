@@ -10,7 +10,8 @@ radius = 10.0499
 
 [node name="Object" type="Node2D" node_paths=PackedStringArray("takeable_component")]
 script = ExtResource("1_up4sc")
-key = "AN_APPLE"
+words = null
+color = null
 takeable_component = NodePath("TakeableComponent")
 
 [node name="Sprite" type="Sprite2D" parent="."]

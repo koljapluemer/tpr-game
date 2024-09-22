@@ -10,7 +10,8 @@ radius = 17.2627
 
 [node name="Object" type="Node2D" node_paths=PackedStringArray("takeable_component")]
 script = ExtResource("1_5bguw")
-key = "A_COCONUT"
+words = null
+color = null
 takeable_component = NodePath("TakeableComponent")
 
 [node name="Sprite" type="Sprite2D" parent="."]

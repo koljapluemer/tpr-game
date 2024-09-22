@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cefr01y2mobbx"]
+[gd_scene load_steps=6 format=3 uid="uid://cefr01y2mobbx"]
 
 [ext_resource type="Script" path="res://src/components/level_elements/object/_map_object.gd" id="1_3jjj7"]
 [ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_5kemm"]
 [ext_resource type="Texture2D" uid="uid://bahwak3nrmsdx" path="res://src/components/level_elements/object/png/bus_big_crop.png" id="3_2iw8i"]
+[ext_resource type="Script" path="res://alchemy/001_test/components/lockable_component.gd" id="4_ei5qu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5on6c"]
 radius = 10.684
@@ -28,5 +29,9 @@ collision_mask = 255
 unique_name_in_owner = true
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5on6c")
+
+[node name="LockableComponent" type="Node2D" parent="." node_paths=PackedStringArray("selectable_area")]
+script = ExtResource("4_ei5qu")
+selectable_area = NodePath("../Sprite/Area2D2")
 
 [connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]

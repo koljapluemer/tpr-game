@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InteractionMode" load_steps=2 format=3 uid="uid://yf01rxcb281g"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/modes/mode.gd" id="1_srsnq"]
+
+[resource]
+resource_name = "TURN_ON_OFF"
+script = ExtResource("1_srsnq")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ObjectColor" load_steps=2 format=3 uid="uid://cj785s14tpmgg"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/item/words/word_color.gd" id="1_uhktl"]
+
+[resource]
+script = ExtResource("1_uhktl")
+key = "BLUE"
+word_group = Array[String](["WORD"])
