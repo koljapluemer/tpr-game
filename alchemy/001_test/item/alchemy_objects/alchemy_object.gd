@@ -8,6 +8,7 @@ signal alchemy_object_taken
 @export var takeable_component: TakeableComponent
 @export var lockable_component: LockableComponent
 
+var affords: Array[InteractionMode] = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if takeable_component:

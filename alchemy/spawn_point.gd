@@ -5,7 +5,7 @@ extends Marker2D
 
 
 func _ready() -> void:
-	var scene_to_init = accepts.pick_random()
+	var scene_to_init:AlchemyObject = accepts.pick_random()
 	if scene_to_init:
 		var inst:Node2D = scene_to_init.instantiate()
 		inst.scale = Vector2(scale_factor, scale_factor)
