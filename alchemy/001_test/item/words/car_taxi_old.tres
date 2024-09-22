@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Word" load_steps=3 format=3 uid="uid://d1bvjaato7jna"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/item/words/word.gd" id="1_f5h6y"]
+[ext_resource type="Texture2D" uid="uid://cjcemu6em3lnt" path="res://src/components/level_elements/object/png/taxi_old_crop.png" id="2_67iw0"]
+
+[resource]
+script = ExtResource("1_f5h6y")
+key = "TAXI"
+showcase_sprite = ExtResource("2_67iw0")
+word_group = Array[String](["WORD", "NOUN"])

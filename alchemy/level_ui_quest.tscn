@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bunt3dvolwfk8"]
+
+[ext_resource type="Texture2D" uid="uid://cayohvr23wncx" path="res://dist/index.icon.png" id="1_n70dt"]
+
+[node name="QuestContainer" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_n70dt")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Streichel erst den Hund, dann die Katze"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "???"

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://crv5mlcvcgod5"]
+
+[ext_resource type="Script" path="res://alchemy/001_test/item/alchemy_objects/alchemy_object.gd" id="1_jcnqn"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://src/shared/material_outline.tres" id="2_v2cgd"]
+[ext_resource type="Texture2D" uid="uid://duix8ti12ws1p" path="res://src/components/level_elements/object/png/car_red_nissan_crop.png" id="3_ccs4h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgbwh"]
+radius = 23.3922
+height = 77.981
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36a0r"]
+radius = 24.7832
+height = 88.1126
+
+[node name="Object" type="Node2D"]
+z_index = 3
+script = ExtResource("1_jcnqn")
+key = "CAR"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_v2cgd")
+position = Vector2(-10.4241, -36.1637)
+rotation = 0.0355842
+scale = Vector2(0.0817177, 0.0817177)
+texture = ExtResource("3_ccs4h")
+
+[node name="Area2D2" type="Area2D" parent="Sprite"]
+scale = Vector2(20, 20)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+unique_name_in_owner = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lgbwh")
+
+[node name="InteractionShape2D" type="Area2D" parent="Sprite"]
+unique_name_in_owner = true
+position = Vector2(0, 200)
+scale = Vector2(20, 20)
+
+[node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="Sprite/InteractionShape2D"]
+unique_name_in_owner = true
+position = Vector2(-1.06052, -10.8013)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_36a0r")
+debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
+
+[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="body_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
+[connection signal="body_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]

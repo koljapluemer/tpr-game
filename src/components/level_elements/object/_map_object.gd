@@ -11,10 +11,7 @@ signal body_entered
 const MATERIAL_OUTLINE = preload("res://src/shared/material_outline.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if not show_outline:
-		sprite.material = null
-	else:
-		sprite.material = MATERIAL_OUTLINE
+	sprite.material = MATERIAL_OUTLINE
 	
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	print("body entered me (", name, "): ", body.name)
