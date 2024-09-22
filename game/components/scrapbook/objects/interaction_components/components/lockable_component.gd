@@ -1,3 +1,4 @@
+## An [InteractionComponent] allowing an object to be locked and unlocked.
 class_name LockableComponent extends InteractionComponent
 
 signal object_lock_status_toggled

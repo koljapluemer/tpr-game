@@ -1,3 +1,5 @@
+## An [InteractionComponent] allowing an object to be taken
+## Currently not functional in any way.
 class_name TakeableComponent extends InteractionComponent
 
 signal object_taken

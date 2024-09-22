@@ -1,3 +1,6 @@
+## A component enabling interaction with an object.
+## An abstract class.
+## Inherited classes do stuff like making object takeable, lockable, etc.
 class_name InteractionComponent extends Node2D
 
 @export var selectable_area: CollisionObject2D

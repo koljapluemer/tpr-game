@@ -1,3 +1,4 @@
+## The UI bar on the bottom where the player can set in what way to interact
 extends Control
 
 const INTERACTION_BUTTON = preload("res://game/components/ui/level_ui/hotbar/interaction_buttons/interaction_button.tscn")

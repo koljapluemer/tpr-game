@@ -4,6 +4,8 @@
 
 [sub_resource type="GDScript" id="GDScript_plc44"]
 script/source = "#class_name ModeButton extends Button
+## Button, currently available in the hot_bar.tscn.
+## Sets the interaction mode
 extends Button
 
 signal mode_button_pressed

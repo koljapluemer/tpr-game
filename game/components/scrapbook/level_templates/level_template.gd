@@ -1,3 +1,8 @@
+## An overall scaffold for a level.
+## Loads a certain background and spawn points which decide
+## which objects should be spawned in the end.
+## Currently also does the job of a game manager, but this should
+## be abstracted in the future.
 extends Node2D
 
 var modes:Dictionary

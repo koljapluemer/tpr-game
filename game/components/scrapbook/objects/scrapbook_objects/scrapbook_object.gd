@@ -1,4 +1,4 @@
-class_name AlchemyObject extends Node2D
+class_name ScrapbookObject extends Node2D
 ## Holds a concrete [Node2D] representing an object which can be interacted with in the game.
 ## E.g. may be a car, a cat, or an apple.
 ## usually is made out of a sprite and at least one [Area2D], which
