@@ -2,7 +2,7 @@ extends Node
 
 signal language_changed
 
-var language_code: String = "ar"
+var language_code: String = "de"
 var current_mode
 
 func set_locale(locale):

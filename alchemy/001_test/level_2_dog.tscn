@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://qtglswrq150r"]
+[gd_scene load_steps=7 format=3 uid="uid://qtglswrq150r"]
 
 [ext_resource type="Script" path="res://alchemy/001_test/level_2_dog.gd" id="1_8qbn1"]
 [ext_resource type="PackedScene" uid="uid://d2f824kcew4hw" path="res://alchemy/001_test/item/dog.tscn" id="2_ful0n"]
 [ext_resource type="PackedScene" uid="uid://83sovdvk6017" path="res://alchemy/001_test/hot_bar.tscn" id="3_t6dwn"]
+[ext_resource type="Texture2D" uid="uid://cayohvr23wncx" path="res://dist/index.icon.png" id="5_jmcsf"]
 [ext_resource type="PackedScene" uid="uid://c135vycbcihty" path="res://src/managers/dialog_manager/dialog_manager.tscn" id="10_2uqet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay326"]
-size = Vector2(1052, 395)
+size = Vector2(550, 146)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8qbn1")
@@ -20,15 +21,113 @@ unique_name_in_owner = true
 [node name="DialogManager" parent="CanvasLayer" instance=ExtResource("10_2uqet")]
 unique_name_in_owner = true
 offset_left = 0.0
-offset_top = 0.0
+offset_top = 16.0
 offset_right = 0.0
-offset_bottom = 0.0
+offset_bottom = 16.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Header" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 63.0
+
+[node name="Label-Value" type="HBoxContainer" parent="CanvasLayer/Header"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Header/Label-Value"]
+layout_mode = 2
+text = "Accuracy:"
+
+[node name="Value" type="Label" parent="CanvasLayer/Header/Label-Value"]
+layout_mode = 2
+text = "90%"
+
+[node name="Label-Value2" type="HBoxContainer" parent="CanvasLayer/Header"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Header/Label-Value2"]
+layout_mode = 2
+text = "Score:"
+
+[node name="Value" type="Label" parent="CanvasLayer/Header/Label-Value2"]
+layout_mode = 2
+text = "35"
+
+[node name="QuestWrapper" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 7.0
+offset_top = 92.0
+offset_right = 225.0
+offset_bottom = 292.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/QuestWrapper"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="QuestsMenu" type="VBoxContainer" parent="CanvasLayer/QuestWrapper/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Aufträge"
+
+[node name="QuestContainer" type="HBoxContainer" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu/QuestContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_jmcsf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu/QuestContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Streichel erst den Hund, dann die Katze"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu/QuestContainer"]
+layout_mode = 2
+text = "???"
+
+[node name="QuestContainer2" type="HBoxContainer" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu/QuestContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_jmcsf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu/QuestContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fütter den Hund"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/QuestWrapper/MarginContainer/QuestsMenu/QuestContainer2"]
+layout_mode = 2
+text = "???"
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(392, 152)
 
 [node name="SpawnArea" type="CollisionShape2D" parent="Area2D"]
 unique_name_in_owner = true
-position = Vector2(-1, 33.5)
+position = Vector2(121, 8)
 shape = SubResource("RectangleShape2D_ay326")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
