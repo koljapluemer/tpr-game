@@ -11,11 +11,12 @@ var quest_key:String
 
 @onready var hot_bar = %HotBar
 @onready var spawn_area_object: CollisionShape2D = %SpawnArea
-@onready var dialog_manager: DialogManager = %DialogManager
 
+@onready var game_space: Control = %GameSpace
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# TODO: auto adapt spawn area to space left by UI
 	for button in hot_bar.get_children():
 		button.mode_button_pressed.connect(_on_mode_button_pressed)
 	spawn_objects()
@@ -27,7 +28,7 @@ func _on_mode_button_pressed(mode):
 func spawn_objects():
 	spawn_area = spawn_area_object.shape.extents
 	spawn_origin = spawn_area_object.global_position -  spawn_area
-	for i in range(1):
+	for i in range(10):
 		spawn_object()
 	
 func spawn_object():

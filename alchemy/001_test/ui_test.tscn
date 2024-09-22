@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cayohvr23wncx" path="res://dist/index.icon.png" id="5_3r42d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay326"]
-size = Vector2(550, 146)
+size = Vector2(593, 213)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_i2u7j")
@@ -116,6 +116,7 @@ layout_mode = 2
 text = "35"
 
 [node name="GameSpace" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -129,7 +130,7 @@ position = Vector2(392, 152)
 
 [node name="SpawnArea" type="CollisionShape2D" parent="Area2D"]
 unique_name_in_owner = true
-position = Vector2(121, 8)
+position = Vector2(97, -13)
 shape = SubResource("RectangleShape2D_ay326")
 
 [node name="Camera2D" type="Camera2D" parent="."]
