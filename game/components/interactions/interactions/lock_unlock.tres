@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Interaction" load_steps=3 format=3 uid="uid://w7b2vk2lh7j0"]
+
+[ext_resource type="Script" path="res://game/components/interactions/interaction.gd" id="2_bwk18"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_de3hj"]
+load_path = "res://.godot/imported/LOCK.png-67a4117149b6f0b8b289c5d94e27abba.ctex"
+
+[resource]
+script = ExtResource("2_bwk18")
+key = "LOCK_UNLOCK"
+icon = SubResource("CompressedTexture2D_de3hj")

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dlgeyrynmonk5" path="res://game/components/scrapbook/level_templates/assets/bus_station_back.png" id="3_1kj4f"]
 [ext_resource type="Texture2D" uid="uid://b6p6pbhyv8gkf" path="res://game/components/scrapbook/level_templates/assets/bus_station_front.png" id="4_pf2vr"]
 [ext_resource type="PackedScene" uid="uid://cnewsbb60xtfg" path="res://game/components/scrapbook/level_templates/level_templates/spawn_points/spawn_point.tscn" id="5_wb3uq"]
-[ext_resource type="PackedScene" uid="uid://opofpgbvv5hc" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_blue.tscn" id="6_v3ry2"]
+[ext_resource type="PackedScene" uid="uid://coyqevptipp2i" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/cars/car_blue_old.tscn" id="6_1f7fk"]
 [ext_resource type="PackedScene" uid="uid://da2aa4vnjn4s" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/apple.tscn" id="7_lkmsq"]
 
 [node name="Level" type="Node2D"]
@@ -36,7 +36,7 @@ unique_name_in_owner = true
 [node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource("5_wb3uq")]
 z_index = 2
 position = Vector2(287, 245)
-accepts = Array[PackedScene]([ExtResource("6_v3ry2")])
+accepts = Array[PackedScene]([ExtResource("6_1f7fk")])
 scale_factor = 1.5
 
 [node name="SpawnPoint2" parent="SpawnPoints" instance=ExtResource("5_wb3uq")]

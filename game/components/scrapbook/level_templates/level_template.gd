@@ -5,27 +5,32 @@
 ## be abstracted in the future.
 extends Node2D
 
-var modes:Dictionary
+var interactions: Array[Interaction]
 
 @onready var spawn_points: Node2D = %SpawnPoints
-@onready var canvas_layer: CanvasLayer = %CanvasLayer
-
+@onready var hot_bar: HotBar
 
 func _ready() -> void:
+	hot_bar = get_tree().get_first_node_in_group("hot_bar")
+	
 	if spawn_points:
-		get_afforded_modes()
-		canvas_layer.set_buttons(modes)
+		get_afforded_interactions()
+		
+		if hot_bar:
+			hot_bar.set_buttons(interactions)
+		else:
+			push_error(name, ": HotBar missing")
 	else:
 		push_warning(name, ": SpawnPoints holder missing")
 	
 
-func get_afforded_modes():
+func get_afforded_interactions():
 	for spawn_point:SpawnPoint in spawn_points.get_children():
+		spawn_point.spawn_scene()
 		for mode in spawn_point.get_modes():
-			# may want to disable buttons later, for now 
-			# the boolean is meaningless but using a dict
-			# assures unique keys
-			modes[mode] = true
+			if not mode in interactions:
+				interactions.append(mode)
+	return interactions
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

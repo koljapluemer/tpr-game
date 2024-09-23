@@ -3,6 +3,9 @@
 ## Credit
 ### Sound
 - success sound: success.wav by grunz -- https://freesound.org/s/109662/ -- License: Attribution 3.0
+- car lock: car lock.mp3 by hawabaz -- https://freesound.org/s/91358/ -- License: Creative Commons 0
+- car lock mechanical: Lock car.wav by greatsoundstube -- https://freesound.org/s/629303/ -- License: Creative Commons 0
+
 
 ### 3D Models
 

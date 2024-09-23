@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://coyqevptipp2i"]
+
+[ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/scrapbook_object.gd" id="1_qqjx5"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/assets/material_outline.tres" id="2_jd5xf"]
+[ext_resource type="Texture2D" uid="uid://bgk8pndtkspvy" path="res://game/components/scrapbook/objects/assets/object_pngs/car_blue_old_crop.png" id="3_pjj1i"]
+[ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/lockable_component.gd" id="4_xot03"]
+[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/cars/assets/mechanical_lock_short.wav" id="5_qj1oa"]
+[ext_resource type="Resource" uid="uid://w7b2vk2lh7j0" path="res://game/components/interactions/interactions/lock_unlock.tres" id="6_jvfw0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgbwh"]
+height = 55.4724
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36a0r"]
+radius = 13.6433
+height = 57.9413
+
+[node name="Object" type="Node2D"]
+script = ExtResource("1_qqjx5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_jd5xf")
+position = Vector2(11.8752, -41.6125)
+scale = Vector2(0.162018, 0.162018)
+texture = ExtResource("3_pjj1i")
+
+[node name="Area2D2" type="Area2D" parent="Sprite"]
+scale = Vector2(20, 20)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+unique_name_in_owner = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lgbwh")
+
+[node name="InteractionShape2D" type="Area2D" parent="Sprite"]
+unique_name_in_owner = true
+position = Vector2(0, 200)
+scale = Vector2(20, 20)
+
+[node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="Sprite/InteractionShape2D"]
+unique_name_in_owner = true
+position = Vector2(0, -10.8013)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_36a0r")
+debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
+
+[node name="Components" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="LockableComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("audio_player", "selectable_area")]
+script = ExtResource("4_xot03")
+audio_player = NodePath("../../AudioStreamPlayer2D")
+lock_sound = ExtResource("5_qj1oa")
+selectable_area = NodePath("../../Sprite/Area2D2")
+interaction = ExtResource("6_jvfw0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="body_entered" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_entered"]
+[connection signal="body_exited" from="Sprite/InteractionShape2D" to="." method="_on_interaction_shape_2d_body_exited"]

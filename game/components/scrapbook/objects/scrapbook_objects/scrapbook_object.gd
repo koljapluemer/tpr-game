@@ -20,8 +20,8 @@ func _process(delta: float) -> void:
 	pass
 
 func get_modes():
-	var modes: Array[String] = []
-	for component in components.get_children():
-		modes.append(component.get_mode_name())
+	var modes: Array[Interaction] = []
+	for component:InteractionComponent in components.get_children():
+		modes.append(component.interaction)
 	return modes
 		
