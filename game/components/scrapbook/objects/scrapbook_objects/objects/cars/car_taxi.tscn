@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://yn4gr8c3nckh"]
 
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/scrapbook_object.gd" id="1_s8ns4"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/assets/material_outline.tres" id="2_2uw6d"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/shared_assets/material_outline.tres" id="2_2uw6d"]
 [ext_resource type="Texture2D" uid="uid://c4swvajrkbmtw" path="res://game/components/scrapbook/objects/assets/object_pngs/taxi_crop.png" id="3_xg67y"]
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/lockable_component.gd" id="4_twlu1"]
 

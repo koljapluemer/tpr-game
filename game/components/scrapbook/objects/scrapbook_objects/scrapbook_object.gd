@@ -19,7 +19,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func get_modes():
+func get_modes() -> Array[Interaction]:
 	var modes: Array[Interaction] = []
 	for component:InteractionComponent in components.get_children():
 		modes.append(component.interaction)
