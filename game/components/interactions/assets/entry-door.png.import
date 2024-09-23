@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc0mcqxiyam0q"
-path="res://.godot/imported/clockwise-rotation.png-ecff13ac10868865acc1e6f2814d16c4.ctex"
+uid="uid://b0111vh03ak8n"
+path="res://.godot/imported/entry-door.png-a6f575b7d29cba9441329c0d37bd31dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/clockwise-rotation.png"
-dest_files=["res://.godot/imported/clockwise-rotation.png-ecff13ac10868865acc1e6f2814d16c4.ctex"]
+source_file="res://game/components/interactions/assets/entry-door.png"
+dest_files=["res://.godot/imported/entry-door.png-a6f575b7d29cba9441329c0d37bd31dd.ctex"]
 
 [params]
 

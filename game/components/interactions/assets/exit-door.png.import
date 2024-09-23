@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vygngth4n0pf"
-path="res://.godot/imported/LOCK.png-67a4117149b6f0b8b289c5d94e27abba.ctex"
+uid="uid://bbybk55iejmyl"
+path="res://.godot/imported/exit-door.png-4ebad2e58d1aef423363aeaaeed97c6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/LOCK.png"
-dest_files=["res://.godot/imported/LOCK.png-67a4117149b6f0b8b289c5d94e27abba.ctex"]
+source_file="res://game/components/interactions/assets/exit-door.png"
+dest_files=["res://.godot/imported/exit-door.png-4ebad2e58d1aef423363aeaaeed97c6b.ctex"]
 
 [params]
 

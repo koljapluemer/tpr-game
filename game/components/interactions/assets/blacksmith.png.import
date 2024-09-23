@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1krcck4xwcha"
-path="res://.godot/imported/kitchen-knives.png-7970d9f2325956dd21e3dd9c19369b89.ctex"
+uid="uid://ceoajyyy6hl5o"
+path="res://.godot/imported/blacksmith.png-d12e59c558c5157d0e6e25ed59cbf61a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/kitchen-knives.png"
-dest_files=["res://.godot/imported/kitchen-knives.png-7970d9f2325956dd21e3dd9c19369b89.ctex"]
+source_file="res://game/components/interactions/assets/blacksmith.png"
+dest_files=["res://.godot/imported/blacksmith.png-d12e59c558c5157d0e6e25ed59cbf61a.ctex"]
 
 [params]
 

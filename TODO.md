@@ -26,3 +26,4 @@
 
 - Resources (Words) are messed up, I think there is some stuff going on with saving the wrong thing to the wrong thing
   - maybe just get that table edit thing
+- get credits for all icons I may use from https://game-icons.net

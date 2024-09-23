@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceoajyyy6hl5o"
-path="res://.godot/imported/blacksmith.png-20e8c3f25978969851b17259e6bfbf34.ctex"
+uid="uid://cc0mcqxiyam0q"
+path="res://.godot/imported/clockwise-rotation.png-c1da521f751a2aec1ed80d05ee286c65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/blacksmith.png"
-dest_files=["res://.godot/imported/blacksmith.png-20e8c3f25978969851b17259e6bfbf34.ctex"]
+source_file="res://game/components/interactions/assets/clockwise-rotation.png"
+dest_files=["res://.godot/imported/clockwise-rotation.png-c1da521f751a2aec1ed80d05ee286c65.ctex"]
 
 [params]
 

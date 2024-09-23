@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by5st7bck74cp"
-path="res://.godot/imported/open-gate.png-33d69539df370b8d0e15c1716fc40749.ctex"
+uid="uid://dlp0163v7w4ag"
+path="res://.godot/imported/click.png-e9b20c9b21098e099289986d9a144467.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/open-gate.png"
-dest_files=["res://.godot/imported/open-gate.png-33d69539df370b8d0e15c1716fc40749.ctex"]
+source_file="res://game/components/interactions/assets/click.png"
+dest_files=["res://.godot/imported/click.png-e9b20c9b21098e099289986d9a144467.ctex"]
 
 [params]
 

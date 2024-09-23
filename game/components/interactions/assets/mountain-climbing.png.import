@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj2ww68gqwfjo"
-path="res://.godot/imported/power-button.png-41d6c7b2e314bc30a843eecfa12bb4c1.ctex"
+uid="uid://dfm66thqvmb1l"
+path="res://.godot/imported/mountain-climbing.png-0403237e6a86c8dd6265173dc4661c8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/power-button.png"
-dest_files=["res://.godot/imported/power-button.png-41d6c7b2e314bc30a843eecfa12bb4c1.ctex"]
+source_file="res://game/components/interactions/assets/mountain-climbing.png"
+dest_files=["res://.godot/imported/mountain-climbing.png-0403237e6a86c8dd6265173dc4661c8e.ctex"]
 
 [params]
 

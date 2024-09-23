@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2grlen1n7537"
-path="res://.godot/imported/walk.png-623828693aeb411b7c4df75ffbeaa9f1.ctex"
+uid="uid://dvu1hbrq7rc0n"
+path="res://.godot/imported/cursor_take.png-da1c4244aa0a7fbcc1d1502b0f883cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/walk.png"
-dest_files=["res://.godot/imported/walk.png-623828693aeb411b7c4df75ffbeaa9f1.ctex"]
+source_file="res://game/components/interactions/assets/cursors/cursor_take.png"
+dest_files=["res://.godot/imported/cursor_take.png-da1c4244aa0a7fbcc1d1502b0f883cdb.ctex"]
 
 [params]
 

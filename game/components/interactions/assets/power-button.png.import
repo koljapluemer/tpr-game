@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbybk55iejmyl"
-path="res://.godot/imported/exit-door.png-3213bf22da8eb1dd7a85710baea33d8e.ctex"
+uid="uid://cj2ww68gqwfjo"
+path="res://.godot/imported/power-button.png-7f046e902eee73151d7b3a71ff11349e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/exit-door.png"
-dest_files=["res://.godot/imported/exit-door.png-3213bf22da8eb1dd7a85710baea33d8e.ctex"]
+source_file="res://game/components/interactions/assets/power-button.png"
+dest_files=["res://.godot/imported/power-button.png-7f046e902eee73151d7b3a71ff11349e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfm66thqvmb1l"
-path="res://.godot/imported/mountain-climbing.png-09b591157bdc06b252be1b53f079b1c1.ctex"
+uid="uid://vygngth4n0pf"
+path="res://.godot/imported/LOCK.png-b085cd1d68b910127dc49bd3fa739428.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/mountain-climbing.png"
-dest_files=["res://.godot/imported/mountain-climbing.png-09b591157bdc06b252be1b53f079b1c1.ctex"]
+source_file="res://game/components/interactions/assets/LOCK.png"
+dest_files=["res://.godot/imported/LOCK.png-b085cd1d68b910127dc49bd3fa739428.ctex"]
 
 [params]
 

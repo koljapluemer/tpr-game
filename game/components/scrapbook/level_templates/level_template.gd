@@ -15,9 +15,10 @@ func _ready() -> void:
 	
 	if spawn_points:
 		get_afforded_interactions()
-		
 		if hot_bar:
-			hot_bar.set_buttons(interactions)
+			var buttons = hot_bar.set_buttons(interactions)
+			for btn in buttons:
+				btn.interaction_mode_requested.connect(_on_interaction_mode_requested)
 		else:
 			push_error(name, ": HotBar missing")
 	else:
@@ -35,3 +36,6 @@ func get_afforded_interactions():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _on_interaction_mode_requested(interaction_mode: Interaction):
+	Input.set_custom_mouse_cursor(interaction_mode.cursor)

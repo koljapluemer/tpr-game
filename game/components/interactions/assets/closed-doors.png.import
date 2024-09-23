@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2cwd62vh1fop"
-path="res://.godot/imported/push.png-c8cff341730e17ea69fb0ab1259f871d.ctex"
+uid="uid://citcjn8kn82ba"
+path="res://.godot/imported/closed-doors.png-9cbb666101d81f75412a09586c512dde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/ui/level_ui/hotbar/interaction_buttons/assets/push.png"
-dest_files=["res://.godot/imported/push.png-c8cff341730e17ea69fb0ab1259f871d.ctex"]
+source_file="res://game/components/interactions/assets/closed-doors.png"
+dest_files=["res://.godot/imported/closed-doors.png-9cbb666101d81f75412a09586c512dde.ctex"]
 
 [params]
 
