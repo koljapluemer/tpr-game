@@ -1,30 +1,206 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqcvc1qgajini"]
+[gd_scene load_steps=48 format=3 uid="uid://bqcvc1qgajini"]
 
 [ext_resource type="Script" path="res://game/components/pages/words_overview/word_overview.gd" id="1_eed1p"]
 [ext_resource type="Script" path="res://game/components/words/word.gd" id="2_peoij"]
-[ext_resource type="Resource" uid="uid://ca6e88mwc8hjv" path="res://game/components/words/words/anchor.tres" id="3_qnnvi"]
-[ext_resource type="Resource" uid="uid://bvm5tgx5ydtf5" path="res://game/components/words/words/truck.tres" id="4_h6y6x"]
-[ext_resource type="Resource" uid="uid://bj5qjr2qfjy06" path="res://game/components/words/words/toilet.tres" id="5_6jeb7"]
-[ext_resource type="Resource" uid="uid://psm6tw676yvf" path="res://game/components/words/words/table.tres" id="6_ctu5t"]
-[ext_resource type="Resource" uid="uid://co4m6embbfdbu" path="res://game/components/words/words/stool.tres" id="7_egppq"]
-[ext_resource type="Resource" uid="uid://c8t8p2dcajak2" path="res://game/components/words/words/plane.tres" id="8_1tm8e"]
-[ext_resource type="Resource" uid="uid://blovfyms7yd4n" path="res://game/components/words/words/pear.tres" id="9_oeteg"]
-[ext_resource type="Resource" uid="uid://5i7pnsqukg21" path="res://game/components/words/words/melon.tres" id="10_xvkgw"]
-[ext_resource type="Resource" uid="uid://hpcq1bxyis2u" path="res://game/components/words/words/giraffe.tres" id="11_uqgfe"]
-[ext_resource type="Resource" uid="uid://crotyx1hosi3y" path="res://game/components/words/words/flag.tres" id="12_xofmp"]
-[ext_resource type="Resource" uid="uid://ceurr2wrlbpvu" path="res://game/components/words/words/dog.tres" id="13_1por6"]
-[ext_resource type="Resource" uid="uid://dmi2taqp3t0m5" path="res://game/components/words/words/cupboard.tres" id="14_axnn1"]
-[ext_resource type="Resource" uid="uid://ccpxs8hhsbdme" path="res://game/components/words/words/coconut.tres" id="15_siqpc"]
-[ext_resource type="Resource" uid="uid://drpuhg11oyx8p" path="res://game/components/words/words/cat.tres" id="16_bj5r2"]
-[ext_resource type="Resource" uid="uid://d1bvjaato7jna" path="res://game/components/words/words/car_taxi_old.tres" id="17_gnqvl"]
-[ext_resource type="Resource" uid="uid://d1ol1q1ppiyvp" path="res://game/components/words/words/car_taxi_new.tres" id="18_a5kl4"]
 [ext_resource type="Resource" uid="uid://3d3ajcmsnegv" path="res://game/components/words/words/car.tres" id="19_fvr3i"]
-[ext_resource type="Resource" uid="uid://tylybg0p2cgi" path="res://game/components/words/words/bus.tres" id="20_se1hr"]
-[ext_resource type="Resource" uid="uid://dsdf38fa5wv7o" path="res://game/components/words/words/bike.tres" id="21_usbbl"]
-[ext_resource type="Resource" uid="uid://ba87ayg32lpp6" path="res://game/components/words/words/bicycle.tres" id="22_rk5qi"]
-[ext_resource type="Resource" uid="uid://duptkawptc8cn" path="res://game/components/words/words/tuktuk.tres" id="23_otetp"]
-[ext_resource type="Resource" uid="uid://de84ysjdtj1y7" path="res://game/components/words/words/washing_machine.tres" id="24_we4fx"]
-[ext_resource type="Resource" uid="uid://0xvxc6khfinv" path="res://game/components/words/words/backpack.tres" id="25_kslih"]
+
+[sub_resource type="Resource" id="Resource_hk4mj"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/anchor_crop.png"
+
+[sub_resource type="Resource" id="Resource_q32w2"]
+script = ExtResource("2_peoij")
+key = "ANCHOR"
+showcase_sprite = SubResource("Resource_hk4mj")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_v4asg"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/truck_crop.png"
+
+[sub_resource type="Resource" id="Resource_1o070"]
+script = ExtResource("2_peoij")
+key = "TRUCK"
+showcase_sprite = SubResource("Resource_v4asg")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_6pet7"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/toilet.png"
+
+[sub_resource type="Resource" id="Resource_6yksy"]
+script = ExtResource("2_peoij")
+key = "TOILET"
+showcase_sprite = SubResource("Resource_6pet7")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_u5ovy"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/table.png"
+
+[sub_resource type="Resource" id="Resource_cnwbs"]
+script = ExtResource("2_peoij")
+key = "TABLE"
+showcase_sprite = SubResource("Resource_u5ovy")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_dc8sh"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/stool_crop.png"
+
+[sub_resource type="Resource" id="Resource_yrk4o"]
+script = ExtResource("2_peoij")
+key = "STOOL"
+showcase_sprite = SubResource("Resource_dc8sh")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_38fgk"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/plane_crop.png"
+
+[sub_resource type="Resource" id="Resource_tbc63"]
+script = ExtResource("2_peoij")
+key = "PLANE"
+showcase_sprite = SubResource("Resource_38fgk")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_fimjk"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/pear_crop.png"
+
+[sub_resource type="Resource" id="Resource_l4d00"]
+script = ExtResource("2_peoij")
+key = "PEAR"
+showcase_sprite = SubResource("Resource_fimjk")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_q3h2d"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/melon.png"
+
+[sub_resource type="Resource" id="Resource_73mm1"]
+script = ExtResource("2_peoij")
+key = "MELON"
+showcase_sprite = SubResource("Resource_q3h2d")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_mfba5"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/giraffe_crop.png"
+
+[sub_resource type="Resource" id="Resource_vjchf"]
+script = ExtResource("2_peoij")
+key = "GIRAFFE"
+showcase_sprite = SubResource("Resource_mfba5")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_namve"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/flag_jordan.png"
+
+[sub_resource type="Resource" id="Resource_76i3q"]
+script = ExtResource("2_peoij")
+key = "FLAG"
+showcase_sprite = SubResource("Resource_namve")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_h7jns"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/dog_crop.png"
+
+[sub_resource type="Resource" id="Resource_35l13"]
+script = ExtResource("2_peoij")
+key = "DOG"
+showcase_sprite = SubResource("Resource_h7jns")
+word_group = Array[String](["WORD"])
+
+[sub_resource type="Resource" id="Resource_wilov"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/cupboard_1.png"
+
+[sub_resource type="Resource" id="Resource_f1suf"]
+script = ExtResource("2_peoij")
+key = "CUPBOARD"
+showcase_sprite = SubResource("Resource_wilov")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_c3e7x"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/coconut_crop.png"
+
+[sub_resource type="Resource" id="Resource_kq0r5"]
+script = ExtResource("2_peoij")
+key = "COCONUT"
+showcase_sprite = SubResource("Resource_c3e7x")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_qxubx"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/cat_alt_crop.png"
+
+[sub_resource type="Resource" id="Resource_v2vqe"]
+script = ExtResource("2_peoij")
+key = "CAT"
+showcase_sprite = SubResource("Resource_qxubx")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_vab4i"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/taxi_old_crop.png"
+
+[sub_resource type="Resource" id="Resource_nc3kk"]
+script = ExtResource("2_peoij")
+key = "TAXI"
+showcase_sprite = SubResource("Resource_vab4i")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_5kirw"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/taxi_crop.png"
+
+[sub_resource type="Resource" id="Resource_u5rba"]
+script = ExtResource("2_peoij")
+key = "TAXI"
+showcase_sprite = SubResource("Resource_5kirw")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_syrif"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/motor_bike_crop.png"
+
+[sub_resource type="Resource" id="Resource_nj8v5"]
+script = ExtResource("2_peoij")
+key = "BIKE"
+showcase_sprite = SubResource("Resource_syrif")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_ygq07"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/bike_crop.png"
+
+[sub_resource type="Resource" id="Resource_ca4at"]
+script = ExtResource("2_peoij")
+key = "BICYCLE"
+showcase_sprite = SubResource("Resource_ygq07")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_n0gy1"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/backpack_blue_crop.png"
+
+[sub_resource type="Resource" id="Resource_nlgjk"]
+script = ExtResource("2_peoij")
+key = "BACKPACK"
+showcase_sprite = SubResource("Resource_n0gy1")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_lefql"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/truck_crop.png"
+
+[sub_resource type="Resource" id="Resource_j78qp"]
+script = ExtResource("2_peoij")
+key = "TRUCK"
+showcase_sprite = SubResource("Resource_lefql")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_k4ije"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/washing_machine.png"
+
+[sub_resource type="Resource" id="Resource_mwefm"]
+script = ExtResource("2_peoij")
+key = "WASHING_MACHINE"
+showcase_sprite = SubResource("Resource_k4ije")
+word_group = Array[String](["WORD", "NOUN"])
+
+[sub_resource type="Resource" id="Resource_7fjfj"]
+metadata/__load_path__ = "res://src/components/level_elements/object/png/anchor_crop.png"
+
+[sub_resource type="Resource" id="Resource_wwcn1"]
+script = ExtResource("2_peoij")
+key = "ANCHOR"
+showcase_sprite = SubResource("Resource_7fjfj")
+word_group = Array[String](["WORD", "NOUN"])
 
 [node name="WordOverview" type="Control"]
 layout_mode = 3
@@ -34,7 +210,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eed1p")
-words = Array[ExtResource("2_peoij")]([ExtResource("3_qnnvi"), ExtResource("4_h6y6x"), ExtResource("5_6jeb7"), ExtResource("6_ctu5t"), ExtResource("7_egppq"), ExtResource("8_1tm8e"), ExtResource("9_oeteg"), ExtResource("10_xvkgw"), ExtResource("11_uqgfe"), ExtResource("12_xofmp"), ExtResource("13_1por6"), ExtResource("14_axnn1"), ExtResource("15_siqpc"), ExtResource("16_bj5r2"), ExtResource("17_gnqvl"), ExtResource("18_a5kl4"), ExtResource("19_fvr3i"), ExtResource("20_se1hr"), ExtResource("21_usbbl"), ExtResource("22_rk5qi"), ExtResource("23_otetp"), ExtResource("24_we4fx"), ExtResource("25_kslih")])
+words = Array[ExtResource("2_peoij")]([SubResource("Resource_q32w2"), SubResource("Resource_1o070"), SubResource("Resource_6yksy"), SubResource("Resource_cnwbs"), SubResource("Resource_yrk4o"), SubResource("Resource_tbc63"), SubResource("Resource_l4d00"), SubResource("Resource_73mm1"), SubResource("Resource_vjchf"), SubResource("Resource_76i3q"), SubResource("Resource_35l13"), SubResource("Resource_f1suf"), SubResource("Resource_kq0r5"), SubResource("Resource_v2vqe"), SubResource("Resource_nc3kk"), SubResource("Resource_u5rba"), ExtResource("19_fvr3i"), SubResource("Resource_nj8v5"), SubResource("Resource_ca4at"), SubResource("Resource_nlgjk"), SubResource("Resource_j78qp"), SubResource("Resource_mwefm"), SubResource("Resource_wwcn1")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
