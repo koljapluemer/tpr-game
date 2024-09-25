@@ -25,6 +25,7 @@ func _ready() -> void:
 			push_error(name, ": HotBar missing")
 		
 		quest_manager.generate_possible_quests(scrapbook_objects)
+		quest_manager.start_random_quest()
 	else:
 		push_warning(name, ": SpawnPoints holder missing")
 	
