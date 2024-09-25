@@ -8,3 +8,7 @@
 	- ...and more importantly, same with the player
   - guard against export variables in the various script being simply not set
   
+
+
+- make better cursors to see where you're clicking
+- make clear which state we're in (especially on mobile, w/o a cursor)

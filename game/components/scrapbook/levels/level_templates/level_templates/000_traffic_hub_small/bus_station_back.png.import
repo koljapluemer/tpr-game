@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxtf5it7qkqvd"
-path="res://.godot/imported/tabletop.png-6f46575b2fad185ba34ee0b4c1c93619.ctex"
+uid="uid://dlgeyrynmonk5"
+path="res://.godot/imported/bus_station_back.png-5a61243548c3d3a336be63f42a95b69b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/scrapbook/level_templates/levels/level_templates/level_templates/001_fruit_table/tabletop.png"
-dest_files=["res://.godot/imported/tabletop.png-6f46575b2fad185ba34ee0b4c1c93619.ctex"]
+source_file="res://game/components/scrapbook/levels/level_templates/level_templates/000_traffic_hub_small/bus_station_back.png"
+dest_files=["res://.godot/imported/bus_station_back.png-5a61243548c3d3a336be63f42a95b69b.ctex"]
 
 [params]
 
