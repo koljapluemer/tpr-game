@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvlvfc0xcf5k2"]
+
+[ext_resource type="Script" path="res://game/components/ui/level_ui/quests/quest_holder/quests_holder.gd" id="1_8x3vk"]
+
+[node name="QuestsHolder" type="VBoxContainer"]
+script = ExtResource("1_8x3vk")

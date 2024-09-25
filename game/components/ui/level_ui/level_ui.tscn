@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://fyvk5b7uo0am"]
+[gd_scene load_steps=3 format=3 uid="uid://fyvk5b7uo0am"]
 
+[ext_resource type="PackedScene" uid="uid://bvlvfc0xcf5k2" path="res://game/components/ui/level_ui/quests/quest_holder/quests_holder.tscn" id="1_2c005"]
 [ext_resource type="PackedScene" uid="uid://83sovdvk6017" path="res://game/components/ui/level_ui/hotbar/hot_bar.tscn" id="2_4sqyp"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -29,7 +30,7 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Aufträge"
 
-[node name="QuestsHolder" type="VBoxContainer" parent="HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu"]
+[node name="QuestsHolder" parent="HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" instance=ExtResource("1_2c005")]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]

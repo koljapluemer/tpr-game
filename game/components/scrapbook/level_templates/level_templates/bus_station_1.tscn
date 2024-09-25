@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://s4y47uscjvh1"]
+[gd_scene load_steps=10 format=3 uid="uid://s4y47uscjvh1"]
 
 [ext_resource type="Script" path="res://game/components/scrapbook/level_templates/level_template.gd" id="1_3tr0c"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/components/ui/level_ui/level_ui.tscn" id="2_cjeqa"]
 [ext_resource type="Texture2D" uid="uid://dlgeyrynmonk5" path="res://game/components/scrapbook/level_templates/assets/bus_station_back.png" id="3_1kj4f"]
+[ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/components/ui/level_ui/quests/quest_ui.tscn" id="3_75yhe"]
 [ext_resource type="Texture2D" uid="uid://b6p6pbhyv8gkf" path="res://game/components/scrapbook/level_templates/assets/bus_station_front.png" id="4_pf2vr"]
 [ext_resource type="PackedScene" uid="uid://cnewsbb60xtfg" path="res://game/components/scrapbook/level_templates/level_templates/spawn_points/spawn_point.tscn" id="5_wb3uq"]
 [ext_resource type="PackedScene" uid="uid://coyqevptipp2i" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/cars/car_blue_old.tscn" id="6_1f7fk"]
@@ -17,6 +18,10 @@ position = Vector2(400, 150)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_cjeqa")]
 unique_name_in_owner = true
+
+[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
+quest_ui = ExtResource("3_75yhe")
+quest_manager = NodePath("../../../../../../QuestManager")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -48,3 +53,5 @@ accepts = Array[PackedScene]([ExtResource("7_lkmsq")])
 [node name="QuestManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("8_2xhr1")
+
+[editable path="CanvasLayer"]

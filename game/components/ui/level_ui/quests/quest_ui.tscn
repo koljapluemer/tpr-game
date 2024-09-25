@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bunt3dvolwfk8"]
+[gd_scene load_steps=2 format=3 uid="uid://bunt3dvolwfk8"]
 
-[node name="QuestContainer" type="HBoxContainer"]
+[ext_resource type="Script" path="res://game/components/ui/level_ui/quests/quest_ui.gd" id="1_c1qeg"]
+
+[node name="Quest" type="HBoxContainer"]
+script = ExtResource("1_c1qeg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(30, 30)
@@ -9,6 +12,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3

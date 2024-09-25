@@ -1,8 +1,6 @@
 class_name QuestManager extends Node
 
-@export var quest_ui:Container
-
-const LEVEL_UI_QUEST = preload("res://game/components/ui/level_ui/quests/level_ui_quest.tscn")
+signal quest_started
 
 var possible_quests:Array[Quest] = []
 var current_quest:Quest
@@ -19,4 +17,4 @@ func start_random_quest():
 	var quest:Quest = possible_quests.pick_random()
 	if quest:
 		current_quest = quest
-		print(current_quest)
+		quest_started.emit(quest)

@@ -9,5 +9,9 @@ static func create(_word: Word, _interaction: Interaction) -> Quest:
 	inst.interaction = _interaction
 	return inst
 
-func _to_string() -> String:
+func get_key() -> String:
 	return word.key + ":" + interaction.key
+	
+
+func _to_string() -> String:
+	return get_key()
