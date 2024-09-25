@@ -22,11 +22,17 @@ func _ready() -> void:
 		else:
 			push_error(name, ": HotBar missing")
 		
-		quest_manager.generate_possible_quests(scrapbook_objects)
-		quest_manager.start_random_quest()
+		quest_manager.quest_finished.connect(_on_quest_finished)
+		start_new_quest()
 	else:
 		push_warning(name, ": SpawnPoints holder missing")
 	
+func _on_quest_finished(_quest:Quest):
+	get_tree().create_timer(0.3).connect("timeout", start_new_quest)
+	
+func start_new_quest():
+	quest_manager.generate_possible_quests(scrapbook_objects)
+	quest_manager.start_random_quest()
 
 func get_afforded_interactions():
 	for spawn_point:SpawnPoint in spawn_points.get_children():

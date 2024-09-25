@@ -1,4 +1,4 @@
 extends Node
 
 
-signal set_interaction_mode(interaction:Interaction)
+signal object_was_interacted_with(obj:ScrapbookObject, interaction:Interaction)

@@ -15,3 +15,8 @@ func get_key() -> String:
 
 func _to_string() -> String:
 	return get_key()
+
+
+func interaction_matches_with_quest_target(obj:ScrapbookObject, _interaction:Interaction):
+	var is_match = obj.words.has(word) and _interaction == interaction
+	return is_match

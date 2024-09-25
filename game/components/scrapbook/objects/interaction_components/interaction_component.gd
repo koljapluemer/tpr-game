@@ -15,9 +15,10 @@ func _ready() -> void:
 func _on_selectable_area_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if GameState.current_interaction_mode == interaction:
 		if event.is_action_pressed("click"):
-			_react_to_input()
+			if _react_to_input():
+				MessageManager.object_was_interacted_with.emit(owner, GameState.current_interaction_mode)
 
 # to overwrite by derived classes
 # the logic for whether this will be triggered is above
-func _react_to_input():
-	pass
+func _react_to_input() -> bool:
+	return true
