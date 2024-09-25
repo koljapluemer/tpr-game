@@ -67,11 +67,6 @@ text = "Score:"
 layout_mode = 2
 text = "35"
 
-[node name="GameSpace" type="Control" parent="HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="HotBar" parent="HBoxContainer/VBoxContainer" groups=["hot_bar"] instance=ExtResource("2_4sqyp")]
 unique_name_in_owner = true
 layout_mode = 2

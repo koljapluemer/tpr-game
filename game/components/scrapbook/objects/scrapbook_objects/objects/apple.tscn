@@ -25,37 +25,36 @@ script = ExtResource("2_yr0xp")
 words = Array[ExtResource("2_e8um4")]([SubResource("Resource_iawx5"), SubResource("Resource_ch62g"), ExtResource("3_n10ku")])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5on6c"]
-radius = 17.0094
-height = 36.8536
+radius = 11.4791
+height = 23.7533
 
 [node name="Object" type="Node2D"]
+scale = Vector2(0.240001, 0.240001)
 script = ExtResource("1_1x1wn")
 word_list = SubResource("Resource_hc8db")
 color = ExtResource("4_obk27")
+metadata/_edit_horizontal_guides_ = [-25.0, -12.0]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-unique_name_in_owner = true
 material = ExtResource("2_hwu1k")
-position = Vector2(6.45204, -26.6125)
-scale = Vector2(0.105824, 0.105824)
+position = Vector2(-5.69031, -50.4941)
+scale = Vector2(0.0720928, 0.0720928)
 texture = ExtResource("3_fy7m1")
-
-[node name="Area2D2" type="Area2D" parent="Sprite"]
-scale = Vector2(20, 20)
-collision_mask = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
-unique_name_in_owner = true
-position = Vector2(5.92869, 15.8813)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_5on6c")
 
 [node name="Components" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="TakeableComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("selectable_area")]
 script = ExtResource("4_74ip4")
-selectable_area = NodePath("../../Sprite/Area2D2")
+selectable_area = NodePath("../../Area2D2")
 interaction = ExtResource("5_yfoni")
 
-[connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(6.80963, -26.0889)
+scale = Vector2(2.13127, 2.13127)
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-3.04848, 0.761916)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5on6c")
