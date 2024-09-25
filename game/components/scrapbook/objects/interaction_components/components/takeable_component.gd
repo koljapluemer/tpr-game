@@ -4,6 +4,5 @@ class_name TakeableComponent extends InteractionComponent
 
 signal object_taken
 
-func _on_takeable_area_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action_pressed("click"):
-		object_taken.emit()
+func _react_to_input():
+	object_taken.emit()

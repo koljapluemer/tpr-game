@@ -14,6 +14,11 @@ class_name ScrapbookObject extends Node2D
 func _ready() -> void:
 	if not components:
 		push_warning(name, ": is missing Components holder.")
+	else:
+		for component:InteractionComponent in components.get_children():
+			if component.has_signal("object_taken"):
+				component.object_taken.connect(_on_object_taken)
+			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,4 +29,7 @@ func get_modes() -> Array[Interaction]:
 	for component:InteractionComponent in components.get_children():
 		modes.append(component.interaction)
 	return modes
+	
+func _on_object_taken():
+	queue_free()
 		

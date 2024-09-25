@@ -12,6 +12,12 @@ func _ready() -> void:
 	else:
 		selectable_area.input_event.connect(_on_selectable_area_input)
 
-# to overwrite by children
 func _on_selectable_area_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if GameState.current_interaction_mode == interaction:
+		if event.is_action_pressed("click"):
+			_react_to_input()
+
+# to overwrite by derived classes
+# the logic for whether this will be triggered is above
+func _react_to_input():
 	pass
