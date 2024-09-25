@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Interaction" load_steps=4 format=3 uid="uid://br7rxyfpkgnit"]
+
+[ext_resource type="Texture2D" uid="uid://co18l0gctrghg" path="res://game/components/interactions/assets/cursors/cursor_move.png" id="1_av2lo"]
+[ext_resource type="Script" path="res://game/components/interactions/interaction.gd" id="1_ccwl4"]
+[ext_resource type="Texture2D" uid="uid://b8425as45pmuk" path="res://game/components/interactions/assets/expander.png" id="1_s5yfa"]
+
+[resource]
+script = ExtResource("1_ccwl4")
+key = "MOVE"
+icon = ExtResource("1_s5yfa")
+cursor = ExtResource("1_av2lo")

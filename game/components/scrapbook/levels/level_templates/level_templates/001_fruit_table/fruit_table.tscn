@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://impaolxupwge"]
+[gd_scene load_steps=10 format=3 uid="uid://impaolxupwge"]
 
 [ext_resource type="Script" path="res://game/components/scrapbook/levels/level_templates/level_template.gd" id="1_04lix"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/components/ui/level_ui/level_ui.tscn" id="2_0e5oe"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtf5it7qkqvd" path="res://game/components/scrapbook/levels/level_templates/level_templates/001_fruit_table/tabletop.png" id="4_2iq8g"]
 [ext_resource type="Script" path="res://game/components/scrapbook/levels/spawn_points/spawn_point.gd" id="5_dlbjm"]
 [ext_resource type="PackedScene" uid="uid://dnh82jdnuf1va" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/banana.tscn" id="7_u23ks"]
+[ext_resource type="PackedScene" uid="uid://dnhkllmwluc1n" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/knife.tscn" id="8_mdnxc"]
 [ext_resource type="PackedScene" uid="uid://da2aa4vnjn4s" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/apple.tscn" id="8_xp7lf"]
 [ext_resource type="Script" path="res://game/components/quest_manager/quest_manager.gd" id="9_wqrsn"]
 
@@ -45,10 +46,16 @@ accepts = Array[PackedScene]([ExtResource("8_xp7lf"), ExtResource("7_u23ks")])
 scale_factor = 0.8
 
 [node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(576, 194)
+position = Vector2(352, 178)
 script = ExtResource("5_dlbjm")
 accepts = Array[PackedScene]([ExtResource("8_xp7lf"), ExtResource("7_u23ks")])
 scale_factor = 0.8
+
+[node name="KnifeSpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(624, 122)
+script = ExtResource("5_dlbjm")
+accepts = Array[PackedScene]([ExtResource("8_mdnxc")])
+scale_factor = 2.0
 
 [node name="QuestManager" type="Node" parent="."]
 unique_name_in_owner = true
