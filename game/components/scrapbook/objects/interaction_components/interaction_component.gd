@@ -22,3 +22,4 @@ func _on_selectable_area_input(viewport: Node, event: InputEvent, shape_idx: int
 # the logic for whether this will be triggered is above
 func _react_to_input() -> bool:
 	return true
+	

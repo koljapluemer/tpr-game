@@ -26,6 +26,7 @@ radius = 3.90854
 height = 39.0854
 
 [node name="Object" type="Node2D"]
+material = ExtResource("6_pfpbr")
 scale = Vector2(0.240001, 0.240001)
 script = ExtResource("1_7vh61")
 word_list = SubResource("Resource_ybyum")
