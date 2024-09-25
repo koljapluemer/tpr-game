@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://da2aa4vnjn4s"]
+[gd_scene load_steps=15 format=3 uid="uid://da2aa4vnjn4s"]
 
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/scrapbook_object.gd" id="1_1x1wn"]
 [ext_resource type="Script" path="res://game/components/words/word.gd" id="2_e8um4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/takeable_component.gd" id="4_74ip4"]
 [ext_resource type="Resource" uid="uid://bykurunclcrf2" path="res://game/components/words/colors/colors/red.tres" id="4_obk27"]
 [ext_resource type="Resource" uid="uid://cxsvav2e6mhgt" path="res://game/components/interactions/interactions/take.tres" id="5_yfoni"]
+[ext_resource type="PackedScene" uid="uid://vrsf4on377ey" path="res://game/components/scrapbook/objects/interaction_components/components/touchable_component.tscn" id="10_wdgmf"]
 
 [sub_resource type="Resource" id="Resource_iawx5"]
 script = ExtResource("2_e8um4")
@@ -48,6 +49,9 @@ unique_name_in_owner = true
 script = ExtResource("4_74ip4")
 selectable_area = NodePath("../../Area2D2")
 interaction = ExtResource("5_yfoni")
+
+[node name="TouchableComponent" parent="Components" node_paths=PackedStringArray("selectable_area") instance=ExtResource("10_wdgmf")]
+selectable_area = NodePath("../../Area2D2")
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(6.80963, -26.0889)

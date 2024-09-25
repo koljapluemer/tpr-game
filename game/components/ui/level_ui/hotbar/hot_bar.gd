@@ -9,6 +9,11 @@ func set_buttons(modes:Array[Interaction]) -> Array[InteractionButton]:
 		var btn = INTERACTION_BUTTON.instantiate()
 		btn.icon = mode.icon
 		btn.interaction = mode
+		# if we have a TOUCH button, which we should, set that as standard by pressing it
+		if mode.key == "TOUCH":
+			print("doing the thing")
+			GameState.current_interaction_mode = mode
+			
 		add_child(btn)
 		buttons.append(btn)
 	# returns buttons to the game manager script
