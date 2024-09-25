@@ -11,6 +11,7 @@ func _ready() -> void:
 		push_warning(name, ": missing selectable area")
 	else:
 		selectable_area.input_event.connect(_on_selectable_area_input)
+		selectable_area.body_entered.connect(_on_body_entered)
 
 func _on_selectable_area_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if GameState.current_interaction_mode == interaction:
@@ -22,4 +23,8 @@ func _on_selectable_area_input(viewport: Node, event: InputEvent, shape_idx: int
 # the logic for whether this will be triggered is above
 func _react_to_input() -> bool:
 	return true
+	
+# optional overwrite
+func _on_body_entered(body):
+	print("body entered", body)
 	

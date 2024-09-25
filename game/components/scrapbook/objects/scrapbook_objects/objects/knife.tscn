@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnhkllmwluc1n"]
+[gd_scene load_steps=15 format=3 uid="uid://dnhkllmwluc1n"]
 
 [ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/scrapbook_object.gd" id="1_7vh61"]
 [ext_resource type="Script" path="res://game/components/words/words/word_lists/word_list.gd" id="2_y7pnr"]
@@ -24,6 +24,9 @@ words = Array[ExtResource("3_kwhpx")]([SubResource("Resource_k1b7l")])
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4o38x"]
 radius = 3.90854
 height = 39.0854
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptypi"]
+size = Vector2(87.4996, 20)
 
 [node name="Object" type="Node2D"]
 material = ExtResource("6_pfpbr")
@@ -65,3 +68,11 @@ collision_mask = 255
 position = Vector2(-2.46126, 9.48003)
 rotation = 1.2437
 shape = SubResource("CapsuleShape2D_4o38x")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-6.24997, 0)
+shape = SubResource("RectangleShape2D_ptypi")
+debug_color = Color(0.632058, 0.519357, 0.283157, 0.42)

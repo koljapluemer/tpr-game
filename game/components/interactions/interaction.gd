@@ -5,3 +5,5 @@ class_name Interaction extends Resource
 @export var key:String
 @export var icon:Texture2D
 @export var cursor:Texture2D
+
+@export var create_button = true
