@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://fyvk5b7uo0am"]
+[gd_scene load_steps=4 format=3 uid="uid://fyvk5b7uo0am"]
 
 [ext_resource type="PackedScene" uid="uid://bvlvfc0xcf5k2" path="res://game/components/ui/level_ui/quests/quest_holder/quests_holder.tscn" id="1_2c005"]
+[ext_resource type="Script" path="res://game/components/ui/level_ui/level_ui.gd" id="1_l3o34"]
 [ext_resource type="PackedScene" uid="uid://83sovdvk6017" path="res://game/components/ui/level_ui/hotbar/hot_bar.tscn" id="2_4sqyp"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_l3o34")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15

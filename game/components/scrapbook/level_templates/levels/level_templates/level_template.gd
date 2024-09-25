@@ -42,10 +42,3 @@ func get_afforded_interactions():
 			if not mode in interactions:
 				interactions.append(mode)
 	return interactions
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-func _on_interaction_mode_requested(interaction_mode: Interaction):
-	Input.set_custom_mouse_cursor(interaction_mode.cursor)

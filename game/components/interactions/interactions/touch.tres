@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Interaction" load_steps=3 format=3 uid="uid://rp1jb4f2sdwm"]
+[gd_resource type="Resource" script_class="Interaction" load_steps=4 format=3 uid="uid://rp1jb4f2sdwm"]
 
 [ext_resource type="Texture2D" uid="uid://djfnatw34i8a3" path="res://game/components/interactions/assets/touch_usable.png" id="1_6ff00"]
+[ext_resource type="Texture2D" uid="uid://jat2deimhph1" path="res://game/components/interactions/assets/cursors/touch_usable.png" id="1_ad6d5"]
 [ext_resource type="Script" path="res://game/components/interactions/interaction.gd" id="1_c7w7a"]
 
 [resource]
 script = ExtResource("1_c7w7a")
 key = "TOUCH"
 icon = ExtResource("1_6ff00")
+cursor = ExtResource("1_ad6d5")
