@@ -18,5 +18,5 @@ func _to_string() -> String:
 
 
 func interaction_matches_with_quest_target(obj:ScrapbookObject, _interaction:Interaction):
-	var is_match = obj.words.has(word) and _interaction == interaction
+	var is_match = obj.word_list.words.has(word) and _interaction == interaction
 	return is_match

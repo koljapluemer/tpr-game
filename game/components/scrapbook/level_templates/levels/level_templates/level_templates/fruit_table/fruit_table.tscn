@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://impaolxupwge"]
+
+[ext_resource type="Script" path="res://game/components/scrapbook/level_templates/levels/level_templates/level_template.gd" id="1_04lix"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/components/ui/level_ui/level_ui.tscn" id="2_0e5oe"]
+[ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/components/ui/level_ui/quests/quest_ui.tscn" id="3_m7fej"]
+[ext_resource type="Texture2D" uid="uid://cxtf5it7qkqvd" path="res://game/components/scrapbook/level_templates/levels/level_templates/level_templates/fruit_table/tabletop.png" id="4_2iq8g"]
+[ext_resource type="Script" path="res://game/components/scrapbook/level_templates/levels/spawn_points/spawn_point.gd" id="5_dlbjm"]
+[ext_resource type="PackedScene" uid="uid://da2aa4vnjn4s" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/apple.tscn" id="8_xp7lf"]
+[ext_resource type="Script" path="res://game/components/quest_manager/quest_manager.gd" id="9_wqrsn"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_04lix")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_0e5oe")]
+unique_name_in_owner = true
+
+[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
+quest_ui = ExtResource("3_m7fej")
+quest_manager = NodePath("../../../../../../QuestManager")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(403.181, 172.411)
+scale = Vector2(0.94706, 0.94706)
+texture = ExtResource("4_2iq8g")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnPoint" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(216, 98)
+script = ExtResource("5_dlbjm")
+accepts = Array[PackedScene]([ExtResource("8_xp7lf")])
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_wqrsn")
+
+[editable path="CanvasLayer"]

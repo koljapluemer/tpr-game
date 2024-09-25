@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnewsbb60xtfg"]
-
-[ext_resource type="Script" path="res://game/components/scrapbook/level_templates/level_templates/spawn_points/spawn_point.gd" id="1_nm5qr"]
-
-[node name="SpawnPoint" type="Marker2D"]
-gizmo_extents = 20.0
-script = ExtResource("1_nm5qr")

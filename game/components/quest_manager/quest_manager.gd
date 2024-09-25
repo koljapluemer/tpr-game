@@ -10,17 +10,17 @@ func _ready() -> void:
 	MessageManager.object_was_interacted_with.connect(_on_object_was_interacted_with)
 	
 func _on_object_was_interacted_with(obj:ScrapbookObject, interaction: Interaction):
-	print("hey I registered: ", obj, interaction)
-	if current_quest.interaction_matches_with_quest_target(obj, interaction):
-		quest_finished.emit(current_quest)
-		current_quest = null
+	if current_quest:
+		if current_quest.interaction_matches_with_quest_target(obj, interaction):
+			quest_finished.emit(current_quest)
+			current_quest = null
 
 func generate_possible_quests(objects:Array[ScrapbookObject]):
 	possible_quests = []
 	for obj:ScrapbookObject in objects:
 		if not is_instance_valid(obj):
 			continue
-		for word in obj.words:
+		for word in obj.word_list.words:
 			for mode in obj.get_modes():
 				var quest:Quest = Quest.create(word, mode)
 				possible_quests.append(quest)

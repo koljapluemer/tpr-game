@@ -1,0 +1,55 @@
+[gd_scene load_steps=13 format=3 uid="uid://s4y47uscjvh1"]
+
+[ext_resource type="Script" path="res://game/components/scrapbook/level_templates/levels/level_templates/level_template.gd" id="1_nlmnm"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/components/ui/level_ui/level_ui.tscn" id="2_7gwc5"]
+[ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/components/ui/level_ui/quests/quest_ui.tscn" id="3_1wniv"]
+[ext_resource type="Texture2D" uid="uid://dlgeyrynmonk5" path="res://game/components/scrapbook/level_templates/levels/level_templates/level_templates/traffic_hub_small/bus_station_back.png" id="4_wa00i"]
+[ext_resource type="Texture2D" uid="uid://b6p6pbhyv8gkf" path="res://game/components/scrapbook/level_templates/levels/level_templates/level_templates/traffic_hub_small/bus_station_front.png" id="5_cpbcr"]
+[ext_resource type="Script" path="res://game/components/scrapbook/level_templates/levels/spawn_points/spawn_point.gd" id="6_c38q3"]
+[ext_resource type="PackedScene" uid="uid://coyqevptipp2i" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_blue_old.tscn" id="7_12uk3"]
+[ext_resource type="PackedScene" uid="uid://opofpgbvv5hc" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_blue.tscn" id="7_302po"]
+[ext_resource type="Script" path="res://game/components/quest_manager/quest_manager.gd" id="9_2jdft"]
+[ext_resource type="PackedScene" uid="uid://crv5mlcvcgod5" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_red_nissan_front.tscn" id="9_iu2sp"]
+[ext_resource type="PackedScene" uid="uid://cbo5qaj4c4ro4" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_red_side.tscn" id="10_078lg"]
+[ext_resource type="PackedScene" uid="uid://yn4gr8c3nckh" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_taxi.tscn" id="11_3m0sm"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_nlmnm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_7gwc5")]
+unique_name_in_owner = true
+
+[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
+quest_ui = ExtResource("3_1wniv")
+quest_manager = NodePath("../../../../../../QuestManager")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(484, 79)
+scale = Vector2(0.668314, 0.668314)
+texture = ExtResource("4_wa00i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+z_index = 3
+position = Vector2(505, 353)
+scale = Vector2(0.542389, 0.542389)
+texture = ExtResource("5_cpbcr")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnPoint" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(592, 251)
+script = ExtResource("6_c38q3")
+accepts = Array[PackedScene]([ExtResource("7_302po"), ExtResource("7_12uk3"), ExtResource("9_iu2sp"), ExtResource("10_078lg"), ExtResource("11_3m0sm")])
+scale_factor = 1.5
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_2jdft")
+
+[editable path="CanvasLayer"]

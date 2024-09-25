@@ -6,7 +6,7 @@ class_name ScrapbookObject extends Node2D
 
 ## [Word] array with words that this concrete [Node2D] may stand for.
 ## Likely nouns, such as CAR, TAXI, VEHICLE
-@export var words: Array[Word] = []
+@export var word_list: WordList
 @export var color:ObjectColor ## A special type of [Word] that allows alternative descriptions to be used in quests
 
 @onready var components: Node2D = %Components

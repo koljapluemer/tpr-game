@@ -1,28 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://opofpgbvv5hc"]
+[gd_scene load_steps=10 format=3 uid="uid://cbo5qaj4c4ro4"]
 
-[ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/scrapbook_object.gd" id="1_qa53k"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/shared_assets/material_outline.tres" id="2_qunqi"]
-[ext_resource type="Texture2D" uid="uid://cakxf2086t7bj" path="res://game/components/scrapbook/objects/assets/object_pngs/car_blue_bmw_crop.png" id="3_siowq"]
-[ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/lockable_component.gd" id="4_ktu7l"]
+[ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/scrapbook_object.gd" id="1_sw2rt"]
+[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/shared_assets/material_outline.tres" id="2_f2ftn"]
+[ext_resource type="Resource" uid="uid://dotmpfhcnthx4" path="res://game/components/words/words/word_lists/word_lists/generic_car.tres" id="2_sbmnn"]
+[ext_resource type="Resource" uid="uid://bykurunclcrf2" path="res://game/components/words/colors/colors/red.tres" id="3_babuj"]
+[ext_resource type="Texture2D" uid="uid://cp0psnhd72h42" path="res://game/components/scrapbook/objects/assets/object_pngs/car_red_crop.png" id="3_dn6av"]
+[ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/lockable_component.gd" id="4_8weh4"]
+[ext_resource type="Resource" uid="uid://w7b2vk2lh7j0" path="res://game/components/interactions/interactions/lock_unlock.tres" id="7_5e34k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgbwh"]
-radius = 22.2698
-height = 89.646
+radius = 12.7256
+height = 77.981
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36a0r"]
-radius = 21.4928
+radius = 13.5269
 height = 42.9856
 
 [node name="Object" type="Node2D"]
 z_index = 3
-script = ExtResource("1_qa53k")
+script = ExtResource("1_sw2rt")
+word_list = ExtResource("2_sbmnn")
+color = ExtResource("3_babuj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("2_qunqi")
-position = Vector2(7.53463, -28)
-scale = Vector2(0.0942982, 0.0942982)
-texture = ExtResource("3_siowq")
+material = ExtResource("2_f2ftn")
+position = Vector2(5.1079, -31.2884)
+rotation = 0.0193609
+scale = Vector2(0.134022, 0.134022)
+texture = ExtResource("3_dn6av")
 
 [node name="Area2D2" type="Area2D" parent="Sprite"]
 scale = Vector2(20, 20)
@@ -40,7 +46,7 @@ scale = Vector2(20, 20)
 
 [node name="InteractionCollisionShape2D" type="CollisionShape2D" parent="Sprite/InteractionShape2D"]
 unique_name_in_owner = true
-position = Vector2(16.9674, -10.8013)
+position = Vector2(-1.06052, -10.8013)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_36a0r")
 debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
@@ -49,8 +55,9 @@ debug_color = Color(0.662852, 0.510289, 0.148882, 0.42)
 unique_name_in_owner = true
 
 [node name="LockableComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("selectable_area")]
-script = ExtResource("4_ktu7l")
+script = ExtResource("4_8weh4")
 selectable_area = NodePath("../../Sprite/Area2D2")
+interaction = ExtResource("7_5e34k")
 
 [connection signal="body_entered" from="Sprite/Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="input_event" from="Sprite/Area2D2" to="." method="_on_area_2d_2_input_event"]
