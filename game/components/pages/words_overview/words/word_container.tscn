@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckg2ons86o56"]
+[gd_scene load_steps=2 format=3 uid="uid://ckg2ons86o56"]
 
 [ext_resource type="Script" path="res://game/components/pages/words_overview/words/word_container.gd" id="1_b5kig"]
-[ext_resource type="Texture2D" uid="uid://dxbhd82k5m1bf" path="res://src/components/level_elements/object/png/dog_crop.png" id="1_hbhqq"]
 
 [node name="PanelContainer" type="PanelContainer"]
 script = ExtResource("1_b5kig")
@@ -29,7 +28,6 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
-texture = ExtResource("1_hbhqq")
 expand_mode = 1
 stretch_mode = 4
 

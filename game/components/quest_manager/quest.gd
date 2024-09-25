@@ -1,4 +1,4 @@
-class_Name Quest extends Resource
+class_name Quest extends Resource
 
 @export var key:Word
 @export var interaction:Interaction

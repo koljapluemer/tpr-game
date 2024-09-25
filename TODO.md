@@ -4,9 +4,6 @@
 
 - *left as a warning:*
   - handle tutor being already on target
-    - ...and more importantly, same with the player
+	- ...and more importantly, same with the player
   - guard against export variables in the various script being simply not set
   
-
-
-
