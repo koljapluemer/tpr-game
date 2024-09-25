@@ -43,7 +43,8 @@ metadata/_edit_vertical_guides_ = [6.0, 9.0]
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = ExtResource("6_ucc3r")
-position = Vector2(-0.86216, -24.9579)
+position = Vector2(-0.862152, -20.7911)
+rotation = 0.299669
 scale = Vector2(0.084316, 0.084316)
 texture = ExtResource("7_sjnub")
 
@@ -59,7 +60,8 @@ interaction = ExtResource("9_xqefv")
 selectable_area = NodePath("../../Area2D2")
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(6.80963, -26.0889)
+position = Vector2(6.80963, -21.9222)
+rotation = 0.299669
 scale = Vector2(2.13127, 2.13127)
 collision_mask = 255
 

@@ -39,13 +39,13 @@ accepts = Array[PackedScene]([ExtResource("8_xp7lf"), ExtResource("7_u23ks")])
 scale_factor = 0.8
 
 [node name="SpawnPoint2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(216, 306)
+position = Vector2(216, 234)
 script = ExtResource("5_dlbjm")
 accepts = Array[PackedScene]([ExtResource("8_xp7lf"), ExtResource("7_u23ks")])
 scale_factor = 0.8
 
 [node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(576, 218)
+position = Vector2(576, 194)
 script = ExtResource("5_dlbjm")
 accepts = Array[PackedScene]([ExtResource("8_xp7lf"), ExtResource("7_u23ks")])
 scale_factor = 0.8
