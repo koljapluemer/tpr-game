@@ -19,8 +19,6 @@ func _ready() -> void:
 		get_afforded_interactions()
 		if hot_bar:
 			var buttons = hot_bar.set_buttons(interactions)
-			for btn in buttons:
-				btn.interaction_mode_requested.connect(_on_interaction_mode_requested)
 		else:
 			push_error(name, ": HotBar missing")
 		

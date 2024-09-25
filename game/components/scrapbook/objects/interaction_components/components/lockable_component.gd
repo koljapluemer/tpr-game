@@ -10,9 +10,10 @@ signal object_lock_status_toggled
 
 
 func _on_selectable_area_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action_pressed("click"):
-		object_lock_status_toggled.emit()
-		if audio_player and lock_sound:
-			audio_player.stream = lock_sound
-			audio_player.play()
-		locked = !locked
+	if GameState.current_interaction_mode == interaction:
+		if event.is_action_pressed("click"):
+			object_lock_status_toggled.emit()
+			if audio_player and lock_sound:
+				audio_player.stream = lock_sound
+				audio_player.play()
+			locked = !locked

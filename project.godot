@@ -15,6 +15,11 @@ run/main_scene="res://game/components/scrapbook/level_templates/level_templates/
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MessageManager="*res://game/components/globals/message_manager.gd"
+GameState="*res://game/components/globals/game_state.gd"
+
 [display]
 
 window/size/viewport_width=800
