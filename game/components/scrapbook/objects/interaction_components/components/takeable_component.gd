@@ -2,7 +2,6 @@
 ## Currently not functional in any way.
 class_name TakeableComponent extends InteractionComponent
 
-signal object_taken
-
 func _react_to_input():
-	object_taken.emit()
+	owner.queue_free()
+	
