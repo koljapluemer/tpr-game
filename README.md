@@ -23,3 +23,5 @@
 - have to look up exact license for both:
 	- Push: https://game-icons.net/1x1/delapouite/push.html
 	- Snatch: https://game-icons.net/1x1/lorc/snatch.html
+	- Split Arrows: https://game-icons.net/1x1/delapouite/split-arrows.html#download, [Delapoutie](https://delapouite.com/), [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+	
