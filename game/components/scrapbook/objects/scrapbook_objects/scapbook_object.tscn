@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ds2wd4s251glh" path="res://icon.svg" id="2_06i08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xvyt"]
-size = Vector2(57, 8)
+size = Vector2(57, 110)
 
 [node name="ScapbookObject" type="Area2D"]
 script = ExtResource("1_sxqhy")
@@ -14,7 +14,7 @@ scale = Vector2(1, 1)
 texture = ExtResource("2_06i08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 1.5)
+position = Vector2(2, 9)
 shape = SubResource("RectangleShape2D_0xvyt")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

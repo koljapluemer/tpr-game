@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqi7bnfpqweg"]
+[gd_scene load_steps=8 format=3 uid="uid://dqi7bnfpqweg"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/components/scrapbook/objects/scrapbook_objects/scapbook_object.tscn" id="1_wxcp0"]
 [ext_resource type="Script" path="res://game/components/words/words/word_lists/word_list.gd" id="2_y7pnr"]
@@ -14,6 +14,9 @@ word_group = Array[String](["WORD"])
 script = ExtResource("2_y7pnr")
 words = Array[ExtResource("3_kwhpx")]([SubResource("Resource_jg1um")])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
+size = Vector2(57, 9)
+
 [node name="ScapbookObject" instance=ExtResource("1_wxcp0")]
 word_list = SubResource("Resource_fwilr")
 is_takeable = true
@@ -25,4 +28,5 @@ scale = Vector2(0.115385, 0.115385)
 texture = ExtResource("4_r336y")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1.5, -2)
+position = Vector2(1.5, -2.5)
+shape = SubResource("RectangleShape2D_qg620")
