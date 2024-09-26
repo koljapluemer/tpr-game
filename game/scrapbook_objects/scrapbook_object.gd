@@ -1,12 +1,13 @@
 class_name ScrapbookObject extends Area2D
+
 ## Holds a concrete [Node2D] representing an object which can be interacted with in the game.
 ## E.g. may be a car, a cat, or an apple.
-## usually is made out of a sprite and at least one [Area2D], which
-## is needed to make the [AlchemyObject] ineractable via components
+## Must be an [Area2D] to fluently allow any kind of clicking, dragging and dropping, etc.
 
-
-#signal movement_stopped(obj:ScrapbookObject)
-signal movement_stopped
+## sent if the object (which is_movable) has just stopped moving
+## ...and may now want to engange in a [ScrapbookInteraction] if it has been
+## dropped on another [ScrapbookObject]
+signal movement_stopped 
 
 ## [Word] array with words that this concrete [Node2D] may stand for.
 ## Likely nouns, such as CAR, TAXI, VEHICLE
@@ -18,9 +19,14 @@ signal movement_stopped
 @export var is_movable := true
 @export var is_takeable := false
 @export var is_lockable := false
+## In true alchemy game fashion, this defines the actions possible
+## by dropping another object onto this object
 @export var scrapbook_interactions: Array[ScrapbookInteraction] = []
 @export_category("Advanced Affordance Settings")
 
+## When taking the object (requires is_takeable)
+## there is a little circular bar being filled ([member progress]).
+## This determines how fast it will be filled
 @export var taking_speed:= 3.0
 
 @export var is_locked:= true
@@ -40,20 +46,28 @@ var is_being_taken := false
 func _ready() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+## Currently handles two jobs: [br][br]
+## 1) if the object [member is_takeable] and currently [member is_being_taken],
+## we want to update the progress bar and possible [method enact_object_being_taken] in due time.  [br][br]
+## 2) if the object [member is_moveable] and currently [member is_moving],
+## we want it to follow the mouse.
+## More importantly, we need to also listen for the end of "click" [Input] here,
+## because the mouse may have left the [Area2D] of this object, so we cannot track the end of
+## a drag and drop in [method _on_input_event] like the rest.
 func _process(delta: float) -> void:
-	if is_moving:
-		global_position = get_global_mouse_position()
 	if is_being_taken:
 		progress.value += taking_speed
 		if progress.value >= 100:
 			enact_object_being_taken()
 			is_being_taken = false
 			progress.value = 0
-		
-	if Input.is_action_just_released("click") and is_moving:
-		is_moving = false
+			
+	if is_moving:
+		global_position = get_global_mouse_position()
+		if Input.is_action_just_released("click"):
+			is_moving = false
 		movement_stopped.emit(self)
+
 	
 func enact_object_being_taken():
 	MessageManager.object_was_interacted_with.emit(self, TAKE)

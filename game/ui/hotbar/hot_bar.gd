@@ -7,7 +7,11 @@ var displayed_interaction_modes: Array[Interaction] = []
 
 func _ready() -> void:
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
-	
+
+## listens to a global signal sent out by the [LevelManager].	
+## if new a [ScrapbookObject] appears (or disappears), it may be that the buttons
+## of this hotbar have to change so you can actually interact well with the object
+## It's currently badly validated whether it actually works in most cases
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	var modes_to_support : Array[Interaction] = []
 	for obj in obj_list:
@@ -17,7 +21,8 @@ func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 				
 	if displayed_interaction_modes != modes_to_support:
 		update_button_view(modes_to_support)
-		
+
+## visually updates the buttons of the HotBar	
 func update_button_view(modes: Array[Interaction]):
 	for btn in get_children():
 		btn.queue_free()
