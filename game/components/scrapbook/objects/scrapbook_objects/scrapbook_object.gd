@@ -14,6 +14,7 @@ signal movement_stopped
 @export var color:ObjectColor ## A special type of [Word] that allows alternative descriptions to be used in quests
 
 @export_category("Affordances")
+@export var is_touchable := true
 @export var is_movable := true
 @export var is_takeable := false
 @export var is_lockable := false
@@ -25,7 +26,7 @@ signal movement_stopped
 const LOCK_UNLOCK = preload("res://game/components/interactions/interactions/lock_unlock.tres")
 const MOVE = preload("res://game/components/interactions/interactions/move.tres")
 const TAKE = preload("res://game/components/interactions/interactions/take.tres")
-
+const TOUCH = preload("res://game/components/interactions/interactions/touch.tres")
 
 var is_moving:= false
 var is_being_taken := false
@@ -51,6 +52,7 @@ func _process(delta: float) -> void:
 		movement_stopped.emit(self)
 	
 func enact_object_being_taken():
+	MessageManager.object_was_interacted_with.emit(self, TAKE)
 	queue_free()	
 	
 func get_affordances() -> Array[Interaction]:
@@ -61,6 +63,8 @@ func get_affordances() -> Array[Interaction]:
 		affordances.append(TAKE)
 	if is_lockable:
 		affordances.append(LOCK_UNLOCK)
+	if is_movable:
+		affordances.append(TOUCH)
 		
 	return affordances
 
@@ -69,6 +73,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if is_movable and GameState.current_interaction_mode == MOVE:
 		if event.is_action_pressed("click"):
 			is_moving = true
+			get_tree().create_timer(0.25).connect(
+				"timeout", func():MessageManager.object_was_interacted_with.emit(self, MOVE)
+			)
 
 	if is_takeable and GameState.current_interaction_mode == TAKE:
 		if event.is_action_pressed("click") and not is_being_taken:
@@ -78,6 +85,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			is_being_taken = false
 			progress.value = 0
 			progress.hide()
+			
+	if is_touchable and GameState.current_interaction_mode == TOUCH:
+		if event.is_action_pressed("click"):
+			MessageManager.object_was_interacted_with.emit(self, TOUCH)
 			
 
 
