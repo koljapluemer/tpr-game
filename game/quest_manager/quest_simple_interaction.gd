@@ -14,11 +14,8 @@ static func create(_word: Word, _interaction: Interaction) -> Quest:
 
 func get_key() -> String:
 	return word.key + ":" + interaction.key
-	
 
-func _to_string() -> String:
-	return get_key()
-	
+
 func _activate() -> void:
 	super()
 	MessageManager.object_was_interacted_with.connect(_on_object_was_interacted_with)

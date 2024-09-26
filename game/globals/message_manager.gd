@@ -2,7 +2,7 @@ extends Node
 
 
 signal object_was_interacted_with(obj:ScrapbookObject, interaction:Interaction)
-
+signal objects_were_combined(sender: ScrapbookInteraction, receiver: ScrapbookInteraction)
 # only the level-manager should listen to these following two
 # but they're called from different places, so this is 
 # convenient 

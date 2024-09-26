@@ -19,5 +19,4 @@ func _on_object_appeared(obj:ScrapbookObject):
 
 func _on_object_disappeared(obj:ScrapbookObject):
 	scrapbook_objects.erase(obj)
-	print("erased object")
 	MessageManager.object_list_changed.emit(scrapbook_objects)

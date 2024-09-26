@@ -18,7 +18,11 @@ func spawn_in_random_object():
 	var scene_to_init = accepts.pick_random()
 	if not scene_to_init:
 		push_warning(name, ": no scenes set to spawn")
-		return
+	else:
+		change_scene(scene_to_init)
+	
+
+func change_scene(scene_to_init:PackedScene):
 	var inst = scene_to_init.instantiate()
 	inst.scale = Vector2(scale_factor, scale_factor)
 	inst.z_index = 0

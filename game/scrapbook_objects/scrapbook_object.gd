@@ -76,6 +76,7 @@ func get_affordances() -> Array[Interaction]:
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	
 	if is_movable and GameState.current_interaction_mode == MOVE:
 		if event.is_action_pressed("click"):
 			is_moving = true
@@ -118,6 +119,8 @@ func _on_area_exited(area: Area2D) -> void:
 func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 	for scrapbook_interaction in scrapbook_interactions:
 		if obj.word_list.words.has(scrapbook_interaction.key_word):
+			# at this point the combination is happening
+			MessageManager.objects_were_combined.emit(obj, self)
 			for instance in scrapbook_interaction.objects_to_spawn:
 				# let parent spawnpoint handle itbird
 				get_parent().change_scene(instance)
