@@ -6,5 +6,6 @@ var quest:Quest
 
 
 func set_quest_data(quest: Quest):
+	var audio_path = LanguageManager.check_for_matching_audio(quest.get_key())
 	label.text = quest.get_key()
 	

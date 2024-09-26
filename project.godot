@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 MessageManager="*res://game/globals/message_manager.gd"
 GameState="*res://game/globals/game_state.gd"
 SceneManager="*res://game/scene_manager/scene_manager.gd"
+LanguageManager="*res://game/language/language_manager/language_manager.gd"
 
 [display]
 
