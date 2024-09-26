@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://wdtlnvoxcnbb"
+
+[deps]
+
+files=["res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.en.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.ar.translation"]
+
+source_file="res://game/language/translation_text/tpr-game - Sheet1.csv"
+dest_files=["res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.en.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.ar.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -64,7 +64,7 @@ pointing/emulate_mouse_from_touch=false
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://src/translations/tpr-game - Sheet1.arz.translation", "res://src/translations/tpr-game - Sheet1.de.translation", "res://src/translations/tpr-game - Sheet1.ar.translation")
+locale/translations=PackedStringArray("res://game/language/translation_text/tpr-game - Sheet1.ar.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.en.translation")
 
 [rendering]
 
