@@ -68,7 +68,7 @@ func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 	for scrapbook_interaction in scrapbook_interactions:
 		if obj.word_list.words.has(scrapbook_interaction.key_word):
 			for instance in scrapbook_interaction.objects_to_spawn:
-				# let parent spawnpoint handle it
+				# let parent spawnpoint handle itbird
 				get_parent().change_scene(instance)
 			if scrapbook_interaction.kill_receiver:
 				queue_free()

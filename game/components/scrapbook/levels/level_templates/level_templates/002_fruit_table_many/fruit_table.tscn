@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://x7kg4rby6e14"]
+
+[ext_resource type="Script" path="res://game/components/scrapbook/levels/level_templates/level_template.gd" id="1_0f2wt"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/components/ui/level_ui/level_ui.tscn" id="2_l0juf"]
+[ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/components/ui/level_ui/quests/quest_ui.tscn" id="3_2mwuo"]
+[ext_resource type="Texture2D" uid="uid://cxtf5it7qkqvd" path="res://game/components/scrapbook/levels/level_templates/level_templates/001_fruit_table/tabletop.png" id="4_15f2b"]
+[ext_resource type="Script" path="res://game/components/scrapbook/levels/spawn_points/spawn_point.gd" id="5_x5ai0"]
+[ext_resource type="PackedScene" uid="uid://ci6kne16275mx" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/apple.tscn" id="7_1hr1h"]
+[ext_resource type="PackedScene" uid="uid://pj7aiibt3drw" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/kiwi.tscn" id="7_d15r4"]
+[ext_resource type="Script" path="res://game/components/quest_manager/quest_manager.gd" id="9_db8pv"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_0f2wt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_l0juf")]
+unique_name_in_owner = true
+
+[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
+quest_ui = ExtResource("3_2mwuo")
+quest_manager = NodePath("../../../../../../QuestManager")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(403.181, 172.411)
+scale = Vector2(0.94706, 0.94706)
+texture = ExtResource("4_15f2b")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="FruitSpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(280, 251)
+script = ExtResource("5_x5ai0")
+accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+
+[node name="FruitSpawn2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(240, 123)
+script = ExtResource("5_x5ai0")
+accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+
+[node name="FruitSpawn3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(512, 251)
+script = ExtResource("5_x5ai0")
+accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+
+[node name="FruitSpawn4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(472, 123)
+script = ExtResource("5_x5ai0")
+accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+
+[node name="FruitSpawn5" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(736, 251)
+script = ExtResource("5_x5ai0")
+accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+
+[node name="FruitSpawn6" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(696, 123)
+script = ExtResource("5_x5ai0")
+accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_db8pv")
+
+[editable path="CanvasLayer"]
