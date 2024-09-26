@@ -11,10 +11,6 @@ class_name SpawnPoint extends Marker2D
 var init_scene: ScrapbookObject
 
 func _ready() -> void:
-	pass
-
-func spawn_scene():
-	# called from parent so order is clear, no race conditions
 	var scene_to_init = accepts.pick_random()
 	if scene_to_init:
 		change_scene(scene_to_init)

@@ -1,19 +1,9 @@
 class_name QuestManager extends Node
 
-signal quest_started
-signal quest_finished(quest:Quest)
-
 var possible_quests:Array[Quest] = []
-var current_quest:Quest
 
-func _ready() -> void:
-	MessageManager.object_was_interacted_with.connect(_on_object_was_interacted_with)
-	
-func _on_object_was_interacted_with(obj:ScrapbookObject, interaction: Interaction):
-	if current_quest:
-		if current_quest.interaction_matches_with_quest_target(obj, interaction):
-			quest_finished.emit(current_quest)
-			current_quest = null
+signal quest_started(quest:Quest)
+signal quest_finished(quest:Quest)
 
 func generate_possible_quests(objects:Array[ScrapbookObject]):
 	possible_quests = []
@@ -22,11 +12,17 @@ func generate_possible_quests(objects:Array[ScrapbookObject]):
 			continue
 		for word in obj.word_list.words:
 			for mode in obj.get_affordances():
-				var quest:Quest = Quest.create(word, mode)
+				var quest:Quest = SimpleInteractionQuest.create(word, mode)
 				possible_quests.append(quest)
 				
 func start_random_quest():
 	var quest:Quest = possible_quests.pick_random()
 	if quest:
-		current_quest = quest
-		quest_started.emit(quest)
+		if quest.request_activation():
+			quest_started.emit(quest)
+			quest.finished.connect(_on_quest_finished)
+
+
+func _on_quest_finished(quest:Quest):
+	quest_finished.emit(quest)
+	#get_tree().create_timer(0.3).connect("timeout", start_new_quest)

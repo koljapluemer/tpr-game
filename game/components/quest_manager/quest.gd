@@ -1,22 +1,33 @@
 class_name Quest extends Resource
 
-@export var word:Word
-@export var interaction:Interaction
+signal finished(quest:Quest)
 
-static func create(_word: Word, _interaction: Interaction) -> Quest:
-	var inst = Quest.new()
-	inst.word = _word
-	inst.interaction = _interaction
-	return inst
+enum QuestStatus {
+	inactive, 
+	active,
+	finished, 
+	aborted
+}
+var status:QuestStatus = QuestStatus.inactive
 
+# this probably doesn't need to be a variable
+# but a function: as soon as its false
+# either react, or delete...
+var is_possible_to_finish := true
+
+# to overwrite
 func get_key() -> String:
-	return word.key + ":" + interaction.key
-	
+	return "UNKNOWN"
 
 func _to_string() -> String:
 	return get_key()
 
+## returns whether quest *was* actually activated
+func request_activation() -> bool:
+	if status == QuestStatus.inactive:
+		status = QuestStatus.active
+	return status == QuestStatus.active
 
-func interaction_matches_with_quest_target(obj:ScrapbookObject, _interaction:Interaction):
-	var is_match = obj.word_list.words.has(word) and _interaction == interaction
-	return is_match
+func set_finished():
+	status = QuestStatus.finished
+	finished.emit(self)

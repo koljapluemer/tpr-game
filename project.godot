@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tpr-game"
-run/main_scene="res://game/components/scrapbook/levels/level_templates/level_templates/001_fruit_table/fruit_table.tscn"
+run/main_scene="res://game/components/scrapbook/levels/level_templates/level_templates/002_fruit_table_many/fruit_table.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
