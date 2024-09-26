@@ -1,0 +1,14 @@
+[gd_scene load_steps=8 format=3 uid="uid://clcr50jm1vikh"]
+
+[ext_resource type="Script" path="res://game/components/scrapbook/levels/spawn_points/spawn_point.gd" id="1_tid2x"]
+[ext_resource type="PackedScene" uid="uid://pj7aiibt3drw" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/kiwi.tscn" id="2_1limi"]
+[ext_resource type="PackedScene" uid="uid://ci6kne16275mx" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/apple.tscn" id="3_nq3s0"]
+[ext_resource type="PackedScene" uid="uid://yxbc038y2gtb" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/pineapple.tscn" id="4_rfxo1"]
+[ext_resource type="PackedScene" uid="uid://7dafbh3xhemq" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/onion.tscn" id="5_xtfmx"]
+[ext_resource type="PackedScene" uid="uid://brgh246c4iiqv" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/banana.tscn" id="6_au4dt"]
+[ext_resource type="PackedScene" uid="uid://dp5asi1clmrau" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/coconut.tscn" id="7_wia25"]
+
+[node name="FruitSpawn" type="Marker2D"]
+position = Vector2(280, 251)
+script = ExtResource("1_tid2x")
+accepts = Array[PackedScene]([ExtResource("2_1limi"), ExtResource("3_nq3s0"), ExtResource("4_rfxo1"), ExtResource("5_xtfmx"), ExtResource("6_au4dt"), ExtResource("7_wia25")])

@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://x7kg4rby6e14"]
+[gd_scene load_steps=7 format=3 uid="uid://x7kg4rby6e14"]
 
 [ext_resource type="Script" path="res://game/components/scrapbook/levels/level_templates/level_template.gd" id="1_0f2wt"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/components/ui/level_ui/level_ui.tscn" id="2_l0juf"]
 [ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/components/ui/level_ui/quests/quest_ui.tscn" id="3_2mwuo"]
 [ext_resource type="Texture2D" uid="uid://cxtf5it7qkqvd" path="res://game/components/scrapbook/levels/level_templates/level_templates/001_fruit_table/tabletop.png" id="4_15f2b"]
-[ext_resource type="Script" path="res://game/components/scrapbook/levels/spawn_points/spawn_point.gd" id="5_x5ai0"]
-[ext_resource type="PackedScene" uid="uid://ci6kne16275mx" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/apple.tscn" id="7_1hr1h"]
-[ext_resource type="PackedScene" uid="uid://pj7aiibt3drw" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/kiwi.tscn" id="7_d15r4"]
+[ext_resource type="PackedScene" uid="uid://clcr50jm1vikh" path="res://game/components/scrapbook/levels/spawn_points/template_spawn_points/fruit_spawn.tscn" id="5_nxexr"]
 [ext_resource type="Script" path="res://game/components/quest_manager/quest_manager.gd" id="9_db8pv"]
 
 [node name="Level" type="Node2D"]
@@ -32,35 +30,19 @@ texture = ExtResource("4_15f2b")
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="FruitSpawn" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(280, 251)
-script = ExtResource("5_x5ai0")
-accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+[node name="FruitSpawn" parent="SpawnPoints" instance=ExtResource("5_nxexr")]
 
-[node name="FruitSpawn2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(240, 123)
-script = ExtResource("5_x5ai0")
-accepts = Array[PackedScene]([ExtResource("7_1hr1h"), ExtResource("7_d15r4")])
+[node name="FruitSpawn2" parent="SpawnPoints" instance=ExtResource("5_nxexr")]
+position = Vector2(496, 267)
 
-[node name="FruitSpawn3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(512, 251)
-script = ExtResource("5_x5ai0")
-accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+[node name="FruitSpawn3" parent="SpawnPoints" instance=ExtResource("5_nxexr")]
+position = Vector2(584, 130)
 
-[node name="FruitSpawn4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(472, 123)
-script = ExtResource("5_x5ai0")
-accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+[node name="FruitSpawn4" parent="SpawnPoints" instance=ExtResource("5_nxexr")]
+position = Vector2(408, 98)
 
-[node name="FruitSpawn5" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(736, 251)
-script = ExtResource("5_x5ai0")
-accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
-
-[node name="FruitSpawn6" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(696, 123)
-script = ExtResource("5_x5ai0")
-accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+[node name="FruitSpawn5" parent="SpawnPoints" instance=ExtResource("5_nxexr")]
+position = Vector2(200, 114)
 
 [node name="QuestManager" type="Node" parent="."]
 unique_name_in_owner = true
