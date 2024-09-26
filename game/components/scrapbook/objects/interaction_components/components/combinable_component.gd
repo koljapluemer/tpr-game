@@ -5,5 +5,5 @@ func _ready() -> void:
 	pass
 
 func _on_body_entered(body):
-	print("body entered combinable", body)
+	pass
 	
