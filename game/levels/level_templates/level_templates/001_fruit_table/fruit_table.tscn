@@ -19,6 +19,9 @@ position = Vector2(400, 150)
 [node name="CanvasLayer" parent="." instance=ExtResource("2_0e5oe")]
 unique_name_in_owner = true
 
+[node name="QuestWrapper" parent="CanvasLayer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(220, 0)
+
 [node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
 quest_ui = ExtResource("3_m7fej")
 quest_manager = NodePath("../../../../../../QuestManager")

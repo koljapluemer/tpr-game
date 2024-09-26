@@ -39,6 +39,10 @@ func start_random_quest():
 			quest_started.emit(quest)
 			quest.finished.connect(_on_quest_finished)
 			active_quests.append(quest)
+	else:
+		# if we don't have quests, means stuff like 
+		# all objects were taken
+		SceneManager.load_end_level_screen()
 
 
 func _on_quest_finished(quest:Quest):
