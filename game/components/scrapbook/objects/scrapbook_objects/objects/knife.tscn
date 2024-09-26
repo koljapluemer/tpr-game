@@ -4,15 +4,11 @@
 [ext_resource type="Script" path="res://game/components/words/words/word_lists/word_list.gd" id="2_y7pnr"]
 [ext_resource type="Script" path="res://game/components/words/word.gd" id="3_kwhpx"]
 [ext_resource type="Texture2D" uid="uid://c22p25h60ns33" path="res://game/components/scrapbook/objects/assets/object_pngs/knife.png" id="4_r336y"]
-
-[sub_resource type="Resource" id="Resource_jg1um"]
-script = ExtResource("3_kwhpx")
-key = "KNIFE"
-word_group = Array[String](["WORD"])
+[ext_resource type="Resource" uid="uid://cvelbbkndtvcl" path="res://game/components/words/words/knife.tres" id="4_rdfwp"]
 
 [sub_resource type="Resource" id="Resource_fwilr"]
 script = ExtResource("2_y7pnr")
-words = Array[ExtResource("3_kwhpx")]([SubResource("Resource_jg1um")])
+words = Array[ExtResource("3_kwhpx")]([ExtResource("4_rdfwp")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
 size = Vector2(249, 37)

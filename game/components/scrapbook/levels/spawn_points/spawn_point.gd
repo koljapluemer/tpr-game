@@ -17,13 +17,16 @@ func spawn_scene():
 	# called from parent so order is clear, no race conditions
 	var scene_to_init = accepts.pick_random()
 	if scene_to_init:
-		var inst = scene_to_init.instantiate()
-		inst.scale = Vector2(scale_factor, scale_factor)
-		inst.z_index = 0
-		init_scene = inst as ScrapbookObject
-		add_child(inst)
+		change_scene(scene_to_init)
 	else:
 		push_warning(name, ": no scenes set to spawn")
+
+func change_scene(scene_to_init:PackedScene):
+	var inst = scene_to_init.instantiate()
+	inst.scale = Vector2(scale_factor, scale_factor)
+	inst.z_index = 0
+	init_scene = inst as ScrapbookObject
+	add_child(inst)
 
 func get_modes():
 	# awkward pass-through function

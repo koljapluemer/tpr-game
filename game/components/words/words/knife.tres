@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Word" load_steps=2 format=3 uid="uid://cvelbbkndtvcl"]
+
+[ext_resource type="Script" path="res://game/components/words/word.gd" id="1_abaie"]
+
+[resource]
+script = ExtResource("1_abaie")
+key = "KNIFE"
+word_group = Array[String](["WORD"])
