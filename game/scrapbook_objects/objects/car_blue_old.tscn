@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://cevjtvquv2hth"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_w5s3v"]
+[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_3tg8v"]
+[ext_resource type="Script" path="res://game/words/word.gd" id="3_2q8w3"]
+[ext_resource type="Resource" uid="uid://cj785s14tpmgg" path="res://game/words/colors/colors/blue.tres" id="4_t57qk"]
+[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/scrapbook_objects/objects/assets/mechanical_lock_short.wav" id="5_lk61c"]
+[ext_resource type="Texture2D" uid="uid://bgk8pndtkspvy" path="res://game/scrapbook_objects/assets/object_pngs/car_blue_old_crop.png" id="5_wjjrv"]
+
+[sub_resource type="Resource" id="Resource_50kwf"]
+script = ExtResource("3_2q8w3")
+key = "CAR"
+word_group = Array[String](["WORD"])
+
+[sub_resource type="Resource" id="Resource_fwilr"]
+script = ExtResource("2_3tg8v")
+words = Array[ExtResource("3_2q8w3")]([SubResource("Resource_50kwf")])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
+size = Vector2(2500, 1306)
+
+[node name="ScapbookObject" instance=ExtResource("1_w5s3v")]
+word_list = SubResource("Resource_fwilr")
+color = ExtResource("4_t57qk")
+is_movable = false
+is_lockable = true
+lock_sound = ExtResource("5_lk61c")
+metadata/_edit_vertical_guides_ = [150.0, 1536.0]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-0.999969, -536)
+scale = Vector2(2.61955, 2.61955)
+texture = ExtResource("5_wjjrv")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-46, -549)
+shape = SubResource("RectangleShape2D_14ond")
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+unique_name_in_owner = true

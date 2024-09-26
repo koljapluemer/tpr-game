@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="WordList" load_steps=3 format=3 uid="uid://dotmpfhcnthx4"]
-
-[ext_resource type="Script" path="res://game/components/words/words/word_lists/word_list.gd" id="1_u12o3"]
-[ext_resource type="Script" path="res://game/components/words/word.gd" id="2_2k8ws"]
-
-[resource]
-script = ExtResource("1_u12o3")
-words = Array[ExtResource("2_2k8ws")]([])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Word" load_steps=3 format=3 uid="uid://3d3ajcmsnegv"]
+
+[ext_resource type="Script" path="res://game/words/word.gd" id="1_x21bc"]
+[ext_resource type="Texture2D" uid="uid://bgk8pndtkspvy" path="res://game/scrapbook_objects/assets/object_pngs/car_blue_old_crop.png" id="2_ac4ul"]
+
+[resource]
+script = ExtResource("1_x21bc")
+key = "CAR"
+showcase_sprite = ExtResource("2_ac4ul")
+word_group = Array[String](["WORD", "NOUN"])

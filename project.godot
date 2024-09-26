@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Tpr-game"
-run/main_scene="res://game/components/scrapbook/levels/level_templates/level_templates/003_single_car/street.tscn"
+run/main_scene="res://game/levels/level_templates/level_templates/003_single_car/street.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-MessageManager="*res://game/components/globals/message_manager.gd"
-GameState="*res://game/components/globals/game_state.gd"
+MessageManager="*res://game/globals/message_manager.gd"
+GameState="*res://game/globals/game_state.gd"
 
 [display]
 

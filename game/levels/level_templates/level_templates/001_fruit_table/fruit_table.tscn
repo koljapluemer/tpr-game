@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://impaolxupwge"]
+
+[ext_resource type="Script" path="res://game/levels/level_templates/level_template.gd" id="1_04lix"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_0e5oe"]
+[ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/ui/quests/quest_ui.tscn" id="3_m7fej"]
+[ext_resource type="Texture2D" uid="uid://cxtf5it7qkqvd" path="res://game/levels/level_templates/level_templates/001_fruit_table/tabletop.png" id="4_2iq8g"]
+[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="5_dlbjm"]
+[ext_resource type="PackedScene" uid="uid://pj7aiibt3drw" path="res://game/scrapbook_objects/objects/kiwi.tscn" id="8_c73st"]
+[ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="8_fy7nk"]
+[ext_resource type="PackedScene" uid="uid://dqi7bnfpqweg" path="res://game/scrapbook_objects/objects/knife.tscn" id="8_mdnxc"]
+[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="9_wqrsn"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_04lix")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_0e5oe")]
+unique_name_in_owner = true
+
+[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
+quest_ui = ExtResource("3_m7fej")
+quest_manager = NodePath("../../../../../../QuestManager")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(403.181, 172.411)
+scale = Vector2(0.94706, 0.94706)
+texture = ExtResource("4_2iq8g")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="KnifeSpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(624, 122)
+script = ExtResource("5_dlbjm")
+accepts = Array[PackedScene]([ExtResource("8_mdnxc")])
+
+[node name="KiwiSpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(280, 146)
+script = ExtResource("5_dlbjm")
+accepts = Array[PackedScene]([ExtResource("8_c73st")])
+
+[node name="TestSpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(280, 251)
+script = ExtResource("5_dlbjm")
+accepts = Array[PackedScene]([ExtResource("8_fy7nk")])
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_wqrsn")
+
+[editable path="CanvasLayer"]

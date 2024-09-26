@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://bah6s0cfl8r2y"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_6pagl"]
+[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_f33ux"]
+[ext_resource type="Script" path="res://game/words/word.gd" id="3_jn7lx"]
+[ext_resource type="Texture2D" uid="uid://crhlnievcjewx" path="res://game/scrapbook_objects/assets/object_pngs/kiwi_cut.png" id="6_migcd"]
+
+[sub_resource type="Resource" id="Resource_8j30g"]
+script = ExtResource("3_jn7lx")
+key = "KIWI_HALVES"
+word_group = Array[String](["WORD"])
+
+[sub_resource type="Resource" id="Resource_47pea"]
+script = ExtResource("2_f33ux")
+words = Array[ExtResource("3_jn7lx")]([SubResource("Resource_8j30g")])
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akn7g"]
+radius = 28.0
+height = 98.0
+
+[node name="ScapbookObject" instance=ExtResource("1_6pagl")]
+word_list = SubResource("Resource_47pea")
+is_takeable = true
+metadata/_edit_horizontal_guides_ = [-26.0]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(1, -9)
+scale = Vector2(0.0994617, 0.102518)
+texture = ExtResource("6_migcd")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2, -17)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_akn7g")

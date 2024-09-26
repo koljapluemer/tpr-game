@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Interaction" load_steps=4 format=3 uid="uid://w7b2vk2lh7j0"]
+
+[ext_resource type="Texture2D" uid="uid://c14evc0dmn1gj" path="res://game/interactions/assets/cursors/cursor_lock.png" id="1_78n2a"]
+[ext_resource type="Script" path="res://game/interactions/interaction.gd" id="2_bwk18"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_de3hj"]
+load_path = "res://.godot/imported/LOCK.png-67a4117149b6f0b8b289c5d94e27abba.ctex"
+
+[resource]
+script = ExtResource("2_bwk18")
+key = "LOCK_UNLOCK"
+icon = SubResource("CompressedTexture2D_de3hj")
+cursor = ExtResource("1_78n2a")
+create_button = true
