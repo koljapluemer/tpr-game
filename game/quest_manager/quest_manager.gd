@@ -3,6 +3,7 @@ class_name QuestManager extends Node
 signal quest_started(quest:Quest)
 signal quest_no_longer_active(quest:Quest)
 
+@export var MAX_QUESTS_PER_LEVEL := 5
 
 # this exact same thing is also tracked in `level_template.gd`
 # it is basically synced here via signal. I'm not if that's bad.
@@ -10,6 +11,7 @@ signal quest_no_longer_active(quest:Quest)
 # but then again, I also need to react when quests become impossible...
 var objects: Array[ScrapbookObject] = []
 var active_quests: Array[Quest] = []
+var quests_done:= 0
 
 func _ready() -> void:
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
@@ -45,6 +47,11 @@ func make_sure_that_there_is_one_active_quest():
 # so the first quest is always related to the first object
 # spawned and cannot involve interactions
 func start_random_quest():
+	# a bit of an awkward place to check whether we should just end but hey
+	if quests_done >= MAX_QUESTS_PER_LEVEL:
+		SceneManager.load_end_level_screen()
+		return
+	
 	var possible_quests = []
 
 	# TODO: we're getting the words of objects here *a lot* of times
@@ -85,6 +92,7 @@ func start_random_quest():
 func _on_quest_finished(quest:Quest):
 	quest_no_longer_active.emit(quest)
 	active_quests.erase(quest)
+	quests_done += 1
 	# TODO: this in theory can create impossible quests
 	# ...which is currently stopped because of the long wait :D
 	get_tree().create_timer(1).connect("timeout", make_sure_that_there_is_one_active_quest)

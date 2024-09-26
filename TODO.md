@@ -14,3 +14,5 @@
 - make clear which state we're in (especially on mobile, w/o a cursor)
 
 - IMMEDIATE NEXT: build a manual hard-coded drag drop following tutorial; see how they do it
+
+- cursed race condition: combination_quest finishes, but at the same time the target object is removed so it becomes "unsolvable" at around the same point — yet ofc you want to guard against the quest actually becoming impossible by combination stuff...
