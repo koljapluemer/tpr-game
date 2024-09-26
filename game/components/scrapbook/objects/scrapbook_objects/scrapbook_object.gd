@@ -1,4 +1,4 @@
-class_name ScrapbookObject extends AnimatableBody2D
+class_name ScrapbookObject extends Area2D
 ## Holds a concrete [Node2D] representing an object which can be interacted with in the game.
 ## E.g. may be a car, a cat, or an apple.
 ## usually is made out of a sprite and at least one [Area2D], which
@@ -19,12 +19,15 @@ const LOCK_UNLOCK = preload("res://game/components/interactions/interactions/loc
 const MOVE = preload("res://game/components/interactions/interactions/move.tres")
 const TAKE = preload("res://game/components/interactions/interactions/take.tres")
 
+var is_moving:= false
+
 func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_moving:
+		global_position = get_global_mouse_position()
 
 	
 func get_affordances() -> Array[Interaction]:
@@ -38,3 +41,12 @@ func get_affordances() -> Array[Interaction]:
 		
 	return affordances
 		
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("click"):
+		if is_movable:
+			is_moving = true
+	if event.is_action_released("click"):
+		if is_movable:
+			is_moving = false
