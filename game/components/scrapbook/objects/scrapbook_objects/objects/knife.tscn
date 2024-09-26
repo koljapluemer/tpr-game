@@ -15,18 +15,19 @@ script = ExtResource("2_y7pnr")
 words = Array[ExtResource("3_kwhpx")]([SubResource("Resource_jg1um")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
-size = Vector2(57, 9)
+size = Vector2(249, 37)
 
 [node name="ScapbookObject" instance=ExtResource("1_wxcp0")]
 word_list = SubResource("Resource_fwilr")
 is_takeable = true
+metadata/_edit_vertical_guides_ = [150.0]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(1, -5.96046e-08)
+position = Vector2(-3.62002, -2.13543)
 rotation = 4.71239
-scale = Vector2(0.115385, 0.115385)
+scale = Vector2(0.446485, 0.446485)
 texture = ExtResource("4_r336y")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1.5, -2.5)
+position = Vector2(6.5, -11.5)
 shape = SubResource("RectangleShape2D_qg620")

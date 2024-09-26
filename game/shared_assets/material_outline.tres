@@ -5,4 +5,4 @@
 [resource]
 shader = ExtResource("1_418rf")
 shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 12.0
+shader_parameter/line_thickness = 8.0
