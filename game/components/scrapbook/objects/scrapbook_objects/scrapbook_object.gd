@@ -20,7 +20,11 @@ signal movement_stopped
 @export var is_lockable := false
 @export var scrapbook_interactions: Array[ScrapbookInteraction] = []
 @export_category("Advanced Affordance Settings")
+
 @export var taking_speed:= 3.0
+
+@export var is_locked:= true
+@export var lock_sound: AudioStream
 
 
 const LOCK_UNLOCK = preload("res://game/components/interactions/interactions/lock_unlock.tres")
@@ -32,6 +36,7 @@ var is_moving:= false
 var is_being_taken := false
 
 @onready var progress: TextureProgressBar = %Progress
+@onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
 
 func _ready() -> void:
 	pass
@@ -91,6 +96,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.is_action_pressed("click"):
 			MessageManager.object_was_interacted_with.emit(self, TOUCH)
 			
+	if is_lockable and GameState.current_interaction_mode == LOCK_UNLOCK:
+		if event.is_action_pressed("click"):
+			if audio_player and lock_sound:
+				audio_player.stream = lock_sound
+				audio_player.play()
+			is_locked = !is_locked
 
 
 func _on_area_entered(area: Area2D) -> void:
