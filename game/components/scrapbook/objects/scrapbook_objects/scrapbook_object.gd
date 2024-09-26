@@ -53,6 +53,7 @@ func _process(delta: float) -> void:
 	
 func enact_object_being_taken():
 	MessageManager.object_was_interacted_with.emit(self, TAKE)
+	MessageManager.object_disappeared.emit(self)
 	queue_free()	
 	
 func get_affordances() -> Array[Interaction]:
@@ -108,6 +109,7 @@ func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 				# let parent spawnpoint handle itbird
 				get_parent().change_scene(instance)
 			if scrapbook_interaction.kill_receiver:
+				MessageManager.object_disappeared.emit(self)
 				queue_free()
 			if scrapbook_interaction.kill_sender:
 				obj.queue_free()
