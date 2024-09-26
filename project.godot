@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tpr-game"
-run/main_scene="res://game/levels/level_templates/level_templates/003_single_car/street.tscn"
+run/main_scene="res://game/views/000_main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MessageManager="*res://game/globals/message_manager.gd"
 GameState="*res://game/globals/game_state.gd"
+SceneManager="*res://game/scene_manager/scene_manager.gd"
 
 [display]
 
