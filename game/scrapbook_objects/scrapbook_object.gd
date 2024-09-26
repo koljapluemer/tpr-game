@@ -68,8 +68,9 @@ func get_affordances() -> Array[Interaction]:
 		affordances.append(TAKE)
 	if is_lockable:
 		affordances.append(LOCK_UNLOCK)
-	if is_movable:
+	if is_touchable:
 		affordances.append(TOUCH)
+		
 		
 	return affordances
 
@@ -101,6 +102,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				audio_player.stream = lock_sound
 				audio_player.play()
 			is_locked = !is_locked
+			MessageManager.object_was_interacted_with.emit(self, TOUCH)
+			
 
 
 func _on_area_entered(area: Area2D) -> void:

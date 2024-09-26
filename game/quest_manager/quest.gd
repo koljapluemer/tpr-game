@@ -25,8 +25,15 @@ func _to_string() -> String:
 ## returns whether quest *was* actually activated
 func request_activation() -> bool:
 	if status == QuestStatus.inactive:
-		status = QuestStatus.active
-	return status == QuestStatus.active
+		_activate()
+		return true
+	else:
+		return false
+
+# can be overwritten/extended
+func _activate()->void:
+	status = QuestStatus.active
+	
 
 func set_finished():
 	status = QuestStatus.finished
