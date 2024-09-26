@@ -18,12 +18,19 @@ signal movement_stopped
 @export var is_takeable := false
 @export var is_lockable := false
 @export var scrapbook_interactions: Array[ScrapbookInteraction] = []
+@export_category("Advanced Affordance Settings")
+@export var taking_speed:= 3.0
+
 
 const LOCK_UNLOCK = preload("res://game/components/interactions/interactions/lock_unlock.tres")
 const MOVE = preload("res://game/components/interactions/interactions/move.tres")
 const TAKE = preload("res://game/components/interactions/interactions/take.tres")
 
+
 var is_moving:= false
+var is_being_taken := false
+
+@onready var progress: TextureProgressBar = %Progress
 
 func _ready() -> void:
 	pass
@@ -32,7 +39,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_moving:
 		global_position = get_global_mouse_position()
-
+	if is_being_taken:
+		progress.value += taking_speed
+		if progress.value >= 100:
+			enact_object_being_taken()
+			is_being_taken = false
+			progress.value = 0
+		
+	if Input.is_action_just_released("click") and is_moving:
+		is_moving = false
+		movement_stopped.emit(self)
+	
+func enact_object_being_taken():
+	queue_free()	
 	
 func get_affordances() -> Array[Interaction]:
 	var affordances: Array[Interaction] = []
@@ -49,10 +68,17 @@ func get_affordances() -> Array[Interaction]:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if is_movable and GameState.current_interaction_mode == MOVE:
 		if event.is_action_pressed("click"):
-				is_moving = true
+			is_moving = true
+
+	if is_takeable and GameState.current_interaction_mode == TAKE:
+		if event.is_action_pressed("click") and not is_being_taken:
+			is_being_taken = true
+			progress.show()
 		if event.is_action_released("click"):
-				is_moving = false
-				movement_stopped.emit(self)
+			is_being_taken = false
+			progress.value = 0
+			progress.hide()
+			
 
 
 func _on_area_entered(area: Area2D) -> void:

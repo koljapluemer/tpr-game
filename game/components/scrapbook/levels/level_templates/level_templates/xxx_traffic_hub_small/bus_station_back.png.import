@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlgeyrynmonk5"
-path="res://.godot/imported/bus_station_back.png-5a61243548c3d3a336be63f42a95b69b.ctex"
+path="res://.godot/imported/bus_station_back.png-473879ff0ba623a395a3497297e25e6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/components/scrapbook/levels/level_templates/level_templates/000_traffic_hub_small/bus_station_back.png"
-dest_files=["res://.godot/imported/bus_station_back.png-5a61243548c3d3a336be63f42a95b69b.ctex"]
+source_file="res://game/components/scrapbook/levels/level_templates/level_templates/xxx_traffic_hub_small/bus_station_back.png"
+dest_files=["res://.godot/imported/bus_station_back.png-473879ff0ba623a395a3497297e25e6a.ctex"]
 
 [params]
 

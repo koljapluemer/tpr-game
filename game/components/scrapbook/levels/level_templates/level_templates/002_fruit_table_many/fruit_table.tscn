@@ -40,7 +40,7 @@ accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
 [node name="FruitSpawn2" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(240, 123)
 script = ExtResource("5_x5ai0")
-accepts = Array[PackedScene]([ExtResource("7_d15r4"), ExtResource("7_1hr1h")])
+accepts = Array[PackedScene]([ExtResource("7_1hr1h"), ExtResource("7_d15r4")])
 
 [node name="FruitSpawn3" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(512, 251)
