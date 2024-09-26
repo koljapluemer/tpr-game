@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://cj785s14tpmgg" path="res://game/components/words/colors/colors/blue.tres" id="9_arp03"]
 [ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/shared_assets/material_outline.tres" id="10_5yeay"]
 [ext_resource type="Texture2D" uid="uid://cakxf2086t7bj" path="res://game/components/scrapbook/objects/assets/object_pngs/car_blue_bmw_crop.png" id="11_57vw7"]
-[ext_resource type="Script" path="res://game/components/scrapbook/objects/interaction_components/components/lockable_component.gd" id="12_3wq6t"]
 [ext_resource type="Resource" uid="uid://w7b2vk2lh7j0" path="res://game/components/interactions/interactions/lock_unlock.tres" id="13_hr7ok"]
 [ext_resource type="Texture2D" uid="uid://bgk8pndtkspvy" path="res://game/components/scrapbook/objects/assets/object_pngs/car_blue_old_crop.png" id="14_l23dk"]
 [ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/assets/mechanical_lock_short.wav" id="15_2oyok"]
@@ -33,6 +32,27 @@ height = 89.646
 radius = 21.4928
 height = 42.9856
 
+[sub_resource type="GDScript" id="GDScript_twmob"]
+script/source = "## An [InteractionComponent] allowing an object to be locked and unlocked.
+class_name LockableComponent extends InteractionComponent
+
+signal object_lock_status_toggled
+
+@export var audio_player:AudioStreamPlayer2D
+@export var lock_sound: AudioStream
+@export_category(\"State\")
+@export var locked = true
+
+
+func _react_to_input() -> bool:
+	object_lock_status_toggled.emit()
+	if audio_player and lock_sound:
+		audio_player.stream = lock_sound
+		audio_player.play()
+	locked = !locked
+	return true
+"
+
 [sub_resource type="PackedScene" id="PackedScene_q3jaq"]
 _bundled = {
 "conn_count": 4,
@@ -42,7 +62,7 @@ _bundled = {
 "node_count": 8,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 0, 0, 0, 12, 6, -1, 5, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 0, 1, 0, 15, 13, -1, 2, 10, 9, 14, 10, 0, 2, 0, 16, 16, -1, 3, 7, 4, 17, 11, 18, 12, 0, 1, 0, 15, 19, -1, 3, 7, 4, 9, 13, 10, 9, 0, 4, 0, 16, 20, -1, 5, 7, 4, 9, 14, 17, 11, 18, 15, 21, 16, 0, 0, 0, 5, 22, -1, 1, 7, 4, 0, 6, 0, 5, 23, -1, 3, 2, 17, 1073741848, 18, 25, 19, 0),
-"variants": [3, ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("9_arp03"), true, ExtResource("10_5yeay"), Vector2(7.53463, -28), Vector2(0.0942982, 0.0942982), ExtResource("11_57vw7"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_lgbwh"), Vector2(0, 200), Vector2(16.9674, -10.8013), SubResource("CapsuleShape2D_36a0r"), Color(0.662852, 0.510289, 0.148882, 0.42), ExtResource("12_3wq6t"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
+"variants": [3, ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("9_arp03"), true, ExtResource("10_5yeay"), Vector2(7.53463, -28), Vector2(0.0942982, 0.0942982), ExtResource("11_57vw7"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_lgbwh"), Vector2(0, 200), Vector2(16.9674, -10.8013), SubResource("CapsuleShape2D_36a0r"), Color(0.662852, 0.510289, 0.148882, 0.42), SubResource("GDScript_twmob"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
 "version": 3
 }
 
@@ -62,7 +82,7 @@ _bundled = {
 "node_count": 9,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 4, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 11, 5, -1, 5, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 0, 1, 0, 14, 12, -1, 2, 9, 8, 13, 9, 0, 2, 0, 15, 15, -1, 3, 6, 3, 16, 10, 17, 11, 0, 1, 0, 14, 18, -1, 3, 6, 3, 8, 12, 9, 8, 0, 4, 0, 15, 19, -1, 5, 6, 3, 8, 13, 16, 10, 17, 14, 20, 15, 0, 0, 0, 4, 21, -1, 1, 6, 3, 0, 6, 0, 4, 22, -1, 5, 1, 16, 1073741847, 17, 24, 18, 1073741849, 19, 26, 20, 0, 0, 0, 27, 27, -1, 1, 6, 3, 0),
-"variants": [ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("9_arp03"), true, ExtResource("10_5yeay"), Vector2(11.8752, -41.6125), Vector2(0.162018, 0.162018), ExtResource("14_l23dk"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_g4ejf"), Vector2(0, 200), Vector2(0, -10.8013), SubResource("CapsuleShape2D_veqxy"), Color(0.662852, 0.510289, 0.148882, 0.42), ExtResource("12_3wq6t"), NodePath("../../AudioStreamPlayer2D"), ExtResource("15_2oyok"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
+"variants": [ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("9_arp03"), true, ExtResource("10_5yeay"), Vector2(11.8752, -41.6125), Vector2(0.162018, 0.162018), ExtResource("14_l23dk"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_g4ejf"), Vector2(0, 200), Vector2(0, -10.8013), SubResource("CapsuleShape2D_veqxy"), Color(0.662852, 0.510289, 0.148882, 0.42), SubResource("GDScript_twmob"), NodePath("../../AudioStreamPlayer2D"), ExtResource("15_2oyok"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
 "version": 3
 }
 
@@ -83,7 +103,7 @@ _bundled = {
 "node_count": 8,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 0, 0, 0, 13, 6, -1, 6, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 9, 0, 1, 0, 16, 14, -1, 2, 11, 10, 15, 11, 0, 2, 0, 17, 17, -1, 3, 7, 4, 10, 12, 18, 13, 0, 1, 0, 16, 19, -1, 3, 7, 4, 9, 14, 11, 10, 0, 4, 0, 17, 20, -1, 5, 7, 4, 9, 15, 10, 12, 18, 16, 21, 17, 0, 0, 0, 5, 22, -1, 1, 7, 4, 0, 6, 0, 5, 23, -1, 3, 2, 18, 1073741848, 19, 25, 20, 0),
-"variants": [3, ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("16_u4sdl"), true, ExtResource("10_5yeay"), Vector2(-10.4241, -36.1637), 0.0355842, Vector2(0.0817177, 0.0817177), ExtResource("17_5p5tg"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_u6u1q"), Vector2(0, 200), Vector2(-1.06052, -10.8013), SubResource("CapsuleShape2D_apaig"), Color(0.662852, 0.510289, 0.148882, 0.42), ExtResource("12_3wq6t"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
+"variants": [3, ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("16_u4sdl"), true, ExtResource("10_5yeay"), Vector2(-10.4241, -36.1637), 0.0355842, Vector2(0.0817177, 0.0817177), ExtResource("17_5p5tg"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_u6u1q"), Vector2(0, 200), Vector2(-1.06052, -10.8013), SubResource("CapsuleShape2D_apaig"), Color(0.662852, 0.510289, 0.148882, 0.42), SubResource("GDScript_twmob"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
 "version": 3
 }
 
@@ -104,7 +124,7 @@ _bundled = {
 "node_count": 8,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 0, 0, 0, 13, 6, -1, 6, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 9, 0, 1, 0, 16, 14, -1, 2, 11, 10, 15, 11, 0, 2, 0, 17, 17, -1, 3, 7, 4, 10, 12, 18, 13, 0, 1, 0, 16, 19, -1, 3, 7, 4, 9, 14, 11, 10, 0, 4, 0, 17, 20, -1, 5, 7, 4, 9, 15, 10, 12, 18, 16, 21, 17, 0, 0, 0, 5, 22, -1, 1, 7, 4, 0, 6, 0, 5, 23, -1, 3, 2, 18, 1073741848, 19, 25, 20, 0),
-"variants": [3, ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("16_u4sdl"), true, ExtResource("10_5yeay"), Vector2(5.1079, -31.2884), 0.0193609, Vector2(0.134022, 0.134022), ExtResource("18_8gvhr"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_48vi7"), Vector2(0, 200), Vector2(-1.06052, -10.8013), SubResource("CapsuleShape2D_muas0"), Color(0.662852, 0.510289, 0.148882, 0.42), ExtResource("12_3wq6t"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
+"variants": [3, ExtResource("7_w5415"), ExtResource("8_v6w7l"), ExtResource("16_u4sdl"), true, ExtResource("10_5yeay"), Vector2(5.1079, -31.2884), 0.0193609, Vector2(0.134022, 0.134022), ExtResource("18_8gvhr"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_48vi7"), Vector2(0, 200), Vector2(-1.06052, -10.8013), SubResource("CapsuleShape2D_muas0"), Color(0.662852, 0.510289, 0.148882, 0.42), SubResource("GDScript_twmob"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
 "version": 3
 }
 
@@ -133,7 +153,7 @@ _bundled = {
 "node_count": 8,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 10, 4, -1, 5, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 0, 1, 0, 13, 11, -1, 2, 8, 7, 12, 8, 0, 2, 0, 14, 14, -1, 3, 5, 2, 15, 9, 16, 10, 0, 1, 0, 13, 17, -1, 3, 5, 2, 7, 11, 8, 7, 0, 4, 0, 14, 18, -1, 5, 5, 2, 7, 12, 15, 9, 16, 13, 19, 14, 0, 0, 0, 3, 20, -1, 1, 5, 2, 0, 6, 0, 3, 21, -1, 3, 1, 15, 1073741846, 16, 23, 17, 0),
-"variants": [ExtResource("7_w5415"), SubResource("Resource_c6wd4"), true, ExtResource("10_5yeay"), Vector2(11.8752, -41.6125), Vector2(0.162018, 0.162018), ExtResource("23_rt31h"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_r707o"), Vector2(0, 200), Vector2(0, -10.8013), SubResource("CapsuleShape2D_ai0j6"), Color(0.662852, 0.510289, 0.148882, 0.42), ExtResource("12_3wq6t"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
+"variants": [ExtResource("7_w5415"), SubResource("Resource_c6wd4"), true, ExtResource("10_5yeay"), Vector2(11.8752, -41.6125), Vector2(0.162018, 0.162018), ExtResource("23_rt31h"), Vector2(20, 20), 255, 1.5708, SubResource("CapsuleShape2D_r707o"), Vector2(0, 200), Vector2(0, -10.8013), SubResource("CapsuleShape2D_ai0j6"), Color(0.662852, 0.510289, 0.148882, 0.42), SubResource("GDScript_twmob"), NodePath("../../Sprite/Area2D2"), ExtResource("13_hr7ok")],
 "version": 3
 }
 
