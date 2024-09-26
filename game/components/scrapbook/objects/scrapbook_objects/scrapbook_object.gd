@@ -44,9 +44,8 @@ func get_affordances() -> Array[Interaction]:
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action_pressed("click"):
-		if is_movable:
-			is_moving = true
-	if event.is_action_released("click"):
-		if is_movable:
-			is_moving = false
+	if is_movable and GameState.current_interaction_mode == MOVE:
+		if event.is_action_pressed("click"):
+				is_moving = true
+		if event.is_action_released("click"):
+				is_moving = false

@@ -15,7 +15,6 @@ script = ExtResource("2_y7pnr")
 words = Array[ExtResource("3_kwhpx")]([SubResource("Resource_jg1um")])
 
 [node name="ScapbookObject" instance=ExtResource("1_wxcp0")]
-sync_to_physics = false
 word_list = SubResource("Resource_fwilr")
 is_takeable = true
 
@@ -26,4 +25,4 @@ scale = Vector2(0.115385, 0.115385)
 texture = ExtResource("4_r336y")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -3)
+position = Vector2(1.5, -2)

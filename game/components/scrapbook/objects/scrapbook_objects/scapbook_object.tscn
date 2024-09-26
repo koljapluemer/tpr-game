@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ds2wd4s251glh" path="res://icon.svg" id="2_06i08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xvyt"]
-size = Vector2(140, 115)
+size = Vector2(57, 8)
 
 [node name="ScapbookObject" type="Area2D"]
 script = ExtResource("1_sxqhy")
