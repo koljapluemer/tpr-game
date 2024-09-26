@@ -29,4 +29,4 @@ func get_modes():
 	# awkward pass-through function
 	# but I guess in the end the spawn points have responsibility 
 	# for the created scenes
-	return init_scene.get_modes()
+	return init_scene.get_affordances()

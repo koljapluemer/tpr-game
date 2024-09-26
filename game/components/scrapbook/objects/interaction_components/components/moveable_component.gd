@@ -1,6 +1,8 @@
 ## An [InteractionComponent] allowing an object to be moved
 class_name MoveableComponent extends InteractionComponent
 
+signal movement_stopped
+
 var draggable = false
 var is_being_dragged = false
 var offset: Vector2
@@ -15,3 +17,4 @@ func _process(delta: float) -> void:
 		owner.global_position = get_global_mouse_position()
 		if Input.is_action_just_released("click"):
 			is_being_dragged = false
+			movement_stopped.emit()

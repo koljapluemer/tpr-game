@@ -21,7 +21,7 @@ func generate_possible_quests(objects:Array[ScrapbookObject]):
 		if not is_instance_valid(obj):
 			continue
 		for word in obj.word_list.words:
-			for mode in obj.get_modes():
+			for mode in obj.get_affordances():
 				var quest:Quest = Quest.create(word, mode)
 				possible_quests.append(quest)
 				

@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dlgeyrynmonk5" path="res://game/components/scrapbook/levels/level_templates/level_templates/000_traffic_hub_small/bus_station_back.png" id="4_wa00i"]
 [ext_resource type="Texture2D" uid="uid://b6p6pbhyv8gkf" path="res://game/components/scrapbook/levels/level_templates/level_templates/000_traffic_hub_small/bus_station_front.png" id="5_cpbcr"]
 [ext_resource type="Script" path="res://game/components/scrapbook/levels/spawn_points/spawn_point.gd" id="6_c38q3"]
-[ext_resource type="PackedScene" uid="uid://coyqevptipp2i" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_blue_old.tscn" id="7_12uk3"]
-[ext_resource type="PackedScene" uid="uid://opofpgbvv5hc" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_blue.tscn" id="7_302po"]
+[ext_resource type="PackedScene" uid="uid://coyqevptipp2i" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/old/car_blue_old.tscn" id="7_12uk3"]
+[ext_resource type="PackedScene" uid="uid://opofpgbvv5hc" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/old/car_blue.tscn" id="7_302po"]
 [ext_resource type="Script" path="res://game/components/quest_manager/quest_manager.gd" id="9_2jdft"]
-[ext_resource type="PackedScene" uid="uid://crv5mlcvcgod5" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_red_nissan_front.tscn" id="9_iu2sp"]
-[ext_resource type="PackedScene" uid="uid://cbo5qaj4c4ro4" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_red_side.tscn" id="10_078lg"]
-[ext_resource type="PackedScene" uid="uid://yn4gr8c3nckh" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/car_taxi.tscn" id="11_3m0sm"]
+[ext_resource type="PackedScene" uid="uid://crv5mlcvcgod5" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/old/car_red_nissan_front.tscn" id="9_iu2sp"]
+[ext_resource type="PackedScene" uid="uid://cbo5qaj4c4ro4" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/old/car_red_side.tscn" id="10_078lg"]
+[ext_resource type="PackedScene" uid="uid://yn4gr8c3nckh" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/old/car_taxi.tscn" id="11_3m0sm"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_nlmnm")

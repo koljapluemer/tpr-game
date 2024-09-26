@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ax62y522grm" path="res://game/components/scrapbook/objects/interaction_components/components/combinable_component.tscn" id="10_2jgbx"]
 [ext_resource type="PackedScene" uid="uid://vrsf4on377ey" path="res://game/components/scrapbook/objects/interaction_components/components/touchable_component.tscn" id="10_uk3do"]
 [ext_resource type="Resource" uid="uid://dnqg8dvtirmn0" path="res://game/components/interactions/interactions/non-button/combine.tres" id="11_mhio6"]
-[ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/temp_area_script.gd" id="12_dgup5"]
+[ext_resource type="Script" path="res://game/components/scrapbook/objects/scrapbook_objects/objects/old/temp_area_script.gd" id="12_dgup5"]
 
 [sub_resource type="Resource" id="Resource_iawx5"]
 script = ExtResource("3_y8ytn")
