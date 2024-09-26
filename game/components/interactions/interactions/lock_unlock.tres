@@ -11,3 +11,4 @@ script = ExtResource("2_bwk18")
 key = "LOCK_UNLOCK"
 icon = SubResource("CompressedTexture2D_de3hj")
 cursor = ExtResource("1_78n2a")
+create_button = true

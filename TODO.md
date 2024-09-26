@@ -12,3 +12,5 @@
 
 - make better cursors to see where you're clicking
 - make clear which state we're in (especially on mobile, w/o a cursor)
+
+- IMMEDIATE NEXT: build a manual hard-coded drag drop following tutorial; see how they do it

@@ -11,3 +11,4 @@ script = ExtResource("1_7c6mw")
 key = "TAKE"
 icon = SubResource("CompressedTexture2D_hpcfb")
 cursor = ExtResource("1_bi7gj")
+create_button = true
