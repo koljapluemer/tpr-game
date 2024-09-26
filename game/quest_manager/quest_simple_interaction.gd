@@ -7,6 +7,8 @@ static func create(_word: Word, _interaction: Interaction) -> Quest:
 	var inst = SimpleInteractionQuest.new()
 	inst.word = _word
 	inst.interaction = _interaction
+	# needed so we can see when the quest becomes impossible
+	inst.required_words.append(_word)
 	return inst
 	
 

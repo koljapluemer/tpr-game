@@ -1,6 +1,7 @@
 class_name Quest extends Resource
 
 signal finished(quest:Quest)
+signal aborted(quest:Quest)
 
 enum QuestStatus {
 	inactive, 
@@ -10,10 +11,7 @@ enum QuestStatus {
 }
 var status:QuestStatus = QuestStatus.inactive
 
-# this probably doesn't need to be a variable
-# but a function: as soon as its false
-# either react, or delete...
-var is_possible_to_finish := true
+var required_words: Array[Word] = []
 
 # to overwrite
 func get_key() -> String:
@@ -38,3 +36,8 @@ func _activate()->void:
 func set_finished():
 	status = QuestStatus.finished
 	finished.emit(self)
+
+func set_aborted():
+	if status == QuestStatus.active:
+		status = QuestStatus.aborted
+		aborted.emit(self)

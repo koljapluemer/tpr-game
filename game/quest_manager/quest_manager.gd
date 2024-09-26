@@ -1,7 +1,7 @@
 class_name QuestManager extends Node
 
 signal quest_started(quest:Quest)
-signal quest_finished(quest:Quest)
+signal quest_no_longer_active(quest:Quest)
 
 
 # this exact same thing is also tracked in `level_template.gd`
@@ -16,8 +16,25 @@ func _ready() -> void:
 	
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	objects = obj_list
+	if len(active_quests) > 0:
+		check_if_active_quests_are_still_possible()
 	make_sure_that_there_is_one_active_quest()
 
+func check_if_active_quests_are_still_possible():
+	# get all the words currently available
+	var available_words: Array[Word] = []
+	for obj in objects:
+		available_words.append_array(obj.word_list.words)
+	
+	for quest in active_quests:
+		var quest_is_possible = true
+		for word in quest.required_words:
+			if not available_words.has(word):
+				quest_is_possible = false
+				break
+		if not quest_is_possible:
+			quest.set_aborted()
+				
 
 func make_sure_that_there_is_one_active_quest():	
 	if len(active_quests) == 0:
@@ -38,6 +55,7 @@ func start_random_quest():
 		if quest.request_activation():
 			quest_started.emit(quest)
 			quest.finished.connect(_on_quest_finished)
+			quest.aborted.connect(_on_quest_aborted)
 			active_quests.append(quest)
 	else:
 		# if we don't have quests, means stuff like 
@@ -46,8 +64,12 @@ func start_random_quest():
 
 
 func _on_quest_finished(quest:Quest):
-	quest_finished.emit(quest)
+	quest_no_longer_active.emit(quest)
 	active_quests.erase(quest)
 	# TODO: this in theory can create impossible quests
 	# ...which is currently stopped because of the long wait :D
 	get_tree().create_timer(1).connect("timeout", make_sure_that_there_is_one_active_quest)
+
+func _on_quest_aborted(quest:Quest):
+	quest_no_longer_active.emit(quest)
+	active_quests.erase(quest)

@@ -7,7 +7,7 @@ var quest_objects: Array[QuestUI]
 
 func _ready() -> void:
 	quest_manager.quest_started.connect(add_active_quest)
-	quest_manager.quest_finished.connect(remove_quest)
+	quest_manager.quest_no_longer_active.connect(remove_quest)
 
 func add_active_quest(quest:Quest):
 	var inst:QuestUI = quest_ui.instantiate()
