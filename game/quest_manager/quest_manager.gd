@@ -12,6 +12,7 @@ signal quest_no_longer_active(quest:Quest)
 var objects: Array[ScrapbookObject] = []
 var active_quests: Array[Quest] = []
 var quests_done:= 0
+var last_quest: Quest
 
 func _ready() -> void:
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
@@ -76,13 +77,21 @@ func start_random_quest():
 						var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
 						possible_quests.append(quest)
 	
+	# prevent picking the last quest again
+	if last_quest:
+		for q:Quest in possible_quests:
+			if last_quest.get_key() == q.get_key():
+				possible_quests.erase(q)
+	
 	var quest:Quest = possible_quests.pick_random()
+			
 	if quest:
 		if quest.request_activation():
 			quest_started.emit(quest)
 			quest.finished.connect(_on_quest_finished)
 			quest.aborted.connect(_on_quest_aborted)
 			active_quests.append(quest)
+			last_quest = quest
 	else:
 		# if we don't have quests, means stuff like 
 		# all objects were taken
