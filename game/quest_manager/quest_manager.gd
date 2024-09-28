@@ -3,7 +3,7 @@ class_name QuestManager extends Node
 signal quest_started(quest:Quest)
 signal quest_no_longer_active(quest:Quest)
 
-@export var MAX_QUESTS_PER_LEVEL := 5
+@export var MAX_QUESTS_PER_LEVEL := 10
 
 const DEFINITE_ARTICLE := "THE__" 
 const INDEFINITE_ARTICLE := "A__"
@@ -65,8 +65,12 @@ func update_possible_quest_list():
 		return
 	
 	possible_quests = []
+	#possible_quests.append(get_simple_interaction_quests())
+	possible_quests.append(get_combine_two_objects_quests())
 
-	# TODO: we're getting the words of objects here *a lot* of times
+func get_simple_interaction_quests() -> Array[SimpleInteractionQuest]:
+	var possible_quests:Array[SimpleInteractionQuest] = []
+
 	for obj:ScrapbookObject in objects:
 		if not is_instance_valid(obj):
 			push_warning("warning: attempting to analyze begone object", obj)
@@ -75,8 +79,14 @@ func update_possible_quest_list():
 			for mode in obj.get_affordances():
 				var quest:Quest = SimpleInteractionQuest.create(word, mode)
 				possible_quests.append(quest)
+				
+	return possible_quests
+		
+func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
+	var possible_quests:Array[CombineTwoObjectsQuest] = []
+
+	for obj:ScrapbookObject in objects:
 		# building combination quests
-		# TODO: make this its own function and document properly
 		# loop through the objects again, and see if
 		# any one satisfies the one this one wants to combine with
 		# aka fruit x is ready to be combined with any knife
@@ -95,7 +105,8 @@ func update_possible_quest_list():
 						var word_to_call_sending_object:String =  possible_combination_object.sensible_identifiers.pick_random()
 						var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
 						possible_quests.append(quest)
-						print(quest)
+					
+	return possible_quests
 
 func start_random_quest():
 	if len(possible_quests) > 0:

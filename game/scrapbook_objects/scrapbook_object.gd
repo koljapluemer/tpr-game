@@ -176,7 +176,7 @@ func _on_area_entered(area: Area2D) -> void:
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):
 	# TODO: should be obsolete and now handled by level_manager
 	# likely needs to be rewritten a bit only
-	print("object dropped on me")
+	print(word_list, " object dropped on me:", obj.word_list)
 	for scrapbook_interaction in scrapbook_interactions:
 		if obj.word_list.has(scrapbook_interaction.key_word):
 			# at this point the combination is happening
