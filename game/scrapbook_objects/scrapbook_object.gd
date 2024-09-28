@@ -51,6 +51,9 @@ var is_being_taken := false
 
 func _ready() -> void:
 	set_interactable()
+	if sprite_2d:
+		print("making local")
+		sprite_2d.material = sprite_2d.material.duplicate()
 	pass
 	
 func set_passive():
@@ -96,9 +99,9 @@ func _process(delta: float) -> void:
 	if is_moving:
 		global_position = get_global_mouse_position()
 		if Input.is_action_just_released("click"):
-			print("movement stop emit")
 			is_moving = false
-			movement_stopped.emit(self)
+			MessageManager.object_drag_finished.emit(self)
+
 
 	
 func enact_object_being_taken():
@@ -126,6 +129,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if is_movable and GameState.current_interaction_mode == MOVE:
 		if event.is_action_pressed("click"):
 			is_moving = true
+			MessageManager.object_drag_started.emit(self)
+			# delayed signal for the interaction, so that MOVE quests
+			# only succeed after the object was dragged around a bit
 			get_tree().create_timer(0.25).connect(
 				"timeout", func():MessageManager.object_was_interacted_with.emit(self, MOVE)
 			)
@@ -162,14 +168,18 @@ func _on_area_entered(area: Area2D) -> void:
 		print(name, ": something entered me")
 		if area is ScrapbookObject:
 			print(name, ": scrapbook obj entered me, here it is", area.name)
+			# TODO: should be obsolete and now handled by level_manager
 			area.movement_stopped.connect(_on_other_object_dropped_on_to_me)
 
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is ScrapbookObject:
+		# TODO: should be obsolete and now handled by level_manager
 		area.movement_stopped.disconnect(_on_other_object_dropped_on_to_me)
 
 func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
+	# TODO: should be obsolete and now handled by level_manager
+	# likely needs to be rewritten a bit only
 	print("object dropped on me")
 	for scrapbook_interaction in scrapbook_interactions:
 		if obj.word_list.words.has(scrapbook_interaction.key_word):

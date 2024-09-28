@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://buapgxqpegef1"]
+[gd_scene load_steps=7 format=3 uid="uid://buapgxqpegef1"]
 
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_object.gd" id="1_sxqhy"]
 [ext_resource type="Texture2D" uid="uid://ds2wd4s251glh" path="res://icon.svg" id="2_06i08"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/shared_assets/material_outline.tres" id="2_yjnnb"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_bwf5f"]
 [ext_resource type="Texture2D" uid="uid://clnsp35rdhftu" path="res://game/scrapbook_objects/objects/assets/circle.png" id="4_3pa2k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7agdc"]
+shader = ExtResource("2_bwf5f")
+shader_parameter/line_color = Color(0.873183, 0.920205, 0.458259, 1)
+shader_parameter/line_thickness = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xvyt"]
 size = Vector2(57, 110)
@@ -12,7 +17,7 @@ size = Vector2(57, 110)
 script = ExtResource("1_sxqhy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("2_yjnnb")
+material = SubResource("ShaderMaterial_7agdc")
 texture = ExtResource("2_06i08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

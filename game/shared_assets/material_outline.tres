@@ -3,6 +3,7 @@
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="1_418rf"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_418rf")
 shader_parameter/line_color = Color(0.873183, 0.920205, 0.458259, 1)
 shader_parameter/line_thickness = 16.0
