@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	objects = obj_list
+	analyze_special_wording_opportunities()
 	if len(active_quests) > 0:
 		check_if_active_quests_are_still_possible()
 	make_sure_that_there_is_one_active_quest()
@@ -99,6 +100,32 @@ func start_random_quest():
 		# if we don't have quests, means stuff like 
 		# all objects were taken
 		SceneManager.load_end_level_screen()
+
+
+## checking for things like "go to the left bus"
+func analyze_special_wording_opportunities():
+	for obj:ScrapbookObject in objects:
+		if not is_instance_valid(obj):
+			push_warning("warning: attempting to analyze begone object", obj)
+			continue
+		print(obj.word_list.words[0].key, " color:", obj.color)
+		# find objects that have the same word, but different color
+		for words in obj.word_list.words:
+			for comparison_obj:ScrapbookObject in objects:
+				if comparison_obj.word_list.words.has(words):
+					print("found something where we can compare color")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 func _on_quest_finished(quest:Quest):
