@@ -13,6 +13,7 @@ signal movement_stopped
 ## Likely nouns, such as CAR, TAXI, VEHICLE
 @export var word_list: WordList
 @export var color:ObjectColor ## A special type of [Word] that allows alternative descriptions to be used in quests
+@export var default_outline_thickness:= 8
 
 @export_category("Affordances")
 @export var is_touchable := true
@@ -31,19 +32,50 @@ signal movement_stopped
 
 @export var is_locked:= true
 @export var lock_sound: AudioStream
+
+
 const LOCK_UNLOCK = preload("res://game/interactions/interactions/lock_unlock.tres")
 const MOVE = preload("res://game/interactions/interactions/move.tres")
 const TAKE = preload("res://game/interactions/interactions/take.tres")
 const TOUCH = preload("res://game/interactions/interactions/touch.tres")
+
+enum UI_STATE {PASSIVE, INTERACTABLE, HIGHLIGHTED, PRIMARY}
+var current_ui_state:UI_STATE
 
 var is_moving:= false
 var is_being_taken := false
 
 @onready var progress: TextureProgressBar = %Progress
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
+@onready var sprite_2d: Sprite2D = %Sprite2D
 
 func _ready() -> void:
+	set_interactable()
 	pass
+	
+func set_passive():
+	current_ui_state = UI_STATE.PASSIVE
+	if sprite_2d:
+		sprite_2d.material.set_shader_parameter("line_thickness", 0)
+
+func set_interactable():
+	current_ui_state = UI_STATE.INTERACTABLE
+	if sprite_2d:
+		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness)
+		sprite_2d.material.set_shader_parameter("line_color", Color.WHITE)
+
+func set_highlighted():
+	current_ui_state = UI_STATE.HIGHLIGHTED
+	if sprite_2d:
+		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 1.5)
+		sprite_2d.material.set_shader_parameter("line_color", Color(0.45, 0.99, 0.75, 1))
+
+func set_primary():
+	current_ui_state = UI_STATE.PRIMARY
+	if sprite_2d:
+		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 1.5)
+		sprite_2d.material.set_shader_parameter("line_color", Color(0.87, 0.92, 0.45, 1))
+
 
 ## Currently handles two jobs: [br][br]
 ## 1) if the object [member is_takeable] and currently [member is_being_taken],
@@ -125,11 +157,16 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print(name, ": something entered me")
-	if area is ScrapbookObject:
-		print(name, ": scrapbook obj entered me, here it is", area.name)
-		area.movement_stopped.connect(_on_other_object_dropped_on_to_me)
-
+	# we don't care for accidental overlap at game start
+	if GameState.current_interaction_mode == MOVE:
+		print(name, ": something entered me")
+		if area is ScrapbookObject:
+			print(name, ": scrapbook obj entered me, here it is", area.name)
+			area.movement_stopped.connect(_on_other_object_dropped_on_to_me)
+			if sprite_2d:
+				sprite_2d.material.set_shader_parameter("line_thickness", 20)
+			else:	
+				push_warning(get_path(), ": has no sprite")
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is ScrapbookObject:

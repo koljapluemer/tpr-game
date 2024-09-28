@@ -37,6 +37,7 @@ lock_sound = ExtResource("5_d7tyr")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]
+unique_name_in_owner = true
 position = Vector2(-360.874, -1189.9)
 scale = Vector2(5.76141, 5.76141)
 texture = ExtResource("6_kxlih")
@@ -44,6 +45,7 @@ texture = ExtResource("6_kxlih")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-425, -1107.5)
 shape = SubResource("RectangleShape2D_mkbg0")
+debug_color = Color(1.29953e-05, 0.958176, 0.598779, 0.42)
 
 [node name="AudioStreamPlayer2D" parent="." index="3"]
 unique_name_in_owner = true
