@@ -116,10 +116,24 @@ func analyze_special_wording_opportunities():
 			continue
 		print(obj.word_list, " color:", obj.color)
 		# find objects that have the same word, but different color
-		for words in obj.word_list:
-			for comparison_obj:ScrapbookObject in objects:
-				if comparison_obj.word_list.has(words):
-					print("found something where we can compare color")
+		if obj.color != "":
+			for word in obj.word_list:
+				var color_count = {}
+				for comparison_obj:ScrapbookObject in objects:
+					if comparison_obj.word_list.has(word):
+						if color_count.has(comparison_obj.color):
+							color_count[comparison_obj.color] += 1
+						else:
+							color_count[comparison_obj.color] = 1
+				if len(color_count) > 1:
+					if color_count[obj.color] == 1:
+						# the object, with this word, is the only one with this color
+						obj.sensible_indentifiers.append("THE__" + word + "__" + obj.color)
+					else:
+						# the object, with this word, is one of several with this color
+						obj.sensible_indentifiers.append("A__" + word + "__" + obj.color)
+		print(obj.sensible_indentifiers)
+							
 
 
 func _on_quest_finished(quest:Quest):
