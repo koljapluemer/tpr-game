@@ -108,6 +108,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 	if is_touchable and GameState.current_interaction_mode == TOUCH:
 		if event.is_action_pressed("click"):
+			print(name, ": was touched")
 			MessageManager.object_was_interacted_with.emit(self, TOUCH)
 			
 	if is_lockable and GameState.current_interaction_mode == LOCK_UNLOCK:
