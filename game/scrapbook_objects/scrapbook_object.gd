@@ -50,12 +50,10 @@ var is_being_taken := false
 @onready var sprite_2d: Sprite2D = %Sprite2D
 
 func _ready() -> void:
-	set_interactable()
 	if sprite_2d:
-		print("making local")
 		sprite_2d.material = sprite_2d.material.duplicate()
-	pass
-	
+		set_interactable()
+		
 func set_passive():
 	current_ui_state = UI_STATE.PASSIVE
 	if sprite_2d:
@@ -68,12 +66,14 @@ func set_interactable():
 		sprite_2d.material.set_shader_parameter("line_color", Color.WHITE)
 
 func set_highlighted():
+	print("setting highlight")
 	current_ui_state = UI_STATE.HIGHLIGHTED
 	if sprite_2d:
 		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 1.5)
 		sprite_2d.material.set_shader_parameter("line_color", Color(0.45, 0.99, 0.75, 1))
 
 func set_primary():
+	print("setting primary")
 	current_ui_state = UI_STATE.PRIMARY
 	if sprite_2d:
 		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 1.5)
@@ -194,7 +194,28 @@ func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 			if scrapbook_interaction.kill_sender:
 				obj.queue_free()
 
-		
-		
-		
-		
+
+func _on_mouse_entered() -> void:
+	print("mouse entered")
+	# if we can't interact, we don't care
+	if current_ui_state == UI_STATE.PASSIVE:
+		return
+	match GameState.current_interaction_mode:
+		TAKE:
+			if is_takeable:
+				set_primary()
+		MOVE:
+			print("is move")
+			if is_movable:
+				print("is movable")
+				set_primary()
+		TOUCH:
+			if is_touchable:
+				set_primary()
+		LOCK_UNLOCK:
+			if is_lockable:
+				set_primary()
+
+func _on_mouse_exited() -> void:
+	if current_ui_state == UI_STATE.PRIMARY:
+		set_interactable()

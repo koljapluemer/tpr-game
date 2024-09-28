@@ -19,6 +19,7 @@ is_touchable = false
 metadata/_edit_vertical_guides_ = [150.0]
 
 [node name="Sprite2D" parent="." index="0"]
+unique_name_in_owner = true
 position = Vector2(0, -1.00001)
 scale = Vector2(1.99723, 1.99723)
 texture = ExtResource("4_47k66")
