@@ -7,6 +7,7 @@ class_name SpawnPoint extends Marker2D
 
 @export var accepts: Array[PackedScene] = []
 @export var scale_factor: float = 1
+@export var grid_pos:Vector2
 
 var init_scene: ScrapbookObject
 
@@ -29,9 +30,3 @@ func change_scene(scene_to_init:PackedScene):
 	init_scene = inst as ScrapbookObject
 	add_child(inst)
 	MessageManager.object_appeared.emit(inst)
-
-func get_modes():
-	# awkward pass-through function
-	# but I guess in the end the spawn points have responsibility 
-	# for the created scenes
-	return init_scene.get_affordances()

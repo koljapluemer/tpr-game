@@ -1,25 +1,26 @@
-[gd_scene load_steps=14 format=3 uid="uid://bj0s44imfdpms"]
+[gd_scene load_steps=15 format=3 uid="uid://ducm0jqonsnal"]
 
-[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_efhm1"]
-[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_d6s56"]
-[ext_resource type="Script" path="res://game/words/word.gd" id="3_h1h1g"]
-[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/scrapbook_objects/objects/assets/mechanical_lock_short.wav" id="5_d7tyr"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_r7a2l"]
-[ext_resource type="Resource" uid="uid://c6b4h6cn4vu1f" path="res://game/words/words/you.tres" id="6_5rn6u"]
-[ext_resource type="Texture2D" uid="uid://fv6mgijvg0fe" path="res://game/scrapbook_objects/assets/object_pngs/bus_big_crop.png" id="6_kxlih"]
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_6vf7c"]
+[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_0x3ys"]
+[ext_resource type="Script" path="res://game/words/word.gd" id="3_ulxrw"]
+[ext_resource type="Resource" uid="uid://cj785s14tpmgg" path="res://game/words/colors/colors/blue.tres" id="4_25kro"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_v8sj6"]
+[ext_resource type="Resource" uid="uid://c6b4h6cn4vu1f" path="res://game/words/words/you.tres" id="6_eflo5"]
+[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/scrapbook_objects/objects/assets/mechanical_lock_short.wav" id="7_jhavj"]
+[ext_resource type="Texture2D" uid="uid://cfd7iqw0ppa2x" path="res://game/scrapbook_objects/assets/object_pngs/bus_blue.png" id="8_e45d1"]
 
 [sub_resource type="Resource" id="Resource_1dwv5"]
-script = ExtResource("3_h1h1g")
+script = ExtResource("3_ulxrw")
 key = "BUS"
 word_group = Array[String](["WORD"])
 
 [sub_resource type="Resource" id="Resource_fwilr"]
-script = ExtResource("2_d6s56")
-words = Array[ExtResource("3_h1h1g")]([SubResource("Resource_1dwv5")])
+script = ExtResource("2_0x3ys")
+words = Array[ExtResource("3_ulxrw")]([SubResource("Resource_1dwv5")])
 
 [sub_resource type="Resource" id="Resource_hipgu"]
-script = ExtResource("5_r7a2l")
-key_word = ExtResource("6_5rn6u")
+script = ExtResource("5_v8sj6")
+key_word = ExtResource("6_eflo5")
 kill_sender = true
 kill_receiver = false
 objects_to_spawn = Array[PackedScene]([])
@@ -56,23 +57,24 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkbg0"]
-size = Vector2(9016, 2371)
+size = Vector2(4448, 2336)
 
-[node name="ScapbookObject" instance=ExtResource("1_efhm1")]
+[node name="ScapbookObject" instance=ExtResource("1_6vf7c")]
 word_list = SubResource("Resource_fwilr")
+color = ExtResource("4_25kro")
 is_movable = false
-scrapbook_interactions = Array[ExtResource("5_r7a2l")]([SubResource("Resource_hipgu")])
-lock_sound = ExtResource("5_d7tyr")
+scrapbook_interactions = Array[ExtResource("5_v8sj6")]([SubResource("Resource_hipgu")])
+lock_sound = ExtResource("7_jhavj")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_q6g3w")
-position = Vector2(-360.874, -1189.9)
-scale = Vector2(5.76141, 5.76141)
-texture = ExtResource("6_kxlih")
+position = Vector2(-360.874, -1093.9)
+scale = Vector2(4.44141, 4.44141)
+texture = ExtResource("8_e45d1")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-425, -1107.5)
+position = Vector2(-464, -1234)
 shape = SubResource("RectangleShape2D_mkbg0")
 debug_color = Color(1.29953e-05, 0.958176, 0.598779, 0.42)
 
