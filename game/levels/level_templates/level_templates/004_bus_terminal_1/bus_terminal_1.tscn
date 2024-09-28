@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wn3spjwrij7o"]
+[gd_scene load_steps=10 format=3 uid="uid://wn3spjwrij7o"]
 
 [ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_po4jr"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_qatx8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="5_ps7ae"]
 [ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="6_03kl6"]
 [ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="6_e6m8j"]
+[ext_resource type="PackedScene" uid="uid://cevjtvquv2hth" path="res://game/scrapbook_objects/objects/car_blue_old.tscn" id="7_2atv5"]
 [ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="7_atd6e"]
 
 [node name="Level" type="Node2D"]
@@ -33,11 +34,18 @@ texture = ExtResource("4_jvllo")
 unique_name_in_owner = true
 
 [node name="HumanSpawn" type="Marker2D" parent="SpawnPoints"]
-z_index = 5
+z_index = 7
 position = Vector2(634, 264)
 script = ExtResource("5_ps7ae")
 accepts = Array[PackedScene]([ExtResource("6_e6m8j")])
 scale_factor = 0.12
+
+[node name="CarSpawn" type="Marker2D" parent="SpawnPoints"]
+z_index = 6
+position = Vector2(274, 280)
+script = ExtResource("5_ps7ae")
+accepts = Array[PackedScene]([ExtResource("7_2atv5")])
+scale_factor = 0.1
 
 [node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(530, 184)
@@ -52,7 +60,7 @@ accepts = Array[PackedScene]([ExtResource("6_03kl6")])
 scale_factor = 0.055
 
 [node name="SpawnPoint" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(194, 232)
+position = Vector2(163, 232)
 script = ExtResource("5_ps7ae")
 accepts = Array[PackedScene]([ExtResource("6_03kl6")])
 scale_factor = 0.06

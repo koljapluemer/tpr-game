@@ -163,10 +163,7 @@ func _on_area_entered(area: Area2D) -> void:
 		if area is ScrapbookObject:
 			print(name, ": scrapbook obj entered me, here it is", area.name)
 			area.movement_stopped.connect(_on_other_object_dropped_on_to_me)
-			if sprite_2d:
-				sprite_2d.material.set_shader_parameter("line_thickness", 20)
-			else:	
-				push_warning(get_path(), ": has no sprite")
+
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is ScrapbookObject:
