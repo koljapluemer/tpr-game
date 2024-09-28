@@ -61,6 +61,7 @@ func _ready() -> void:
 # are not reflected and almost impossible to reflect with this setup...		
 func set_passive():
 	current_ui_state = UI_STATE.PASSIVE
+	return
 	if sprite_2d:
 		sprite_2d.material.set_shader_parameter("line_thickness", 0)
 
@@ -72,12 +73,14 @@ func set_interactable():
 
 func set_highlighted():
 	current_ui_state = UI_STATE.HIGHLIGHTED
+	return
 	if sprite_2d:
 		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 1.5)
 		sprite_2d.material.set_shader_parameter("line_color", Color(0.45, 0.99, 0.75, 1))
 
 func set_primary():
 	current_ui_state = UI_STATE.PRIMARY
+	return
 	if sprite_2d:
 		sprite_2d.material = sprite_2d.material.duplicate()
 		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 2)

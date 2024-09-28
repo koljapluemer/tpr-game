@@ -4,6 +4,7 @@ signal quest_started(quest:Quest)
 signal quest_no_longer_active(quest:Quest)
 
 @export var MAX_QUESTS_PER_LEVEL := 7
+@export var assume_there_is_a_grid:= false
 
 const DEFINITE_ARTICLE := "THE__" 
 const INDEFINITE_ARTICLE := "A__"
@@ -113,13 +114,13 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 	return _possible_quests
 
 func start_random_quest():
-	if len(possible_quests) > 0:
-		# prevent picking the last quest again
-		var quests_that_could_be_picked: Array[Quest] = possible_quests
-		if last_quest:
-			for q:Quest in quests_that_could_be_picked:
-				if last_quest.get_key() == q.get_key():
-					quests_that_could_be_picked.erase(q)
+	# prevent picking the last quest again
+	var quests_that_could_be_picked: Array[Quest] = possible_quests
+	if last_quest:
+		for q:Quest in quests_that_could_be_picked:
+			if last_quest.get_key() == q.get_key():
+				quests_that_could_be_picked.erase(q)
+	if len(quests_that_could_be_picked) > 0:
 		var quest:Quest = quests_that_could_be_picked.pick_random()
 				
 		if quest.request_activation():
@@ -146,8 +147,9 @@ func analyze_special_wording_opportunities():
 		for word in obj.word_list:
 			var object_is_the_only_one_using_this_word:= true
 			for comparison_obj:ScrapbookObject in objects:
-				if comparison_obj.word_list.has(word):
-					object_is_the_only_one_using_this_word = false
+				if not comparison_obj == obj:
+					if comparison_obj.word_list.has(word):
+						object_is_the_only_one_using_this_word = false
 			if object_is_the_only_one_using_this_word:
 				sensible_identifiers.append(DEFINITE_ARTICLE+ word)
 			else:
@@ -175,27 +177,28 @@ func analyze_special_wording_opportunities():
 		# TODO: this breaks when objects in the same column also have the same row
 		# TODO: there is also no check for the default case of objects just chilling on (0, 0)
 		# maybe move the default to something like -99 or have a toggle?
-		for word in obj.word_list:
-			var min_row_value:int= 100000
-			var max_row_value:int= -100000
-			var objects_on_same_column:Array[ScrapbookObject] = []
-			for comparison_obj:ScrapbookObject in objects:
-				if comparison_obj.grid_pos.x == obj.grid_pos.x:
-					if comparison_obj.word_list.has(word):
-						objects_on_same_column.append(comparison_obj)
-						if comparison_obj.grid_pos.y < min_row_value:
-							min_row_value = comparison_obj.grid_pos.y
-						if comparison_obj.grid_pos.y > max_row_value:
-							min_row_value = comparison_obj.grid_pos.y
-						
-			# in front, in the middle, in the back
-			if len(objects_on_same_column) == 3:
-				if obj.grid_pos.y == min_row_value:
-					sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_FRONT")
-				elif obj.grid_pos.x == max_row_value:
-					sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_BACK")
-				else:
-					sensible_identifiers.append(DEFINITE_ARTICLE + word + "__IN_MIDDLE")
+		if assume_there_is_a_grid:
+			for word in obj.word_list:
+				var min_row_value:int= 100000
+				var max_row_value:int= -100000
+				var objects_on_same_column:Array[ScrapbookObject] = []
+				for comparison_obj:ScrapbookObject in objects:
+					if comparison_obj.grid_pos.x == obj.grid_pos.x:
+						if comparison_obj.word_list.has(word):
+							objects_on_same_column.append(comparison_obj)
+							if comparison_obj.grid_pos.y < min_row_value:
+								min_row_value = comparison_obj.grid_pos.y
+							if comparison_obj.grid_pos.y > max_row_value:
+								min_row_value = comparison_obj.grid_pos.y
+							
+				# in front, in the middle, in the back
+				if len(objects_on_same_column) == 3:
+					if obj.grid_pos.y == min_row_value:
+						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_FRONT")
+					elif obj.grid_pos.x == max_row_value:
+						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_BACK")
+					else:
+						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__IN_MIDDLE")
 		
 		# crudely filter for unique values
 		for id in sensible_identifiers:
