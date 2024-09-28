@@ -31,7 +31,6 @@ signal movement_stopped
 
 @export var is_locked:= true
 @export var lock_sound: AudioStream
-
 const LOCK_UNLOCK = preload("res://game/interactions/interactions/lock_unlock.tres")
 const MOVE = preload("res://game/interactions/interactions/move.tres")
 const TAKE = preload("res://game/interactions/interactions/take.tres")
