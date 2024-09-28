@@ -29,7 +29,11 @@ func _ready() -> void:
 	# Mouse Over
 	# background catch
 	background = get_tree().get_first_node_in_group("background")
-	background.mouse_entered.connect(_on_bg_mouse_over_started)
+	if background:
+		# TODO: this check is here to prevent a race condition when a new scene is loaded
+		# which is pretty bad, because that means in the next level bg is likely
+		# never connected
+		background.mouse_entered.connect(_on_bg_mouse_over_started)
 	MessageManager.object_mouse_over_started.connect(_on_object_mouse_over_started)
 	MessageManager.object_mouse_over_started.connect(_on_object_mouse_over_finished)
 	

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7lp0ggrnmn2i"]
+
+[ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_n7w30"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_r586v"]
+[ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/ui/quests/quest_ui.tscn" id="3_yq3p5"]
+[ext_resource type="Texture2D" uid="uid://cbar4gijd2djd" path="res://game/levels/level_templates/level_templates/005_bus_terminal_2/terminal.png" id="4_ihp6t"]
+[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="5_r7e62"]
+[ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="6_6ds0n"]
+[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="9_xpr6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
+size = Vector2(894, 350)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_n7w30")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_r586v")]
+unique_name_in_owner = true
+
+[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
+quest_ui = ExtResource("3_yq3p5")
+quest_manager = NodePath("../../../../../../QuestManager")
+
+[node name="Background" type="Area2D" parent="." groups=["background"]]
+z_index = -100
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(403.181, 37.411)
+scale = Vector2(0.94706, 0.94706)
+texture = ExtResource("4_ihp6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
+position = Vector2(408, 165)
+shape = SubResource("RectangleShape2D_anpsh")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="DefaultSpawn" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(634, 264)
+script = ExtResource("5_r7e62")
+accepts = Array[PackedScene]([ExtResource("6_6ds0n")])
+scale_factor = 0.12
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_xpr6y")
+
+[editable path="CanvasLayer"]
