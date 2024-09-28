@@ -23,6 +23,6 @@ func _activate() -> void:
 
 func _on_object_was_interacted_with(obj:ScrapbookObject, _interaction: Interaction):
 	if status == QuestStatus.active:
-		var is_match = obj.word_list.has(word) and _interaction == interaction
+		var is_match = obj.sensible_identifiers.has(word) and _interaction == interaction
 		if is_match:
 			set_finished()

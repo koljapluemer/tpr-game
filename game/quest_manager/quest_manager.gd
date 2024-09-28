@@ -48,7 +48,9 @@ func check_if_active_quests_are_still_possible():
 				
 
 func make_sure_that_there_is_one_active_quest():	
+	print("making sure there are enough quests")
 	if len(active_quests) == 0:
+		update_possible_quest_list()
 		start_random_quest()
 		
 # TODO: this is triggered before all spawnpoitns

@@ -170,21 +170,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	# we don't care for accidental overlap at game start
-	if GameState.current_interaction_mode == MOVE:
-		print(name, ": something entered me")
-		if area is ScrapbookObject:
-			print(name, ": scrapbook obj entered me, here it is", area.name)
-			# TODO: should be obsolete and now handled by level_manager
-			area.movement_stopped.connect(_on_other_object_dropped_on_to_me)
+	pass
 
 
-func _on_area_exited(area: Area2D) -> void:
-	if area is ScrapbookObject:
-		# TODO: should be obsolete and now handled by level_manager
-		area.movement_stopped.disconnect(_on_other_object_dropped_on_to_me)
-
-func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
+func drop_other_obj_on_this_obj(obj:ScrapbookObject):
 	# TODO: should be obsolete and now handled by level_manager
 	# likely needs to be rewritten a bit only
 	print("object dropped on me")
@@ -204,7 +193,6 @@ func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 
 func _on_mouse_entered() -> void:
 	MessageManager.object_mouse_over_started.emit(self)
-
 
 
 func react_to_being_hovered() -> void:
@@ -227,5 +215,4 @@ func react_to_being_hovered() -> void:
 				set_primary()
 
 func _on_mouse_shape_exited() -> void:
-	print("mouse exit?!")
 	MessageManager.object_mouse_over_finished.emit(self)
