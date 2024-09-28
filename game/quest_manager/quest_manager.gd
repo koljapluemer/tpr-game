@@ -89,25 +89,27 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 	var _possible_quests:Array[CombineTwoObjectsQuest] = []
 
 	for obj:ScrapbookObject in objects:
-		# building combination quests
-		# loop through the objects again, and see if
-		# any one satisfies the one this one wants to combine with
-		# aka fruit x is ready to be combined with any knife
-		# well, is there any word tagged knife?
-		for possible_combination_object in objects:
-			if not possible_combination_object == obj:
-				# skip the object we're already looking at
-				# we can't combine objects with themselves
-				for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
-					if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
-						# note: word to use is picked randomly, we could also use *all* the possible combinations
-						# but since most combinations are only fun *or* kill either sender or receiver, that
-						# would be somewhat pointless
-						# ...but this makes `possible_quests` somewhat of a misnomer
-						var word_to_call_receiving_object:String = obj.sensible_identifiers.pick_random()
-						var word_to_call_sending_object:String =  possible_combination_object.sensible_identifiers.pick_random()
-						var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
-						_possible_quests.append(quest)
+		if is_instance_valid(obj):
+			# building combination quests
+			# loop through the objects again, and see if
+			# any one satisfies the one this one wants to combine with
+			# aka fruit x is ready to be combined with any knife
+			# well, is there any word tagged knife?
+			for possible_combination_object in objects:
+				if is_instance_valid(possible_combination_object):
+					if not possible_combination_object == obj:
+						# skip the object we're already looking at
+						# we can't combine objects with themselves
+						for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
+							if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
+								# note: word to use is picked randomly, we could also use *all* the possible combinations
+								# but since most combinations are only fun *or* kill either sender or receiver, that
+								# would be somewhat pointless
+								# ...but this makes `possible_quests` somewhat of a misnomer
+								var word_to_call_receiving_object:String = obj.sensible_identifiers.pick_random()
+								var word_to_call_sending_object:String =  possible_combination_object.sensible_identifiers.pick_random()
+								var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
+								_possible_quests.append(quest)
 						
 	print("get_combine_two_objects_quests: possible combination quests: ", _possible_quests)	
 	return _possible_quests

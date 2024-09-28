@@ -21,5 +21,6 @@ func _activate() -> void:
 	print("activated and connected")
 	MessageManager.objects_were_combined.connect(_on_objects_were_combined)
 
-func _on_objects_were_combined(sender:ScrapbookObject, receiver:ScrapbookInteraction):
-	print("woah a combination happened", sender, receiver)
+func _on_objects_were_combined(sender:ScrapbookObject, receiver:ScrapbookObject):
+	if sender.sensible_identifiers.has(sender_word) and receiver.sensible_identifiers.has(receiver_word):
+		set_finished()
