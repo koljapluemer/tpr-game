@@ -1,9 +1,9 @@
 class_name SimpleInteractionQuest extends Quest
 
-@export var word:Word
+@export var word:String
 @export var interaction:Interaction
 
-static func create(_word: Word, _interaction: Interaction) -> Quest:
+static func create(_word: String, _interaction: Interaction) -> Quest:
 	var inst = SimpleInteractionQuest.new()
 	inst.word = _word
 	inst.interaction = _interaction
@@ -13,7 +13,7 @@ static func create(_word: Word, _interaction: Interaction) -> Quest:
 	
 
 func get_key() -> String:
-	return word.key + ":" + interaction.key
+	return word + ":" + interaction.key
 
 
 func _activate() -> void:
@@ -23,6 +23,6 @@ func _activate() -> void:
 
 func _on_object_was_interacted_with(obj:ScrapbookObject, _interaction: Interaction):
 	if status == QuestStatus.active:
-		var is_match = obj.word_list.words.has(word) and _interaction == interaction
+		var is_match = obj.word_list.has(word) and _interaction == interaction
 		if is_match:
 			set_finished()

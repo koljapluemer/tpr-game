@@ -11,7 +11,7 @@ enum QuestStatus {
 }
 var status:QuestStatus = QuestStatus.inactive
 
-var required_words: Array[Word] = []
+var required_words: Array[String] = []
 
 # to overwrite
 func get_key() -> String:

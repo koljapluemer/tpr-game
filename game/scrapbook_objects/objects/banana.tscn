@@ -1,28 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://brgh246c4iiqv"]
+[gd_scene load_steps=9 format=3 uid="uid://brgh246c4iiqv"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_8i6an"]
-[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_pjqtv"]
-[ext_resource type="Script" path="res://game/words/word.gd" id="3_fux6h"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_eiqvy"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_yqasb"]
-[ext_resource type="Resource" uid="uid://cvelbbkndtvcl" path="res://game/words/words/knife.tres" id="6_5ugk5"]
 [ext_resource type="Texture2D" uid="uid://dshdyft53ogbv" path="res://game/scrapbook_objects/assets/object_pngs/banana_crop.png" id="7_l44f4"]
 [ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="7_n4cqb"]
 
-[sub_resource type="Resource" id="Resource_b1rea"]
-script = ExtResource("3_fux6h")
-key = "BANANA"
-word_group = Array[String](["WORD"])
-
-[sub_resource type="Resource" id="Resource_47pea"]
-script = ExtResource("2_pjqtv")
-words = Array[ExtResource("3_fux6h")]([SubResource("Resource_b1rea")])
-
 [sub_resource type="Resource" id="Resource_in6rt"]
 script = ExtResource("5_yqasb")
-key_word = ExtResource("6_5ugk5")
+key_word = ""
 kill_sender = false
 kill_receiver = true
 objects_to_spawn = Array[PackedScene]([ExtResource("7_n4cqb")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhxh6"]
+resource_local_to_scene = true
+shader = ExtResource("4_eiqvy")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
 radius = 32.0
@@ -30,13 +25,14 @@ height = 173.759
 
 [node name="ScapbookObject" instance=ExtResource("1_8i6an")]
 position = Vector2(0, 4)
-word_list = SubResource("Resource_47pea")
+word_list = Array[String](["BANANA", "FRUIT"])
 is_takeable = true
 scrapbook_interactions = Array[ExtResource("5_yqasb")]([SubResource("Resource_in6rt")])
 metadata/_edit_horizontal_guides_ = [-62.0]
 metadata/_edit_vertical_guides_ = [-39.0]
 
 [node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_xhxh6")
 position = Vector2(-4, -73)
 scale = Vector2(0.210342, 0.210342)
 texture = ExtResource("7_l44f4")
@@ -46,6 +42,4 @@ position = Vector2(-1, -50)
 rotation = 1.35071
 shape = SubResource("CapsuleShape2D_6fcro")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

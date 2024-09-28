@@ -1,28 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp5asi1clmrau"]
+[gd_scene load_steps=9 format=3 uid="uid://dp5asi1clmrau"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_m14fl"]
-[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_dqcwg"]
-[ext_resource type="Script" path="res://game/words/word.gd" id="3_httpm"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_cj5ui"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_w6v10"]
-[ext_resource type="Resource" uid="uid://cvelbbkndtvcl" path="res://game/words/words/knife.tres" id="6_nukm7"]
 [ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="7_4yvde"]
 [ext_resource type="Texture2D" uid="uid://dxnhy5yjrv261" path="res://game/scrapbook_objects/assets/object_pngs/coconut_crop.png" id="7_7km6n"]
 
-[sub_resource type="Resource" id="Resource_iu06k"]
-script = ExtResource("3_httpm")
-key = "COCONOUT"
-word_group = Array[String](["WORD"])
-
-[sub_resource type="Resource" id="Resource_47pea"]
-script = ExtResource("2_dqcwg")
-words = Array[ExtResource("3_httpm")]([SubResource("Resource_iu06k")])
-
 [sub_resource type="Resource" id="Resource_in6rt"]
 script = ExtResource("5_w6v10")
-key_word = ExtResource("6_nukm7")
+key_word = ""
 kill_sender = false
 kill_receiver = true
 objects_to_spawn = Array[PackedScene]([ExtResource("7_4yvde")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1tohm"]
+resource_local_to_scene = true
+shader = ExtResource("4_cj5ui")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
 radius = 54.0
@@ -30,12 +25,13 @@ height = 148.0
 
 [node name="ScapbookObject" instance=ExtResource("1_m14fl")]
 position = Vector2(0, 4)
-word_list = SubResource("Resource_47pea")
+word_list = Array[String](["COCONUT", "FRUIT"])
 is_takeable = true
 scrapbook_interactions = Array[ExtResource("5_w6v10")]([SubResource("Resource_in6rt")])
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_1tohm")
 position = Vector2(4.98943, -57.5828)
 scale = Vector2(0.199601, 0.199601)
 texture = ExtResource("7_7km6n")

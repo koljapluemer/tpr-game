@@ -1,6 +1,6 @@
 class_name ScrapbookInteraction extends Resource
 
-@export var key_word: Word
+@export var key_word: String
 
 @export var kill_sender := false
 @export var kill_receiver := false

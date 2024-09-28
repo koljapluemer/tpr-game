@@ -1,28 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://pj7aiibt3drw"]
+[gd_scene load_steps=9 format=3 uid="uid://pj7aiibt3drw"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_44flo"]
-[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_c2y3p"]
-[ext_resource type="Script" path="res://game/words/word.gd" id="3_y8ytn"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="4_bajbr"]
-[ext_resource type="Resource" uid="uid://cvelbbkndtvcl" path="res://game/words/words/knife.tres" id="5_5jylu"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_pq3gh"]
 [ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="6_xaata"]
 [ext_resource type="Texture2D" uid="uid://cmjr6c0vj8wey" path="res://game/scrapbook_objects/assets/object_pngs/kiwi_uncut.png" id="7_gwsr5"]
 
-[sub_resource type="Resource" id="Resource_nojn5"]
-script = ExtResource("3_y8ytn")
-key = "KIWI"
-word_group = Array[String](["WORD"])
-
-[sub_resource type="Resource" id="Resource_47pea"]
-script = ExtResource("2_c2y3p")
-words = Array[ExtResource("3_y8ytn")]([SubResource("Resource_nojn5")])
-
 [sub_resource type="Resource" id="Resource_in6rt"]
 script = ExtResource("4_bajbr")
-key_word = ExtResource("5_5jylu")
+key_word = ""
 kill_sender = false
 kill_receiver = true
 objects_to_spawn = Array[PackedScene]([ExtResource("6_xaata")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukyon"]
+resource_local_to_scene = true
+shader = ExtResource("4_pq3gh")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
 radius = 24.0
@@ -30,11 +25,12 @@ height = 62.0
 
 [node name="ScapbookObject" instance=ExtResource("1_44flo")]
 position = Vector2(0, 4)
-word_list = SubResource("Resource_47pea")
+word_list = Array[String](["KIWI", "FRUIT"])
 scrapbook_interactions = Array[ExtResource("4_bajbr")]([SubResource("Resource_in6rt")])
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ukyon")
 position = Vector2(-1.25091, -22.7129)
 scale = Vector2(0.143645, 0.143645)
 texture = ExtResource("7_gwsr5")

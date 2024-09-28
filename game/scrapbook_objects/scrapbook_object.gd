@@ -11,8 +11,8 @@ signal movement_stopped
 
 ## [Word] array with words that this concrete [Node2D] may stand for.
 ## Likely nouns, such as CAR, TAXI, VEHICLE
-@export var word_list: WordList
-@export var color:ObjectColor ## A special type of [Word] that allows alternative descriptions to be used in quests
+@export var word_list: Array[String]
+@export var color: String
 @export var default_outline_thickness:= 8
 
 @export_category("Affordances")
@@ -187,7 +187,7 @@ func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 	# likely needs to be rewritten a bit only
 	print("object dropped on me")
 	for scrapbook_interaction in scrapbook_interactions:
-		if obj.word_list.words.has(scrapbook_interaction.key_word):
+		if obj.word_list.has(scrapbook_interaction.key_word):
 			# at this point the combination is happening
 			MessageManager.objects_were_combined.emit(obj, self)
 			for instance in scrapbook_interaction.objects_to_spawn:

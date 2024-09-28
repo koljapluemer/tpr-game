@@ -1,25 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bj0s44imfdpms"]
+[gd_scene load_steps=9 format=3 uid="uid://bj0s44imfdpms"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_efhm1"]
-[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_d6s56"]
-[ext_resource type="Script" path="res://game/words/word.gd" id="3_h1h1g"]
 [ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/scrapbook_objects/objects/assets/mechanical_lock_short.wav" id="5_d7tyr"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_r7a2l"]
-[ext_resource type="Resource" uid="uid://c6b4h6cn4vu1f" path="res://game/words/words/you.tres" id="6_5rn6u"]
 [ext_resource type="Texture2D" uid="uid://fv6mgijvg0fe" path="res://game/scrapbook_objects/assets/object_pngs/bus_big_crop.png" id="6_kxlih"]
-
-[sub_resource type="Resource" id="Resource_1dwv5"]
-script = ExtResource("3_h1h1g")
-key = "BUS"
-word_group = Array[String](["WORD"])
-
-[sub_resource type="Resource" id="Resource_fwilr"]
-script = ExtResource("2_d6s56")
-words = Array[ExtResource("3_h1h1g")]([SubResource("Resource_1dwv5")])
 
 [sub_resource type="Resource" id="Resource_hipgu"]
 script = ExtResource("5_r7a2l")
-key_word = ExtResource("6_5rn6u")
+key_word = ""
 kill_sender = true
 kill_receiver = false
 objects_to_spawn = Array[PackedScene]([])
@@ -59,7 +47,8 @@ shader_parameter/line_thickness = 1.0
 size = Vector2(9016, 2371)
 
 [node name="ScapbookObject" instance=ExtResource("1_efhm1")]
-word_list = SubResource("Resource_fwilr")
+word_list = Array[String](["BUS"])
+color = "RED_AND_YELLOW"
 is_movable = false
 scrapbook_interactions = Array[ExtResource("5_r7a2l")]([SubResource("Resource_hipgu")])
 lock_sound = ExtResource("5_d7tyr")

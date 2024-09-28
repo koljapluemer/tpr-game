@@ -1,25 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpxkumjowe6r0"]
+[gd_scene load_steps=6 format=3 uid="uid://dpxkumjowe6r0"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_y3l2i"]
-[ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_earun"]
-[ext_resource type="Script" path="res://game/words/word.gd" id="3_2g2yr"]
-[ext_resource type="Resource" uid="uid://c6b4h6cn4vu1f" path="res://game/words/words/you.tres" id="4_5qf83"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_j4ypp"]
 [ext_resource type="Texture2D" uid="uid://cunssdw3hj7bf" path="res://game/scrapbook_objects/assets/object_pngs/you.png" id="4_47k66"]
 
-[sub_resource type="Resource" id="Resource_fwilr"]
-script = ExtResource("2_earun")
-words = Array[ExtResource("3_2g2yr")]([ExtResource("4_5qf83")])
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
+resource_local_to_scene = true
+shader = ExtResource("2_j4ypp")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
 size = Vector2(365, 1685)
 
 [node name="ScapbookObject" instance=ExtResource("1_y3l2i")]
-word_list = SubResource("Resource_fwilr")
+color = "YOU"
 is_touchable = false
 metadata/_edit_vertical_guides_ = [150.0]
 
 [node name="Sprite2D" parent="." index="0"]
-unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ey13n")
 position = Vector2(0, -1.00001)
 scale = Vector2(1.99723, 1.99723)
 texture = ExtResource("4_47k66")

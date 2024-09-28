@@ -70,7 +70,7 @@ func _find_and_mark_eligible_objects_to_drop_on():
 		if obj == currently_dragged_object:
 			continue
 		for scrapbook_interaction in obj.scrapbook_interactions:
-			if currently_dragged_object.word_list.words.has(scrapbook_interaction.key_word):
+			if currently_dragged_object.word_list.has(scrapbook_interaction.key_word):
 				obj.set_highlighted()
 				
 # finding the actual intended mouse hover stuff

@@ -26,9 +26,9 @@ func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 
 func check_if_active_quests_are_still_possible():
 	# get all the words currently available
-	var available_words: Array[Word] = []
+	var available_words: Array[String] = []
 	for obj in objects:
-		available_words.append_array(obj.word_list.words)
+		available_words.append_array(obj.word_list)
 	
 	for quest in active_quests:
 		var quest_is_possible = true
@@ -61,7 +61,7 @@ func start_random_quest():
 		if not is_instance_valid(obj):
 			push_warning("warning: attempting to analyze begone object", obj)
 			continue
-		for word in obj.word_list.words:
+		for word in obj.word_list:
 			for mode in obj.get_affordances():
 				var quest:Quest = SimpleInteractionQuest.create(word, mode)
 				possible_quests.append(quest)
@@ -75,9 +75,9 @@ func start_random_quest():
 				# skip the object we're already looking at
 				# we can't combine objects with themselves
 				for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
-					if possible_combination_object.word_list.words.has(scrapbook_interaction.key_word):
-						var word_to_call_receiving_object:Word = obj.word_list.words.pick_random()
-						var word_to_call_sending_object: Word = scrapbook_interaction.key_word
+					if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
+						var word_to_call_receiving_object:String = obj.word_list.pick_random()
+						var word_to_call_sending_object:String =  scrapbook_interaction.key_word
 						var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
 						possible_quests.append(quest)
 	
@@ -87,9 +87,9 @@ func start_random_quest():
 			if last_quest.get_key() == q.get_key():
 				possible_quests.erase(q)
 	
-	var quest:Quest = possible_quests.pick_random()
-			
-	if quest:
+	if len(possible_quests) > 0:
+		var quest:Quest = possible_quests.pick_random()
+				
 		if quest.request_activation():
 			quest_started.emit(quest)
 			quest.finished.connect(_on_quest_finished)
@@ -108,11 +108,11 @@ func analyze_special_wording_opportunities():
 		if not is_instance_valid(obj):
 			push_warning("warning: attempting to analyze begone object", obj)
 			continue
-		print(obj.word_list.words[0].key, " color:", obj.color)
+		print(obj.word_list, " color:", obj.color)
 		# find objects that have the same word, but different color
-		for words in obj.word_list.words:
+		for words in obj.word_list:
 			for comparison_obj:ScrapbookObject in objects:
-				if comparison_obj.word_list.words.has(words):
+				if comparison_obj.word_list.has(words):
 					print("found something where we can compare color")
 
 
