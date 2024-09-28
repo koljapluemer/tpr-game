@@ -51,8 +51,9 @@ var is_being_taken := false
 
 func _ready() -> void:
 	if sprite_2d:
-		sprite_2d.material = sprite_2d.material.duplicate()
+		#sprite_2d.material = sprite_2d.material.duplicate()
 		set_interactable()
+		pass
 		
 func set_passive():
 	current_ui_state = UI_STATE.PASSIVE
@@ -76,8 +77,12 @@ func set_primary():
 	print("setting primary")
 	current_ui_state = UI_STATE.PRIMARY
 	if sprite_2d:
-		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 1.5)
+		sprite_2d.material = sprite_2d.material.duplicate()
+		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 2)
 		sprite_2d.material.set_shader_parameter("line_color", Color(0.87, 0.92, 0.45, 1))
+		print('should be reflected..?')
+	else:
+		print('no sprite?!')
 
 
 ## Currently handles two jobs: [br][br]
@@ -138,7 +143,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 	if is_takeable and GameState.current_interaction_mode == TAKE:
 		if event.is_action_pressed("click") and not is_being_taken:
-			viewport.set_input_as_handled()
 			is_being_taken = true
 			progress.show()
 		if event.is_action_released("click"):
@@ -149,7 +153,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if is_touchable and GameState.current_interaction_mode == TOUCH:
 		if event.is_action_pressed("click"):
 			print(name, ": was touched")
-			viewport.set_input_as_handled()
 			MessageManager.object_was_interacted_with.emit(self, TOUCH)
 			
 	if is_lockable and GameState.current_interaction_mode == LOCK_UNLOCK:
@@ -196,26 +199,28 @@ func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 
 
 func _on_mouse_entered() -> void:
-	print("mouse entered")
-	# if we can't interact, we don't care
-	if current_ui_state == UI_STATE.PASSIVE:
-		return
-	match GameState.current_interaction_mode:
-		TAKE:
-			if is_takeable:
-				set_primary()
-		MOVE:
-			print("is move")
-			if is_movable:
-				print("is movable")
-				set_primary()
-		TOUCH:
-			if is_touchable:
-				set_primary()
-		LOCK_UNLOCK:
-			if is_lockable:
-				set_primary()
+	MessageManager.object_mouse_over_started.emit(self)
+	# the following is obsolete because the level mana ger
+	# has to handle which object is truly being focused
+	# by the user
+	#if current_ui_state == UI_STATE.PASSIVE:
+		#return
+	#match GameState.current_interaction_mode:
+		#TAKE:
+			#if is_takeable:
+				#set_primary()
+		#MOVE:
+			#print("is move")
+			#if is_movable:
+				#print("is movable")
+				#set_primary()
+		#TOUCH:
+			#if is_touchable:
+				#set_primary()
+		#LOCK_UNLOCK:
+			#if is_lockable:
+				#set_primary()
 
-func _on_mouse_exited() -> void:
-	if current_ui_state == UI_STATE.PRIMARY:
-		set_interactable()
+func _on_mouse_shape_exited() -> void:
+	print("mouse exit?!")
+	MessageManager.object_mouse_over_finished.emit(self)

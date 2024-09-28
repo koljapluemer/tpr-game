@@ -11,6 +11,9 @@ signal object_disappeared(obj:ScrapbookObject)
 
 signal object_drag_started(obj:ScrapbookObject)
 signal object_drag_finished(obj:ScrapbookObject)
+
+signal object_mouse_over_started(obj:ScrapbookObject)
+signal object_mouse_over_finished(obj:ScrapbookObject)
 # whenever such things happen, game mangager should update the list of objects
 # and then send this:
 signal object_list_changed(list:Array[ScrapbookObject])

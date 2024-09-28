@@ -53,6 +53,7 @@ audio_player=""
 level_map=""
 click_shape=""
 hot_bar=""
+background=""
 
 [input]
 

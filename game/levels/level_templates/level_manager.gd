@@ -8,11 +8,16 @@ class_name LevelManager extends Node2D
 var interactions: Array[Interaction]
 var scrapbook_objects: Array[ScrapbookObject]
 
+var objects_currently_hovered_by_mouse: Array[ScrapbookObject]
+var object_intended_to_be_hovered_by_mouse: ScrapbookObject
+
+var background:Area2D
 # drag and drop
 var currently_dragged_object: ScrapbookObject
+var currently_hovered_obj: ScrapbookObject
 
 func _ready() -> void:
-	get_parent().get_viewport().set_physics_object_picking_sort(true)
+	get_parent().get_viewport().set_physics_object_picking_sort(false)
 	
 	MessageManager.object_appeared.connect(_on_object_appeared)
 	MessageManager.object_disappeared.connect(_on_object_disappeared)
@@ -20,6 +25,18 @@ func _ready() -> void:
 	# Drag and Drop
 	MessageManager.object_drag_started.connect(_on_object_drag_started)
 	MessageManager.object_drag_finished.connect(_on_object_drag_finished)
+	
+	# Mouse Over
+	# background catch
+	background = get_tree().get_first_node_in_group("background")
+	background.mouse_entered.connect(_on_bg_mouse_over_started)
+	MessageManager.object_mouse_over_started.connect(_on_object_mouse_over_started)
+	MessageManager.object_mouse_over_started.connect(_on_object_mouse_over_finished)
+	
+func _on_bg_mouse_over_started():
+	if currently_hovered_obj:
+		currently_hovered_obj.set_interactable()
+		currently_hovered_obj =  null
 	
 func _on_object_appeared(obj:ScrapbookObject):
 	scrapbook_objects.append(obj)
@@ -35,7 +52,7 @@ func _on_object_drag_started(obj: ScrapbookObject):
 	currently_dragged_object = obj
 	_find_and_mark_eligible_objects_to_drop_on()
 	
-func _on_object_drag_finished(obj: ScrapbookObject):
+func _on_object_drag_finished(_obj: ScrapbookObject):
 	currently_dragged_object = null
 	pass
 
@@ -55,3 +72,16 @@ func _find_and_mark_eligible_objects_to_drop_on():
 		for scrapbook_interaction in obj.scrapbook_interactions:
 			if currently_dragged_object.word_list.words.has(scrapbook_interaction.key_word):
 				obj.set_highlighted()
+				
+# finding the actual intended mouse hover stuff
+func _on_object_mouse_over_started(obj:ScrapbookObject):
+	print("hovering new....")
+	#objects_currently_hovered_by_mouse.append(obj)
+	if currently_hovered_obj:
+		print("resetting old??")
+		currently_hovered_obj.set_interactable()
+	currently_hovered_obj = obj
+	obj.set_primary()
+	
+func _on_object_mouse_over_finished(_obj:ScrapbookObject):
+	pass
