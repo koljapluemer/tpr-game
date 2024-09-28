@@ -33,7 +33,7 @@ func check_if_active_quests_are_still_possible():
 	# get all the words currently available
 	var available_words: Array[String] = []
 	for obj in objects:
-		available_words.append_array(obj.word_list)
+		available_words.append_array(obj.sensible_identifiers)
 	
 	for quest in active_quests:
 		var quest_is_possible = true
