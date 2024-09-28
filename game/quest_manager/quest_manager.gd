@@ -3,7 +3,7 @@ class_name QuestManager extends Node
 signal quest_started(quest:Quest)
 signal quest_no_longer_active(quest:Quest)
 
-@export var MAX_QUESTS_PER_LEVEL := 10
+@export var MAX_QUESTS_PER_LEVEL := 7
 
 const DEFINITE_ARTICLE := "THE__" 
 const INDEFINITE_ARTICLE := "A__"
@@ -62,11 +62,9 @@ func update_possible_quest_list():
 	
 	possible_quests = []
 	var interaction_quests := get_simple_interaction_quests()
-	# doing this the stupid why because array typing breaks
-	# TODO: reactivate the simple quests
+	# doing this the stupid way because array typing breaks here otherwise
 	for q in interaction_quests:
-		pass
-		#possible_quests.append(q)
+		possible_quests.append(q)
 	var combination_quests := get_combine_two_objects_quests()
 	for q in combination_quests:
 		possible_quests.append(q)
@@ -131,7 +129,8 @@ func start_random_quest():
 			active_quests.append(quest)
 			last_quest = quest
 	else:
-		print("can't start, there are no quests")
+		print("there are no quests")
+		SceneManager.load_end_level_screen()
 
 
 
