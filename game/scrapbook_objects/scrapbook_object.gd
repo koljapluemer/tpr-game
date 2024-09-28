@@ -204,26 +204,27 @@ func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
 
 func _on_mouse_entered() -> void:
 	MessageManager.object_mouse_over_started.emit(self)
-	# the following is obsolete because the level mana ger
-	# has to handle which object is truly being focused
-	# by the user
-	#if current_ui_state == UI_STATE.PASSIVE:
-		#return
-	#match GameState.current_interaction_mode:
-		#TAKE:
-			#if is_takeable:
-				#set_primary()
-		#MOVE:
-			#print("is move")
-			#if is_movable:
-				#print("is movable")
-				#set_primary()
-		#TOUCH:
-			#if is_touchable:
-				#set_primary()
-		#LOCK_UNLOCK:
-			#if is_lockable:
-				#set_primary()
+
+
+
+func react_to_being_hovered() -> void:
+	if current_ui_state == UI_STATE.PASSIVE:
+		return
+	match GameState.current_interaction_mode:
+		TAKE:
+			if is_takeable:
+				set_primary()
+		MOVE:
+			print("is move")
+			if is_movable:
+				print("is movable")
+				set_primary()
+		TOUCH:
+			if is_touchable:
+				set_primary()
+		LOCK_UNLOCK:
+			if is_lockable:
+				set_primary()
 
 func _on_mouse_shape_exited() -> void:
 	print("mouse exit?!")

@@ -88,7 +88,7 @@ func _on_object_mouse_over_started(obj:ScrapbookObject):
 		print("resetting old??")
 		currently_hovered_obj.set_interactable()
 	currently_hovered_obj = obj
-	obj.set_primary()
+	obj.react_to_being_hovered()
 	
 func _on_object_mouse_over_finished(_obj:ScrapbookObject):
 	pass
