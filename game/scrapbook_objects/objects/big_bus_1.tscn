@@ -22,9 +22,7 @@ size = Vector2(9016, 2371)
 [node name="ScapbookObject" instance=ExtResource("1_efhm1")]
 word_list = SubResource("Resource_fwilr")
 color = ExtResource("4_4e4jl")
-is_touchable = false
 is_movable = false
-is_takeable = true
 lock_sound = ExtResource("5_d7tyr")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
