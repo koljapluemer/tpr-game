@@ -69,12 +69,12 @@ func update_possible_quest_list():
 		if not is_instance_valid(obj):
 			push_warning("warning: attempting to analyze begone object", obj)
 			continue
-		for word in obj.word_list:
+		for word in obj.sensible_identifiers:
 			for mode in obj.get_affordances():
 				var quest:Quest = SimpleInteractionQuest.create(word, mode)
-				print("appending quest....")
 				possible_quests.append(quest)
-		# TODO: build combination quests :)
+		# building combination quests
+		# TODO: make this its own function and document properly
 		# loop through the objects again, and see if
 		# any one satisfies the one this one wants to combine with
 		# aka fruit x is ready to be combined with any knife
@@ -85,10 +85,15 @@ func update_possible_quest_list():
 				# we can't combine objects with themselves
 				for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
 					if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
-						var word_to_call_receiving_object:String = obj.word_list.pick_random()
-						var word_to_call_sending_object:String =  scrapbook_interaction.key_word
+						# note: word to use is picked randomly, we could also use *all* the possible combinations
+						# but since most combinations are only fun *or* kill either sender or receiver, that
+						# would be somewhat pointless
+						# ...but this makes `possible_quests` somewhat of a misnomer
+						var word_to_call_receiving_object:String = obj.sensible_identifiers.pick_random()
+						var word_to_call_sending_object:String =  possible_combination_object.sensible_identifiers.pick_random()
 						var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
 						possible_quests.append(quest)
+						print(quest)
 
 func start_random_quest():
 	if len(possible_quests) > 0:
@@ -179,8 +184,6 @@ func analyze_special_wording_opportunities():
 			if not obj.sensible_identifiers.has(id):
 				obj.sensible_identifiers.append(id)
 		print(obj.sensible_identifiers)
-		
-							
 
 
 func _on_quest_finished(quest:Quest):
