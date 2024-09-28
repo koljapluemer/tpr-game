@@ -3,16 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_y3l2i"]
 [ext_resource type="Script" path="res://game/words/words/word_lists/word_list.gd" id="2_earun"]
 [ext_resource type="Script" path="res://game/words/word.gd" id="3_2g2yr"]
+[ext_resource type="Resource" uid="uid://c6b4h6cn4vu1f" path="res://game/words/words/you.tres" id="4_5qf83"]
 [ext_resource type="Texture2D" uid="uid://cunssdw3hj7bf" path="res://game/scrapbook_objects/assets/object_pngs/you.png" id="4_47k66"]
-
-[sub_resource type="Resource" id="Resource_ryewn"]
-script = ExtResource("3_2g2yr")
-key = "YOU"
-word_group = Array[String](["WORD"])
 
 [sub_resource type="Resource" id="Resource_fwilr"]
 script = ExtResource("2_earun")
-words = Array[ExtResource("3_2g2yr")]([SubResource("Resource_ryewn")])
+words = Array[ExtResource("3_2g2yr")]([ExtResource("4_5qf83")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
 size = Vector2(365, 1685)

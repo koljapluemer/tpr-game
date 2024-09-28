@@ -64,8 +64,9 @@ func _process(delta: float) -> void:
 	if is_moving:
 		global_position = get_global_mouse_position()
 		if Input.is_action_just_released("click"):
+			print("movement stop emit")
 			is_moving = false
-		movement_stopped.emit(self)
+			movement_stopped.emit(self)
 
 	
 func enact_object_being_taken():
@@ -124,7 +125,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	print(name, ": something entered me")
 	if area is ScrapbookObject:
+		print(name, ": scrapbook obj entered me, here it is", area.name)
 		area.movement_stopped.connect(_on_other_object_dropped_on_to_me)
 
 
@@ -133,6 +136,7 @@ func _on_area_exited(area: Area2D) -> void:
 		area.movement_stopped.disconnect(_on_other_object_dropped_on_to_me)
 
 func _on_other_object_dropped_on_to_me(obj:ScrapbookObject):
+	print("object dropped on me")
 	for scrapbook_interaction in scrapbook_interactions:
 		if obj.word_list.words.has(scrapbook_interaction.key_word):
 			# at this point the combination is happening

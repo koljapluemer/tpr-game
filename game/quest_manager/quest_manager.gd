@@ -57,6 +57,9 @@ func start_random_quest():
 
 	# TODO: we're getting the words of objects here *a lot* of times
 	for obj:ScrapbookObject in objects:
+		if not is_instance_valid(obj):
+			push_warning("warning: attempting to analyze begone object", obj)
+			continue
 		for word in obj.word_list.words:
 			for mode in obj.get_affordances():
 				var quest:Quest = SimpleInteractionQuest.create(word, mode)
