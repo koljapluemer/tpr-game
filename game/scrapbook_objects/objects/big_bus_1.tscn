@@ -57,7 +57,7 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkbg0"]
-size = Vector2(1065, 1731)
+size = Vector2(9016, 2371)
 
 [node name="ScapbookObject" instance=ExtResource("1_efhm1")]
 word_list = SubResource("Resource_fwilr")
@@ -74,7 +74,7 @@ scale = Vector2(5.76141, 5.76141)
 texture = ExtResource("6_kxlih")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(3298.5, -1006.5)
+position = Vector2(-425, -1107.5)
 shape = SubResource("RectangleShape2D_mkbg0")
 debug_color = Color(1.29953e-05, 0.958176, 0.598779, 0.42)
 
