@@ -43,6 +43,7 @@ func _on_bg_mouse_over_started():
 		currently_hovered_obj =  null
 	
 func _on_object_appeared(obj:ScrapbookObject):
+	print("obj appeared")
 	scrapbook_objects.append(obj)
 	MessageManager.object_list_changed.emit(scrapbook_objects)
 

@@ -11,18 +11,22 @@ signal quest_no_longer_active(quest:Quest)
 # but then again, I also need to react when quests become impossible...
 var objects: Array[ScrapbookObject] = []
 var active_quests: Array[Quest] = []
+var possible_quests: Array[Quest] = []
 var quests_done:= 0
 var last_quest: Quest
 
 func _ready() -> void:
+	print("connected...")
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
+	call_deferred("start_random_quest")
 	
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
+	print("obj list changed")
 	objects = obj_list
 	analyze_special_wording_opportunities()
+	update_possible_quest_list()
 	if len(active_quests) > 0:
 		check_if_active_quests_are_still_possible()
-	make_sure_that_there_is_one_active_quest()
 
 func check_if_active_quests_are_still_possible():
 	# get all the words currently available
@@ -48,13 +52,14 @@ func make_sure_that_there_is_one_active_quest():
 # have communicated their objects and potentials
 # so the first quest is always related to the first object
 # spawned and cannot involve interactions
-func start_random_quest():
+func update_possible_quest_list():
+	print("updating quest list...")
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
 		SceneManager.load_end_level_screen()
 		return
 	
-	var possible_quests = []
+	possible_quests = []
 
 	# TODO: we're getting the words of objects here *a lot* of times
 	for obj:ScrapbookObject in objects:
@@ -64,6 +69,7 @@ func start_random_quest():
 		for word in obj.word_list:
 			for mode in obj.get_affordances():
 				var quest:Quest = SimpleInteractionQuest.create(word, mode)
+				print("appending quest....")
 				possible_quests.append(quest)
 		# TODO: build combination quests :)
 		# loop through the objects again, and see if
@@ -80,15 +86,16 @@ func start_random_quest():
 						var word_to_call_sending_object:String =  scrapbook_interaction.key_word
 						var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
 						possible_quests.append(quest)
-	
-	# prevent picking the last quest again
-	if last_quest:
-		for q:Quest in possible_quests:
-			if last_quest.get_key() == q.get_key():
-				possible_quests.erase(q)
-	
+
+func start_random_quest():
 	if len(possible_quests) > 0:
-		var quest:Quest = possible_quests.pick_random()
+		# prevent picking the last quest again
+		var quests_that_could_be_picked: Array[Quest] = possible_quests
+		if last_quest:
+			for q:Quest in quests_that_could_be_picked:
+				if last_quest.get_key() == q.get_key():
+					quests_that_could_be_picked.erase(q)
+		var quest:Quest = quests_that_could_be_picked.pick_random()
 				
 		if quest.request_activation():
 			quest_started.emit(quest)
@@ -97,9 +104,8 @@ func start_random_quest():
 			active_quests.append(quest)
 			last_quest = quest
 	else:
-		# if we don't have quests, means stuff like 
-		# all objects were taken
-		SceneManager.load_end_level_screen()
+		print("can't start, there are no quests")
+
 
 
 ## checking for things like "go to the left bus"
@@ -114,18 +120,6 @@ func analyze_special_wording_opportunities():
 			for comparison_obj:ScrapbookObject in objects:
 				if comparison_obj.word_list.has(words):
 					print("found something where we can compare color")
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 func _on_quest_finished(quest:Quest):
