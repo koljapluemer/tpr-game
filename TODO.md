@@ -1,3 +1,7 @@
+*we are not at a point where we can set goals that*
+ENABLE ME TO LEARN AR IN A PLAYFUL WAY
+(building abstractions only when it enables me to do the above)
+
 - see that layout behaves on LTR
 - get credits for all icons I may use from https://game-icons.net
 - hook up custom cursor again
@@ -16,3 +20,4 @@
 - IMMEDIATE NEXT: build a manual hard-coded drag drop following tutorial; see how they do it
 
 - cursed race condition: combination_quest finishes, but at the same time the target object is removed so it becomes "unsolvable" at around the same point — yet ofc you want to guard against the quest actually becoming impossible by combination stuff...
+- scene follow no clear inheritance

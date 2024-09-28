@@ -11,7 +11,7 @@ var scrapbook_objects: Array[ScrapbookObject]
 func _ready() -> void:
 	MessageManager.object_appeared.connect(_on_object_appeared)
 	MessageManager.object_disappeared.connect(_on_object_disappeared)
-	
+	get_parent().get_viewport().set_physics_object_picking_sort(true)
 	
 func _on_object_appeared(obj:ScrapbookObject):
 	scrapbook_objects.append(obj)

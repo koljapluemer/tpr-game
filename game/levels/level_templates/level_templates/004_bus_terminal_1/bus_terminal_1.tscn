@@ -1,31 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://wn3spjwrij7o"]
+[gd_scene load_steps=8 format=3 uid="uid://wn3spjwrij7o"]
 
-[ext_resource type="PackedScene" uid="uid://vu0bfvfs8go7" path="res://game/levels/level_templates/level_templates/003_single_car/street.tscn" id="1_sntga"]
+[ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_po4jr"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_qatx8"]
+[ext_resource type="PackedScene" uid="uid://bunt3dvolwfk8" path="res://game/ui/quests/quest_ui.tscn" id="3_387g0"]
 [ext_resource type="Texture2D" uid="uid://c5yjbu71yo84n" path="res://game/levels/level_templates/level_templates/004_bus_terminal_1/bg.png" id="4_jvllo"]
 [ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="5_ps7ae"]
 [ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="6_03kl6"]
+[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="7_atd6e"]
 
-[node name="Level" instance=ExtResource("1_sntga")]
+[node name="Level" type="Node2D"]
+script = ExtResource("1_po4jr")
 
-[node name="Sprite2D" parent="Background" index="0"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_qatx8")]
+unique_name_in_owner = true
+
+[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
+quest_ui = ExtResource("3_387g0")
+quest_manager = NodePath("../../../../../../QuestManager")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
 position = Vector2(403.181, 108.411)
+scale = Vector2(0.94706, 0.94706)
 texture = ExtResource("4_jvllo")
 
-[node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints" index="0"]
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(530, 184)
 script = ExtResource("5_ps7ae")
 accepts = Array[PackedScene]([ExtResource("6_03kl6")])
 scale_factor = 0.045
 
-[node name="SpawnPoint2" type="Marker2D" parent="SpawnPoints" index="1"]
+[node name="SpawnPoint2" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(370, 208)
 script = ExtResource("5_ps7ae")
 accepts = Array[PackedScene]([ExtResource("6_03kl6")])
 scale_factor = 0.055
 
-[node name="SpawnPoint" parent="SpawnPoints" index="2"]
+[node name="SpawnPoint" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(194, 232)
+script = ExtResource("5_ps7ae")
 accepts = Array[PackedScene]([ExtResource("6_03kl6")])
 scale_factor = 0.06
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_atd6e")
 
 [editable path="CanvasLayer"]
