@@ -19,12 +19,10 @@ var quests_done:= 0
 var last_quest: Quest
 
 func _ready() -> void:
-	print("connected...")
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
 	call_deferred("start_random_quest")
 	
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
-	print("obj list changed")
 	objects = obj_list
 	analyze_special_wording_opportunities()
 	update_possible_quest_list()
@@ -48,7 +46,6 @@ func check_if_active_quests_are_still_possible():
 				
 
 func make_sure_that_there_is_one_active_quest():	
-	print("making sure there are enough quests")
 	if len(active_quests) == 0:
 		update_possible_quest_list()
 		start_random_quest()
@@ -58,18 +55,24 @@ func make_sure_that_there_is_one_active_quest():
 # so the first quest is always related to the first object
 # spawned and cannot involve interactions
 func update_possible_quest_list():
-	print("updating quest list...")
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
 		SceneManager.load_end_level_screen()
 		return
 	
 	possible_quests = []
-	#possible_quests.append(get_simple_interaction_quests())
-	possible_quests.append(get_combine_two_objects_quests())
+	var interaction_quests := get_simple_interaction_quests()
+	# doing this the stupid why because array typing breaks
+	for q in interaction_quests:
+		pass
+		#possible_quests.append(q)
+	var combination_quests := get_combine_two_objects_quests()
+	for q in combination_quests:
+		possible_quests.append(q)
+	
 
 func get_simple_interaction_quests() -> Array[SimpleInteractionQuest]:
-	var possible_quests:Array[SimpleInteractionQuest] = []
+	var _possible_quests:Array[SimpleInteractionQuest] = []
 
 	for obj:ScrapbookObject in objects:
 		if not is_instance_valid(obj):
@@ -78,12 +81,11 @@ func get_simple_interaction_quests() -> Array[SimpleInteractionQuest]:
 		for word in obj.sensible_identifiers:
 			for mode in obj.get_affordances():
 				var quest:Quest = SimpleInteractionQuest.create(word, mode)
-				possible_quests.append(quest)
-				
-	return possible_quests
+				_possible_quests.append(quest)
+	return _possible_quests
 		
 func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
-	var possible_quests:Array[CombineTwoObjectsQuest] = []
+	var _possible_quests:Array[CombineTwoObjectsQuest] = []
 
 	for obj:ScrapbookObject in objects:
 		# building combination quests
@@ -104,9 +106,10 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 						var word_to_call_receiving_object:String = obj.sensible_identifiers.pick_random()
 						var word_to_call_sending_object:String =  possible_combination_object.sensible_identifiers.pick_random()
 						var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
-						possible_quests.append(quest)
-					
-	return possible_quests
+						_possible_quests.append(quest)
+						
+	print("get_combine_two_objects_quests: possible combination quests: ", _possible_quests)	
+	return _possible_quests
 
 func start_random_quest():
 	if len(possible_quests) > 0:
@@ -196,7 +199,6 @@ func analyze_special_wording_opportunities():
 		for id in sensible_identifiers:
 			if not obj.sensible_identifiers.has(id):
 				obj.sensible_identifiers.append(id)
-		print(obj.sensible_identifiers)
 
 
 func _on_quest_finished(quest:Quest):

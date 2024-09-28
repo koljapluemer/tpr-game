@@ -11,7 +11,6 @@ func check_for_matching_audio(key):
 	if ResourceLoader.exists(path):
 		return path
 	else:
-		print("audio key not found: ", key)
 		write_missing_key_to_file(key)
 		return null
 	

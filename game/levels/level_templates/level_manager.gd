@@ -45,7 +45,6 @@ func _on_bg_mouse_over_started():
 		currently_hovered_obj =  null
 	
 func _on_object_appeared(obj:ScrapbookObject):
-	print("obj appeared")
 	scrapbook_objects.append(obj)
 	MessageManager.object_list_changed.emit(scrapbook_objects)
 
@@ -55,7 +54,6 @@ func _on_object_disappeared(obj:ScrapbookObject):
 
 ## Drag and Drop
 func _on_object_drag_started(obj: ScrapbookObject):
-	print("registered drag of", obj)
 	currently_dragged_object = obj
 	_find_and_mark_eligible_objects_to_drop_on()
 	
@@ -77,16 +75,13 @@ func _find_and_mark_eligible_objects_to_drop_on():
 		if obj == currently_dragged_object:
 			continue
 		for scrapbook_interaction in obj.scrapbook_interactions:
-			print("found something worth highlighting...")
 			if currently_dragged_object.word_list.has(scrapbook_interaction.key_word):
 				obj.set_highlighted()
 				
 # finding the actual intended mouse hover stuff
 func _on_object_mouse_over_started(obj:ScrapbookObject):
-	print("hovering new....")
 	#objects_currently_hovered_by_mouse.append(obj)
 	if currently_hovered_obj:
-		print("resetting old??")
 		currently_hovered_obj.set_interactable()
 	currently_hovered_obj = obj
 	obj.react_to_being_hovered()

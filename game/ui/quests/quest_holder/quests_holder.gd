@@ -13,7 +13,6 @@ func add_active_quest(quest:Quest):
 	var inst:QuestUI = quest_ui.instantiate()
 	add_child(inst)
 	if inst.has_method("set_quest_data"):
-		print("setting quest data for quest", quest)
 		inst.set_quest_data(quest)
 		inst.quest = quest
 		quest_objects.append(inst)

@@ -58,7 +58,12 @@ func _ready() -> void:
 		#sprite_2d.material = sprite_2d.material.duplicate()
 		set_interactable()
 		pass
-		
+
+# TODO: this is a cursed non-state-machine
+# stuff like things being highlighted (because they are a possible drop target)
+# then become primary because they're hovered, then drop down 
+# to highlighted again (not interactable!)
+# are not reflected and almost impossible to reflect with this setup...		
 func set_passive():
 	current_ui_state = UI_STATE.PASSIVE
 	if sprite_2d:
@@ -71,22 +76,17 @@ func set_interactable():
 		sprite_2d.material.set_shader_parameter("line_color", Color.WHITE)
 
 func set_highlighted():
-	print("setting highlight")
 	current_ui_state = UI_STATE.HIGHLIGHTED
 	if sprite_2d:
 		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 1.5)
 		sprite_2d.material.set_shader_parameter("line_color", Color(0.45, 0.99, 0.75, 1))
 
 func set_primary():
-	print("setting primary")
 	current_ui_state = UI_STATE.PRIMARY
 	if sprite_2d:
 		sprite_2d.material = sprite_2d.material.duplicate()
 		sprite_2d.material.set_shader_parameter("line_thickness", default_outline_thickness * 2)
 		sprite_2d.material.set_shader_parameter("line_color", Color(0.87, 0.92, 0.45, 1))
-		print('should be reflected..?')
-	else:
-		print('no sprite?!')
 
 
 ## Currently handles two jobs: [br][br]
@@ -156,7 +156,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 	if is_touchable and GameState.current_interaction_mode == TOUCH:
 		if event.is_action_pressed("click"):
-			print(name, ": was touched")
 			MessageManager.object_was_interacted_with.emit(self, TOUCH)
 			
 	if is_lockable and GameState.current_interaction_mode == LOCK_UNLOCK:
@@ -174,9 +173,6 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):
-	# TODO: should be obsolete and now handled by level_manager
-	# likely needs to be rewritten a bit only
-	print(word_list, " object dropped on me:", obj.word_list)
 	for scrapbook_interaction in scrapbook_interactions:
 		if obj.word_list.has(scrapbook_interaction.key_word):
 			# at this point the combination is happening
@@ -203,9 +199,7 @@ func react_to_being_hovered() -> void:
 			if is_takeable:
 				set_primary()
 		MOVE:
-			print("is move")
 			if is_movable:
-				print("is movable")
 				set_primary()
 		TOUCH:
 			if is_touchable:
