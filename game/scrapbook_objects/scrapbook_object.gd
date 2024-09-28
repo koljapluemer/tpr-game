@@ -45,7 +45,7 @@ var current_ui_state:UI_STATE
 var is_moving:= false
 var is_being_taken := false
 ## the base words, like CAR and VEHICLE, but also CAR__LEFT and CAR__BLUE depending on what we can compare to
-var sensible_indentifiers: Array[String] = []
+var sensible_identifiers: Array[String] = []
 
 @onready var progress: TextureProgressBar = %Progress
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D

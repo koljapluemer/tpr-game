@@ -14,7 +14,7 @@ shader_parameter/line_thickness = 1.0
 size = Vector2(365, 1685)
 
 [node name="ScapbookObject" instance=ExtResource("1_y3l2i")]
-color = "YOU"
+word_list = Array[String](["YOU"])
 is_touchable = false
 metadata/_edit_vertical_guides_ = [150.0]
 

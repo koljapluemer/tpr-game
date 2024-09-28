@@ -5,6 +5,9 @@ signal quest_no_longer_active(quest:Quest)
 
 @export var MAX_QUESTS_PER_LEVEL := 5
 
+const DEFINITE_ARTICLE := "THE__" 
+const INDEFINITE_ARTICLE := "A__"
+
 # this exact same thing is also tracked in `level_template.gd`
 # it is basically synced here via signal. I'm not if that's bad.
 # ...would be smarter to only get it when needed
@@ -111,10 +114,22 @@ func start_random_quest():
 ## checking for things like "go to the left bus"
 func analyze_special_wording_opportunities():
 	for obj:ScrapbookObject in objects:
+		var sensible_identifiers:Array[String] = []
 		if not is_instance_valid(obj):
 			push_warning("warning: attempting to analyze begone object", obj)
 			continue
-		print(obj.word_list, " color:", obj.color)
+		# find objects that have the same word
+		# (to find out whether or not to use definite article)
+		for word in obj.word_list:
+			var object_is_the_only_one_using_this_word:= true
+			for comparison_obj:ScrapbookObject in objects:
+				if comparison_obj.word_list.has(word):
+					object_is_the_only_one_using_this_word = false
+			if object_is_the_only_one_using_this_word:
+				sensible_identifiers.append(DEFINITE_ARTICLE+ word)
+			else:
+				sensible_identifiers.append(INDEFINITE_ARTICLE+ word)
+		
 		# find objects that have the same word, but different color
 		if obj.color != "":
 			for word in obj.word_list:
@@ -128,11 +143,17 @@ func analyze_special_wording_opportunities():
 				if len(color_count) > 1:
 					if color_count[obj.color] == 1:
 						# the object, with this word, is the only one with this color
-						obj.sensible_indentifiers.append("THE__" + word + "__" + obj.color)
+						sensible_identifiers.append(DEFINITE_ARTICLE+ word + "__" + obj.color)
 					else:
 						# the object, with this word, is one of several with this color
-						obj.sensible_indentifiers.append("A__" + word + "__" + obj.color)
-		print(obj.sensible_indentifiers)
+						sensible_identifiers.append(INDEFINITE_ARTICLE + word + "__" + obj.color)
+		
+		# crudely filter for unique values
+		for id in sensible_identifiers:
+			if not obj.sensible_identifiers.has(id):
+				obj.sensible_identifiers.append(id)
+		print(obj.sensible_identifiers)
+		
 							
 
 
