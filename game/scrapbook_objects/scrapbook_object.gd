@@ -46,6 +46,8 @@ var is_moving:= false
 var is_being_taken := false
 ## the base words, like CAR and VEHICLE, but also CAR__LEFT and CAR__BLUE depending on what we can compare to
 var sensible_identifiers: Array[String] = []
+var grid_pos:Vector2 ## position on an imagined coordinate grid, passed down from parent spawnpoint
+
 
 @onready var progress: TextureProgressBar = %Progress
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D

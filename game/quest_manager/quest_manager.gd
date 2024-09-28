@@ -148,6 +148,32 @@ func analyze_special_wording_opportunities():
 						# the object, with this word, is one of several with this color
 						sensible_identifiers.append(INDEFINITE_ARTICLE + word + "__" + obj.color)
 		
+		# find objects in the same column
+		# TODO: this breaks when objects in the same column also have the same row
+		# TODO: there is also no check for the default case of objects just chilling on (0, 0)
+		# maybe move the default to something like -99 or have a toggle?
+		for word in obj.word_list:
+			var min_row_value:= 100000
+			var max_row_value:= -100000
+			var objects_on_same_column:Array[ScrapbookObject] = []
+			for comparison_obj:ScrapbookObject in objects:
+				if comparison_obj.grid_pos.x == obj.grid_pos.x:
+					if comparison_obj.word_list.has(word):
+						objects_on_same_column.append(comparison_obj)
+						if comparison_obj.grid_pos.y < min_row_value:
+							min_row_value = comparison_obj.grid_pos.y
+						if comparison_obj.grid_pos.y > max_row_value:
+							min_row_value = comparison_obj.grid_pos.y
+						
+			# in front, in the middle, in the back
+			if len(objects_on_same_column) == 3:
+				if obj.grid_pos.y == min_row_value:
+					sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_FRONT")
+				elif obj.grid_pos.x == max_row_value:
+					sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_BACK")
+				else:
+					sensible_identifiers.append(DEFINITE_ARTICLE + word + "__IN_MIDDLE")
+		
 		# crudely filter for unique values
 		for id in sensible_identifiers:
 			if not obj.sensible_identifiers.has(id):

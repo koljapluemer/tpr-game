@@ -27,9 +27,9 @@ func spawn_in_random_object():
 
 func change_scene(scene_to_init:PackedScene):
 	print("changing scene")
-	var inst = scene_to_init.instantiate()
+	var inst:ScrapbookObject = scene_to_init.instantiate()
 	inst.scale = Vector2(scale_factor, scale_factor)
 	inst.z_index = 0
-	init_scene = inst as ScrapbookObject
+	inst.grid_pos = grid_pos
 	add_child(inst)
 	MessageManager.object_appeared.emit(inst)
