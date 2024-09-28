@@ -33,6 +33,7 @@ texture_progress = ExtResource("4_3pa2k")
 tint_progress = Color(1, 1, 1, 0.788235)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

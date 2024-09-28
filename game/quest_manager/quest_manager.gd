@@ -63,6 +63,7 @@ func update_possible_quest_list():
 	possible_quests = []
 	var interaction_quests := get_simple_interaction_quests()
 	# doing this the stupid why because array typing breaks
+	# TODO: reactivate the simple quests
 	for q in interaction_quests:
 		pass
 		#possible_quests.append(q)
@@ -174,8 +175,8 @@ func analyze_special_wording_opportunities():
 		# TODO: there is also no check for the default case of objects just chilling on (0, 0)
 		# maybe move the default to something like -99 or have a toggle?
 		for word in obj.word_list:
-			var min_row_value:= 100000
-			var max_row_value:= -100000
+			var min_row_value:int= 100000
+			var max_row_value:int= -100000
 			var objects_on_same_column:Array[ScrapbookObject] = []
 			for comparison_obj:ScrapbookObject in objects:
 				if comparison_obj.grid_pos.x == obj.grid_pos.x:

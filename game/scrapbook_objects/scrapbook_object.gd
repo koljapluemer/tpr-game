@@ -1,13 +1,8 @@
 class_name ScrapbookObject extends Area2D
-
 ## Holds a concrete [Node2D] representing an object which can be interacted with in the game.
 ## E.g. may be a car, a cat, or an apple.
 ## Must be an [Area2D] to fluently allow any kind of clicking, dragging and dropping, etc.
 
-## sent if the object (which is_movable) has just stopped moving
-## ...and may now want to engange in a [ScrapbookInteraction] if it has been
-## dropped on another [ScrapbookObject]
-signal movement_stopped 
 
 ## [Word] array with words that this concrete [Node2D] may stand for.
 ## Likely nouns, such as CAR, TAXI, VEHICLE
@@ -46,7 +41,7 @@ var is_moving:= false
 var is_being_taken := false
 ## the base words, like CAR and VEHICLE, but also CAR__LEFT and CAR__BLUE depending on what we can compare to
 var sensible_identifiers: Array[String] = []
-var grid_pos:Vector2 ## position on an imagined coordinate grid, passed down from parent spawnpoint
+var grid_pos:Vector2i ## position on an imagined coordinate grid, passed down from parent spawnpoint
 
 
 @onready var progress: TextureProgressBar = %Progress
@@ -97,7 +92,7 @@ func set_primary():
 ## More importantly, we need to also listen for the end of "click" [Input] here,
 ## because the mouse may have left the [Area2D] of this object, so we cannot track the end of
 ## a drag and drop in [method _on_input_event] like the rest.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_being_taken:
 		progress.value += taking_speed
 		if progress.value >= 100:
@@ -133,7 +128,7 @@ func get_affordances() -> Array[Interaction]:
 	return affordances
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	
 	if is_movable and GameState.current_interaction_mode == MOVE:
 		if event.is_action_pressed("click"):
@@ -165,18 +160,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				audio_player.play()
 			is_locked = !is_locked
 			MessageManager.object_was_interacted_with.emit(self, LOCK_UNLOCK)
-			
-
-
-func _on_area_entered(area: Area2D) -> void:
-	pass
 
 
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):
-	for scrapbook_interaction in scrapbook_interactions:
+	for scrapbook_interaction:ScrapbookInteraction in scrapbook_interactions:
+		print("checking for key_word: ", scrapbook_interaction.key_word)
 		if obj.word_list.has(scrapbook_interaction.key_word):
 			# at this point the combination is happening
 			MessageManager.objects_were_combined.emit(obj, self)
+			print("sending emit...")
 			for instance in scrapbook_interaction.objects_to_spawn:
 				# let parent spawnpoint handle itbird
 				get_parent().change_scene(instance)
