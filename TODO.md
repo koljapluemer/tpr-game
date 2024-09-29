@@ -23,3 +23,5 @@ ENABLE ME TO LEARN AR IN A PLAYFUL WAY
 - `quest_manager` has some "let's overcome race condition by timer" stuff
 
 - document how to name keys
+- I think there is something broken with the check whether quests are still possible
+- implement that a quest with a missing key is skipped (at least make this a setting)
