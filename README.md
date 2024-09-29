@@ -1,5 +1,13 @@
 # Tpr Game
 
+## How To
+
+### Running the Python Script
+
+- from root folder
+- activate venv: `source game/language/scripts/.venv/bin/activate`
+- run: `python game/language/scripts/add_missing_keys_to_csv.py`
+
 ## Credit
 ### Sound
 - success sound: success.wav by grunz -- https://freesound.org/s/109662/ -- License: Attribution 3.0
