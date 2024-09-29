@@ -110,7 +110,8 @@ func get_simple_interaction_quests() -> Array[SimpleInteractionQuest]:
 		for word in obj.sensible_identifiers:
 			for mode in obj.get_affordances():
 				var quest:Quest = SimpleInteractionQuest.create(word, mode)
-				_possible_quests.append(quest)
+				if LanguageManager.check_for_matching_audio(quest.key):
+					_possible_quests.append(quest)
 	return _possible_quests
 		
 func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
