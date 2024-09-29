@@ -25,3 +25,4 @@ ENABLE ME TO LEARN AR IN A PLAYFUL WAY
 - document how to name keys
 - I think there is something broken with the check whether quests are still possible
 - implement that a quest with a missing key is skipped (at least make this a setting)
+- sound for quests right, for quests not right
