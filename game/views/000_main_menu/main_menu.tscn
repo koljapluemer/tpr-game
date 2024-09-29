@@ -22,12 +22,41 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
+[node name="Header" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "The Language Scrapbook
+"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "WELCOME"
+theme_type_variation = &"TooltipLabel"
+text = "Please select a language to practice:"
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="LanguageOptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Arabic"
+popup/item_1/text = "German"
+popup/item_1/id = 1
+popup/item_2/text = "Italian"
+popup/item_2/id = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
 text = "Play"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_button_pressed"]

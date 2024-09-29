@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cp271omfkphl" path="res://game/scrapbook_objects/objects/melon_touch_and_take.tscn" id="2_kubjf"]
 [ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="3_fgcqt"]
 
-[node name="Level" instance=ExtResource("1_5i15m")]
+[node name="Level3" instance=ExtResource("1_5i15m")]
 
 [node name="DefaultSpawn3" type="Marker2D" parent="SpawnPoints" index="0"]
 z_index = 7

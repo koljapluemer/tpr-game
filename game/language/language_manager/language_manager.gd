@@ -1,13 +1,8 @@
 extends Node
 
-var language_code = "ar"
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	TranslationServer.set_locale(language_code)
 
 func check_for_matching_audio(key):
-	var path = "res://src/translations/audio/" + language_code + "/" + key + ".mp3"
+	var path = "res://src/translations/audio/" + TranslationServer.get_locale() + "/" + key + ".mp3"
 	if ResourceLoader.exists(path):
 		return path
 	else:
