@@ -55,6 +55,10 @@ click_shape=""
 hot_bar=""
 background=""
 
+[gui]
+
+theme/custom_font="res://game/shared_assets/Tajawal-Medium.ttf"
+
 [input]
 
 left={
