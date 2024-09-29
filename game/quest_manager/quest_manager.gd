@@ -1,9 +1,11 @@
+## Handles identifying possible quests, which quests to do next, and by which id to call words
 class_name QuestManager extends Node
 
 signal quest_started(quest:Quest)
 signal quest_no_longer_active(quest:Quest)
 
 @export var MAX_QUESTS_PER_LEVEL := 7
+@export var DELAY_UNTIL_FIRST_QUEST := 3
 @export var assume_there_is_a_grid:= false
 
 const DEFINITE_ARTICLE := "THE__" 
@@ -18,17 +20,36 @@ var active_quests: Array[Quest] = []
 var possible_quests: Array[Quest] = []
 var quests_done:= 0
 var last_quest: Quest
+## is set after a timer
+## this both gives the player time to come to grips
+## but it also is a crude measure to prevent the condition that if we update the quest list
+## and more importantly, the sensible_identifiers of every [ScrapbookObject] one by one
+## we get definite articles for objects that don't yet know that they're not the only ones with this
+## naming scheme...
+var allow_quests_to_start := false 
 
 func _ready() -> void:
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
-	call_deferred("start_random_quest")
+	get_tree().create_timer(DELAY_UNTIL_FIRST_QUEST).timeout.connect(set_allow_quest_start)
+
+func set_allow_quest_start():
+	allow_quests_to_start = true
+	setup()
 	
+
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
-	objects = obj_list
-	analyze_special_wording_opportunities()
-	update_possible_quest_list()
-	if len(active_quests) > 0:
-		check_if_active_quests_are_still_possible()
+	objects = obj_list	
+	setup()
+	
+	
+func setup():
+	if allow_quests_to_start:
+		if len(active_quests) > 0:
+			check_if_active_quests_are_still_possible()
+		analyze_special_wording_opportunities()
+		update_possible_quest_list()
+		make_sure_that_there_is_one_active_quest()
+
 
 func check_if_active_quests_are_still_possible():
 	# get all the words currently available
@@ -189,21 +210,23 @@ func analyze_special_wording_opportunities():
 							if comparison_obj.grid_pos.y < min_row_value:
 								min_row_value = comparison_obj.grid_pos.y
 							if comparison_obj.grid_pos.y > max_row_value:
-								min_row_value = comparison_obj.grid_pos.y
-							
+								max_row_value = comparison_obj.grid_pos.y
+				
 				# in front, in the middle, in the back
 				if len(objects_on_same_column) == 3:
 					if obj.grid_pos.y == min_row_value:
 						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_FRONT")
-					elif obj.grid_pos.x == max_row_value:
+					elif obj.grid_pos.y == max_row_value:
 						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_BACK")
 					else:
 						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__IN_MIDDLE")
 		
 		# crudely filter for unique values
+		obj.sensible_identifiers = []
 		for id in sensible_identifiers:
 			if not obj.sensible_identifiers.has(id):
 				obj.sensible_identifiers.append(id)
+		print("got the following: ", sensible_identifiers)
 
 
 func _on_quest_finished(quest:Quest):

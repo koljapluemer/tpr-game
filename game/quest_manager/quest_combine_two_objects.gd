@@ -13,7 +13,7 @@ static func create(_sender: String, _receiver: String) -> Quest:
 	return inst
 
 func get_key() -> String:
-	return "COMBINE__" + sender_word + "WITH__" + receiver_word
+	return "COMBINE__" + sender_word + "__WITH__" + receiver_word
 
 
 func _activate() -> void:
