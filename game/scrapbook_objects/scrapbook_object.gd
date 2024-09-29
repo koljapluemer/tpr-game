@@ -28,6 +28,8 @@ class_name ScrapbookObject extends Area2D
 @export var is_locked:= true
 @export var lock_sound: AudioStream
 
+@export var limit_movement_to_x := false
+
 
 const LOCK_UNLOCK = preload("res://game/interactions/interactions/lock_unlock.tres")
 const MOVE = preload("res://game/interactions/interactions/move.tres")
@@ -106,7 +108,11 @@ func _process(_delta: float) -> void:
 			progress.value = 0
 			
 	if is_moving:
-		global_position = get_global_mouse_position() + mouse_offset_when_moved
+		if limit_movement_to_x:
+			global_position.x = get_global_mouse_position().x + mouse_offset_when_moved.x
+		else:
+			global_position = get_global_mouse_position() + mouse_offset_when_moved
+			
 		if Input.is_action_just_released("click"):
 			is_moving = false
 			MessageManager.object_drag_finished.emit(self)

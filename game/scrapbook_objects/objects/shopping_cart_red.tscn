@@ -17,6 +17,7 @@ size = Vector2(1128, 1152)
 word_list = Array[String](["SHOPPING_CART"])
 color = "RED"
 is_touchable = false
+limit_movement_to_x = true
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]
