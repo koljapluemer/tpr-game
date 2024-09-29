@@ -17,7 +17,6 @@ var audio_player: AudioStreamPlayer2D
 
 
 func _ready() -> void:
-	NOTIFICATION_TRANSLATION_CHANGED
 	audio_player = get_tree().get_first_node_in_group(\"audio_player\")
 
 func set_quest_data(_quest: Quest):
