@@ -16,6 +16,8 @@ with open(MISSING_KEYS_FILE, 'r') as f:
 missing_keys = list(set(missing_keys))
 missing_keys.sort()
 
+print("missing keys:", missing_keys)
+
 with open(CSV_FILE, 'r') as f:
     reader = csv.reader(f)
     rows = list(reader)
@@ -23,14 +25,13 @@ with open(CSV_FILE, 'r') as f:
     keys = [row[0] for row in rows]
 
     for key in missing_keys:
+        print("checking key", key)
         if key not in keys:
             rows.append([key, ''])
+        else:
+            print("key already in csv")
 
 
 with open(CSV_FILE, 'w') as f:
     writer = csv.writer(f)
     writer.writerows(rows)
-
-# remove missing keys file (to empty file)
-open(MISSING_KEYS_FILE, 'w').close()
-
