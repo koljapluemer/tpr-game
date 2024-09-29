@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc0na7vn5uyxh"
-path="res://.godot/imported/shelves.png-04a7ffc1697f3f88afaa230153784ce6.ctex"
+uid="uid://de1j2ca8f0ctx"
+path="res://.godot/imported/supermarket_interior.png-8eed544aa4e0801229a40c46bf4c0fe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/levels/level_templates/level_templates/story/shelves.png"
-dest_files=["res://.godot/imported/shelves.png-04a7ffc1697f3f88afaa230153784ce6.ctex"]
+source_file="res://game/levels/level_templates/supermarket_interior.png"
+dest_files=["res://.godot/imported/supermarket_interior.png-8eed544aa4e0801229a40c46bf4c0fe7.ctex"]
 
 [params]
 

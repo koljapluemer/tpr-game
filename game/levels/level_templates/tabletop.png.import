@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmx6r3h5oc0t1"
-path="res://.godot/imported/table.png-d3d5828592aa73c72870947a8427a9fa.ctex"
+uid="uid://bs1lxxjm7xw1o"
+path="res://.godot/imported/tabletop.png-04823c79c9ab36edf4904d4072361c02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/levels/level_templates/level_templates/006_pick_one_fruit_from_table/table.png"
-dest_files=["res://.godot/imported/table.png-d3d5828592aa73c72870947a8427a9fa.ctex"]
+source_file="res://game/levels/level_templates/tabletop.png"
+dest_files=["res://.godot/imported/tabletop.png-04823c79c9ab36edf4904d4072361c02.ctex"]
 
 [params]
 

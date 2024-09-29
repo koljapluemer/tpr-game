@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2tpqosai0vok"]
+
+[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_mvomt"]
+[ext_resource type="Texture2D" uid="uid://dnrbb7ate5k1l" path="res://game/levels/level_templates/street.png" id="2_uvkh1"]
+
+[node name="Level" instance=ExtResource("1_mvomt")]
+
+[node name="Sprite2D" parent="Background" index="0"]
+texture = ExtResource("2_uvkh1")
+
+[editable path="CanvasLayer"]

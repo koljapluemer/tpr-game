@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://din3g8d8apecb"]
+
+[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_1prrp"]
+[ext_resource type="Texture2D" uid="uid://eldwc8k48m3g" path="res://game/levels/level_templates/city_background.png" id="2_s7dqi"]
+
+[node name="Level" instance=ExtResource("1_1prrp")]
+
+[node name="Sprite2D" parent="Background" index="0"]
+position = Vector2(322, 89)
+scale = Vector2(2.60255, 2.60255)
+texture = ExtResource("2_s7dqi")
+
+[node name="DefaultSpawn" parent="SpawnPoints" index="0"]
+position = Vector2(634, 208)
+scale_factor = 0.2
+
+[editable path="CanvasLayer"]

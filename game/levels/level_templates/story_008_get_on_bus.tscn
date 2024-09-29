@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://brbvtap4nbywt"]
+
+[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_7oc6i"]
+[ext_resource type="Texture2D" uid="uid://cxarvs2xigmvj" path="res://game/scrapbook_objects/assets/object_pngs/bus_top.png" id="2_7wljj"]
+[ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="3_l254h"]
+[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="4_4l5rw"]
+[ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="5_jtro5"]
+
+[node name="Level" instance=ExtResource("1_7oc6i")]
+
+[node name="Sprite2D" parent="Background" index="0"]
+position = Vector2(408.181, 46.411)
+texture = ExtResource("2_7wljj")
+
+[node name="DefaultSpawn" parent="SpawnPoints" index="0"]
+position = Vector2(90, 297)
+accepts = Array[PackedScene]([ExtResource("3_l254h")])
+
+[node name="DefaultSpawn2" type="Marker2D" parent="SpawnPoints" index="1"]
+z_index = 7
+position = Vector2(706, 217)
+script = ExtResource("4_4l5rw")
+accepts = Array[PackedScene]([ExtResource("5_jtro5")])
+scale_factor = 0.16
+
+[node name="QuestManager" parent="." index="4"]
+MAX_QUESTS_PER_LEVEL = 5
+
+[editable path="CanvasLayer"]

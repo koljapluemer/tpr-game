@@ -102,10 +102,9 @@ func _on_quest_started(quest: Quest):
 	if audio_stream_player_2d:
 		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + quest.key + ".mp3"
 		if ResourceLoader.exists(audio):
-			print("audio path: ", audio)
 			audio_stream_player_2d.stream = load(audio)
 			audio_stream_player_2d.play()
 		else:
 			print("audio does not exist:", audio)
 	else:
-		print("audio_player not found")
+		push_warning(("audio_player not found")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://tjv7yadsbjbb"]
 
-[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_templates/level_template_to_copy.tscn" id="1_i5k1r"]
-[ext_resource type="Texture2D" uid="uid://dmx6r3h5oc0t1" path="res://game/levels/level_templates/level_templates/006_pick_one_fruit_from_table/table.png" id="2_631pd"]
+[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_i5k1r"]
+[ext_resource type="Texture2D" uid="uid://dmx6r3h5oc0t1" path="res://game/levels/level_templates/table.png" id="2_631pd"]
 [ext_resource type="PackedScene" uid="uid://2qqrs43q81r1" path="res://game/scrapbook_objects/objects/apple_move_touch.tscn" id="3_p8eel"]
 [ext_resource type="PackedScene" uid="uid://bh27f63ojfoa4" path="res://game/scrapbook_objects/objects/banana_move_touch.tscn" id="4_ewexh"]
 [ext_resource type="PackedScene" uid="uid://d2e1atsrpeitp" path="res://game/scrapbook_objects/objects/coconut_move_touch.tscn" id="5_b3yvk"]

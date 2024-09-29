@@ -15,7 +15,6 @@ static func create(_sender: String, _receiver: String) -> Quest:
 
 func _activate() -> void:
 	super()
-	print("activated and connected")
 	MessageManager.objects_were_combined.connect(_on_objects_were_combined)
 
 func _on_objects_were_combined(sender:ScrapbookObject, receiver:ScrapbookObject):

@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkrqry11vqg7y"]
+[gd_scene load_steps=10 format=3 uid="uid://b7lp0ggrnmn2i"]
 
-[ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_arsvk"]
-[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_xka54"]
-[ext_resource type="Texture2D" uid="uid://cbar4gijd2djd" path="res://game/levels/level_templates/level_templates/005_bus_terminal_2/terminal.png" id="4_h5tmk"]
-[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="5_1vdn8"]
-[ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="6_wywab"]
-[ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="8_dnbnw"]
-[ext_resource type="PackedScene" uid="uid://ducm0jqonsnal" path="res://game/scrapbook_objects/objects/bus_blue.tscn" id="8_jeors"]
-[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="9_rvlh4"]
+[ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_ys01q"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_i7omw"]
+[ext_resource type="Texture2D" uid="uid://cbar4gijd2djd" path="res://game/levels/level_templates/terminal.png" id="3_orsbd"]
+[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="4_qsbtm"]
+[ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="5_mfj8b"]
+[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="6_xeqyn"]
 
 [sub_resource type="GDScript" id="GDScript_qnkyu"]
 script/source = "class_name QuestUI extends HBoxContainer
@@ -53,13 +51,12 @@ _bundled = {
 size = Vector2(894, 350)
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_arsvk")
-learning_goal = "player should learn to distinguish between the busses by color as well as first last middle"
+script = ExtResource("1_ys01q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 150)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("2_xka54")]
+[node name="CanvasLayer" parent="." instance=ExtResource("2_i7omw")]
 unique_name_in_owner = true
 
 [node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
@@ -72,7 +69,7 @@ z_index = -100
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 position = Vector2(403.181, 37.411)
 scale = Vector2(0.94706, 0.94706)
-texture = ExtResource("4_h5tmk")
+texture = ExtResource("3_orsbd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
 position = Vector2(408, 165)
@@ -81,40 +78,18 @@ shape = SubResource("RectangleShape2D_anpsh")
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="HumanSpawn" type="Marker2D" parent="SpawnPoints"]
+[node name="DefaultSpawn" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(634, 264)
-script = ExtResource("5_1vdn8")
-accepts = Array[PackedScene]([ExtResource("6_wywab")])
+script = ExtResource("4_qsbtm")
+accepts = Array[PackedScene]([ExtResource("5_mfj8b")])
 scale_factor = 0.12
-
-[node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(440, 67)
-script = ExtResource("5_1vdn8")
-accepts = Array[PackedScene]([ExtResource("8_dnbnw"), ExtResource("8_jeors")])
-scale_factor = 0.019
-grid_pos = Vector2(0, 3)
-
-[node name="SpawnPoint2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(440, 146)
-script = ExtResource("5_1vdn8")
-accepts = Array[PackedScene]([ExtResource("8_jeors"), ExtResource("8_dnbnw")])
-scale_factor = 0.025
-grid_pos = Vector2(0, 2)
-
-[node name="SpawnPoint" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(440, 237)
-script = ExtResource("5_1vdn8")
-accepts = Array[PackedScene]([ExtResource("8_dnbnw"), ExtResource("8_jeors")])
-scale_factor = 0.03
-grid_pos = Vector2(0, 1)
 
 [node name="QuestManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("9_rvlh4")
-assume_there_is_a_grid = true
+script = ExtResource("6_xeqyn")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
 unique_name_in_owner = true
 
 [editable path="CanvasLayer"]

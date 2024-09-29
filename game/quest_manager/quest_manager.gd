@@ -129,7 +129,6 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 								var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
 								_possible_quests.append(quest)
 						
-	print("get_combine_two_objects_quests: possible combination quests: ", _possible_quests)	
 	return _possible_quests
 
 func start_random_quest():
@@ -149,7 +148,6 @@ func start_random_quest():
 			active_quests.append(quest)
 			last_quest = quest
 	else:
-		print("there are no quests")
 		SceneManager.load_end_level_screen()
 
 
@@ -224,7 +222,6 @@ func analyze_special_wording_opportunities():
 		for id in sensible_identifiers:
 			if not obj.sensible_identifiers.has(id):
 				obj.sensible_identifiers.append(id)
-		print("got the following: ", sensible_identifiers)
 
 
 func _on_quest_finished(quest:Quest):

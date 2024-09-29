@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de1j2ca8f0ctx"
-path="res://.godot/imported/supermarket_interior.png-933b89b784eae6d8490f43167fd5f16c.ctex"
+uid="uid://cbar4gijd2djd"
+path="res://.godot/imported/terminal.png-996f75ade2696497afbd0857ff3de57b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/levels/level_templates/level_templates/story/supermarket_interior.png"
-dest_files=["res://.godot/imported/supermarket_interior.png-933b89b784eae6d8490f43167fd5f16c.ctex"]
+source_file="res://game/levels/level_templates/terminal.png"
+dest_files=["res://.godot/imported/terminal.png-996f75ade2696497afbd0857ff3de57b.ctex"]
 
 [params]
 

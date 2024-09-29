@@ -176,11 +176,9 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):
 	for scrapbook_interaction:ScrapbookInteraction in scrapbook_interactions:
-		print("checking for key_word: ", scrapbook_interaction.key_word)
 		if obj.word_list.has(scrapbook_interaction.key_word):
 			# at this point the combination is happening
 			MessageManager.objects_were_combined.emit(obj, self)
-			print("sending emit...")
 			for instance in scrapbook_interaction.objects_to_spawn:
 				# let parent spawnpoint handle itbird
 				get_parent().change_scene(instance)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbar4gijd2djd"
-path="res://.godot/imported/terminal.png-75da6f529a2cdae5072f37ff35e647df.ctex"
+uid="uid://eldwc8k48m3g"
+path="res://.godot/imported/city_background.png-ef2fab9aa95194401585385bf826042d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/levels/level_templates/level_templates/005_bus_terminal_2/terminal.png"
-dest_files=["res://.godot/imported/terminal.png-75da6f529a2cdae5072f37ff35e647df.ctex"]
+source_file="res://game/levels/level_templates/city_background.png"
+dest_files=["res://.godot/imported/city_background.png-ef2fab9aa95194401585385bf826042d.ctex"]
 
 [params]
 

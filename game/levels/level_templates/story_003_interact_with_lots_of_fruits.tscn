@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://1ta58epd6g2x"]
+
+[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_glmel"]
+[ext_resource type="PackedScene" uid="uid://yxbc038y2gtb" path="res://game/scrapbook_objects/objects/pineapple.tscn" id="2_gqgqu"]
+[ext_resource type="PackedScene" uid="uid://ci6kne16275mx" path="res://game/scrapbook_objects/objects/apple.tscn" id="3_gvafy"]
+[ext_resource type="PackedScene" uid="uid://brgh246c4iiqv" path="res://game/scrapbook_objects/objects/banana.tscn" id="4_cswx0"]
+[ext_resource type="PackedScene" uid="uid://dp5asi1clmrau" path="res://game/scrapbook_objects/objects/coconut.tscn" id="5_eelhe"]
+[ext_resource type="PackedScene" uid="uid://7dafbh3xhemq" path="res://game/scrapbook_objects/objects/onion.tscn" id="6_jupxw"]
+[ext_resource type="PackedScene" uid="uid://pj7aiibt3drw" path="res://game/scrapbook_objects/objects/kiwi.tscn" id="7_p0n4e"]
+[ext_resource type="PackedScene" uid="uid://drtrr7yhrkbpi" path="res://game/scrapbook_objects/objects/melon_touch_move_take.tscn" id="8_esej6"]
+[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="9_xb0ee"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rf0ir"]
+load_path = "res://.godot/imported/tabletop.png-edc910a0eb61ffc224de1018a7d68c80.ctex"
+
+[node name="Level" instance=ExtResource("1_glmel")]
+
+[node name="Sprite2D" parent="Background" index="0"]
+texture = SubResource("CompressedTexture2D_rf0ir")
+
+[node name="DefaultSpawn" parent="SpawnPoints" index="0"]
+position = Vector2(634, 242)
+accepts = Array[PackedScene]([ExtResource("2_gqgqu"), ExtResource("3_gvafy"), ExtResource("4_cswx0"), ExtResource("5_eelhe"), ExtResource("6_jupxw"), ExtResource("7_p0n4e"), ExtResource("8_esej6")])
+scale_factor = 1.0
+
+[node name="DefaultSpawn2" type="Marker2D" parent="SpawnPoints" index="1"]
+z_index = 7
+position = Vector2(410, 226)
+script = ExtResource("9_xb0ee")
+accepts = Array[PackedScene]([ExtResource("2_gqgqu"), ExtResource("3_gvafy"), ExtResource("4_cswx0"), ExtResource("5_eelhe"), ExtResource("6_jupxw"), ExtResource("7_p0n4e"), ExtResource("8_esej6")])
+
+[node name="DefaultSpawn3" type="Marker2D" parent="SpawnPoints" index="2"]
+z_index = 7
+position = Vector2(322, 90)
+script = ExtResource("9_xb0ee")
+accepts = Array[PackedScene]([ExtResource("2_gqgqu"), ExtResource("3_gvafy"), ExtResource("4_cswx0"), ExtResource("5_eelhe"), ExtResource("6_jupxw"), ExtResource("7_p0n4e"), ExtResource("8_esej6")])
+
+[node name="DefaultSpawn4" type="Marker2D" parent="SpawnPoints" index="3"]
+z_index = 7
+position = Vector2(530, 138)
+script = ExtResource("9_xb0ee")
+accepts = Array[PackedScene]([ExtResource("2_gqgqu"), ExtResource("3_gvafy"), ExtResource("4_cswx0"), ExtResource("5_eelhe"), ExtResource("6_jupxw"), ExtResource("7_p0n4e"), ExtResource("8_esej6")])
+
+[node name="DefaultSpawn5" type="Marker2D" parent="SpawnPoints" index="4"]
+z_index = 7
+position = Vector2(698, 66)
+script = ExtResource("9_xb0ee")
+accepts = Array[PackedScene]([ExtResource("2_gqgqu"), ExtResource("3_gvafy"), ExtResource("4_cswx0"), ExtResource("5_eelhe"), ExtResource("6_jupxw"), ExtResource("7_p0n4e"), ExtResource("8_esej6")])
+
+[editable path="CanvasLayer"]
