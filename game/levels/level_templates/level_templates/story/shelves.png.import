@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eldwc8k48m3g"
-path="res://.godot/imported/city_background.png-b2044f7099f373ad8d5eeae9c5cc04ca.ctex"
+uid="uid://dc0na7vn5uyxh"
+path="res://.godot/imported/shelves.png-04a7ffc1697f3f88afaa230153784ce6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/levels/level_templates/level_templates/bus_track/city_background.png"
-dest_files=["res://.godot/imported/city_background.png-b2044f7099f373ad8d5eeae9c5cc04ca.ctex"]
+source_file="res://game/levels/level_templates/level_templates/story/shelves.png"
+dest_files=["res://.godot/imported/shelves.png-04a7ffc1697f3f88afaa230153784ce6.ctex"]
 
 [params]
 

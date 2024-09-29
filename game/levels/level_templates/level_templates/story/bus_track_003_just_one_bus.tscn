@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dynays5xlrn7o"]
+
+[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_templates/level_template_to_copy.tscn" id="1_b3l52"]
+[ext_resource type="Texture2D" uid="uid://cxarvs2xigmvj" path="res://game/scrapbook_objects/assets/object_pngs/bus_top.png" id="2_ybqek"]
+[ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="3_kwjqi"]
+
+[node name="Level" instance=ExtResource("1_b3l52")]
+
+[node name="Sprite2D" parent="Background" index="0"]
+position = Vector2(408.181, 46.411)
+texture = ExtResource("2_ybqek")
+
+[node name="DefaultSpawn" parent="SpawnPoints" index="0"]
+position = Vector2(218, 297)
+accepts = Array[PackedScene]([ExtResource("3_kwjqi")])
+
+[editable path="CanvasLayer"]
