@@ -11,7 +11,8 @@ const PICK_ONE_FRUIT_FROM_TABLE = preload("res://game/levels/level_templates/lev
 # */
 
 # add const value to the one below
-const playable_levels: Array[PackedScene] = [FRUIT_TABLE, FRUIT_TABLE2, STREET, BUS_TERMINAL_2, PICK_ONE_FRUIT_FROM_TABLE]
+#const playable_levels: Array[PackedScene] = [FRUIT_TABLE, FRUIT_TABLE2, STREET, BUS_TERMINAL_2, PICK_ONE_FRUIT_FROM_TABLE]
+const playable_levels: Array[PackedScene] = [BUS_TERMINAL_2]
 
 # other constants
 const END_LEVEL_SCREEN = preload("res://game/views/003_end_level_screen/end_level_screen.tscn")

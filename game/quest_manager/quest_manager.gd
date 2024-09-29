@@ -1,7 +1,6 @@
 ## Handles identifying possible quests, which quests to do next, and by which id to call words
 class_name QuestManager extends Node
 
-signal quest_started(quest:Quest)
 signal quest_no_longer_active(quest:Quest)
 
 @export var MAX_QUESTS_PER_LEVEL := 7
@@ -35,7 +34,6 @@ func _ready() -> void:
 func set_allow_quest_start():
 	allow_quests_to_start = true
 	setup()
-	
 
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	objects = obj_list	
@@ -139,13 +137,13 @@ func start_random_quest():
 	var quests_that_could_be_picked: Array[Quest] = possible_quests
 	if last_quest:
 		for q:Quest in quests_that_could_be_picked:
-			if last_quest.get_key() == q.get_key():
+			if last_quest.key == q.key:
 				quests_that_could_be_picked.erase(q)
 	if len(quests_that_could_be_picked) > 0:
 		var quest:Quest = quests_that_could_be_picked.pick_random()
 				
 		if quest.request_activation():
-			quest_started.emit(quest)
+			MessageManager.quest_started.emit(quest)
 			quest.finished.connect(_on_quest_finished)
 			quest.aborted.connect(_on_quest_aborted)
 			active_quests.append(quest)

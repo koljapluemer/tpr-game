@@ -9,11 +9,9 @@ static func create(_word: String, _interaction: Interaction) -> Quest:
 	inst.interaction = _interaction
 	# needed so we can see when the quest becomes impossible
 	inst.required_words.append(_word)
+	inst.key = inst.word + ":" + _interaction.key
 	return inst
 	
-
-func get_key() -> String:
-	return word + ":" + interaction.key
 
 
 func _activate() -> void:

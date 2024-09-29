@@ -22,7 +22,7 @@ resources_spreadsheet_view/fold_docks=false
 [application]
 
 config/name="Tpr-game"
-run/main_scene="res://game/levels/level_templates/level_templates/005_bus_terminal_2/bus_terminal_2.tscn"
+run/main_scene="res://game/views/000_main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -80,7 +80,7 @@ pointing/emulate_mouse_from_touch=false
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://game/language/translation_text/tpr-game - Sheet1.ar.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.en.translation")
+locale/translations=PackedStringArray("res://game/language/translation_text/tpr-game - Sheet1.ar.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.en.translation", "res://game/language/translation_text/tpr-game - Sheet1.it.translation")
 
 [rendering]
 

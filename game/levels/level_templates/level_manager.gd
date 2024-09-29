@@ -18,6 +18,9 @@ var background:Area2D
 var currently_dragged_object: ScrapbookObject
 var currently_hovered_obj: ScrapbookObject
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = %AudioStreamPlayer2D
+
+
 func _ready() -> void:
 	get_parent().get_viewport().set_physics_object_picking_sort(false)
 	
@@ -38,6 +41,8 @@ func _ready() -> void:
 		background.mouse_entered.connect(_on_bg_mouse_over_started)
 	MessageManager.object_mouse_over_started.connect(_on_object_mouse_over_started)
 	MessageManager.object_mouse_over_started.connect(_on_object_mouse_over_finished)
+	# quest listening (for audio)
+	MessageManager.quest_started.connect(_on_quest_started)
 	
 func _on_bg_mouse_over_started():
 	if currently_hovered_obj:
@@ -88,3 +93,16 @@ func _on_object_mouse_over_started(obj:ScrapbookObject):
 	
 func _on_object_mouse_over_finished(_obj:ScrapbookObject):
 	pass
+	
+
+func _on_quest_started(quest: Quest):
+	if audio_stream_player_2d:
+		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + quest.key + ".mp3"
+		if ResourceLoader.exists(audio):
+			print("audio path: ", audio)
+			audio_stream_player_2d.stream = load(audio)
+			audio_stream_player_2d.play()
+		else:
+			print("audio does not exist:", audio)
+	else:
+		print("audio_player not found")

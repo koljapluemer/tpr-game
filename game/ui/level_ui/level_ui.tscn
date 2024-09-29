@@ -30,7 +30,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Aufträge"
+text = "QUESTS"
 
 [node name="QuestsHolder" parent="HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" instance=ExtResource("1_2c005")]
 layout_mode = 2

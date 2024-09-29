@@ -1,10 +1,11 @@
 extends Node
 
-var language_code = "de"
+var language_code = "ar"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TranslationServer.set_locale(language_code)
+	print("language SHOULD BE FUCKING ", TranslationServer.get_locale())
 
 func check_for_matching_audio(key):
 	var path = "res://src/translations/audio/" + language_code + "/" + key + ".mp3"

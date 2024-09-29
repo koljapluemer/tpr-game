@@ -12,13 +12,10 @@ enum QuestStatus {
 var status:QuestStatus = QuestStatus.inactive
 
 var required_words: Array[String] = []
-
-# to overwrite
-func get_key() -> String:
-	return "UNKNOWN"
+var key:String
 
 func _to_string() -> String:
-	return get_key()
+	return key
 
 ## returns whether quest *was* actually activated
 func request_activation() -> bool:
