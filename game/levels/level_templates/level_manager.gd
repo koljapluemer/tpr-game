@@ -45,7 +45,7 @@ func _ready() -> void:
 	MessageManager.quest_started.connect(_on_quest_started)
 	
 func _on_bg_mouse_over_started():
-	if currently_hovered_obj:
+	if currently_hovered_obj and is_instance_valid(currently_hovered_obj):
 		currently_hovered_obj.set_interactable()
 		currently_hovered_obj =  null
 	

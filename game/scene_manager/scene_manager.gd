@@ -17,19 +17,43 @@ const STORY_009_GET_ON_ONE_OF_THREE_BUSSES = preload("res://game/levels/level_te
 # */
 
 # add const value to the one below
-#const playable_levels: Array[PackedScene] = [FRUIT_TABLE, FRUIT_TABLE2, STREET, BUS_TERMINAL_2, PICK_ONE_FRUIT_FROM_TABLE]
-const playable_levels: Array[PackedScene] = [STORY_009_GET_ON_ONE_OF_THREE_BUSSES]
+const story: Array[PackedScene] = [
+	STORY_000_TOUCH_MELON,
+	STORY_001_TOUCH_TAKE_MELONS,
+	STORY_002_PUSH_SHOPPING_CART,
+	STORY_003_INTERACT_WITH_LOTS_OF_FRUITS,
+	STORY_004_PUT_FRUIT_IN_BACKPACK,
+	STORY_005_CUT_KIWI,
+	STORY_006_JUST_YOU_MOVE_AROUND,
+	STORY_007_JUST_ONE_BUS,
+	STORY_008_GET_ON_BUS,
+	STORY_009_GET_ON_ONE_OF_THREE_BUSSES
+]
 
 # other constants
 const END_LEVEL_SCREEN = preload("res://game/views/003_end_level_screen/end_level_screen.tscn")
+
+var current_level_index:int = 0
 
 func load_scene(scene:PackedScene):
 	get_tree().change_scene_to_packed(scene)
 	
 func load_random_level():
-	var lvl = playable_levels.pick_random()
+	var lvl = story.pick_random()
 	if lvl:
 		get_tree().change_scene_to_packed(lvl)
 
 func load_end_level_screen():
 	get_tree().change_scene_to_packed(END_LEVEL_SCREEN)
+
+func reload_level():
+	get_tree().change_scene_to_packed(story[current_level_index])
+
+func load_next_story_level():
+	if len(story) > current_level_index:
+		current_level_index += 1
+		get_tree().change_scene_to_packed(story[current_level_index])
+	else:
+		# replay random level
+		get_tree().change_scene_to_packed(story.pick_random())
+		

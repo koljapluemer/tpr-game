@@ -8,4 +8,8 @@
 [node name="Sprite2D" parent="Background" index="0"]
 texture = ExtResource("2_uvkh1")
 
+[node name="DefaultSpawn" parent="SpawnPoints" index="0"]
+position = Vector2(586, 208)
+scale_factor = 0.15
+
 [editable path="CanvasLayer"]
