@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://brbvtap4nbywt"]
 
 [ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_7oc6i"]
-[ext_resource type="Texture2D" uid="uid://cxarvs2xigmvj" path="res://game/scrapbook_objects/assets/object_pngs/bus_top.png" id="2_7wljj"]
+[ext_resource type="Texture2D" uid="uid://cxarvs2xigmvj" path="res://game/images/bus_top.png" id="2_7wljj"]
 [ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="3_l254h"]
-[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="4_4l5rw"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_4l5rw"]
 [ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="5_jtro5"]
 
 [node name="Level" instance=ExtResource("1_7oc6i")]

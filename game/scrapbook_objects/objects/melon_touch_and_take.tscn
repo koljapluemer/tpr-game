@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="2_3as8s"]
 [ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="3_kxps5"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_noy7v"]
-[ext_resource type="Texture2D" uid="uid://dcmahqsud32x4" path="res://game/scrapbook_objects/assets/object_pngs/melon_whole.png" id="5_aqfnd"]
+[ext_resource type="Texture2D" uid="uid://dcmahqsud32x4" path="res://game/images/melon_whole.png" id="5_aqfnd"]
 
 [sub_resource type="Resource" id="Resource_in6rt"]
 script = ExtResource("2_3as8s")

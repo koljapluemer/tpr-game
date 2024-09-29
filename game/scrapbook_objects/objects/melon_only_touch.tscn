@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_ym5xj"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_upmkl"]
-[ext_resource type="Texture2D" uid="uid://dcmahqsud32x4" path="res://game/scrapbook_objects/assets/object_pngs/melon_whole.png" id="5_t7yvh"]
+[ext_resource type="Texture2D" uid="uid://dcmahqsud32x4" path="res://game/images/melon_whole.png" id="5_t7yvh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
 resource_local_to_scene = true

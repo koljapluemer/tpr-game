@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_skk02"]
 [ext_resource type="PackedScene" uid="uid://cagvmuh4xgvb1" path="res://game/scrapbook_objects/objects/kiwi_move_touch.tscn" id="2_lu0ba"]
-[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="3_dwdpj"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="3_dwdpj"]
 [ext_resource type="PackedScene" uid="uid://dqi7bnfpqweg" path="res://game/scrapbook_objects/objects/knife.tscn" id="4_ply3j"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rf0ir"]

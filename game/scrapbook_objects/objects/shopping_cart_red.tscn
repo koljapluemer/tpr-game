@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_cb6sl"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_amq3e"]
-[ext_resource type="Texture2D" uid="uid://dgi211vraxx6k" path="res://game/scrapbook_objects/assets/object_pngs/shopping_cart.png" id="4_4vgj3"]
+[ext_resource type="Texture2D" uid="uid://dgi211vraxx6k" path="res://game/images/shopping_cart.png" id="4_4vgj3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true

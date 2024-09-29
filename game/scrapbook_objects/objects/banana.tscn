@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_8i6an"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_eiqvy"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_yqasb"]
-[ext_resource type="Texture2D" uid="uid://dshdyft53ogbv" path="res://game/scrapbook_objects/assets/object_pngs/banana_crop.png" id="7_l44f4"]
+[ext_resource type="Texture2D" uid="uid://dshdyft53ogbv" path="res://game/images/banana_crop.png" id="7_l44f4"]
 [ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="7_n4cqb"]
 
 [sub_resource type="Resource" id="Resource_in6rt"]

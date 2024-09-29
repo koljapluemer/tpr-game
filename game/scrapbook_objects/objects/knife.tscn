@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_wxcp0"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_c65fd"]
-[ext_resource type="Texture2D" uid="uid://c22p25h60ns33" path="res://game/scrapbook_objects/assets/object_pngs/knife.png" id="4_r336y"]
+[ext_resource type="Texture2D" uid="uid://c22p25h60ns33" path="res://game/images/knife.png" id="4_r336y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2h0w5"]
 resource_local_to_scene = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_y3l2i"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_j4ypp"]
-[ext_resource type="Texture2D" uid="uid://cunssdw3hj7bf" path="res://game/scrapbook_objects/assets/object_pngs/you.png" id="4_47k66"]
+[ext_resource type="Texture2D" uid="uid://cunssdw3hj7bf" path="res://game/images/you.png" id="4_47k66"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
 resource_local_to_scene = true

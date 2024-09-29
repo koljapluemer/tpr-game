@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://n74b31orrx6f"]
 
 [ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_ebtpi"]
-[ext_resource type="Texture2D" uid="uid://de1j2ca8f0ctx" path="res://game/levels/level_templates/supermarket_interior.png" id="2_8f2hn"]
+[ext_resource type="Texture2D" uid="uid://de1j2ca8f0ctx" path="res://game/images/supermarket_interior.png" id="2_8f2hn"]
 [ext_resource type="PackedScene" uid="uid://coa7ncdq888tt" path="res://game/scrapbook_objects/objects/shopping_cart_red.tscn" id="3_kq3bu"]
 
 [node name="Level" instance=ExtResource("1_ebtpi")]

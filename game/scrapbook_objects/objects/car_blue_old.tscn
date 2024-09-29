@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_w5s3v"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_av403"]
-[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/scrapbook_objects/objects/assets/mechanical_lock_short.wav" id="5_lk61c"]
-[ext_resource type="Texture2D" uid="uid://bgk8pndtkspvy" path="res://game/scrapbook_objects/assets/object_pngs/car_blue_old_crop.png" id="5_wjjrv"]
+[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="5_lk61c"]
+[ext_resource type="Texture2D" uid="uid://bgk8pndtkspvy" path="res://game/images/car_blue_old_crop.png" id="5_wjjrv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true

@@ -86,3 +86,4 @@ locale/translations=PackedStringArray("res://game/language/translation_text/tpr-
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

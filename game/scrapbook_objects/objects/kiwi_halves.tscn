@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_6pagl"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_df7ey"]
-[ext_resource type="Texture2D" uid="uid://crhlnievcjewx" path="res://game/scrapbook_objects/assets/object_pngs/kiwi_cut.png" id="6_migcd"]
+[ext_resource type="Texture2D" uid="uid://crhlnievcjewx" path="res://game/images/kiwi_cut.png" id="6_migcd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bds2a"]
 resource_local_to_scene = true

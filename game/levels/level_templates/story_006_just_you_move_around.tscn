@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://i61gpqslkte4"]
 
 [ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_1prrp"]
-[ext_resource type="Texture2D" uid="uid://eldwc8k48m3g" path="res://game/levels/level_templates/city_background.png" id="2_s7dqi"]
+[ext_resource type="Texture2D" uid="uid://eldwc8k48m3g" path="res://game/images/city_background.png" id="2_s7dqi"]
 
 [node name="Level2" instance=ExtResource("1_1prrp")]
 
