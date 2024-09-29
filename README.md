@@ -15,6 +15,11 @@
 - car lock mechanical: Lock car.wav by greatsoundstube -- https://freesound.org/s/629303/ -- License: Creative Commons 0
 
 
+- paper rip: Paper Rip by dj997 -- https://freesound.org/s/485647/ -- License: Attribution 3.0
+- sound wrong: Game Sound Wrong.wav by Bertrof -- https://freesound.org/s/131657/ -- License: Attribution 3.0
+- sound wrong gentle: SFX_MASSIVELYINCORREKT_07.wav by MrFossy -- https://freesound.org/s/590038/ -- License: Creative Commons 0
+- sound correct: Success Jingle.ogg by TitanKaempfer -- https://freesound.org/s/689903/ -- License: Attribution 4.0
+
 ### 3D Models
 
 - Table: by tofanarahman, [from sketchfab](https://sketchfab.com/3d-models/wood-desk-table-interior-1-81bdaeac27e346f88ae410187681f484), [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)

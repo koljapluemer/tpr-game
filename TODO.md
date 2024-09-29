@@ -30,4 +30,9 @@ ENABLE ME TO LEARN AR IN A PLAYFUL WAY
 - make sure that scenes don't crash when loaded on their own (getting good @ godot)
 - either character or bus is mis-scaled
 
-- make a "just take" level
+
+- for some reason missing_keys are no longer saved (see literally 1st level)
+	- also could just gen all possible keys in the first place...and write them immediately
+	- do this while quests are generated, and boom, don't generate impossible quests
+	
+- I think at some point quests which are impossible are still generated... 

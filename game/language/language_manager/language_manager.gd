@@ -12,6 +12,7 @@ func check_for_matching_audio(key):
 
 # this is just for now to have an overview what sound/dialog i need	
 func write_missing_key_to_file(text):
+	print("writing missing key to file")
 	var	file
 	if not FileAccess.file_exists("missing_keys.txt"):
 		file = FileAccess.open("missing_keys.txt", FileAccess.WRITE)
