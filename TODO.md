@@ -28,3 +28,4 @@ ENABLE ME TO LEARN AR IN A PLAYFUL WAY
 - sound for quests right, for quests not right
 
 - make sure that scenes don't crash when loaded on their own (getting good @ godot)
+- either character or bus is mis-scaled
