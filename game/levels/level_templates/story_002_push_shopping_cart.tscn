@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://n74b31orrx6f"]
 
 [ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_ebtpi"]
-[ext_resource type="Texture2D" uid="uid://de1j2ca8f0ctx" path="res://game/images/supermarket_interior.png" id="2_8f2hn"]
+[ext_resource type="Texture2D" uid="uid://decsq8la4wctq" path="res://game/images/supermarket_interior.webp" id="2_801e7"]
 [ext_resource type="PackedScene" uid="uid://coa7ncdq888tt" path="res://game/scrapbook_objects/objects/shopping_cart_red.tscn" id="3_kq3bu"]
 
 [node name="Level" instance=ExtResource("1_ebtpi")]
@@ -9,7 +9,7 @@
 [node name="Sprite2D" parent="Background" index="0"]
 position = Vector2(407.242, 35.4318)
 scale = Vector2(1.00941, 1.00941)
-texture = ExtResource("2_8f2hn")
+texture = ExtResource("2_801e7")
 
 [node name="DefaultSpawn" parent="SpawnPoints" index="0"]
 position = Vector2(502, 248)

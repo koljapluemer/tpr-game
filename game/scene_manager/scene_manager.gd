@@ -8,7 +8,6 @@ const STORY_002_PUSH_SHOPPING_CART = preload("res://game/levels/level_templates/
 const STORY_003_INTERACT_WITH_LOTS_OF_FRUITS = preload("res://game/levels/level_templates/story_003_interact_with_lots_of_fruits.tscn")
 const STORY_004_PUT_FRUIT_IN_BACKPACK = preload("res://game/levels/level_templates/story_004_put_fruit_in_backpack.tscn")
 const STORY_005_CUT_KIWI = preload("res://game/levels/level_templates/story_005_cut_kiwi.tscn")
-const STORY_006_JUST_YOU_MOVE_AROUND = preload("res://game/levels/level_templates/story_006_just_you_move_around.tscn")
 const STORY_006_MOVE_AROUND = preload("res://game/levels/level_templates/story_006_move_around.tscn")
 const STORY_007_JUST_ONE_BUS = preload("res://game/levels/level_templates/story_007_just_one_bus.tscn")
 const STORY_008_GET_ON_BUS = preload("res://game/levels/level_templates/story_008_get_on_bus.tscn")
@@ -24,7 +23,7 @@ const story: Array[PackedScene] = [
 	STORY_003_INTERACT_WITH_LOTS_OF_FRUITS,
 	STORY_004_PUT_FRUIT_IN_BACKPACK,
 	STORY_005_CUT_KIWI,
-	STORY_006_JUST_YOU_MOVE_AROUND,
+	STORY_006_MOVE_AROUND,
 	STORY_007_JUST_ONE_BUS,
 	STORY_008_GET_ON_BUS,
 	STORY_009_GET_ON_ONE_OF_THREE_BUSSES

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="2_kjnwe"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="3_y66tf"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_bespx"]
-[ext_resource type="Texture2D" uid="uid://dncnear6ea6p0" path="res://game/images/apple_crop.png" id="5_4rf8x"]
+[ext_resource type="Texture2D" uid="uid://br812mprcmtvc" path="res://game/images/apple_crop.webp" id="5_i0pbi"]
 
 [sub_resource type="Resource" id="Resource_in6rt"]
 script = ExtResource("3_y66tf")
@@ -33,7 +33,7 @@ metadata/_edit_horizontal_guides_ = [-50.0]
 material = SubResource("ShaderMaterial_08ks4")
 position = Vector2(-9.35164, -70.8147)
 scale = Vector2(0.100003, 0.100003)
-texture = ExtResource("5_4rf8x")
+texture = ExtResource("5_i0pbi")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -40)

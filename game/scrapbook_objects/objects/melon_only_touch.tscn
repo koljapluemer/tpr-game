@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://v4qk3cy6gmu0"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_ym5xj"]
+[ext_resource type="Texture2D" uid="uid://bjlrlkxt7wea7" path="res://game/images/melon_whole.webp" id="3_wjjn8"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_upmkl"]
-[ext_resource type="Texture2D" uid="uid://dcmahqsud32x4" path="res://game/images/melon_whole.png" id="5_t7yvh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
 resource_local_to_scene = true
@@ -25,7 +25,7 @@ material = SubResource("ShaderMaterial_ii3d8")
 position = Vector2(14, -61)
 rotation = 1.5708
 scale = Vector2(0.463829, 0.463829)
-texture = ExtResource("5_t7yvh")
+texture = ExtResource("3_wjjn8")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -59)

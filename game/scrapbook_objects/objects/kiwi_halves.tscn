@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_6pagl"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_df7ey"]
-[ext_resource type="Texture2D" uid="uid://crhlnievcjewx" path="res://game/images/kiwi_cut.png" id="6_migcd"]
+[ext_resource type="Texture2D" uid="uid://did1sqsd10sit" path="res://game/images/kiwi_cut.webp" id="3_01hep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bds2a"]
 resource_local_to_scene = true
@@ -23,7 +23,7 @@ metadata/_edit_horizontal_guides_ = [-26.0]
 material = SubResource("ShaderMaterial_bds2a")
 position = Vector2(1, -9)
 scale = Vector2(0.0994617, 0.102518)
-texture = ExtResource("6_migcd")
+texture = ExtResource("3_01hep")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(2, -17)

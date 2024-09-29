@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_wxcp0"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_c65fd"]
-[ext_resource type="Texture2D" uid="uid://c22p25h60ns33" path="res://game/images/knife.png" id="4_r336y"]
+[ext_resource type="Texture2D" uid="uid://kqtul62qkxqp" path="res://game/images/knife.webp" id="3_6qwet"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2h0w5"]
 resource_local_to_scene = true
@@ -23,7 +23,7 @@ material = SubResource("ShaderMaterial_2h0w5")
 position = Vector2(-3.62002, -2.13543)
 rotation = 4.71239
 scale = Vector2(0.446485, 0.446485)
-texture = ExtResource("4_r336y")
+texture = ExtResource("3_6qwet")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(6.5, -11.5)

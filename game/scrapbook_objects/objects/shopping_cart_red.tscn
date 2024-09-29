@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_cb6sl"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_amq3e"]
-[ext_resource type="Texture2D" uid="uid://dgi211vraxx6k" path="res://game/images/shopping_cart.png" id="4_4vgj3"]
+[ext_resource type="Texture2D" uid="uid://d0a68mm8dh6ea" path="res://game/images/shopping_cart.webp" id="3_yq3lb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
@@ -24,7 +24,7 @@ metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 material = SubResource("ShaderMaterial_q1fb8")
 position = Vector2(0.99997, -640)
 scale = Vector2(2.07235, 2.07235)
-texture = ExtResource("4_4vgj3")
+texture = ExtResource("3_yq3lb")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-6, -599)

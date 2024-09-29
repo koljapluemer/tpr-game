@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2tpqosai0vok"]
 
 [ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_template_to_copy.tscn" id="1_mvomt"]
-[ext_resource type="Texture2D" uid="uid://dnrbb7ate5k1l" path="res://game/images/street.png" id="2_uvkh1"]
+[ext_resource type="Texture2D" uid="uid://p675ghf7on41" path="res://game/images/street.webp" id="2_c32kt"]
 
 [node name="Level2" instance=ExtResource("1_mvomt")]
 
 [node name="Sprite2D" parent="Background" index="0"]
-texture = ExtResource("2_uvkh1")
+texture = ExtResource("2_c32kt")
 
 [node name="DefaultSpawn" parent="SpawnPoints" index="0"]
 position = Vector2(586, 208)
