@@ -130,14 +130,11 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 						# we can't combine objects with themselves
 						for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
 							if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
-								# note: word to use is picked randomly, we could also use *all* the possible combinations
-								# but since most combinations are only fun *or* kill either sender or receiver, that
-								# would be somewhat pointless
-								# ...but this makes `possible_quests` somewhat of a misnomer
-								var word_to_call_receiving_object:String = obj.sensible_identifiers.pick_random()
-								var word_to_call_sending_object:String =  possible_combination_object.sensible_identifiers.pick_random()
-								var quest = CombineTwoObjectsQuest.create(word_to_call_sending_object, word_to_call_receiving_object)
-								_possible_quests.append(quest)
+								for possible_receiver_id in obj.sensible_identifiers:
+									for possible_sender_id in possible_combination_object.sensible_identifiers:
+										var quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id)
+										if LanguageManager.check_for_matching_audio(quest.key):
+											_possible_quests.append(quest)
 						
 	return _possible_quests
 
