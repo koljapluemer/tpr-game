@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_in6rt"]
 script = ExtResource("2_23u2q")
-key_word = ""
+key_word = "KNIFE"
 kill_sender = false
 kill_receiver = true
 objects_to_spawn = Array[PackedScene]([ExtResource("3_vx71a")])

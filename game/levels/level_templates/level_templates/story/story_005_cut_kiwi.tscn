@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b48tauw2hs4qv"]
+
+[ext_resource type="PackedScene" uid="uid://b7lp0ggrnmn2i" path="res://game/levels/level_templates/level_templates/level_template_to_copy.tscn" id="1_s8uxe"]
+[ext_resource type="Texture2D" uid="uid://cxtf5it7qkqvd" path="res://game/levels/level_templates/level_templates/001_fruit_table/tabletop.png" id="2_7e13e"]
+[ext_resource type="PackedScene" uid="uid://cagvmuh4xgvb1" path="res://game/scrapbook_objects/objects/kiwi_move_touch.tscn" id="3_ddp6q"]
+[ext_resource type="Script" path="res://game/levels/spawn_points/spawn_point.gd" id="4_gahbc"]
+[ext_resource type="PackedScene" uid="uid://dqi7bnfpqweg" path="res://game/scrapbook_objects/objects/knife.tscn" id="5_2efoc"]
+
+[node name="Level" instance=ExtResource("1_s8uxe")]
+
+[node name="Sprite2D" parent="Background" index="0"]
+texture = ExtResource("2_7e13e")
+
+[node name="DefaultSpawn" parent="SpawnPoints" index="0"]
+position = Vector2(402, 160)
+accepts = Array[PackedScene]([ExtResource("3_ddp6q")])
+scale_factor = 1.0
+
+[node name="DefaultSpawn2" type="Marker2D" parent="SpawnPoints" index="1"]
+z_index = 7
+position = Vector2(594, 160)
+script = ExtResource("4_gahbc")
+accepts = Array[PackedScene]([ExtResource("5_2efoc")])
+
+[node name="QuestManager" parent="." index="4"]
+MAX_QUESTS_PER_LEVEL = 5
+
+[editable path="CanvasLayer"]
