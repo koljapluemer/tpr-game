@@ -64,7 +64,8 @@ func _on_object_drag_started(obj: ScrapbookObject):
 	
 func _on_object_drag_finished(_obj: ScrapbookObject):
 	currently_dragged_object = null
-	currently_hovered_obj.drop_other_obj_on_this_obj(_obj)
+	if is_instance_valid(currently_hovered_obj):
+		currently_hovered_obj.drop_other_obj_on_this_obj(_obj)
 
 ## this function is triggered when a drag (on a [property is_movable] [ScrapbookObject]) was started
 ## we then want to go through all [ScrapbookObject]s that are in the scene

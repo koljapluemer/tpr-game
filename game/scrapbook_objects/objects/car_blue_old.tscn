@@ -31,6 +31,3 @@ texture = ExtResource("5_wjjrv")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-46, -549)
 shape = SubResource("RectangleShape2D_14ond")
-
-[node name="AudioStreamPlayer2D" parent="." index="3"]
-unique_name_in_owner = true

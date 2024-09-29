@@ -38,6 +38,8 @@ enum UI_STATE {PASSIVE, INTERACTABLE, HIGHLIGHTED, PRIMARY}
 var current_ui_state:UI_STATE
 
 var is_moving:= false
+var mouse_offset_when_moved:Vector2
+
 var is_being_taken := false
 ## the base words, like CAR and VEHICLE, but also CAR__LEFT and CAR__BLUE depending on what we can compare to
 var sensible_identifiers: Array[String] = []
@@ -104,7 +106,7 @@ func _process(_delta: float) -> void:
 			progress.value = 0
 			
 	if is_moving:
-		global_position = get_global_mouse_position()
+		global_position = get_global_mouse_position() + mouse_offset_when_moved
 		if Input.is_action_just_released("click"):
 			is_moving = false
 			MessageManager.object_drag_finished.emit(self)
@@ -136,10 +138,11 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if is_movable and GameState.current_interaction_mode == MOVE:
 		if event.is_action_pressed("click"):
 			is_moving = true
+			mouse_offset_when_moved = global_position - get_global_mouse_position()
 			MessageManager.object_drag_started.emit(self)
 			# delayed signal for the interaction, so that MOVE quests
 			# only succeed after the object was dragged around a bit
-			get_tree().create_timer(0.25).connect(
+			get_tree().create_timer(0.4).connect(
 				"timeout", func():MessageManager.object_was_interacted_with.emit(self, MOVE)
 			)
 
