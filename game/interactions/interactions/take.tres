@@ -1,14 +1,12 @@
 [gd_resource type="Resource" script_class="Interaction" load_steps=4 format=3 uid="uid://cxsvav2e6mhgt"]
 
 [ext_resource type="Script" path="res://game/interactions/interaction.gd" id="1_7c6mw"]
-[ext_resource type="Texture2D" uid="uid://dvu1hbrq7rc0n" path="res://game/interactions/assets/cursors/cursor_take.png" id="1_bi7gj"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hpcfb"]
-load_path = "res://.godot/imported/TAKE.png-b323b1f4e72dc1146bafb1710e76932e.ctex"
+[ext_resource type="Texture2D" uid="uid://dmc77tcfgwn8s" path="res://game/interactions/assets/cursors/cursor_take.webp" id="1_tti7x"]
+[ext_resource type="Texture2D" uid="uid://cyd5mibqpxyh5" path="res://game/interactions/assets/TAKE.webp" id="2_0om3b"]
 
 [resource]
 script = ExtResource("1_7c6mw")
 key = "TAKE"
-icon = SubResource("CompressedTexture2D_hpcfb")
-cursor = ExtResource("1_bi7gj")
+icon = ExtResource("2_0om3b")
+cursor = ExtResource("1_tti7x")
 create_button = true
