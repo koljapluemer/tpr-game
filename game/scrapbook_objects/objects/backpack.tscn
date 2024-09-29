@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5wu3ouq76tkj"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_vuxna"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="2_adosn"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_hy8q6"]
+[ext_resource type="Texture2D" uid="uid://dlfipg47b2bi6" path="res://game/scrapbook_objects/assets/object_pngs/backpack_red_crop.png" id="4_n607u"]
+
+[sub_resource type="Resource" id="Resource_q7u2q"]
+script = ExtResource("2_adosn")
+key_word = "FRUIT"
+kill_sender = true
+kill_receiver = false
+objects_to_spawn = Array[PackedScene]([])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
+resource_local_to_scene = true
+shader = ExtResource("2_hy8q6")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
+radius = 93.0
+height = 306.0
+
+[node name="ScapbookObject" instance=ExtResource("1_vuxna")]
+position = Vector2(0, 4)
+word_list = Array[String](["BACKPACK"])
+is_movable = false
+scrapbook_interactions = Array[ExtResource("2_adosn")]([SubResource("Resource_q7u2q")])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ii3d8")
+position = Vector2(-9.99998, -131)
+scale = Vector2(0.207899, 0.207899)
+texture = ExtResource("4_n607u")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(14, -125)
+rotation = 0.174533
+shape = SubResource("CapsuleShape2D_u7q7t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

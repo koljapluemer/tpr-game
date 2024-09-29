@@ -27,7 +27,7 @@ height = 78.0
 position = Vector2(0, 4)
 word_list = Array[String](["APPLE", "FRUIT"])
 is_takeable = true
-scrapbook_interactions = [SubResource("Resource_in6rt")]
+scrapbook_interactions = Array[ExtResource("4_dcdtf")]([SubResource("Resource_in6rt")])
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]

@@ -73,10 +73,12 @@ func _on_object_drag_finished(_obj: ScrapbookObject):
 ## we're dragging.
 ## If so, we highlight them.
 func _find_and_mark_eligible_objects_to_drop_on():
-	if not currently_dragged_object:
+	if not currently_dragged_object or not is_instance_valid(currently_dragged_object):
 		return 
 		
 	for obj in scrapbook_objects:
+		if not is_instance_valid(obj):
+			continue
 		# don't check for self-interaction
 		if obj == currently_dragged_object:
 			continue

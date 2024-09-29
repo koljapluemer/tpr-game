@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://2qqrs43q81r1"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_08hf2"]
+[ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="2_kjnwe"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="3_y66tf"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_bespx"]
+[ext_resource type="Texture2D" uid="uid://dncnear6ea6p0" path="res://game/scrapbook_objects/assets/object_pngs/apple_crop.png" id="5_4rf8x"]
+
+[sub_resource type="Resource" id="Resource_in6rt"]
+script = ExtResource("3_y66tf")
+key_word = ""
+kill_sender = false
+kill_receiver = true
+objects_to_spawn = Array[PackedScene]([ExtResource("2_kjnwe")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
+resource_local_to_scene = true
+shader = ExtResource("4_bespx")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
+radius = 36.0
+height = 78.0
+
+[node name="ScapbookObject" instance=ExtResource("1_08hf2")]
+position = Vector2(0, 4)
+word_list = Array[String](["APPLE", "FRUIT"])
+scrapbook_interactions = Array[ExtResource("3_y66tf")]([SubResource("Resource_in6rt")])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_08ks4")
+position = Vector2(-9.35164, -70.8147)
+scale = Vector2(0.100003, 0.100003)
+texture = ExtResource("5_4rf8x")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -40)
+shape = SubResource("CapsuleShape2D_6fcro")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
