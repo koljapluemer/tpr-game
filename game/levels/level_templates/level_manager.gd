@@ -86,7 +86,7 @@ func _find_and_mark_eligible_objects_to_drop_on():
 # finding the actual intended mouse hover stuff
 func _on_object_mouse_over_started(obj:ScrapbookObject):
 	#objects_currently_hovered_by_mouse.append(obj)
-	if currently_hovered_obj:
+	if currently_hovered_obj and is_instance_valid(currently_hovered_obj):
 		currently_hovered_obj.set_interactable()
 	currently_hovered_obj = obj
 	obj.react_to_being_hovered()
