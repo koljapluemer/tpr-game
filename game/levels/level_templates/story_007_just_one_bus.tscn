@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="3_hqbcf"]
 
 [node name="Level" instance=ExtResource("1_3v6np")]
+level_name = "The Bus"
 
 [node name="Sprite2D" parent="Background" index="0"]
 position = Vector2(408.181, 46.411)

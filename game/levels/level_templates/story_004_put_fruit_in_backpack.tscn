@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="10_o0mqy"]
 
 [node name="Level" instance=ExtResource("1_i5k1r")]
+level_name = "Packing Fruits"
 
 [node name="Sprite2D" parent="Background" index="0"]
 texture = ExtResource("2_hhde1")

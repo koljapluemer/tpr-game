@@ -58,5 +58,29 @@ layout_mode = 2
 disabled = true
 text = "Play"
 
+[node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelSelect" type="OptionButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+disabled = true
+item_count = 1
+
+[node name="StartSpecificLevelButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+disabled = true
+text = "Start Level"
+
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/HBoxContainer/LevelSelect" to="." method="_on_level_select_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/StartSpecificLevelButton" to="." method="_on_start_specific_level_button_pressed"]

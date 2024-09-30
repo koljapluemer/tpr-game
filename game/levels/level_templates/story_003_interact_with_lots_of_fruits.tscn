@@ -14,6 +14,7 @@
 load_path = "res://.godot/imported/tabletop.png-edc910a0eb61ffc224de1018a7d68c80.ctex"
 
 [node name="Level" instance=ExtResource("1_glmel")]
+level_name = "Lots of Fruit"
 
 [node name="Sprite2D" parent="Background" index="0"]
 texture = SubResource("CompressedTexture2D_rf0ir")

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="5_jtro5"]
 
 [node name="Level" instance=ExtResource("1_7oc6i")]
+level_name = "Get On the Bus"
 
 [node name="Sprite2D" parent="Background" index="0"]
 position = Vector2(408.181, 46.411)

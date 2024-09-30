@@ -9,6 +9,7 @@
 load_path = "res://.godot/imported/tabletop.png-edc910a0eb61ffc224de1018a7d68c80.ctex"
 
 [node name="Level" instance=ExtResource("1_skk02")]
+level_name = "Cut the Kiwi"
 
 [node name="Sprite2D" parent="Background" index="0"]
 texture = SubResource("CompressedTexture2D_rf0ir")

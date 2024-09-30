@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="3_fgcqt"]
 
 [node name="Level3" instance=ExtResource("1_5i15m")]
+level_name = "More Melons"
 
 [node name="DefaultSpawn3" type="Marker2D" parent="SpawnPoints" index="0"]
 z_index = 7

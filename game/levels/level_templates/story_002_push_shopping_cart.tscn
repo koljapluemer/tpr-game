@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://coa7ncdq888tt" path="res://game/scrapbook_objects/objects/shopping_cart_red.tscn" id="3_kq3bu"]
 
 [node name="Level" instance=ExtResource("1_ebtpi")]
+level_name = "The Shopping Cart"
 
 [node name="Sprite2D" parent="Background" index="0"]
 position = Vector2(407.242, 35.4318)

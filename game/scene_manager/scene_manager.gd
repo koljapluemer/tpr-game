@@ -56,3 +56,9 @@ func load_next_story_level():
 		# replay random level
 		get_tree().change_scene_to_packed(story.pick_random())
 		
+
+func load_level_by_index(i:int):
+	if i < len(story) - 1:
+		current_level_index = i
+		get_tree().change_scene_to_packed(story[current_level_index])
+	

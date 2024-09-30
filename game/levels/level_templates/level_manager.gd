@@ -5,6 +5,7 @@
 ## be abstracted in the future.
 class_name LevelManager extends Node2D
 
+@export var level_name:String
 @export_multiline var learning_goal:String ## internal documentation
 
 var interactions: Array[Interaction]
