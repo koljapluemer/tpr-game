@@ -20,10 +20,12 @@ var currently_dragged_object: ScrapbookObject
 var currently_hovered_obj: ScrapbookObject
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = %AudioStreamPlayer2D
+@onready var spawn_points: Node2D = %SpawnPoints
+@onready var quest_manager: QuestManager = %QuestManager
 
 
-func _ready() -> void:
-	get_parent().get_viewport().set_physics_object_picking_sort(false)
+func _ready() -> void:	
+	#get_parent().get_viewport().set_physics_object_picking_sort(false)
 	
 	MessageManager.object_appeared.connect(_on_object_appeared)
 	MessageManager.object_disappeared.connect(_on_object_disappeared)
@@ -44,6 +46,20 @@ func _ready() -> void:
 	MessageManager.object_mouse_over_started.connect(_on_object_mouse_over_finished)
 	# quest listening (for audio)
 	MessageManager.quest_started.connect(_on_quest_started)
+	
+	# setup of spawnpoints and quests
+	if not spawn_points:
+		push_error("level has no spawn_points object")
+	else:
+		for spawn_point:SpawnPoint in spawn_points.get_children():
+			if spawn_point.has_method("spawn_in_random_object"):
+				spawn_point.spawn_in_random_object()
+			else:
+				push_warning("spawn_point is missing method")
+		if quest_manager:
+			quest_manager.initial_setup(scrapbook_objects)
+		else:
+			push_warning("no quest_manager_found")
 	
 func _on_bg_mouse_over_started():
 	if currently_hovered_obj and is_instance_valid(currently_hovered_obj):

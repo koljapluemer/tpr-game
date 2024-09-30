@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_v8sj6"]
 [ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="7_jhavj"]
 
-[sub_resource type="Resource" id="Resource_hipgu"]
+[sub_resource type="Resource" id="Resource_16jcy"]
 script = ExtResource("5_v8sj6")
 key_word = "YOU"
 kill_sender = true
@@ -50,7 +50,7 @@ size = Vector2(4448, 2336)
 word_list = Array[String](["BUS"])
 color = "BLUE"
 is_movable = false
-scrapbook_interactions = Array[ExtResource("5_v8sj6")]([SubResource("Resource_hipgu")])
+scrapbook_interactions = Array[ExtResource("5_v8sj6")]([SubResource("Resource_16jcy")])
 lock_sound = ExtResource("7_jhavj")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 

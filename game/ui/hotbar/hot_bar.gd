@@ -15,9 +15,10 @@ func _ready() -> void:
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	var modes_to_support : Array[Interaction] = []
 	for obj in obj_list:
-		for mode in obj.get_affordances():
-			if not modes_to_support.has(mode):
-				modes_to_support.append(mode)
+		if is_instance_valid(obj):
+			for mode in obj.get_affordances():
+				if not modes_to_support.has(mode):
+					modes_to_support.append(mode)
 				
 	if displayed_interaction_modes != modes_to_support:
 		update_button_view(modes_to_support)

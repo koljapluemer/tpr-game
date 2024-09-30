@@ -26,36 +26,30 @@ var active_quests: Array[Quest] = []
 var possible_quests: Array[Quest] = []
 var quests_done:= 0
 var last_quest: Quest
-## is set after a timer
-## this both gives the player time to come to grips
-## but it also is a crude measure to prevent the condition that if we update the quest list
-## and more importantly, the sensible_identifiers of every [ScrapbookObject] one by one
-## we get definite articles for objects that don't yet know that they're not the only ones with this
-## naming scheme...
-var allow_quests_to_start := false 
+
 
 
 func _ready() -> void:
-	MessageManager.object_list_changed.connect(_on_object_list_changed)
-	get_tree().create_timer(DELAY_UNTIL_FIRST_QUEST).timeout.connect(set_allow_quest_start)
 	if not audio_player:
 		push_warning("Quest Manager has no Audio Manager")
 
-func set_allow_quest_start():
-	allow_quests_to_start = true
-	setup()
+func initial_setup(obj_list:Array[ScrapbookObject]):
+	# manually triggered by level manager after all the objects are loaded
+	# from now on (but only from now on) we will dynammically listen to changes
+	MessageManager.object_list_changed.connect(_on_object_list_changed)
+	_on_object_list_changed(obj_list)
+	
 
+## triggered every time a signal goes out that an [ScrapbookObject] has gone or joined from the scene tree
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	objects = obj_list	
-	setup()
+	react_to_changed_object_list()
 	
-func setup():
-	if allow_quests_to_start:
-		if len(active_quests) > 0:
-			check_if_active_quests_are_still_possible()
-		analyze_special_wording_opportunities()
-		update_possible_quest_list()
-		make_sure_that_there_is_one_active_quest()
+	
+func react_to_changed_object_list():
+	analyze_special_wording_opportunities()
+	update_possible_quest_list()
+	make_sure_that_there_is_one_active_quest()
 
 
 func check_if_active_quests_are_still_possible():

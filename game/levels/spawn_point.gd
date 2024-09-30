@@ -12,10 +12,8 @@ class_name SpawnPoint extends Marker2D
 var init_scene: ScrapbookObject
 
 func _ready() -> void:
-	# deferred because otherwise danger that we send out a signal
-	# that noone is listening to yet
-	call_deferred("spawn_in_random_object")
-	
+	pass
+
 
 func spawn_in_random_object():
 	var scene_to_init = accepts.pick_random()
@@ -26,9 +24,9 @@ func spawn_in_random_object():
 	
 
 func change_scene(scene_to_init:PackedScene):
-	var inst:ScrapbookObject = scene_to_init.instantiate()
-	inst.scale = Vector2(scale_factor, scale_factor)
-	inst.z_index = 0
-	inst.grid_pos = grid_pos
-	add_child(inst)
-	MessageManager.object_appeared.emit(inst)
+	var init_scene:ScrapbookObject = scene_to_init.instantiate()
+	init_scene.scale = Vector2(scale_factor, scale_factor)
+	init_scene.z_index = 0
+	init_scene.grid_pos = grid_pos
+	add_child(init_scene)
+	MessageManager.object_appeared.emit(init_scene)
