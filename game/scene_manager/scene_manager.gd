@@ -37,7 +37,9 @@ const repeat_levels: Array[PackedScene] = [
 
 # other constants
 const END_LEVEL_SCREEN = preload("res://game/views/003_end_level_screen/end_level_screen.tscn")
+
 const MAIN_MENU = preload("res://game/views/000_main_menu/main_menu.tscn")
+const CREDITS = preload("res://game/views/002_credits/credits.tscn")
 
 var current_level_index:int = 0
 
@@ -73,6 +75,9 @@ func load_level_by_index(i:int):
 	
 func load_main_menu(): 
 	_load_scene(MAIN_MENU)
+	
+func load_credits():
+	_load_scene(CREDITS)
 
 func _load_scene(scene:PackedScene):
 	GameState.current_interaction_mode = null

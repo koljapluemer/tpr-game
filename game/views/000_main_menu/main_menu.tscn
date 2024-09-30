@@ -29,6 +29,12 @@ text = "The Language Scrapbook
 "
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+text = "Acquire a language by doing tasks."
+horizontal_alignment = 1
+
 [node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
@@ -80,7 +86,13 @@ theme_override_font_sizes/font_size = 10
 disabled = true
 text = "Start Level"
 
+[node name="LoadCredits" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Show Credits"
+
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/HBoxContainer/LevelSelect" to="." method="_on_level_select_item_selected"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/StartSpecificLevelButton" to="." method="_on_start_specific_level_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadCredits" to="." method="_on_load_credits_pressed"]

@@ -45,3 +45,7 @@ func _on_level_select_item_selected(index: int) -> void:
 	# both a language and a level selected
 	if index != -1 and  not play_button.disabled:
 		start_specific_level_button.disabled = false
+
+
+func _on_load_credits_pressed() -> void:
+	SceneManager.load_credits()
