@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://game/ui/hotbar/interaction_buttons/interaction_button.gd" id="2_o02xk"]
 
 [node name="ButtonMode" type="Button"]
+self_modulate = Color(1.63645e-06, 0.687813, 0.689484, 1)
 custom_minimum_size = Vector2(60, 60)
 expand_icon = true
 script = ExtResource("2_o02xk")

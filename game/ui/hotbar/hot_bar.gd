@@ -7,7 +7,8 @@ var displayed_interaction_modes: Array[Interaction] = []
 
 func _ready() -> void:
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
-
+	MessageManager.interaction_mode_changed.connect(_on_interaction_mode_changed)
+	
 ## listens to a global signal sent out by the [LevelManager].	
 ## if new a [ScrapbookObject] appears (or disappears), it may be that the buttons
 ## of this hotbar have to change so you can actually interact well with the object
@@ -35,7 +36,19 @@ func update_button_view(modes: Array[Interaction]):
 			btn.icon = mode.icon
 			btn.interaction = mode
 			# if we have a TOUCH button, which we should, set that as standard by pressing it
-			if mode.key == "TOUCH":
+			if mode.key == "TOUCH" and not GameState.current_interaction_mode:
 				MessageManager.interaction_mode_changed.emit(mode)
 				GameState.current_interaction_mode = mode
+			if GameState.current_interaction_mode == btn.interaction:
+				btn.self_modulate = Color(0, .7,.7,1)
+			else:
+				btn.self_modulate = Color(1,1,1)
+				
 			add_child(btn)
+
+func _on_interaction_mode_changed(new_mode:Interaction):
+	for btn in get_children():
+		if new_mode == btn.interaction:
+			btn.self_modulate = Color(0, .7,.7,1)
+		else:
+			btn.self_modulate = Color(1,1,1)

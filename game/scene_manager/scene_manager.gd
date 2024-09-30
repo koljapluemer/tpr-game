@@ -67,7 +67,7 @@ func load_main_menu():
 	_load_scene(MAIN_MENU)
 
 func _load_scene(scene:PackedScene):
-	print('resetting')
+	GameState.current_interaction_mode = null
 	Input.set_custom_mouse_cursor(null)
 	get_tree().change_scene_to_packed(scene)
 	
