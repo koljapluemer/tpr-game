@@ -13,7 +13,6 @@ static func create(_word: String, _interaction: Interaction) -> Quest:
 	return inst
 	
 
-
 func _activate() -> void:
 	super()
 	MessageManager.object_was_interacted_with.connect(_on_object_was_interacted_with)

@@ -84,9 +84,10 @@ position = Vector2(434, 189)
 script = ExtResource("4_n7g3t")
 accepts = Array[PackedScene]([ExtResource("5_x2ipx")])
 
-[node name="QuestManager" type="Node" parent="."]
+[node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 unique_name_in_owner = true
 script = ExtResource("6_16sp0")
+audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
 unique_name_in_owner = true

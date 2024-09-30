@@ -109,10 +109,11 @@ accepts = Array[PackedScene]([ExtResource("6_asf47"), ExtResource("7_yflgh")])
 scale_factor = 0.03
 grid_pos = Vector2(0, 1)
 
-[node name="QuestManager" type="Node" parent="."]
+[node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 unique_name_in_owner = true
 script = ExtResource("8_80edp")
 assume_there_is_a_grid = true
+audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
 unique_name_in_owner = true

@@ -6,6 +6,8 @@ signal quest_no_longer_active(quest:Quest)
 @export var MAX_QUESTS_PER_LEVEL := 7
 @export var DELAY_UNTIL_FIRST_QUEST := 3
 @export var assume_there_is_a_grid:= false
+@export var audio_player:AudioStreamPlayer2D
+
 
 const DEFINITE_ARTICLE := "THE__" 
 const INDEFINITE_ARTICLE := "A__"
@@ -14,7 +16,6 @@ const SOUND_QUEST_FAILED = preload("res://game/shared_assets/paper_rip.wav")
 const SOUND_SUCCESS_SHORT = preload("res://game/shared_assets/success_short.ogg")
 const SOUND_WRONG_SHORT = preload("res://game/shared_assets/wrong_short.wav")
 
-var audio_player:AudioStreamPlayer2D
 
 # this exact same thing is also tracked in `level_template.gd`
 # it is basically synced here via signal. I'm not if that's bad.
@@ -37,7 +38,6 @@ var allow_quests_to_start := false
 func _ready() -> void:
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
 	get_tree().create_timer(DELAY_UNTIL_FIRST_QUEST).timeout.connect(set_allow_quest_start)
-	audio_player = get_tree().get_first_node_in_group("audio_player")
 	if not audio_player:
 		push_warning("Quest Manager has no Audio Manager")
 
@@ -48,7 +48,6 @@ func set_allow_quest_start():
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	objects = obj_list	
 	setup()
-	
 	
 func setup():
 	if allow_quests_to_start:
@@ -233,6 +232,7 @@ func analyze_special_wording_opportunities():
 
 
 func _on_quest_finished(quest:Quest):
+	print("quest finished...", quest)
 	if audio_player:
 		audio_player.stream = SOUND_SUCCESS_SHORT
 		audio_player.play()
