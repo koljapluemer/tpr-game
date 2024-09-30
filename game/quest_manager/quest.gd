@@ -31,6 +31,7 @@ func _activate()->void:
 	
 
 func set_finished():
+	print("Quest: quest finished")
 	status = QuestStatus.finished
 	finished.emit(self)
 

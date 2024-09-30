@@ -39,3 +39,5 @@ ENABLE ME TO LEARN AR IN A PLAYFUL WAY
 - success sound not playing for TAKE quests, guess because audio manager destroyed? 
 - getting on bus doesn't work
 	- need a level selector...
+
+- AR text/audio is out of sync

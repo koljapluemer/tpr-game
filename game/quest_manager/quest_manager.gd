@@ -26,7 +26,7 @@ var active_quests: Array[Quest] = []
 var possible_quests: Array[Quest] = []
 var quests_done:= 0
 var last_quest: Quest
-
+var currently_waiting_for_next_quest_to_start := false
 
 
 func _ready() -> void:
@@ -50,7 +50,9 @@ func react_to_changed_object_list():
 	analyze_special_wording_opportunities()
 	check_if_active_quests_are_still_possible()
 	update_possible_quest_list()
-	make_sure_that_there_is_one_active_quest()
+	if not currently_waiting_for_next_quest_to_start:
+		currently_waiting_for_next_quest_to_start = true
+		get_tree().create_timer(2).timeout.connect(make_sure_that_there_is_one_active_quest)
 
 
 func check_if_active_quests_are_still_possible():
@@ -80,6 +82,8 @@ func make_sure_that_there_is_one_active_quest():
 	if len(active_quests) == 0:
 		update_possible_quest_list()
 		start_random_quest()
+	currently_waiting_for_next_quest_to_start = false
+		
 		
 # TODO: this is triggered before all spawnpoitns
 # have communicated their objects and potentials
@@ -236,16 +240,16 @@ func analyze_special_wording_opportunities():
 
 
 func _on_quest_finished(quest:Quest):
-	print("quest finished...", quest)
+	print("QM: quest finished...", quest)
 	if audio_player:
+		print("playing audio")
 		audio_player.stream = SOUND_SUCCESS_SHORT
 		audio_player.play()
 	quest_no_longer_active.emit(quest)
 	active_quests.erase(quest)
 	quests_done += 1
-	# TODO: this in theory can create impossible quests
-	# ...which is currently stopped because of the long wait :D
-	get_tree().create_timer(1).connect("timeout", make_sure_that_there_is_one_active_quest)
+	react_to_changed_object_list()
+
 
 func _on_quest_aborted(quest:Quest):
 	if audio_player:
@@ -254,3 +258,4 @@ func _on_quest_aborted(quest:Quest):
 	quest_no_longer_active.emit(quest)
 	print("Erasing aborted quest")
 	active_quests.erase(quest)
+	react_to_changed_object_list()
