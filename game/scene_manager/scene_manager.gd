@@ -31,6 +31,7 @@ const story: Array[PackedScene] = [
 
 # other constants
 const END_LEVEL_SCREEN = preload("res://game/views/003_end_level_screen/end_level_screen.tscn")
+const MAIN_MENU = preload("res://game/views/000_main_menu/main_menu.tscn")
 
 var current_level_index:int = 0
 
@@ -62,3 +63,5 @@ func load_level_by_index(i:int):
 		current_level_index = i
 		get_tree().change_scene_to_packed(story[current_level_index])
 	
+func load_main_menu():
+	get_tree().change_scene_to_packed(MAIN_MENU)
