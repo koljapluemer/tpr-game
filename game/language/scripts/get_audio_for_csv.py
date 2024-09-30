@@ -2,6 +2,7 @@ import os
 import csv
 import requests
 import json
+import time
 
 CSV_FILE = './game/language/translation_text/tpr-game - Sheet1.csv'
 AUDIO_DIR = './game/language/translation_audio/'
@@ -21,14 +22,25 @@ with open('./game/language/scripts/api.txt', 'r') as f:
     api_email = f.readline().strip()
     api_key = f.readline().strip()
 
+
+languages_speakers = {
+    "ar": "Ahmed",
+    "de": "Amala",
+    "it": "Fabiola"
+}
+
+
 # loop over all language codes
 for language_code in language_codes:
-    # TODO: delete later, but for testng only download arabic
-    if language_code != 'ar':
-        continue
     print("checking language code", language_code)
+    # skip en
+    if language_code == 'en':
+        continue
+    # make folder if it doesn't exist
+    os.makedirs(os.path.join(AUDIO_DIR, language_code), exist_ok=True)
     # get all rows for this language
     with open(CSV_FILE, 'r') as f:
+
         reader = csv.reader(f)
         header = next(reader)
         rows = list(reader)
@@ -52,21 +64,23 @@ for language_code in language_codes:
                     # "pitch": 0.8,
                     # "emotion": "good"
                     # }
+                    speaker = languages_speakers[language_code]
 
                     # send request to speechgen.io
                     url = 'https://speechgen.io/index.php?r=api/text'
+
                     data = {
                         "token": api_key,
                         "email": api_email,
-                        "voice": "Ahmed",
+                        "voice": speaker,
                         "text": text,
                         "format": "mp3",
                         "speed": 0.8,
-                        "pitch": 0.8,
+                        "pitch": 0,
                         "emotion": "good"
                     }
                     response = requests.post(url, data=data)
-                    print(f"Response: {response.text}")
+                    time.sleep(1)
                     
                     # Handling the response
                     response = json.loads(response.text)
@@ -80,7 +94,6 @@ for language_code in language_codes:
                             with open(file_path, 'wb') as file:
                                 # write file to correct path:
                                 file.write(file_content)
-                                print(f"Successfully downloaded audio file for key {key} and saved it to {file_path}")
                         else:
                             print(f"Error: Missing 'file' or 'format' in response. Status: {response['status']}, Error: {response.get('error', 'No error message')}")
                     else:
