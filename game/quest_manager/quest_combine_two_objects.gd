@@ -18,7 +18,10 @@ func _activate() -> void:
 	MessageManager.objects_were_combined.connect(_on_objects_were_combined)
 
 func _on_objects_were_combined(sender:ScrapbookObject, receiver:ScrapbookObject):
-	print("CombineTwoQuests: registered combination")
-	if sender.sensible_identifiers.has(sender_word) and receiver.sensible_identifiers.has(receiver_word):
-		print("CombineTwoQuests: setting finished")
-		set_finished()
+	if status == QuestStatus.active:
+		print("CombineTwoQuests: registered combination")
+		if sender.sensible_identifiers.has(sender_word) and receiver.sensible_identifiers.has(receiver_word):
+			print("CombineTwoQuests: setting finished")
+			set_finished()
+		else:
+			MessageManager.register_unproductive_action.emit()

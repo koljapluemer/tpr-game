@@ -32,6 +32,7 @@ var currently_waiting_for_next_quest_to_start := false
 func _ready() -> void:
 	if not audio_player:
 		push_warning("Quest Manager has no Audio Manager")
+	MessageManager.register_unproductive_action.connect(_on_unproductive_action_registered)
 
 func initial_setup(obj_list:Array[ScrapbookObject]):
 	# manually triggered by level manager after all the objects are loaded
@@ -52,8 +53,10 @@ func react_to_changed_object_list():
 	update_possible_quest_list()
 	if not currently_waiting_for_next_quest_to_start:
 		currently_waiting_for_next_quest_to_start = true
-		get_tree().create_timer(2).timeout.connect(make_sure_that_there_is_one_active_quest)
-
+		if get_tree():
+			get_tree().create_timer(2).timeout.connect(make_sure_that_there_is_one_active_quest)
+		else:
+			push_warning("For some reason quest_manager is not in a treee...")
 
 func check_if_active_quests_are_still_possible():
 	print("check_if_active_quests_are_still_possible()")
@@ -259,3 +262,9 @@ func _on_quest_aborted(quest:Quest):
 	print("Erasing aborted quest")
 	active_quests.erase(quest)
 	react_to_changed_object_list()
+	
+## react to actions not fulfilling a quest goal
+func _on_unproductive_action_registered():
+	if audio_player:
+		audio_player.stream = SOUND_WRONG_SHORT
+		audio_player.play()

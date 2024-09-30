@@ -36,3 +36,6 @@ signal interaction_mode_changed(new_mode: Interaction)
 # quests
 @warning_ignore("unused_signal")
 signal quest_started(quest: Quest)
+
+@warning_ignore("unused_signal")
+signal register_unproductive_action

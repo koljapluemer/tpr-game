@@ -23,3 +23,5 @@ func _on_object_was_interacted_with(obj:ScrapbookObject, _interaction: Interacti
 		var is_match = obj.sensible_identifiers.has(word) and _interaction == interaction
 		if is_match:
 			set_finished()
+		else:
+			MessageManager.register_unproductive_action.emit()
