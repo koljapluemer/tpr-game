@@ -17,7 +17,7 @@ class_name ScrapbookObject extends Area2D
 @export var is_lockable := false
 ## In true alchemy game fashion, this defines the actions possible
 ## by dropping another object onto this object
-@export var scrapbook_interactions: Array[ScrapbookInteraction] = []
+@export var scrapbook_interactions: Array[ScrapbookInteraction]
 @export_category("Advanced Affordance Settings")
 
 ## When taking the object (requires is_takeable)
@@ -172,8 +172,12 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):
+	print("drop on me registered;")
 	for scrapbook_interaction:ScrapbookInteraction in scrapbook_interactions:
+		print("will check for keyword: ", scrapbook_interaction.key_word)
+		print("obj word list: ", obj.word_list)
 		if obj.word_list.has(scrapbook_interaction.key_word):
+			print("keyword match")
 			# at this point the combination is happening
 			MessageManager.objects_were_combined.emit(obj, self)
 			for instance in scrapbook_interaction.objects_to_spawn:

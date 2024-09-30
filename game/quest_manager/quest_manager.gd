@@ -171,7 +171,7 @@ func analyze_special_wording_opportunities():
 		for word in obj.word_list:
 			var object_is_the_only_one_using_this_word:= true
 			for comparison_obj:ScrapbookObject in objects:
-				if not comparison_obj == obj:
+				if not comparison_obj == obj and is_instance_valid(comparison_obj):
 					if comparison_obj.word_list.has(word):
 						object_is_the_only_one_using_this_word = false
 			if object_is_the_only_one_using_this_word:
