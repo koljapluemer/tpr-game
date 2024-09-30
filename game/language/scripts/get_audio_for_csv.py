@@ -1,6 +1,7 @@
 import os
 import csv
 import requests
+import json
 
 CSV_FILE = './game/language/translation_text/tpr-game - Sheet1.csv'
 AUDIO_DIR = './game/language/translation_audio/'
@@ -64,14 +65,27 @@ for language_code in language_codes:
                         "pitch": 0.8,
                         "emotion": "good"
                     }
-                    response = requests.post(url, json=data)
-                    if response.status_code == 200:
-                        # save audio file
-                        os.makedirs(os.path.dirname(audio_file), exist_ok=True)
-                        with open(audio_file, 'wb') as f:
-                            f.write(response.content)
+                    response = requests.post(url, data=data)
+                    print(f"Response: {response.text}")
+                    
+                    # Handling the response
+                    response = json.loads(response.text)
+                    if response['status'] == 1:
+                        if 'file' in response and 'format' in response:
+                            file_url = response['file']
+                            file_format = response['format']
+                            file_id = response['id']
+                            file_path = os.path.join(AUDIO_DIR, language_code, key + '.' + file_format)
+                            file_content = requests.get(file_url).content
+                            with open(file_path, 'wb') as file:
+                                # write file to correct path:
+                                file.write(file_content)
+                                print(f"Successfully downloaded audio file for key {key} and saved it to {file_path}")
+                        else:
+                            print(f"Error: Missing 'file' or 'format' in response. Status: {response['status']}, Error: {response.get('error', 'No error message')}")
+                    else:
+                        print(f"Error: {response.get('error', 'Unknown error')}")
 
-                    break
                 else:
                     print("audio file already exists for key", key)
             else:
