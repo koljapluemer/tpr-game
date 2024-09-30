@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="7_jhavj"]
 
 [sub_resource type="Resource" id="Resource_16jcy"]
+resource_local_to_scene = true
 script = ExtResource("5_v8sj6")
 key_word = "YOU"
 kill_sender = true

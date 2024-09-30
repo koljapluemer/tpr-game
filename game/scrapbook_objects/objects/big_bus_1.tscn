@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_r7a2l"]
 
 [sub_resource type="Resource" id="Resource_3mciy"]
+resource_local_to_scene = true
 script = ExtResource("5_r7a2l")
 key_word = "YOU"
 kill_sender = true

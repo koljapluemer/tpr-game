@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bkmpc45rg28vy" path="res://game/images/kiwi_uncut.webp" id="5_ok2sn"]
 [ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="6_xaata"]
 
-[sub_resource type="Resource" id="Resource_in6rt"]
+[sub_resource type="Resource" id="Resource_il8ow"]
+resource_local_to_scene = true
 script = ExtResource("4_bajbr")
 key_word = ""
 kill_sender = false
@@ -27,7 +28,7 @@ height = 62.0
 position = Vector2(0, 4)
 word_list = Array[String](["KIWI", "FRUIT"])
 is_takeable = true
-scrapbook_interactions = Array[ExtResource("4_bajbr")]([SubResource("Resource_in6rt")])
+scrapbook_interactions = Array[ExtResource("4_bajbr")]([SubResource("Resource_il8ow")])
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]
