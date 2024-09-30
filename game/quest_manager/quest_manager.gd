@@ -48,11 +48,15 @@ func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	
 func react_to_changed_object_list():
 	analyze_special_wording_opportunities()
+	check_if_active_quests_are_still_possible()
 	update_possible_quest_list()
 	make_sure_that_there_is_one_active_quest()
 
 
 func check_if_active_quests_are_still_possible():
+	print("check_if_active_quests_are_still_possible()")
+	if len(active_quests) == 0:
+		return
 	# get all the words currently available
 	var available_words: Array[String] = []
 	for obj in objects:
@@ -61,6 +65,7 @@ func check_if_active_quests_are_still_possible():
 	for quest in active_quests:
 		var quest_is_possible = true
 		for word in quest.required_words:
+			print("checking word: ", word)
 			if not available_words.has(word):
 				quest_is_possible = false
 				break
