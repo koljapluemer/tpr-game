@@ -36,32 +36,38 @@ const MAIN_MENU = preload("res://game/views/000_main_menu/main_menu.tscn")
 var current_level_index:int = 0
 
 func load_scene(scene:PackedScene):
-	get_tree().change_scene_to_packed(scene)
+	_load_scene(scene)
 	
 func load_random_level():
 	var lvl = story.pick_random()
 	if lvl:
-		get_tree().change_scene_to_packed(lvl)
+		_load_scene(lvl)
 
 func load_end_level_screen():
-	get_tree().change_scene_to_packed(END_LEVEL_SCREEN)
+	_load_scene(END_LEVEL_SCREEN)
 
 func reload_level():
-	get_tree().change_scene_to_packed(story[current_level_index])
+	_load_scene(story[current_level_index])
 
 func load_next_story_level():
 	if len(story) > current_level_index:
 		current_level_index += 1
-		get_tree().change_scene_to_packed(story[current_level_index])
+		_load_scene(story[current_level_index])
 	else:
 		# replay random level
-		get_tree().change_scene_to_packed(story.pick_random())
+		_load_scene(story.pick_random())
 		
 
 func load_level_by_index(i:int):
 	if i < len(story) - 1:
 		current_level_index = i
-		get_tree().change_scene_to_packed(story[current_level_index])
+		_load_scene(story[current_level_index])
 	
-func load_main_menu():
-	get_tree().change_scene_to_packed(MAIN_MENU)
+func load_main_menu(): 
+	_load_scene(MAIN_MENU)
+
+func _load_scene(scene:PackedScene):
+	print('resetting')
+	Input.set_custom_mouse_cursor(null)
+	get_tree().change_scene_to_packed(scene)
+	
