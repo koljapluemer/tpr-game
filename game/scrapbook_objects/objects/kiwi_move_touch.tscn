@@ -6,7 +6,8 @@
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_2bq3r"]
 [ext_resource type="Texture2D" uid="uid://bkmpc45rg28vy" path="res://game/images/kiwi_uncut.webp" id="5_jq823"]
 
-[sub_resource type="Resource" id="Resource_in6rt"]
+[sub_resource type="Resource" id="Resource_ei0mx"]
+resource_local_to_scene = true
 script = ExtResource("2_23u2q")
 key_word = "KNIFE"
 kill_sender = false
@@ -26,7 +27,7 @@ height = 62.0
 [node name="ScapbookObject" instance=ExtResource("1_baun7")]
 position = Vector2(0, 4)
 word_list = Array[String](["KIWI", "FRUIT"])
-scrapbook_interactions = Array[ExtResource("2_23u2q")]([SubResource("Resource_in6rt")])
+scrapbook_interactions = Array[ExtResource("2_23u2q")]([SubResource("Resource_ei0mx")])
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]
