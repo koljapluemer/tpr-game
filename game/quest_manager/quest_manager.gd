@@ -56,13 +56,16 @@ func react_to_changed_object_list():
 func check_if_active_quests_are_still_possible():
 	print("check_if_active_quests_are_still_possible()")
 	if len(active_quests) == 0:
+		print("check_if_active_quests_are_still_possibel: no active quests: ", active_quests)
 		return
 	# get all the words currently available
 	var available_words: Array[String] = []
 	for obj in objects:
 		available_words.append_array(obj.sensible_identifiers)
 	
+	print("nr of active quests:", len(active_quests))
 	for quest in active_quests:
+		print("checkin quest: ", quest)
 		var quest_is_possible = true
 		for word in quest.required_words:
 			print("checking word: ", word)
@@ -96,6 +99,7 @@ func update_possible_quest_list():
 	var combination_quests := get_combine_two_objects_quests()
 	for q in combination_quests:
 		possible_quests.append(q)
+	print("nr of possible quests: ", len(possible_quests))
 	
 
 func get_simple_interaction_quests() -> Array[SimpleInteractionQuest]:
@@ -152,6 +156,7 @@ func start_random_quest():
 			quest.finished.connect(_on_quest_finished)
 			quest.aborted.connect(_on_quest_aborted)
 			active_quests.append(quest)
+			print("appended quest, active_quests now contains nr: ", len(active_quests))
 			last_quest = quest
 	else:
 		SceneManager.load_end_level_screen()
@@ -247,4 +252,5 @@ func _on_quest_aborted(quest:Quest):
 		audio_player.stream = SOUND_QUEST_FAILED
 		audio_player.play()
 	quest_no_longer_active.emit(quest)
+	print("Erasing aborted quest")
 	active_quests.erase(quest)

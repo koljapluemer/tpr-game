@@ -29,6 +29,12 @@ const story: Array[PackedScene] = [
 	STORY_009_GET_ON_ONE_OF_THREE_BUSSES
 ]
 
+const repeat_levels: Array[PackedScene] = [
+	STORY_009_GET_ON_ONE_OF_THREE_BUSSES,
+	STORY_004_PUT_FRUIT_IN_BACKPACK,
+	STORY_003_INTERACT_WITH_LOTS_OF_FRUITS,	
+]
+
 # other constants
 const END_LEVEL_SCREEN = preload("res://game/views/003_end_level_screen/end_level_screen.tscn")
 const MAIN_MENU = preload("res://game/views/000_main_menu/main_menu.tscn")
@@ -50,16 +56,18 @@ func reload_level():
 	_load_scene(story[current_level_index])
 
 func load_next_story_level():
-	if len(story) > current_level_index:
+	if len(story) > current_level_index + 1:
+		print("loading next story level")
 		current_level_index += 1
 		_load_scene(story[current_level_index])
 	else:
 		# replay random level
-		_load_scene(story.pick_random())
+		print("loading random repeat level")
+		_load_scene(repeat_levels.pick_random())
 		
 
 func load_level_by_index(i:int):
-	if i < len(story) - 1:
+	if i <= len(story) - 1:
 		current_level_index = i
 		_load_scene(story[current_level_index])
 	

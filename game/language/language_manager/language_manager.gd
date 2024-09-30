@@ -2,7 +2,6 @@ extends Node
 
 func check_for_matching_audio(key):
 	var path = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + key + ".mp3"
-	print("checking path: ", path)
 	if ResourceLoader.exists(path):
 		return path
 	else:
