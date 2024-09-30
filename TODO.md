@@ -35,4 +35,5 @@ ENABLE ME TO LEARN AR IN A PLAYFUL WAY
 	- also could just gen all possible keys in the first place...and write them immediately
 	- do this while quests are generated, and boom, don't generate impossible quests
 	
-- I think at some point quests which are impossible are still generated... 
+- I think at some point quests which are impossible are still generated...
+- success sound not playing for TAKE quests, guess because audio manager destroyed? 
