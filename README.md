@@ -28,6 +28,7 @@
 ### Audio
 
 - Fus7a speech gen: https://speechgen.io/, Ahmed
+	- [python tutorial](https://speechgen.io/en/node/python-tts/)
 - German speech gen: https://ttsmp3.com/text-to-speech/German/
 
 

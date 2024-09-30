@@ -1,0 +1,78 @@
+import os
+import csv
+import requests
+
+CSV_FILE = './game/language/translation_text/tpr-game - Sheet1.csv'
+AUDIO_DIR = './game/language/translation_audio/'
+
+# every colum in the csv is one language code (except first column, 'key')
+# for every language, check for rows that are filled, but for which there is no mp3 file like AUDIO_DIR/language_code/KEY.mp3
+# if there is no mp3 file, download it from speechgen.io
+
+# get all language codes from the csv file
+with open(CSV_FILE, 'r') as f:
+    reader = csv.reader(f)
+    header = next(reader)
+    language_codes = header[1:]
+
+# get api data from api.txt
+with open('./game/language/scripts/api.txt', 'r') as f:
+    api_email = f.readline().strip()
+    api_key = f.readline().strip()
+
+# loop over all language codes
+for language_code in language_codes:
+    # TODO: delete later, but for testng only download arabic
+    if language_code != 'ar':
+        continue
+    print("checking language code", language_code)
+    # get all rows for this language
+    with open(CSV_FILE, 'r') as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        rows = list(reader)
+        for row in rows:
+            key = row[0]
+            text = row[header.index(language_code)]
+            if text:
+                # check if audio file exists
+                audio_file = os.path.join(AUDIO_DIR, language_code, key + '.mp3')
+                if not os.path.exists(audio_file):
+                    print("downloading audio for key", key)
+                    # BASE URL https://speechgen.io/index.php?r=api/text
+                    # EXAMPLE REQUEST DATA:
+                    #{
+                    # "token": "your_api_token",
+                    # "email": "your_email@example.com",
+                    # "voice": "John",
+                    # "text": "Short text to be converted to speech.",
+                    # "format": "mp3",
+                    # "speed": 1.1,
+                    # "pitch": 0.8,
+                    # "emotion": "good"
+                    # }
+
+                    # send request to speechgen.io
+                    url = 'https://speechgen.io/index.php?r=api/text'
+                    data = {
+                        "token": api_key,
+                        "email": api_email,
+                        "voice": "Ahmed",
+                        "text": text,
+                        "format": "mp3",
+                        "speed": 0.8,
+                        "pitch": 0.8,
+                        "emotion": "good"
+                    }
+                    response = requests.post(url, json=data)
+                    if response.status_code == 200:
+                        # save audio file
+                        os.makedirs(os.path.dirname(audio_file), exist_ok=True)
+                        with open(audio_file, 'wb') as f:
+                            f.write(response.content)
+
+                    break
+                else:
+                    print("audio file already exists for key", key)
+            else:
+                print("no text for key", key)
