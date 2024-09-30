@@ -34,7 +34,7 @@ languages_speakers = {
 for language_code in language_codes:
     print("checking language code", language_code)
     # skip en
-    if language_code == 'en':
+    if language_code == 'en' or language_code == 'arz':
         continue
     # make folder if it doesn't exist
     os.makedirs(os.path.join(AUDIO_DIR, language_code), exist_ok=True)
