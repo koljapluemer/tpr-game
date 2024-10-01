@@ -3,13 +3,17 @@ class_name SimpleInteractionQuest extends Quest
 @export var word:String
 @export var interaction:Interaction
 
-static func create(_word: String, _interaction: Interaction) -> Quest:
+static func create(_word: String, _interaction: Interaction, _special_interaction_name: String = "") -> Quest:
 	var inst = SimpleInteractionQuest.new()
 	inst.word = _word
 	inst.interaction = _interaction
 	# needed so we can see when the quest becomes impossible
 	inst.required_words.append(_word)
-	inst.key = inst.word + ":" + _interaction.key
+	# allow special key for stuff like LOCK/UNLOCK
+	if _special_interaction_name == "":
+		inst.key = inst.word + ":" + _interaction.key
+	else:
+		inst.key = inst.word + ":" + _special_interaction_name
 	return inst
 	
 

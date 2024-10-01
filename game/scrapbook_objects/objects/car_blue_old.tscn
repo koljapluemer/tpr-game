@@ -19,6 +19,7 @@ word_list = Array[String](["CAR"])
 color = "BLUE"
 is_movable = false
 is_lockable = true
+is_locked = false
 lock_sound = ExtResource("5_lk61c")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 

@@ -3,6 +3,7 @@ class_name QuestManager extends Node
 
 signal quest_no_longer_active(quest:Quest)
 
+@export var debug_mode:= false
 @export var MAX_QUESTS_PER_LEVEL := 7
 @export var DELAY_UNTIL_FIRST_QUEST := 3
 @export var assume_there_is_a_grid:= false
@@ -16,7 +17,7 @@ const SOUND_QUEST_FAILED = preload("res://game/shared_assets/paper_rip.wav")
 const SOUND_SUCCESS_SHORT = preload("res://game/shared_assets/success_short.ogg")
 const SOUND_WRONG_SHORT = preload("res://game/shared_assets/wrong_short.wav")
 
-
+const LOCK_UNLOCK = preload("res://game/interactions/interactions/lock_unlock.tres")
 # this exact same thing is also tracked in `level_template.gd`
 # it is basically synced here via signal. I'm not if that's bad.
 # ...would be smarter to only get it when needed
@@ -30,6 +31,8 @@ var currently_waiting_for_next_quest_to_start := false
 
 
 func _ready() -> void:
+	if debug_mode:
+		push_warning("Debug Mode activated")
 	if not audio_player:
 		push_warning("Quest Manager has no Audio Manager")
 	MessageManager.register_unproductive_action.connect(_on_unproductive_action_registered)
@@ -118,7 +121,14 @@ func get_simple_interaction_quests() -> Array[SimpleInteractionQuest]:
 			continue
 		for word in obj.sensible_identifiers:
 			for mode in obj.get_affordances():
-				var quest:Quest = SimpleInteractionQuest.create(word, mode)
+				var quest:Quest
+				if mode == LOCK_UNLOCK:
+					if obj.is_locked:
+						quest = SimpleInteractionQuest.create(word, mode, "UNLOCK")
+					else:
+						quest = SimpleInteractionQuest.create(word, mode, "LOCK")
+				else:
+					quest = SimpleInteractionQuest.create(word, mode)
 				if LanguageManager.check_for_matching_audio(quest.key):
 					_possible_quests.append(quest)
 	return _possible_quests
@@ -166,7 +176,8 @@ func start_random_quest():
 			print("appended quest, active_quests now contains nr: ", len(active_quests))
 			last_quest = quest
 	else:
-		SceneManager.load_end_level_screen()
+		if not debug_mode:
+			SceneManager.load_end_level_screen()
 
 
 

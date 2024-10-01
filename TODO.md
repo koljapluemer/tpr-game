@@ -1,5 +1,6 @@
-- get credits for all icons I may use from https://game-icons.net
-- make credits page
+### Next big steps
+
+- start tracking quest performance
 
 ### Todo if game not fundamentally changed
 
