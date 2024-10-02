@@ -91,6 +91,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Show Credits"
 
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 10
+text = "Thank you for playing this early version. 
+There may be bugs, and bad translations."
+
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/HBoxContainer/LevelSelect" to="." method="_on_level_select_item_selected"]
