@@ -103,6 +103,7 @@ func update_possible_quest_list():
 	possible_quests = []
 	# doing this the stupid way because array typing breaks here otherwise
 	var combination_quests := get_combine_two_objects_quests()
+	print("nr combination quests ", len(combination_quests))
 	for q in combination_quests:
 		possible_quests.append(q)
 	print("nr of possible quests: ", len(possible_quests))
@@ -124,8 +125,11 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 						# skip the object we're already looking at
 						# we can't combine objects with themselves
 						for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
+							print("checking interaction")
 							if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
+								print("word match")
 								for possible_receiver_id in obj.sensible_identifiers:
+									print("making quest with: ", possible_receiver_id)
 									for possible_sender_id in possible_combination_object.sensible_identifiers:
 										var quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id)
 										if LanguageManager.check_for_matching_audio(quest.key):
