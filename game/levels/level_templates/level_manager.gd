@@ -8,7 +8,6 @@ class_name LevelManager extends Node2D
 @export var level_name:String
 @export_multiline var learning_goal:String ## internal documentation
 
-var interactions: Array[Interaction]
 var scrapbook_objects: Array[ScrapbookObject]
 
 var objects_currently_hovered_by_mouse: Array[ScrapbookObject]
@@ -111,11 +110,9 @@ func _on_object_mouse_over_started(obj:ScrapbookObject):
 		if currently_hovered_obj and is_instance_valid(currently_hovered_obj):
 			currently_hovered_obj.set_interactable()
 		currently_hovered_obj = obj
-		obj.react_to_being_hovered()
 	
 func _on_object_mouse_over_finished(_obj:ScrapbookObject):
 	pass
-	
 
 func _on_quest_started(quest: Quest):
 	if audio_stream_player_2d:

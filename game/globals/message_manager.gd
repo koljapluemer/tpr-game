@@ -1,7 +1,7 @@
 extends Node
 
 @warning_ignore("unused_signal")
-signal object_was_interacted_with(obj:ScrapbookObject, interaction:Interaction) 
+signal object_was_moved(obj:ScrapbookObject) 
 
 @warning_ignore("unused_signal")
 signal objects_were_combined(sender: ScrapbookInteraction, receiver: ScrapbookInteraction)
@@ -29,9 +29,6 @@ signal object_mouse_over_finished(obj:ScrapbookObject)
 # and then send this:
 @warning_ignore("unused_signal")
 signal object_list_changed(list:Array[ScrapbookObject])
-
-@warning_ignore("unused_signal")
-signal interaction_mode_changed(new_mode: Interaction)
 
 # quests
 @warning_ignore("unused_signal")

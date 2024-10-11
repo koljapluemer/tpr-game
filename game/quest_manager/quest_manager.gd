@@ -17,7 +17,6 @@ const SOUND_QUEST_FAILED = preload("res://game/shared_assets/paper_rip.wav")
 const SOUND_SUCCESS_SHORT = preload("res://game/shared_assets/success_short.ogg")
 const SOUND_WRONG_SHORT = preload("res://game/shared_assets/wrong_short.wav")
 
-const LOCK_UNLOCK = preload("res://game/interactions/interactions/lock_unlock.tres")
 # this exact same thing is also tracked in `level_template.gd`
 # it is basically synced here via signal. I'm not if that's bad.
 # ...would be smarter to only get it when needed
@@ -102,37 +101,13 @@ func update_possible_quest_list():
 		return
 	
 	possible_quests = []
-	var interaction_quests := get_simple_interaction_quests()
 	# doing this the stupid way because array typing breaks here otherwise
-	for q in interaction_quests:
-		possible_quests.append(q)
 	var combination_quests := get_combine_two_objects_quests()
 	for q in combination_quests:
 		possible_quests.append(q)
 	print("nr of possible quests: ", len(possible_quests))
 	
 
-func get_simple_interaction_quests() -> Array[SimpleInteractionQuest]:
-	var _possible_quests:Array[SimpleInteractionQuest] = []
-
-	for obj:ScrapbookObject in objects:
-		if not is_instance_valid(obj):
-			push_warning("warning: attempting to analyze begone object", obj)
-			continue
-		for word in obj.sensible_identifiers:
-			for mode in obj.get_affordances():
-				var quest:Quest
-				if mode == LOCK_UNLOCK:
-					if obj.is_locked:
-						quest = SimpleInteractionQuest.create(word, mode, "UNLOCK")
-					else:
-						quest = SimpleInteractionQuest.create(word, mode, "LOCK")
-				else:
-					quest = SimpleInteractionQuest.create(word, mode)
-				if LanguageManager.check_for_matching_audio(quest.key):
-					_possible_quests.append(quest)
-	return _possible_quests
-		
 func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 	var _possible_quests:Array[CombineTwoObjectsQuest] = []
 

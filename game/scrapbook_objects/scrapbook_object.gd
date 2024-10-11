@@ -10,15 +10,11 @@ class_name ScrapbookObject extends Area2D
 @export var color: String
 @export var default_outline_thickness:= 8
 
-@export_category("Affordances")
-@export var is_touchable := true
-@export var is_movable := true
-@export var is_takeable := false
-@export var is_lockable := false
 ## In true alchemy game fashion, this defines the actions possible
 ## by dropping another object onto this object
 @export var scrapbook_interactions: Array[ScrapbookInteraction] = []
 @export_category("Advanced Affordance Settings")
+@export var is_movable:= true
 
 ## When taking the object (requires is_takeable)
 ## there is a little circular bar being filled ([member progress]).
@@ -31,18 +27,12 @@ class_name ScrapbookObject extends Area2D
 @export var limit_movement_to_x := false
 
 
-const LOCK_UNLOCK = preload("res://game/interactions/interactions/lock_unlock.tres")
-const MOVE = preload("res://game/interactions/interactions/move.tres")
-const TAKE = preload("res://game/interactions/interactions/take.tres")
-const TOUCH = preload("res://game/interactions/interactions/touch.tres")
-
 enum UI_STATE {PASSIVE, INTERACTABLE, HIGHLIGHTED, PRIMARY}
 var current_ui_state:UI_STATE
 
 var is_moving:= false
 var mouse_offset_when_moved:Vector2
 
-var is_being_taken := false
 ## the base words, like CAR and VEHICLE, but also CAR__LEFT and CAR__BLUE depending on what we can compare to
 var sensible_identifiers: Array[String] = []
 var grid_pos:Vector2i ## position on an imagined coordinate grid, passed down from parent spawnpoint
@@ -97,12 +87,7 @@ func set_primary():
 ## because the mouse may have left the [Area2D] of this object, so we cannot track the end of
 ## a drag and drop in [method _on_input_event] like the rest.
 func _process(_delta: float) -> void:
-	if is_being_taken:
-		progress.value += taking_speed
-		if progress.value >= 100:
-			enact_object_being_taken()
-			is_being_taken = false
-			progress.value = 0
+
 			
 	if is_moving:
 		if limit_movement_to_x:
@@ -115,30 +100,10 @@ func _process(_delta: float) -> void:
 			MessageManager.object_drag_finished.emit(self)
 
 
-	
-func enact_object_being_taken():
-	MessageManager.object_was_interacted_with.emit(self, TAKE)
-	MessageManager.object_disappeared.emit(self)
-	queue_free()	
-	
-func get_affordances() -> Array[Interaction]:
-	var affordances: Array[Interaction] = []
-	if is_movable:
-		affordances.append(MOVE)
-	if is_takeable:
-		affordances.append(TAKE)
-	if is_lockable:
-		affordances.append(LOCK_UNLOCK)
-	if is_touchable:
-		affordances.append(TOUCH)
-		
-		
-	return affordances
-
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	
-	if is_movable and GameState.current_interaction_mode == MOVE:
+	if is_movable:
 		if event.is_action_pressed("click"):
 			is_moving = true
 			mouse_offset_when_moved = global_position - get_global_mouse_position()
@@ -146,30 +111,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 			# delayed signal for the interaction, so that MOVE quests
 			# only succeed after the object was dragged around a bit
 			get_tree().create_timer(0.4).connect(
-				"timeout", func():MessageManager.object_was_interacted_with.emit(self, MOVE)
+				"timeout", func():MessageManager.object_was_moved.emit(self)
 			)
-
-	if is_takeable and GameState.current_interaction_mode == TAKE:
-		if event.is_action_pressed("click") and not is_being_taken:
-			is_being_taken = true
-			progress.show()
-		if event.is_action_released("click"):
-			is_being_taken = false
-			progress.value = 0
-			progress.hide()
-			
-	if is_touchable and GameState.current_interaction_mode == TOUCH:
-		if event.is_action_pressed("click"):
-			MessageManager.object_was_interacted_with.emit(self, TOUCH)
-			
-	if is_lockable and GameState.current_interaction_mode == LOCK_UNLOCK:
-		if event.is_action_pressed("click"):
-			if audio_player and lock_sound:
-				audio_player.stream = lock_sound
-				audio_player.play()
-			is_locked = !is_locked
-			MessageManager.object_was_interacted_with.emit(self, LOCK_UNLOCK)
-
 
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):
 	print("drop on me registered;")
@@ -194,24 +137,6 @@ func drop_other_obj_on_this_obj(obj:ScrapbookObject):
 
 func _on_mouse_entered() -> void:
 	MessageManager.object_mouse_over_started.emit(self)
-
-
-func react_to_being_hovered() -> void:
-	if current_ui_state == UI_STATE.PASSIVE:
-		return
-	match GameState.current_interaction_mode:
-		TAKE:
-			if is_takeable:
-				set_primary()
-		MOVE:
-			if is_movable:
-				set_primary()
-		TOUCH:
-			if is_touchable:
-				set_primary()
-		LOCK_UNLOCK:
-			if is_lockable:
-				set_primary()
 
 func _on_mouse_shape_exited() -> void:
 	MessageManager.object_mouse_over_finished.emit(self)

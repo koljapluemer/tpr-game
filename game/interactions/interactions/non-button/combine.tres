@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Interaction" load_steps=2 format=3 uid="uid://dnqg8dvtirmn0"]
-
-[ext_resource type="Script" path="res://game/interactions/interaction.gd" id="1_r1dol"]
-
-[resource]
-script = ExtResource("1_r1dol")
-key = "COMBINE"
-create_button = false
