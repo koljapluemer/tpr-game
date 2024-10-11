@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc8hd3soy10u"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_irj3k"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="2_w1tk7"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_4h46d"]
+[ext_resource type="Texture2D" uid="uid://bylliiau1oly" path="res://game/images/hammer_crop.webp" id="5_qv3b8"]
+
+[sub_resource type="Resource" id="Resource_vufma"]
+resource_local_to_scene = true
+script = ExtResource("2_w1tk7")
+key_word = "BACKPACK"
+kill_sender = true
+kill_receiver = false
+objects_to_spawn = Array[PackedScene]([])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
+resource_local_to_scene = true
+shader = ExtResource("4_4h46d")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
+radius = 27.0
+height = 166.0
+
+[node name="ScapbookObject" instance=ExtResource("1_irj3k")]
+position = Vector2(0, 4)
+word_list = Array[String](["HAMMER"])
+scrapbook_interactions = Array[ExtResource("2_w1tk7")]([SubResource("Resource_vufma")])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_08ks4")
+position = Vector2(-9.35164, 1.1853)
+scale = Vector2(0.100003, 0.100003)
+texture = ExtResource("5_qv3b8")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-8, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6fcro")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

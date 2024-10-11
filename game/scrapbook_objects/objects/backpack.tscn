@@ -25,7 +25,6 @@ height = 306.0
 [node name="ScapbookObject" instance=ExtResource("1_vuxna")]
 position = Vector2(0, 4)
 word_list = Array[String](["BACKPACK"])
-is_movable = false
 scrapbook_interactions = Array[ExtResource("2_adosn")]([SubResource("Resource_q7u2q")])
 metadata/_edit_horizontal_guides_ = [-50.0]
 
