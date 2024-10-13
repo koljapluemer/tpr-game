@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5wu3ouq76tkj"]
+[gd_scene load_steps=9 format=3 uid="uid://c5wu3ouq76tkj"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_vuxna"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="2_adosn"]
@@ -8,6 +8,13 @@
 [sub_resource type="Resource" id="Resource_q7u2q"]
 script = ExtResource("2_adosn")
 key_word = "FRUIT"
+kill_sender = true
+kill_receiver = false
+objects_to_spawn = Array[PackedScene]([])
+
+[sub_resource type="Resource" id="Resource_r8ycw"]
+script = ExtResource("2_adosn")
+key_word = "HAMMER"
 kill_sender = true
 kill_receiver = false
 objects_to_spawn = Array[PackedScene]([])
@@ -25,7 +32,7 @@ height = 306.0
 [node name="ScapbookObject" instance=ExtResource("1_vuxna")]
 position = Vector2(0, 4)
 word_list = Array[String](["BACKPACK"])
-scrapbook_interactions = Array[ExtResource("2_adosn")]([SubResource("Resource_q7u2q")])
+scrapbook_interactions = Array[ExtResource("2_adosn")]([SubResource("Resource_q7u2q"), SubResource("Resource_r8ycw")])
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]
