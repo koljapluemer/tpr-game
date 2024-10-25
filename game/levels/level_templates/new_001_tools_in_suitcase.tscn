@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7n5ye4dghd01"]
+[gd_scene load_steps=12 format=3 uid="uid://b7n5ye4dghd01"]
 
 [ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_teb8c"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_7skoq"]
 [ext_resource type="Texture2D" uid="uid://be8efvm7tj4m3" path="res://game/images/table.webp" id="3_flc7s"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_itd8a"]
 [ext_resource type="PackedScene" uid="uid://dc8hd3soy10u" path="res://game/scrapbook_objects/objects/tool_hammer.tscn" id="5_oq1c8"]
+[ext_resource type="PackedScene" uid="uid://bh27f63ojfoa4" path="res://game/scrapbook_objects/objects/banana_move_touch.tscn" id="6_4dhvq"]
 [ext_resource type="PackedScene" uid="uid://c5wu3ouq76tkj" path="res://game/scrapbook_objects/objects/backpack.tscn" id="11_2u7lw"]
 [ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="12_iksqt"]
 
@@ -84,6 +85,13 @@ z_index = 7
 position = Vector2(458, 181)
 script = ExtResource("4_itd8a")
 accepts = Array[PackedScene]([ExtResource("5_oq1c8")])
+scale_factor = 1.2
+
+[node name="DefaultSpawn6" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(378, 205)
+script = ExtResource("4_itd8a")
+accepts = Array[PackedScene]([ExtResource("6_4dhvq")])
 scale_factor = 1.2
 
 [node name="Backpack" type="Marker2D" parent="SpawnPoints"]
