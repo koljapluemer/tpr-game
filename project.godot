@@ -21,7 +21,7 @@ resources_spreadsheet_view/fold_docks=false
 
 [application]
 
-config/name="Tpr-game"
+config/name="The Scrapbook"
 run/main_scene="res://game/views/000_main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
