@@ -132,7 +132,23 @@ func drop_other_obj_on_this_obj(obj:ScrapbookObject):
 				obj.queue_free()
 			if scrapbook_interaction.kill_receiver:
 				MessageManager.object_disappeared.emit(self)
-				queue_free()
+				queue_free()	
+			break
+	# check the same for the other object
+	if is_instance_valid(self) and is_instance_valid(obj):	
+		for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
+			if word_list.has(scrapbook_interaction.key_word):
+				# at this point the combination is happening
+				for instance in scrapbook_interaction.objects_to_spawn:
+					# let parent spawnpoint handle itbird
+					get_parent().change_scene(instance)
+				MessageManager.objects_were_combined.emit(obj, self)
+				if scrapbook_interaction.kill_receiver:
+					MessageManager.object_disappeared.emit(obj)
+					obj.queue_free()
+				if scrapbook_interaction.kill_sender:
+					MessageManager.object_disappeared.emit(self)
+					queue_free()
 
 
 func _on_mouse_entered() -> void:
