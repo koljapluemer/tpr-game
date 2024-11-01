@@ -26,8 +26,8 @@ height = 173.759
 [node name="ScapbookObject" instance=ExtResource("1_8i6an")]
 position = Vector2(0, 4)
 word_list = Array[String](["BANANA", "FRUIT"])
-is_takeable = true
 scrapbook_interactions = Array[ExtResource("5_yqasb")]([SubResource("Resource_in6rt")])
+can_be_put_into_big_storage = true
 metadata/_edit_horizontal_guides_ = [-62.0]
 metadata/_edit_vertical_guides_ = [-39.0]
 

@@ -15,7 +15,7 @@ size = Vector2(365, 1685)
 
 [node name="ScapbookObject" instance=ExtResource("1_y3l2i")]
 word_list = Array[String](["YOU"])
-is_touchable = false
+can_be_put_into_big_storage = true
 metadata/_edit_vertical_guides_ = [150.0]
 
 [node name="Sprite2D" parent="." index="0"]

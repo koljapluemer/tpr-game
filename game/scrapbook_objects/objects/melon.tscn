@@ -1,21 +1,21 @@
 [gd_scene load_steps=9 format=3 uid="uid://drtrr7yhrkbpi"]
 
-[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_1h4tl"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="2_iauen"]
-[ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="3_204dv"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_fs20n"]
-[ext_resource type="Texture2D" uid="uid://bjlrlkxt7wea7" path="res://game/images/melon_whole.webp" id="5_ppodm"]
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_kxwj6"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="2_07piu"]
+[ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="3_hpkqn"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_jj80w"]
+[ext_resource type="Texture2D" uid="uid://bjlrlkxt7wea7" path="res://game/images/melon_whole.webp" id="5_gtllh"]
 
 [sub_resource type="Resource" id="Resource_in6rt"]
-script = ExtResource("2_iauen")
+script = ExtResource("2_07piu")
 key_word = ""
 kill_sender = false
 kill_receiver = true
-objects_to_spawn = Array[PackedScene]([ExtResource("3_204dv")])
+objects_to_spawn = Array[PackedScene]([ExtResource("3_hpkqn")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
 resource_local_to_scene = true
-shader = ExtResource("4_fs20n")
+shader = ExtResource("4_jj80w")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 
@@ -23,11 +23,11 @@ shader_parameter/line_thickness = 1.0
 radius = 69.0
 height = 182.0
 
-[node name="ScapbookObject" instance=ExtResource("1_1h4tl")]
+[node name="ScapbookObject" instance=ExtResource("1_kxwj6")]
 position = Vector2(0, 4)
 word_list = Array[String](["MELON", "FRUIT"])
-is_takeable = true
-scrapbook_interactions = Array[ExtResource("2_iauen")]([SubResource("Resource_in6rt")])
+scrapbook_interactions = Array[ExtResource("2_07piu")]([SubResource("Resource_in6rt")])
+can_be_put_into_big_storage = true
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]
@@ -35,7 +35,7 @@ material = SubResource("ShaderMaterial_ii3d8")
 position = Vector2(14, -61)
 rotation = 1.5708
 scale = Vector2(0.463829, 0.463829)
-texture = ExtResource("5_ppodm")
+texture = ExtResource("5_gtllh")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -59)

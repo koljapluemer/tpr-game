@@ -26,8 +26,8 @@ height = 148.0
 [node name="ScapbookObject" instance=ExtResource("1_m14fl")]
 position = Vector2(0, 4)
 word_list = Array[String](["COCONUT", "FRUIT"])
-is_takeable = true
 scrapbook_interactions = Array[ExtResource("5_w6v10")]([SubResource("Resource_in6rt")])
+can_be_put_into_big_storage = true
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]

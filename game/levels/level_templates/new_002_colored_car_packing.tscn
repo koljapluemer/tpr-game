@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cj5c53h1tj0vd"]
+[gd_scene load_steps=26 format=3 uid="uid://cj5c53h1tj0vd"]
 
 [ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_gm45s"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_g04ti"]
@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://bkm8u37o2lab4" path="res://game/scrapbook_objects/objects/car_silver_amg.tscn" id="15_1cl2e"]
 [ext_resource type="PackedScene" uid="uid://cscwj7ivn76pl" path="res://game/scrapbook_objects/objects/car_white.tscn" id="16_kcibc"]
 [ext_resource type="PackedScene" uid="uid://007xgx1amvax" path="res://game/scrapbook_objects/objects/car_yellow.tscn" id="17_l0c6p"]
+[ext_resource type="PackedScene" uid="uid://dp5asi1clmrau" path="res://game/scrapbook_objects/objects/coconut.tscn" id="18_txhhd"]
+[ext_resource type="PackedScene" uid="uid://drtrr7yhrkbpi" path="res://game/scrapbook_objects/objects/melon.tscn" id="19_b8miq"]
+[ext_resource type="PackedScene" uid="uid://dxwk2ua4k1e2n" path="res://game/scrapbook_objects/objects/pineapple.tscn" id="22_jn6vm"]
+[ext_resource type="PackedScene" uid="uid://c5wu3ouq76tkj" path="res://game/scrapbook_objects/objects/backpack.tscn" id="25_kgl1j"]
 
 [sub_resource type="GDScript" id="GDScript_qnkyu"]
 script/source = "class_name QuestUI extends HBoxContainer
@@ -103,6 +107,41 @@ position = Vector2(706, 165)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("5_gbmw2"), ExtResource("6_83535"), ExtResource("7_wxaf0"), ExtResource("5_fsw8w"), ExtResource("9_7evf2"), ExtResource("10_gagta"), ExtResource("11_5ynsu"), ExtResource("12_lm6bp"), ExtResource("13_3cft8"), ExtResource("14_f3t0a"), ExtResource("15_1cl2e"), ExtResource("16_kcibc"), ExtResource("17_l0c6p")])
 scale_factor = 0.12
+
+[node name="ObjectSpawner" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(362, 273)
+script = ExtResource("4_1ucc1")
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j"), null])
+scale_factor = 0.4
+
+[node name="ObjectSpawner2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(450, 273)
+script = ExtResource("4_1ucc1")
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j"), null])
+scale_factor = 0.4
+
+[node name="ObjectSpawner3" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(533, 273)
+script = ExtResource("4_1ucc1")
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j"), null])
+scale_factor = 0.4
+
+[node name="ObjectSpawner4" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(613, 273)
+script = ExtResource("4_1ucc1")
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j"), null])
+scale_factor = 0.4
+
+[node name="ObjectSpawner5" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(693, 273)
+script = ExtResource("4_1ucc1")
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j"), null])
+scale_factor = 0.4
 
 [node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 unique_name_in_owner = true
