@@ -8,7 +8,7 @@ func log(level: int, message:String, tags:=[]):
 		var line:String = str(stack["source"]) + ": " + str(stack["line"])
 		var function:String = str(stack["function"])
 		var timestamp:String = str(Time.get_ticks_msec())
-		var tags_printed = "\n"
+		var tags_printed = ""
 		for tag in tags:
 			tags_printed += tag + " "
-		print(1,timestamp + " — " + line + " — " + function  + " — " + message)
+		print(1,timestamp + " — " + line + " — " + function  + " — " + message + tags_printed)

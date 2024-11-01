@@ -133,14 +133,16 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 										var quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id)
 										if LanguageManager.check_for_matching_audio(quest.key):
 											_possible_quests.append(quest)
-										# big storage quests
-										Logger.log(1,"storage situation: " + str(obj.can_be_put_into_big_storage) + " - " + str(possible_combination_object.is_big_storage))
-										if obj.can_be_put_into_big_storage and possible_combination_object.is_big_storage:
-											Logger.log(1,"making storage quest")
-											var store_within_quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id, "PUT_IN")
-											if LanguageManager.check_for_matching_audio(store_within_quest.key):
-												_possible_quests.append(store_within_quest)
-						
+						# big storage quests
+						Logger.log(1,"storage situation: " + str(obj.can_be_put_into_big_storage) + " - " + str(possible_combination_object.is_big_storage), ["STORAGE_QUEST"])
+						if obj.can_be_put_into_big_storage and possible_combination_object.is_big_storage:
+							Logger.log(1,"making storage quest", ["STORAGE_QUEST"])
+							for possible_receiver_id in possible_combination_object.sensible_identifiers:
+								for possible_sender_id in obj.sensible_identifiers:
+									var store_within_quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id, "PUT_IN")
+									if LanguageManager.check_for_matching_audio(store_within_quest.key):
+										_possible_quests.append(store_within_quest)
+							
 	return _possible_quests
 
 func start_random_quest():

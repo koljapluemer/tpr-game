@@ -33,6 +33,7 @@ height = 306.0
 position = Vector2(0, 4)
 word_list = Array[String](["BACKPACK"])
 scrapbook_interactions = Array[ExtResource("2_adosn")]([SubResource("Resource_q7u2q"), SubResource("Resource_r8ycw")])
+can_be_put_into_big_storage = true
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]
