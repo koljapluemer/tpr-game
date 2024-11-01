@@ -134,6 +134,13 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 										var quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id)
 										if LanguageManager.check_for_matching_audio(quest.key):
 											_possible_quests.append(quest)
+										# big storage quests
+										print("storage situation: ", obj.can_be_put_into_big_storage, "-", possible_combination_object.is_big_storage)
+										if obj.can_be_put_into_big_storage and possible_combination_object.is_big_storage:
+											print("making storage quest")
+											var store_within_quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id, "PUT_IN")
+											if LanguageManager.check_for_matching_audio(quest.key):
+												_possible_quests.append(quest)
 						
 	return _possible_quests
 
