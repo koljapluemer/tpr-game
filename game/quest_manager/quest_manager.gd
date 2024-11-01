@@ -61,21 +61,20 @@ func react_to_changed_object_list():
 			push_warning("For some reason quest_manager is not in a treee...")
 
 func check_if_active_quests_are_still_possible():
-	print("check_if_active_quests_are_still_possible()")
+	Logger.log(1,"check_if_active_quests_are_still_possible()")
 	if len(active_quests) == 0:
-		print("check_if_active_quests_are_still_possibel: no active quests: ", active_quests)
 		return
 	# get all the words currently available
 	var available_words: Array[String] = []
 	for obj in objects:
 		available_words.append_array(obj.sensible_identifiers)
 	
-	print("nr of active quests:", len(active_quests))
+	Logger.log(1,"nr of active quests:" + str(len(active_quests)))
 	for quest in active_quests:
-		print("checkin quest: ", quest)
+		Logger.log(1,"checkin quest: " + str(quest))
 		var quest_is_possible = true
 		for word in quest.required_words:
-			print("checking word: ", word)
+			Logger.log(1,"checking word: " + word)
 			if not available_words.has(word):
 				quest_is_possible = false
 				break
@@ -103,10 +102,10 @@ func update_possible_quest_list():
 	possible_quests = []
 	# doing this the stupid way because array typing breaks here otherwise
 	var combination_quests := get_combine_two_objects_quests()
-	print("nr combination quests ", len(combination_quests))
+	Logger.log(1,"nr combination quests "+ str(len(combination_quests)))
 	for q in combination_quests:
 		possible_quests.append(q)
-	print("nr of possible quests: ", len(possible_quests))
+	Logger.log(1,"nr of possible quests: "+ str(len(possible_quests)))
 	
 
 func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
@@ -125,19 +124,19 @@ func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
 						# skip the object we're already looking at
 						# we can't combine objects with themselves
 						for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
-							print("checking interaction")
+							Logger.log(1,"checking interaction")
 							if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
-								print("word match")
+								Logger.log(1,"word match")
 								for possible_receiver_id in obj.sensible_identifiers:
-									print("making quest with: ", possible_receiver_id)
+									Logger.log(1,"making quest with: " + possible_receiver_id)
 									for possible_sender_id in possible_combination_object.sensible_identifiers:
 										var quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id)
 										if LanguageManager.check_for_matching_audio(quest.key):
 											_possible_quests.append(quest)
 										# big storage quests
-										print("storage situation: ", obj.can_be_put_into_big_storage, "-", possible_combination_object.is_big_storage)
+										Logger.log(1,"storage situation: " + str(obj.can_be_put_into_big_storage) + " - " + str(possible_combination_object.is_big_storage))
 										if obj.can_be_put_into_big_storage and possible_combination_object.is_big_storage:
-											print("making storage quest")
+											Logger.log(1,"making storage quest")
 											var store_within_quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id, "PUT_IN")
 											if LanguageManager.check_for_matching_audio(store_within_quest.key):
 												_possible_quests.append(store_within_quest)
@@ -159,7 +158,7 @@ func start_random_quest():
 			quest.finished.connect(_on_quest_finished)
 			quest.aborted.connect(_on_quest_aborted)
 			active_quests.append(quest)
-			print("appended quest, active_quests now contains nr: ", len(active_quests))
+			Logger.log(1,"appended quest, active_quests now contains nr: " + str(len(active_quests)))
 			last_quest = quest
 	else:
 		if not debug_mode:
@@ -240,9 +239,9 @@ func analyze_special_wording_opportunities():
 
 
 func _on_quest_finished(quest:Quest):
-	print("QM: quest finished...", quest)
+	Logger.log(1,"QM: quest finished..." + str(quest))
 	if audio_player:
-		print("playing audio")
+		Logger.log(1,"playing audio")
 		audio_player.stream = SOUND_SUCCESS_SHORT
 		audio_player.play()
 	quest_no_longer_active.emit(quest)
@@ -256,7 +255,7 @@ func _on_quest_aborted(quest:Quest):
 		audio_player.stream = SOUND_QUEST_FAILED
 		audio_player.play()
 	quest_no_longer_active.emit(quest)
-	print("Erasing aborted quest")
+	Logger.log(1,"Erasing aborted quest")
 	active_quests.erase(quest)
 	react_to_changed_object_list()
 	

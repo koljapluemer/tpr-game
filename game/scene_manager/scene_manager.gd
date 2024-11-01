@@ -40,12 +40,12 @@ func reload_level():
 
 func load_next_story_level():
 	if len(story) > current_level_index + 1:
-		print("loading next story level")
+		Logger.log(1, "loading next story level")
 		current_level_index += 1
 		_load_scene(story[current_level_index])
 	else:
 		# replay random level
-		print("loading random repeat level")
+		Logger.log(1,"loading random repeat level")
 		_load_scene(repeat_levels.pick_random())
 		
 

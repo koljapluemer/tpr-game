@@ -16,7 +16,7 @@ with open(MISSING_KEYS_FILE, 'r') as f:
 missing_keys = list(set(missing_keys))
 missing_keys.sort()
 
-print("missing keys:", missing_keys)
+Logger.log(1,"missing keys:", missing_keys)
 
 with open(CSV_FILE, 'r') as f:
     reader = csv.reader(f)
@@ -25,11 +25,11 @@ with open(CSV_FILE, 'r') as f:
     keys = [row[0] for row in rows]
 
     for key in missing_keys:
-        print("checking key", key)
+        Logger.log(1,"checking key", key)
         if key not in keys:
             rows.append([key, ''])
         else:
-            print("key already in csv")
+            Logger.log(1,"key already in csv")
 
 
 with open(CSV_FILE, 'w') as f:

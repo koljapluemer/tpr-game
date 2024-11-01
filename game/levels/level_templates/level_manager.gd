@@ -121,6 +121,6 @@ func _on_quest_started(quest: Quest):
 			audio_stream_player_2d.stream = load(audio)
 			audio_stream_player_2d.play()
 		else:
-			print("audio does not exist:", audio)
+			Logger.log(1,"audio does not exist: " + audio)
 	else:
 		push_warning("audio_player not found")

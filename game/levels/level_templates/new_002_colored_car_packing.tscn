@@ -112,28 +112,28 @@ scale_factor = 0.12
 z_index = 7
 position = Vector2(362, 273)
 script = ExtResource("4_1ucc1")
-accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j"), null])
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j")])
 scale_factor = 0.4
 
 [node name="ObjectSpawner2" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(450, 273)
 script = ExtResource("4_1ucc1")
-accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("25_kgl1j"), null])
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("25_kgl1j")])
 scale_factor = 0.4
 
 [node name="ObjectSpawner3" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(533, 273)
 script = ExtResource("4_1ucc1")
-accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), null])
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm")])
 scale_factor = 0.4
 
 [node name="ObjectSpawner5" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(693, 273)
 script = ExtResource("4_1ucc1")
-accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j"), null])
+accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j")])
 scale_factor = 0.4
 
 [node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]

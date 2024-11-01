@@ -117,13 +117,13 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 			)
 
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):
-	print("drop on me registered;")
-	print(word_list, ": i have the following nr of scrapbook interactions:", len(scrapbook_interactions))
+	Logger.log(1,"drop on me registered;")
+	Logger.log(1, str(word_list) + ": i have the following nr of scrapbook interactions:" + str(len(scrapbook_interactions)))
 	for scrapbook_interaction:ScrapbookInteraction in scrapbook_interactions:
-		print("will check for keyword: ", scrapbook_interaction.key_word)
-		print("obj word list: ", obj.word_list)
+		Logger.log(1,"will check for keyword: " + scrapbook_interaction.key_word)
+		Logger.log(1,"obj word list: " + str(obj.word_list))
 		if obj.word_list.has(scrapbook_interaction.key_word):
-			print("keyword match")
+			Logger.log(1,"keyword match")
 			# at this point the combination is happening
 			for instance in scrapbook_interaction.objects_to_spawn:
 				# let parent spawnpoint handle itbird

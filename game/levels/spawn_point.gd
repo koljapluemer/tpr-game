@@ -16,7 +16,8 @@ func _ready() -> void:
 
 
 func spawn_in_random_object():
-	var scene_to_init = accepts.pick_random()
+	var scene_to_init:PackedScene = accepts.pick_random()
+	Logger.log(0, name + ": randomly selected scene to init: " + str(scene_to_init), ["SPAWN"])
 	if not scene_to_init:
 		push_warning(name, ": no scenes set to spawn")
 	else:
@@ -30,3 +31,4 @@ func change_scene(scene_to_init:PackedScene):
 	init_scene.grid_pos = grid_pos
 	add_child(init_scene)
 	MessageManager.object_appeared.emit(init_scene)
+	Logger.log(1, name + ": set scene of spawnpoint to: " + init_scene.name, ["SPAWN"])

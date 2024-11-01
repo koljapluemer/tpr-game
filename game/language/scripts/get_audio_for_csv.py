@@ -32,7 +32,7 @@ languages_speakers = {
 
 # loop over all language codes
 for language_code in language_codes:
-    print("checking language code", language_code)
+    Logger.log(1,"checking language code", language_code)
     # skip en
     if language_code == 'en' or language_code == 'arz':
         continue
@@ -51,7 +51,7 @@ for language_code in language_codes:
                 # check if audio file exists
                 audio_file = os.path.join(AUDIO_DIR, language_code, key + '.mp3')
                 if not os.path.exists(audio_file):
-                    print("downloading audio for key", key)
+                    Logger.log(1,"downloading audio for key", key)
                     # BASE URL https://speechgen.io/index.php?r=api/text
                     # EXAMPLE REQUEST DATA:
                     #{
@@ -95,11 +95,11 @@ for language_code in language_codes:
                                 # write file to correct path:
                                 file.write(file_content)
                         else:
-                            print(f"Error: Missing 'file' or 'format' in response. Status: {response['status']}, Error: {response.get('error', 'No error message')}")
+                            Logger.log(1,f"Error: Missing 'file' or 'format' in response. Status: {response['status']}, Error: {response.get('error', 'No error message')}")
                     else:
-                        print(f"Error: {response.get('error', 'Unknown error')}")
+                        Logger.log(1,f"Error: {response.get('error', 'Unknown error')}")
 
                 else:
-                    print("audio file already exists for key", key)
+                    Logger.log(1,"audio file already exists for key", key)
             else:
-                print("no text for key", key)
+                Logger.log(1,"no text for key", key)
