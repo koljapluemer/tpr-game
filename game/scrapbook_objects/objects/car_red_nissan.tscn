@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt4nnyjjmh8yc"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_8ovwh"]
+[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="2_0gu5t"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_dbahc"]
+[ext_resource type="Texture2D" uid="uid://b2ntjf6af4u58" path="res://game/images/car_red_nissan_crop.webp" id="4_v4wqv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
+resource_local_to_scene = true
+shader = ExtResource("3_dbahc")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
+size = Vector2(1688, 1012)
+
+[node name="ScapbookObject" instance=ExtResource("1_8ovwh")]
+word_list = Array[String](["CAR"])
+color = "RED"
+is_movable = false
+is_big_storage = true
+is_locked = false
+lock_sound = ExtResource("2_0gu5t")
+metadata/_edit_vertical_guides_ = [150.0, 1536.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_q1fb8")
+position = Vector2(-93, -396)
+scale = Vector2(1.19155, 1.19155)
+texture = ExtResource("4_v4wqv")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-92, -402)
+shape = SubResource("RectangleShape2D_14ond")

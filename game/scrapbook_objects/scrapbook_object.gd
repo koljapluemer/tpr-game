@@ -15,6 +15,8 @@ class_name ScrapbookObject extends Area2D
 @export var scrapbook_interactions: Array[ScrapbookInteraction] = []
 @export_category("Advanced Affordance Settings")
 @export var is_movable:= true
+@export var can_be_put_into_big_storage := false
+@export var is_big_storage := false
 
 ## When taking the object (requires is_takeable)
 ## there is a little circular bar being filled ([member progress]).
