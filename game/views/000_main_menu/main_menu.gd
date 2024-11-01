@@ -11,12 +11,6 @@ func _ready() -> void:
 		level_select.add_item("Level " + str(lvl_counter+1), lvl_counter)
 		lvl_counter += 1
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_button_pressed() -> void:
 	SceneManager.reload_level()
 

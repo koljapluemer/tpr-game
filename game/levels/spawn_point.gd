@@ -24,7 +24,7 @@ func spawn_in_random_object():
 	
 
 func change_scene(scene_to_init:PackedScene):
-	var init_scene:ScrapbookObject = scene_to_init.instantiate()
+	init_scene = scene_to_init.instantiate()
 	init_scene.scale = Vector2(scale_factor, scale_factor)
 	init_scene.z_index = 0
 	init_scene.grid_pos = grid_pos
