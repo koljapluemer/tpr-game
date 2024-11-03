@@ -110,7 +110,8 @@ func update_possible_quest_list() -> void:
 				quest.key = obj_key + ":" + affordance_key
 				quest.affordance_key = affordance_key
 				quest.object_key = obj_key
-				possible_quests.append(quest)
+				if LanguageManager.check_for_matching_audio(quest.key):
+					possible_quests.append(quest)
 
 func start_random_quest():
 	# prevent picking the last quest again
