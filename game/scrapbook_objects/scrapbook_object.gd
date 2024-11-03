@@ -51,11 +51,14 @@ func _ready() -> void:
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
+		Logger.log(0, "Click on " + name)
 		click_was_started.emit()
-	if Input.is_action_just_released("click"):
+
+func _input(event):
+	if event.is_action_released("click"):
+		Logger.log(0, "Input Event Click Ended on " + name)
 		click_was_released.emit()
 		MessageManager.object_drag_finished.emit(self)
-		
 
 
 func drop_other_obj_on_this_obj(obj:ScrapbookObject):

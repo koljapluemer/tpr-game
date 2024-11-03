@@ -1,6 +1,6 @@
 extends Node
 
-const log_level := -1
+const log_level := 0
 
 func log(level: int, message:String, tags:=[]):
 	if level >= log_level:
