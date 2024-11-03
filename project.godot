@@ -57,6 +57,7 @@ background=""
 
 [gui]
 
+theme/custom="res://game/shared_assets/theme_alchemy_game.tres"
 theme/custom_font="res://game/shared_assets/Tajawal-Medium.ttf"
 
 [input]

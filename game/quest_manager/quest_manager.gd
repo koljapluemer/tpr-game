@@ -1,7 +1,6 @@
 ## Handles identifying possible quests, which quests to do next, and by which id to call words
 class_name QuestManager extends Node
 
-signal quest_no_longer_active(quest:Quest)
 
 @export var debug_mode:= true
 @export var MAX_QUESTS_PER_LEVEL := 7
@@ -203,17 +202,17 @@ func _on_quest_finished():
 		Logger.log(1,"playing audio")
 		audio_player.stream = SOUND_SUCCESS_SHORT
 		audio_player.play()
-	quest_no_longer_active.emit(active_quest)
 	active_quest = null
 	quests_done += 1
+	MessageManager.quest_ended.emit()
 	get_tree().create_timer(1.5).timeout.connect(react_to_changed_object_list)
-
 
 func _on_quest_aborted(quest:Quest):
 	if audio_player:
 		audio_player.stream = SOUND_QUEST_FAILED
 		audio_player.play()
-	quest_no_longer_active.emit(quest)
+	MessageManager.quest_ended.emit()
+	
 	Logger.log(1,"Erasing aborted quest")
 	active_quest = null
 	react_to_changed_object_list()

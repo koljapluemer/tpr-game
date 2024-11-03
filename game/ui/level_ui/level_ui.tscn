@@ -1,84 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://fyvk5b7uo0am"]
+[gd_scene load_steps=2 format=3 uid="uid://fyvk5b7uo0am"]
 
-[ext_resource type="PackedScene" uid="uid://bvlvfc0xcf5k2" path="res://game/ui/quests/quest_holder/quests_holder.tscn" id="1_2c005"]
 [ext_resource type="Script" path="res://game/ui/level_ui/level_ui.gd" id="1_l3o34"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_l3o34")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchors_preset = 15
+[node name="Popup" type="Popup" parent="."]
+unique_name_in_owner = true
+initial_position = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+offset_right = 97.0
+offset_bottom = 83.0
+
+[node name="RestartButton" type="Button" parent="Popup/VBoxContainer"]
+layout_mode = 2
+text = "Restart Level"
+
+[node name="EndButton" type="Button" parent="Popup/VBoxContainer"]
+layout_mode = 2
+text = "End Level"
+
+[node name="MainMenuButton" type="Button" parent="Popup/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 45.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="QuestWrapper" type="PanelContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/QuestWrapper"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="QuestsMenu" type="VBoxContainer" parent="HBoxContainer/QuestWrapper/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu"]
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "QUESTS"
-
-[node name="QuestsHolder" parent="HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" instance=ExtResource("1_2c005")]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 10.0
-mouse_filter = 2
-
-[node name="Header" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Header"]
-layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="MenuButton" type="Button" parent="HBoxContainer/VBoxContainer/Header/MarginContainer"]
+[node name="Header" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="QuestStuff" type="HBoxContainer" parent="MarginContainer/Header"]
+layout_mode = 2
+
+[node name="RepeatAudioButton" type="Button" parent="MarginContainer/Header/QuestStuff"]
+layout_mode = 2
+text = "R"
+
+[node name="QuestLabel" type="Label" parent="MarginContainer/Header/QuestStuff"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 35
+text = "Pack den Apfel in die Tasche."
+
+[node name="Spacer" type="Control" parent="MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuButton" type="Button" parent="MarginContainer/Header"]
 layout_mode = 2
 text = "Menu"
 
-[node name="Popup" type="Popup" parent="HBoxContainer/VBoxContainer/Header"]
-unique_name_in_owner = true
-initial_position = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Header/Popup"]
-offset_right = 97.0
-offset_bottom = 83.0
-
-[node name="RestartButton" type="Button" parent="HBoxContainer/VBoxContainer/Header/Popup/VBoxContainer"]
-layout_mode = 2
-text = "Restart Level"
-
-[node name="EndButton" type="Button" parent="HBoxContainer/VBoxContainer/Header/Popup/VBoxContainer"]
-layout_mode = 2
-text = "End Level"
-
-[node name="MainMenuButton" type="Button" parent="HBoxContainer/VBoxContainer/Header/Popup/VBoxContainer"]
-layout_mode = 2
-text = "Main Menu"
-
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Header/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Header/Popup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Header/Popup/VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Header/Popup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Header/MenuButton" to="." method="_on_menu_button_pressed"]
