@@ -1,8 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://cj5c53h1tj0vd"]
+[gd_scene load_steps=23 format=3 uid="uid://cj5c53h1tj0vd"]
 
 [ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_gm45s"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_g04ti"]
-[ext_resource type="Texture2D" uid="uid://be8efvm7tj4m3" path="res://game/images/table.webp" id="3_mqh7w"]
+[ext_resource type="Texture2D" uid="uid://c3t3x4ob3k3sp" path="res://game/images/backgrounds/suburb_street.webp" id="3_wsry4"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_1ucc1"]
 [ext_resource type="PackedScene" uid="uid://cevjtvquv2hth" path="res://game/scrapbook_objects/objects/car_blue_old.tscn" id="5_fsw8w"]
 [ext_resource type="PackedScene" uid="uid://bo5js6wn3t6ko" path="res://game/scrapbook_objects/objects/car_yellow_amg.tscn" id="5_gbmw2"]
@@ -23,48 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://dxwk2ua4k1e2n" path="res://game/scrapbook_objects/objects/pineapple.tscn" id="22_jn6vm"]
 [ext_resource type="PackedScene" uid="uid://c5wu3ouq76tkj" path="res://game/scrapbook_objects/objects/backpack.tscn" id="25_kgl1j"]
 
-[sub_resource type="GDScript" id="GDScript_qnkyu"]
-script/source = "class_name QuestUI extends HBoxContainer
-
-var quest:Quest
-var audio_player: AudioStreamPlayer2D
-
-@onready var label: Label = %Label
-
-
-func _ready() -> void:
-	audio_player = get_tree().get_first_node_in_group(\"audio_player\")
-
-func set_quest_data(_quest: Quest):
-	quest = _quest
-	var audio_path = LanguageManager.check_for_matching_audio(_quest.get_key())
-	if audio_path and audio_player:
-		audio_player.stream = load(audio_path)
-		audio_player.play()
-	
-	if label:
-		label.text =  _quest.get_key()
-	else:
-		push_warning(\"label not found\", label)
-	
-"
-
-[sub_resource type="PackedScene" id="PackedScene_fh3bk"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Quest", "script", "HBoxContainer", "TextureRect", "custom_minimum_size", "layout_mode", "expand_mode", "stretch_mode", "Label", "unique_name_in_owner", "size_flags_horizontal", "text", "autowrap_mode", "Button"),
-"node_count": 4,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 4, 4, 1, 5, 2, 6, 3, 7, 4, 0, 0, 0, 8, 8, -1, 6, 9, 5, 4, 6, 5, 2, 10, 7, 11, 8, 12, 2, 0, 0, 0, 13, 13, -1, 2, 5, 2, 11, 9, 0),
-"variants": [SubResource("GDScript_qnkyu"), Vector2(30, 30), 2, 1, 4, true, Vector2(100, 0), 3, "Streichel erst den Hund, dann die Katze", "???"],
-"version": 3
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
-size = Vector2(894, 350)
-
 [node name="Level" type="Node2D"]
 script = ExtResource("1_gm45s")
 level_name = "Packing Fruits"
@@ -75,63 +33,55 @@ position = Vector2(400, 150)
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g04ti")]
 unique_name_in_owner = true
 
-[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
-quest_ui = SubResource("PackedScene_fh3bk")
-quest_manager = NodePath("../../../../../../QuestManager")
-
 [node name="Background" type="Area2D" parent="." groups=["background"]]
 z_index = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(403.181, 37.411)
-scale = Vector2(0.94706, 0.94706)
-texture = ExtResource("3_mqh7w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
-position = Vector2(408, 167)
-shape = SubResource("RectangleShape2D_anpsh")
+position = Vector2(400, 150)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_wsry4")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Car Spawn 1" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(306, 165)
+position = Vector2(177, 168)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("5_gbmw2"), ExtResource("6_83535"), ExtResource("7_wxaf0"), ExtResource("5_fsw8w"), ExtResource("9_7evf2"), ExtResource("10_gagta"), ExtResource("11_5ynsu"), ExtResource("12_lm6bp"), ExtResource("13_3cft8"), ExtResource("14_f3t0a"), ExtResource("15_1cl2e"), ExtResource("16_kcibc"), ExtResource("17_l0c6p")])
-scale_factor = 0.12
+scale_factor = 0.11
 
 [node name="Car Spawn 2" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(706, 165)
+position = Vector2(600, 198)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("5_gbmw2"), ExtResource("6_83535"), ExtResource("7_wxaf0"), ExtResource("5_fsw8w"), ExtResource("9_7evf2"), ExtResource("10_gagta"), ExtResource("11_5ynsu"), ExtResource("12_lm6bp"), ExtResource("13_3cft8"), ExtResource("14_f3t0a"), ExtResource("15_1cl2e"), ExtResource("16_kcibc"), ExtResource("17_l0c6p")])
 scale_factor = 0.12
 
 [node name="ObjectSpawner" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(362, 273)
+position = Vector2(234, 265)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j")])
 scale_factor = 0.4
 
 [node name="ObjectSpawner2" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(450, 273)
+position = Vector2(355, 270)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("25_kgl1j")])
 scale_factor = 0.4
 
 [node name="ObjectSpawner3" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(533, 273)
+position = Vector2(460, 273)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm")])
 scale_factor = 0.4
 
 [node name="ObjectSpawner5" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(693, 273)
+position = Vector2(532, 278)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("18_txhhd"), ExtResource("19_b8miq"), ExtResource("22_jn6vm"), ExtResource("25_kgl1j")])
 scale_factor = 0.4
