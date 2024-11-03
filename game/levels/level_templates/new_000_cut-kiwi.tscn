@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_e77bn"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_fd4e8"]
-[ext_resource type="Texture2D" uid="uid://be8efvm7tj4m3" path="res://game/images/table.webp" id="3_t4wd5"]
+[ext_resource type="Texture2D" uid="uid://t4wegaptav1b" path="res://game/images/backgrounds/table.webp0001.webp" id="3_pdohg"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_13rcv"]
 [ext_resource type="PackedScene" uid="uid://pj7aiibt3drw" path="res://game/scrapbook_objects/objects/kiwi.tscn" id="5_sf70g"]
 [ext_resource type="PackedScene" uid="uid://dqi7bnfpqweg" path="res://game/scrapbook_objects/objects/knife.tscn" id="6_iu5ln"]
@@ -25,9 +25,9 @@ unique_name_in_owner = true
 z_index = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(403.181, 37.411)
-scale = Vector2(0.94706, 0.94706)
-texture = ExtResource("3_t4wd5")
+position = Vector2(400, 150)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_pdohg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
 position = Vector2(408, 167)
@@ -38,13 +38,13 @@ unique_name_in_owner = true
 
 [node name="Dog" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(370, 205)
+position = Vector2(330, 205)
 script = ExtResource("4_13rcv")
 accepts = Array[PackedScene]([ExtResource("5_sf70g")])
 
 [node name="Dog2" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(546, 205)
+position = Vector2(546, 221)
 script = ExtResource("4_13rcv")
 accepts = Array[PackedScene]([ExtResource("6_iu5ln")])
 
