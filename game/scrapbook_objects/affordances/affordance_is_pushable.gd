@@ -27,4 +27,9 @@ func _on_click_started() -> void:
 	)
 	
 func _on_click_released() -> void:
-	is_moving = false
+	if is_moving:
+		is_moving = false
+		var areas: Array[Area2D]= parent.get_overlapping_areas()
+		_do_interactions_with_objects_I_was_dropped_on(areas)
+				
+			

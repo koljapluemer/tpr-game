@@ -29,6 +29,7 @@ func change_scene(scene_to_init:PackedScene):
 	init_scene.scale = Vector2(scale_factor, scale_factor)
 	init_scene.z_index = 0
 	init_scene.grid_pos = grid_pos
+	init_scene.parent_spawn_point = self
 	add_child(init_scene)
 	MessageManager.object_appeared.emit(init_scene)
 	Logger.log(1, name + ": set scene of spawnpoint to: " + init_scene.name, ["SPAWN"])

@@ -16,7 +16,6 @@ height = 98.0
 
 [node name="ScapbookObject" instance=ExtResource("1_6pagl")]
 word_list = Array[String](["KIWI_HALVES", "FRUIT"])
-can_be_put_into_big_storage = true
 metadata/_edit_horizontal_guides_ = [-26.0]
 
 [node name="Sprite2D" parent="." index="0"]

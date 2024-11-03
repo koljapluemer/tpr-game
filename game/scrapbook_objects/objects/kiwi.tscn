@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://pj7aiibt3drw"]
+[gd_scene load_steps=9 format=3 uid="uid://pj7aiibt3drw"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_44flo"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_54csq"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_pq3gh"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_cutable.gd" id="5_nyaap"]
 [ext_resource type="Texture2D" uid="uid://bkmpc45rg28vy" path="res://game/images/kiwi_uncut.webp" id="5_ok2sn"]
+[ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="6_xduf1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukyon"]
 resource_local_to_scene = true
@@ -29,5 +32,12 @@ texture = ExtResource("5_ok2sn")
 position = Vector2(0, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6fcro")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="5"]
+script = ExtResource("4_54csq")
+
+[node name="AffordanceIsCutable" type="Node2D" parent="." index="6"]
+script = ExtResource("5_nyaap")
+scene_to_init_when_cut = ExtResource("6_xduf1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
