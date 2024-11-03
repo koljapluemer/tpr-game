@@ -2,11 +2,6 @@ class_name Affordance extends Node2D
 
 var parent:ScrapbookObject
 
-var key:= "AFFORD"
-
-class KeyResult:
-	var is_valid_for_quest: bool
-	var key: String
 
 
 var is_usable_in_a_quest := false
@@ -27,11 +22,15 @@ func _do_interactions_with_objects_I_was_dropped_on(areas:Array[Area2D]):
 			if area is ScrapbookObject:
 				area.object_dropped_on_me.emit(parent)
 
-func _report_affordance_based_interaction():
+func _report_affordance_based_interaction() -> void:
 	var action:= Action.new()
 	action.object_acted_upon = parent
-	action.used_affordance_key = key
+	action.used_affordance_key = get_key()
 	MessageManager.action_done.emit(action)
+
+class KeyResult:
+	var is_valid_for_quest: bool
+	var key: String
 
 func get_key_for_quest() -> KeyResult:
 	var r = KeyResult.new()

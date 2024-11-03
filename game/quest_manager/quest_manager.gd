@@ -22,7 +22,7 @@ const SOUND_WRONG_SHORT = preload("res://game/shared_assets/wrong_short.wav")
 # ...would be smarter to only get it when needed
 # but then again, I also need to react when quests become impossible...
 var objects: Array[ScrapbookObject] = []
-var active_quests: Array[Quest] = []
+var active_quest: Quest
 var possible_quests: Array[Quest] = []
 var quests_done:= 0
 var last_quest: Quest
@@ -34,7 +34,6 @@ func _ready() -> void:
 		push_warning("Debug Mode activated")
 	if not audio_player:
 		push_warning("Quest Manager has no Audio Manager")
-	MessageManager.register_unproductive_action.connect(_on_unproductive_action_registered)
 	MessageManager.action_done.connect(_on_action_done)
 
 func initial_setup(obj_list:Array[ScrapbookObject]):
@@ -53,36 +52,33 @@ func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	
 func react_to_changed_object_list():
 	analyze_special_wording_opportunities()
-	check_if_active_quests_are_still_possible()
+	check_if_active_quest_is_still_possible()
 	if not currently_waiting_for_next_quest_to_start:
 		currently_waiting_for_next_quest_to_start = true
-		make_sure_that_there_is_one_active_quest()
+		make_sure_that_there_is_an_active_quest()
 
 # TODO: this is very likely completely outdated
-func check_if_active_quests_are_still_possible():
-	Logger.log(1,"check_if_active_quests_are_still_possible()")
-	if len(active_quests) == 0:
+func check_if_active_quest_is_still_possible():
+	Logger.log(1,"check_if_active_quest_is_still_possible()")
+	if not active_quest:
 		return
 	# get all the words currently available
 	var available_words: Array[String] = []
 	for obj in objects:
 		available_words.append_array(obj.sensible_identifiers)
 	
-	Logger.log(1,"nr of active quests:" + str(len(active_quests)))
-	for quest in active_quests:
-		Logger.log(1,"checkin quest: " + str(quest))
-		var quest_is_possible = true
-		for word in quest.required_words:
-			Logger.log(1,"checking word: " + word)
-			if not available_words.has(word):
-				quest_is_possible = false
-				break
-		if not quest_is_possible:
-			quest.set_aborted()
+	var quest_is_possible = true
+	for word in active_quest.required_words:
+		Logger.log(1,"checking word: " + word)
+		if not available_words.has(word):
+			quest_is_possible = false
+			break
+	if not quest_is_possible:
+		active_quest.set_aborted()
 				
 
-func make_sure_that_there_is_one_active_quest():	
-	if len(active_quests) == 0:
+func make_sure_that_there_is_an_active_quest():	
+	if not active_quest:
 		update_possible_quest_list()
 		start_random_quest()
 	currently_waiting_for_next_quest_to_start = false
@@ -122,18 +118,12 @@ func start_random_quest():
 				quests_that_could_be_picked.erase(q)
 	if len(quests_that_could_be_picked) > 0:
 		var quest:Quest = quests_that_could_be_picked.pick_random()
-				
-		if quest.request_activation():
-			MessageManager.quest_started.emit(quest)
-			quest.finished.connect(_on_quest_finished)
-			quest.aborted.connect(_on_quest_aborted)
-			active_quests.append(quest)
-			Logger.log(1,"appended quest, active_quests now contains nr: " + str(len(active_quests)))
-			last_quest = quest
+		MessageManager.quest_started.emit(quest)
+		active_quest = quest
+		last_quest = quest
 	else:
 		if not debug_mode:
 			SceneManager.load_end_level_screen()
-
 
 
 ## checking for things like "go to the left bus"
@@ -208,16 +198,15 @@ func analyze_special_wording_opportunities():
 				obj.sensible_identifiers.append(id)
 
 
-func _on_quest_finished(quest:Quest):
-	Logger.log(1,"QM: quest finished..." + str(quest))
+func _on_quest_finished():
 	if audio_player:
 		Logger.log(1,"playing audio")
 		audio_player.stream = SOUND_SUCCESS_SHORT
 		audio_player.play()
-	quest_no_longer_active.emit(quest)
-	active_quests.erase(quest)
+	quest_no_longer_active.emit(active_quest)
+	active_quest = null
 	quests_done += 1
-	react_to_changed_object_list()
+	get_tree().create_timer(1.5).timeout.connect(react_to_changed_object_list)
 
 
 func _on_quest_aborted(quest:Quest):
@@ -226,7 +215,7 @@ func _on_quest_aborted(quest:Quest):
 		audio_player.play()
 	quest_no_longer_active.emit(quest)
 	Logger.log(1,"Erasing aborted quest")
-	active_quests.erase(quest)
+	active_quest = null
 	react_to_changed_object_list()
 	
 ## react to actions not fulfilling a quest goal
@@ -236,4 +225,16 @@ func _on_unproductive_action_registered():
 		audio_player.play()
 
 func _on_action_done(action:Action):
-	Logger.log(0, "registered an action, was this the end of a quest?")
+	Logger.log(1, "action done info quest: " + active_quest.affordance_key, ["NEW-QUESTS"])
+	Logger.log(1, "action done info action: " + action.used_affordance_key, ["NEW-QUESTS"])
+	Logger.log(1, "action done info: " + active_quest.object_key, ["NEW-QUESTS"])
+	Logger.log(1, "action done info: " + str(action.object_acted_upon.sensible_identifiers), ["NEW-QUESTS"])
+	
+	if active_quest.affordance_key == action.used_affordance_key and active_quest.object_key in action.object_acted_upon.sensible_identifiers:
+		Logger.log(1, "hey, quest success", ["NEW-QUESTS"])
+		_on_quest_finished()
+	else:
+		Logger.log(1, "nope, that wasn't it", ["NEW-QUESTS"])
+		_on_unproductive_action_registered()
+		
+		

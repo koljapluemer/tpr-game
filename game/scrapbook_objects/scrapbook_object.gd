@@ -62,13 +62,6 @@ func _input(event):
 	if event.is_action_released("click"):
 		Logger.log(0, "Input Event Click Ended on " + name)
 		click_was_released.emit()
-		MessageManager.object_drag_finished.emit(self)
-
-func _on_mouse_entered() -> void:
-	MessageManager.object_mouse_over_started.emit(self)
-
-func _on_mouse_shape_exited() -> void:
-	MessageManager.object_mouse_over_finished.emit(self)
 
 
 func register_affordance(affordance:Affordance):
