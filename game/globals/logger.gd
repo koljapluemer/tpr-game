@@ -11,4 +11,4 @@ func log(level: int, message:String, tags:=[]):
 		var tags_printed = ""
 		for tag in tags:
 			tags_printed += tag + " "
-		print(1,timestamp + " — " + line + " — " + function  + " — " + message + tags_printed)
+		print(1,timestamp + " — " + line + " — " + function  + " — " + message + " — " + tags_printed)

@@ -44,6 +44,14 @@ func _ready() -> void:
 ## because the mouse may have left the [Area2D] of this object, so we cannot track the end of
 ## a drag and drop in [method _on_input_event] like the rest.
 
+func get_possible_quest_keys() -> Array[String]:
+	var keys: Array[String] = []
+	for affordance in affordances:
+		var res = affordance.get_key_for_quest()
+		if res.is_valid_for_quest:
+			keys.append(res.key)
+	return keys
+			
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):

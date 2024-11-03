@@ -53,7 +53,6 @@ func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 func react_to_changed_object_list():
 	analyze_special_wording_opportunities()
 	check_if_active_quests_are_still_possible()
-	update_possible_quest_list()
 	if not currently_waiting_for_next_quest_to_start:
 		currently_waiting_for_next_quest_to_start = true
 		make_sure_that_there_is_one_active_quest()
@@ -100,6 +99,9 @@ func update_possible_quest_list() -> void:
 	possible_quests = []
 	for object:ScrapbookObject in objects:
 		Logger.log(0, "checking obj for quests", ["NEW-QUESTS"])
+		var keys = object.get_possible_quest_keys()
+		Logger.log(0, str(keys), ["NEW-QUESTS"])
+		
 	return 
 
 func start_random_quest():
