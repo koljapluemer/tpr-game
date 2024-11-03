@@ -25,22 +25,25 @@ func _ready() -> void:
 	else:
 		for spawn_point:SpawnPoint in spawn_points.get_children():
 			if spawn_point.has_method("spawn_in_random_object"):
-				spawn_point.spawn_in_random_object()
+				var spawned_obj := spawn_point.spawn_in_random_object()
+				if spawned_obj:
+					scrapbook_objects.append(spawned_obj)
 			else:
 				push_warning("spawn_point is missing method")
 		if quest_manager:
+			Logger.log(0, "telling quest manager to run initial setup", ["NEW-QUESTS"])
 			quest_manager.initial_setup(scrapbook_objects)
 		else:
 			push_warning("no quest_manager_found")
 	
 	
-func _on_object_appeared(obj:ScrapbookObject):
-	scrapbook_objects.append(obj)
-	MessageManager.object_list_changed.emit(scrapbook_objects)
-
-func _on_object_disappeared(obj:ScrapbookObject):
-	scrapbook_objects.erase(obj)
-	MessageManager.object_list_changed.emit(scrapbook_objects)
+#func _on_object_appeared(obj:ScrapbookObject):
+	#scrapbook_objects.append(obj)
+	#MessageManager.object_list_changed.emit(scrapbook_objects)
+#
+#func _on_object_disappeared(obj:ScrapbookObject):
+	#scrapbook_objects.erase(obj)
+	#MessageManager.object_list_changed.emit(scrapbook_objects)
 
 func _on_quest_started(quest: Quest):
 	if audio_stream_player_2d:

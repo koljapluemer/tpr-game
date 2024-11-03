@@ -46,6 +46,7 @@ func initial_setup(obj_list:Array[ScrapbookObject]):
 ## triggered every time a signal goes out that an [ScrapbookObject] has gone or joined from the scene tree
 func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	objects = obj_list	
+	Logger.log(0, "reacting to changed obj list, which now has len " + str(len(objects)), ["NEW-QUESTS"])
 	react_to_changed_object_list()
 	
 	
@@ -55,10 +56,7 @@ func react_to_changed_object_list():
 	update_possible_quest_list()
 	if not currently_waiting_for_next_quest_to_start:
 		currently_waiting_for_next_quest_to_start = true
-		if get_tree():
-			get_tree().create_timer(2).timeout.connect(make_sure_that_there_is_one_active_quest)
-		else:
-			push_warning("For some reason quest_manager is not in a treee...")
+		make_sure_that_there_is_one_active_quest()
 
 func check_if_active_quests_are_still_possible():
 	Logger.log(1,"check_if_active_quests_are_still_possible()")
@@ -93,57 +91,16 @@ func make_sure_that_there_is_one_active_quest():
 # have communicated their objects and potentials
 # so the first quest is always related to the first object
 # spawned and cannot involve interactions
-func update_possible_quest_list():
+func update_possible_quest_list() -> void:
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
 		SceneManager.load_end_level_screen()
 		return
 	
 	possible_quests = []
-	# doing this the stupid way because array typing breaks here otherwise
-	#var combination_quests := get_combine_two_objects_quests()
-	#Logger.log(1,"nr combination quests "+ str(len(combination_quests)))
-	#for q in combination_quests:
-		#possible_quests.append(q)
-	#Logger.log(1,"nr of possible quests: "+ str(len(possible_quests)))
-	
-
-func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
-	var _possible_quests:Array[CombineTwoObjectsQuest] = []
-
-	for obj:ScrapbookObject in objects:
-		if is_instance_valid(obj):
-			# building combination quests
-			# loop through the objects again, and see if
-			# any one satisfies the one this one wants to combine with
-			# aka fruit x is ready to be combined with any knife
-			# well, is there any word tagged knife?
-			for possible_combination_object in objects:
-				if is_instance_valid(possible_combination_object):
-					if not possible_combination_object == obj:
-						# skip the object we're already looking at
-						# we can't combine objects with themselves
-						for scrapbook_interaction:ScrapbookInteraction in obj.scrapbook_interactions:
-							Logger.log(1,"checking interaction")
-							if possible_combination_object.word_list.has(scrapbook_interaction.key_word):
-								Logger.log(1,"word match")
-								for possible_receiver_id in obj.sensible_identifiers:
-									Logger.log(1,"making quest with: " + possible_receiver_id)
-									for possible_sender_id in possible_combination_object.sensible_identifiers:
-										var quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id)
-										if LanguageManager.check_for_matching_audio(quest.key):
-											_possible_quests.append(quest)
-						# big storage quests
-						Logger.log(1,"storage situation: " + str(obj.can_be_put_into_big_storage) + " - " + str(possible_combination_object.is_big_storage), ["STORAGE_QUEST"])
-						if obj.can_be_put_into_big_storage and possible_combination_object.is_big_storage:
-							Logger.log(1,"making storage quest", ["STORAGE_QUEST"])
-							for possible_receiver_id in possible_combination_object.sensible_identifiers:
-								for possible_sender_id in obj.sensible_identifiers:
-									var store_within_quest = CombineTwoObjectsQuest.create(possible_sender_id, possible_receiver_id, "PUT_IN")
-									if LanguageManager.check_for_matching_audio(store_within_quest.key):
-										_possible_quests.append(store_within_quest)
-							
-	return _possible_quests
+	for object:ScrapbookObject in objects:
+		Logger.log(0, "checking obj for quests", ["NEW-QUESTS"])
+	return 
 
 func start_random_quest():
 	# prevent picking the last quest again

@@ -32,9 +32,7 @@ var parent_spawn_point: SpawnPoint
 @onready var sprite_2d: Sprite2D = %Sprite2D
 
 func _ready() -> void:
-	if sprite_2d:
-		#sprite_2d.material = sprite_2d.material.duplicate()
-		pass
+	MessageManager.object_appeared.emit(self)
 
 
 ## Currently handles two jobs: [br][br]

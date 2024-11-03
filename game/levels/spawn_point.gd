@@ -15,21 +15,22 @@ func _ready() -> void:
 	pass
 
 
-func spawn_in_random_object():
+func spawn_in_random_object() -> ScrapbookObject:
 	var scene_to_init:PackedScene = accepts.pick_random()
 	Logger.log(0, name + ": randomly selected scene to init: " + str(scene_to_init), ["SPAWN"])
 	if not scene_to_init:
 		push_warning(name, ": no scenes set to spawn")
+		return null
 	else:
-		change_scene(scene_to_init)
+		return change_scene(scene_to_init)
 	
 
-func change_scene(scene_to_init:PackedScene):
+func change_scene(scene_to_init:PackedScene) -> ScrapbookObject:
 	init_scene = scene_to_init.instantiate()
 	init_scene.scale = Vector2(scale_factor, scale_factor)
 	init_scene.z_index = 0
 	init_scene.grid_pos = grid_pos
 	init_scene.parent_spawn_point = self
 	add_child(init_scene)
-	MessageManager.object_appeared.emit(init_scene)
-	Logger.log(1, name + ": set scene of spawnpoint to: " + init_scene.name, ["SPAWN"])
+	Logger.log(1, name + ": set scene of spawnpoint to: " + init_scene.name, ["SPAWN", "NEW-QUESTS"])
+	return init_scene
