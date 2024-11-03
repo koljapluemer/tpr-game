@@ -15,6 +15,10 @@ func _on_object_dropped_on_parent(obj:ScrapbookObject):
 				MessageManager.object_disappeared.emit(parent)
 				parent.queue_free()
 				spawn_point.change_scene(scene_to_init_when_cut)
-				
-		
-	
+
+
+func get_key_for_quest() -> KeyResult:
+	var r = KeyResult.new()
+	r.is_valid_for_quest = true
+	r.key = "CUT"
+	return r

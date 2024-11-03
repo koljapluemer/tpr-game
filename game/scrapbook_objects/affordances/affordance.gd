@@ -2,6 +2,17 @@ class_name Affordance extends Node2D
 
 var parent:ScrapbookObject
 
+class KeyResult:
+	var is_valid_for_quest: bool
+	var key: String
+
+# override!
+func get_key_for_quest() -> KeyResult:
+	var r = KeyResult.new()
+	r.is_valid_for_quest = false
+	r.key = ""
+	return r
+
 func _ready() -> void:
 	parent = get_parent()
 	parent.register_affordance(self)
