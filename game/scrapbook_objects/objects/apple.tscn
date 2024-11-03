@@ -1,17 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ci6kne16275mx"]
+[gd_scene load_steps=6 format=3 uid="uid://ci6kne16275mx"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_inipg"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_2pgjc"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="4_dcdtf"]
 [ext_resource type="Texture2D" uid="uid://br812mprcmtvc" path="res://game/images/apple_crop.webp" id="5_55jp7"]
-[ext_resource type="PackedScene" uid="uid://bah6s0cfl8r2y" path="res://game/scrapbook_objects/objects/kiwi_halves.tscn" id="6_gtadj"]
-
-[sub_resource type="Resource" id="Resource_in6rt"]
-script = ExtResource("4_dcdtf")
-key_word = ""
-kill_sender = false
-kill_receiver = true
-objects_to_spawn = Array[PackedScene]([ExtResource("6_gtadj")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
 resource_local_to_scene = true
@@ -26,8 +17,6 @@ height = 78.0
 [node name="ScapbookObject" instance=ExtResource("1_inipg")]
 position = Vector2(0, 4)
 word_list = Array[String](["APPLE", "FRUIT"])
-scrapbook_interactions = Array[ExtResource("4_dcdtf")]([SubResource("Resource_in6rt")])
-can_be_put_into_big_storage = true
 metadata/_edit_horizontal_guides_ = [-50.0]
 
 [node name="Sprite2D" parent="." index="0"]

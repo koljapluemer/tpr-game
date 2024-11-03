@@ -3,7 +3,7 @@ class_name QuestManager extends Node
 
 signal quest_no_longer_active(quest:Quest)
 
-@export var debug_mode:= false
+@export var debug_mode:= true
 @export var MAX_QUESTS_PER_LEVEL := 7
 @export var DELAY_UNTIL_FIRST_QUEST := 3
 @export var assume_there_is_a_grid:= false
@@ -101,11 +101,11 @@ func update_possible_quest_list():
 	
 	possible_quests = []
 	# doing this the stupid way because array typing breaks here otherwise
-	var combination_quests := get_combine_two_objects_quests()
-	Logger.log(1,"nr combination quests "+ str(len(combination_quests)))
-	for q in combination_quests:
-		possible_quests.append(q)
-	Logger.log(1,"nr of possible quests: "+ str(len(possible_quests)))
+	#var combination_quests := get_combine_two_objects_quests()
+	#Logger.log(1,"nr combination quests "+ str(len(combination_quests)))
+	#for q in combination_quests:
+		#possible_quests.append(q)
+	#Logger.log(1,"nr of possible quests: "+ str(len(possible_quests)))
 	
 
 func get_combine_two_objects_quests() -> Array[CombineTwoObjectsQuest]:
