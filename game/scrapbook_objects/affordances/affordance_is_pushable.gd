@@ -33,8 +33,5 @@ func _on_click_released() -> void:
 		_do_interactions_with_objects_I_was_dropped_on(areas)
 
 
-func get_key_for_quest() -> KeyResult:
-	var r = KeyResult.new()
-	r.is_valid_for_quest = true
-	r.key = "PUSH"
-	return r		
+func get_key() -> String:
+	return "PUSH"	

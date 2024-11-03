@@ -31,8 +31,5 @@ func _process(delta: float) -> void:
 	if is_moving:
 		parent.global_position = get_global_mouse_position() + mouse_offset_when_moved
 	
-func get_key_for_quest() -> KeyResult:
-	var r = KeyResult.new()
-	r.is_valid_for_quest = true
-	r.key = "MOVE"
-	return r		
+func get_key() -> String:
+	return "MOVE"

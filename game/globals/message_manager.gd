@@ -3,8 +3,6 @@ extends Node
 @warning_ignore("unused_signal")
 signal object_was_moved(obj:ScrapbookObject) 
 
-@warning_ignore("unused_signal")
-signal objects_were_combined(sender: ScrapbookInteraction, receiver: ScrapbookInteraction)
 # only the level-manager should listen to these following two
 # but they're called from different places, so this is 
 # convenient 
@@ -36,3 +34,6 @@ signal quest_started(quest: Quest)
 
 @warning_ignore("unused_signal")
 signal register_unproductive_action
+
+@warning_ignore("unused_signal")
+signal action_done(action:Action)

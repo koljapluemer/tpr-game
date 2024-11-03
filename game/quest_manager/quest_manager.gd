@@ -35,6 +35,7 @@ func _ready() -> void:
 	if not audio_player:
 		push_warning("Quest Manager has no Audio Manager")
 	MessageManager.register_unproductive_action.connect(_on_unproductive_action_registered)
+	MessageManager.action_done.connect(_on_action_done)
 
 func initial_setup(obj_list:Array[ScrapbookObject]):
 	# manually triggered by level manager after all the objects are loaded
@@ -57,6 +58,7 @@ func react_to_changed_object_list():
 		currently_waiting_for_next_quest_to_start = true
 		make_sure_that_there_is_one_active_quest()
 
+# TODO: this is very likely completely outdated
 func check_if_active_quests_are_still_possible():
 	Logger.log(1,"check_if_active_quests_are_still_possible()")
 	if len(active_quests) == 0:
@@ -99,10 +101,16 @@ func update_possible_quest_list() -> void:
 	possible_quests = []
 	for object:ScrapbookObject in objects:
 		Logger.log(0, "checking obj for quests", ["NEW-QUESTS"])
-		var keys = object.get_possible_quest_keys()
-		Logger.log(0, str(keys), ["NEW-QUESTS"])
-		
-	return 
+		var affordance_keys = object.get_possible_quest_keys()
+		var obj_keys = object.sensible_identifiers
+		for obj_key in obj_keys:
+			for affordance_key in affordance_keys:
+				Logger.log(1, "possible quest: " + obj_key + " - " + affordance_key, ["NEW-QUESTS"])
+				var quest = Quest.new()
+				quest.key = obj_key + ":" + affordance_key
+				quest.affordance_key = affordance_key
+				quest.object_key = obj_key
+				possible_quests.append(quest)
 
 func start_random_quest():
 	# prevent picking the last quest again
@@ -225,3 +233,6 @@ func _on_unproductive_action_registered():
 	if audio_player:
 		audio_player.stream = SOUND_WRONG_SHORT
 		audio_player.play()
+
+func _on_action_done(action:Action):
+	Logger.log(0, "registered an action, was this the end of a quest?")

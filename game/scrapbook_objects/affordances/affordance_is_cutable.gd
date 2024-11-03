@@ -7,6 +7,10 @@ func _ready() -> void:
 	Logger.log(0, "Cutable Registered", ["CUT-KIWI"])
 
 
+func get_key() -> String:
+	return "CUT"
+
+
 func _on_object_dropped_on_parent(obj:ScrapbookObject):
 	for affordance in obj.affordances:
 		if affordance is AffordanceCuts:
@@ -17,12 +21,6 @@ func _on_object_dropped_on_parent(obj:ScrapbookObject):
 				spawn_point.change_scene(scene_to_init_when_cut)
 
 
-func get_key_for_quest() -> KeyResult:
-	var r = KeyResult.new()
-	r.is_valid_for_quest = is_usable_in_a_quest
-	r.key = "CUT"
-	return r
-	
 func _on_object_list_changed(objects:Array[ScrapbookObject]):
 	# "duplicating" to a local var so that we don't temporarily
 	# disable the affordance even though later in the list 
