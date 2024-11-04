@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AbstractProperty" load_steps=2 format=3 uid="uid://shmkynkq25ni"]
+
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/actions_and_properties/abstract_property.gd" id="1_ymwx7"]
+
+[resource]
+script = ExtResource("1_ymwx7")
+name = "IS_STORAGE_MEDIUM_SIZE"

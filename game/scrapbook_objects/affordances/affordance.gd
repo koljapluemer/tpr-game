@@ -2,8 +2,6 @@ class_name Affordance extends Node2D
 
 var parent:ScrapbookObject
 
-
-
 var is_usable_in_a_quest := false
 # tracks whether an affordance is usable in a quest
 # ...e.g is_movable_freely is always usable

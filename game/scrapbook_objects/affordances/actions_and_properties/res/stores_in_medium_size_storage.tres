@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbstractAction" load_steps=3 format=3 uid="uid://dm8dnh6mq5cc7"]
+
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/actions_and_properties/abstract_action.gd" id="1_8shnh"]
+[ext_resource type="Resource" uid="uid://shmkynkq25ni" path="res://game/scrapbook_objects/affordances/actions_and_properties/res/is_storage_medium_size.tres" id="1_bnlor"]
+
+[resource]
+script = ExtResource("1_8shnh")
+name = "STORES_IN_MEDIUM_SIZE_STORAGE"
+acts_on_property = ExtResource("1_bnlor")

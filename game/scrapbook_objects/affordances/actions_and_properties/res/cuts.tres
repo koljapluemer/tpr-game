@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbstractAction" load_steps=3 format=3 uid="uid://c8orvkgcaoa5u"]
+
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/actions_and_properties/abstract_action.gd" id="1_2gp7f"]
+[ext_resource type="Resource" uid="uid://dpe2xsdxd8y3t" path="res://game/scrapbook_objects/affordances/actions_and_properties/res/is_cutable.tres" id="1_v0nrg"]
+
+[resource]
+script = ExtResource("1_2gp7f")
+name = "CUTS"
+acts_on_property = ExtResource("1_v0nrg")

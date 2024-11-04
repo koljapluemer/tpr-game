@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AbstractProperty" load_steps=2 format=3 uid="uid://dpe2xsdxd8y3t"]
+
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/actions_and_properties/abstract_property.gd" id="1_06cvh"]
+
+[resource]
+script = ExtResource("1_06cvh")
+name = "IS_CUTABLE"
