@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfo07xtn0tqy7"]
+
+[ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_e6jgo"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_j617q"]
+[ext_resource type="Texture2D" uid="uid://c3t3x4ob3k3sp" path="res://game/images/backgrounds/suburb_street.webp" id="3_cupx1"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_b2eqe"]
+[ext_resource type="PackedScene" uid="uid://bo5js6wn3t6ko" path="res://game/scrapbook_objects/objects/car_yellow_amg.tscn" id="5_qi2av"]
+[ext_resource type="PackedScene" uid="uid://drtrr7yhrkbpi" path="res://game/scrapbook_objects/objects/melon.tscn" id="19_77vvh"]
+[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="22_y8k1e"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_e6jgo")
+level_name = "Packing Fruits"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_j617q")]
+unique_name_in_owner = true
+
+[node name="Background" type="Area2D" parent="." groups=["background"]]
+z_index = -100
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(400, 150)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_cupx1")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ObjectSpawner" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(234, 265)
+script = ExtResource("4_b2eqe")
+accepts = Array[PackedScene]([ExtResource("19_77vvh")])
+scale_factor = 0.4
+
+[node name="ObjectSpawner2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(554, 193)
+script = ExtResource("4_b2eqe")
+accepts = Array[PackedScene]([ExtResource("5_qi2av")])
+scale_factor = 0.12
+
+[node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
+unique_name_in_owner = true
+script = ExtResource("22_y8k1e")
+audio_player = NodePath("../AudioStreamPlayer2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]

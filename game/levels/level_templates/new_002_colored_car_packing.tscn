@@ -44,16 +44,16 @@ texture = ExtResource("3_wsry4")
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Car Spawn 1" type="Marker2D" parent="SpawnPoints"]
-z_index = 7
-position = Vector2(177, 168)
-script = ExtResource("4_1ucc1")
-accepts = Array[PackedScene]([ExtResource("5_gbmw2"), ExtResource("6_83535"), ExtResource("7_wxaf0"), ExtResource("5_fsw8w"), ExtResource("9_7evf2"), ExtResource("10_gagta"), ExtResource("11_5ynsu"), ExtResource("12_lm6bp"), ExtResource("13_3cft8"), ExtResource("14_f3t0a"), ExtResource("15_1cl2e"), ExtResource("16_kcibc"), ExtResource("17_l0c6p")])
-scale_factor = 0.11
-
 [node name="Car Spawn 2" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(600, 198)
+script = ExtResource("4_1ucc1")
+accepts = Array[PackedScene]([ExtResource("5_gbmw2"), ExtResource("6_83535"), ExtResource("7_wxaf0"), ExtResource("5_fsw8w"), ExtResource("9_7evf2"), ExtResource("10_gagta"), ExtResource("11_5ynsu"), ExtResource("12_lm6bp"), ExtResource("13_3cft8"), ExtResource("14_f3t0a"), ExtResource("15_1cl2e"), ExtResource("16_kcibc"), ExtResource("17_l0c6p")])
+scale_factor = 0.12
+
+[node name="Car Spawn 3" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(264, 182)
 script = ExtResource("4_1ucc1")
 accepts = Array[PackedScene]([ExtResource("5_gbmw2"), ExtResource("6_83535"), ExtResource("7_wxaf0"), ExtResource("5_fsw8w"), ExtResource("9_7evf2"), ExtResource("10_gagta"), ExtResource("11_5ynsu"), ExtResource("12_lm6bp"), ExtResource("13_3cft8"), ExtResource("14_f3t0a"), ExtResource("15_1cl2e"), ExtResource("16_kcibc"), ExtResource("17_l0c6p")])
 scale_factor = 0.12
