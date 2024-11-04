@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkm8u37o2lab4"]
+[gd_scene load_steps=6 format=3 uid="uid://bkm8u37o2lab4"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_hwwjl"]
-[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="2_dr7cv"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_l0ley"]
 [ext_resource type="Texture2D" uid="uid://c1ruejxhjlenk" path="res://game/images/car_silver_amg_crop.webp" id="4_8h2sg"]
 
@@ -9,7 +8,6 @@
 resource_local_to_scene = true
 shader = ExtResource("3_l0ley")
 shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(2993.42, 1420.16)
@@ -17,10 +15,6 @@ size = Vector2(2993.42, 1420.16)
 [node name="ScapbookObject" instance=ExtResource("1_hwwjl")]
 word_list = Array[String](["CAR"])
 color = "SILVER"
-is_movable = false
-is_big_storage = true
-is_locked = false
-lock_sound = ExtResource("2_dr7cv")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]

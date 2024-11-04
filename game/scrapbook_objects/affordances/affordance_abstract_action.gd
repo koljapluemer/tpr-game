@@ -1,8 +1,6 @@
 class_name AffordanceAbstractAction extends Affordance
 
-@export_category("uh?")
 @export var allow_unspecific := true
-
 @export var abstract_action:AbstractAction
 
 func _ready() -> void:

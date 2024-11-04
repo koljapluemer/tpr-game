@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://k5jqlfmglkse"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_c77kf"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_grwfb"]
+[ext_resource type="Texture2D" uid="uid://fv8mp5fnwtw5" path="res://game/images/car_keys.webp" id="3_vc7v7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
+resource_local_to_scene = true
+shader = ExtResource("2_grwfb")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
+radius = 45.0
+height = 90.0
+
+[node name="ScapbookObject" instance=ExtResource("1_c77kf")]
+position = Vector2(0, 4)
+word_list = Array[String](["KEYS", "CAR_KEYS"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_08ks4")
+position = Vector2(-1, -38)
+scale = Vector2(0.161816, 0.161816)
+texture = ExtResource("3_vc7v7")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -31)
+shape = SubResource("CapsuleShape2D_6fcro")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

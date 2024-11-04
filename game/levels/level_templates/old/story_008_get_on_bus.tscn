@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dynays5xlrn7o"]
+[gd_scene load_steps=11 format=3 uid="uid://brbvtap4nbywt"]
 
-[ext_resource type="Script" path="res://game/levels/level_templates/level_manager.gd" id="1_i8e5g"]
-[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_8qsnm"]
-[ext_resource type="Texture2D" uid="uid://c63vdkowu5ut0" path="res://game/images/bus_top.webp" id="2_f8mb7"]
-[ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="3_hqbcf"]
-[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_ps3xc"]
-[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="6_a8t4e"]
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_thgvb"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_7v6io"]
+[ext_resource type="Texture2D" uid="uid://c63vdkowu5ut0" path="res://game/images/bus_top.webp" id="2_b3q7r"]
+[ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="3_l254h"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_4l5rw"]
+[ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="5_jtro5"]
+[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="7_3c3g8"]
 
 [sub_resource type="GDScript" id="GDScript_qnkyu"]
 script/source = "class_name QuestUI extends HBoxContainer
@@ -50,13 +51,13 @@ _bundled = {
 size = Vector2(894, 350)
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_i8e5g")
-level_name = "The Bus"
+script = ExtResource("1_thgvb")
+level_name = "Get On the Bus"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 150)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("2_8qsnm")]
+[node name="CanvasLayer" parent="." instance=ExtResource("2_7v6io")]
 unique_name_in_owner = true
 
 [node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
@@ -69,7 +70,7 @@ z_index = -100
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 position = Vector2(408.181, 46.411)
 scale = Vector2(0.94706, 0.94706)
-texture = ExtResource("2_f8mb7")
+texture = ExtResource("2_b3q7r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
 position = Vector2(408, 165)
@@ -80,14 +81,22 @@ unique_name_in_owner = true
 
 [node name="DefaultSpawn" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
-position = Vector2(218, 297)
-script = ExtResource("4_ps3xc")
-accepts = Array[PackedScene]([ExtResource("3_hqbcf")])
+position = Vector2(90, 297)
+script = ExtResource("4_4l5rw")
+accepts = Array[PackedScene]([ExtResource("3_l254h")])
 scale_factor = 0.12
+
+[node name="DefaultSpawn2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(706, 217)
+script = ExtResource("4_4l5rw")
+accepts = Array[PackedScene]([ExtResource("5_jtro5")])
+scale_factor = 0.16
 
 [node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 unique_name_in_owner = true
-script = ExtResource("6_a8t4e")
+script = ExtResource("7_3c3g8")
+MAX_QUESTS_PER_LEVEL = 5
 audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]

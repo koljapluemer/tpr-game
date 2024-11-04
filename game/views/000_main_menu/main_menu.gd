@@ -7,9 +7,9 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var lvl_counter := 0
-	for level in SceneManager.story:
-		level_select.add_item("Level " + str(lvl_counter+1), lvl_counter)
-		lvl_counter += 1
+	#for level in SceneManager.story:
+		#level_select.add_item("Level " + str(lvl_counter+1), lvl_counter)
+		#lvl_counter += 1
 
 func _on_button_pressed() -> void:
 	SceneManager.reload_level()

@@ -2,18 +2,16 @@ extends Node
 
 # ADD LEVELS HERE
 # /*
-const NEW_002_COLORED_CAR_PACKING = preload("res://game/levels/level_templates/new_002_colored_car_packing.tscn")
-
+const _000_CUT_KIWI = preload("res://game/levels/level_templates/new/000_cut-kiwi.tscn")
 # */
-
 
 # add const value to the one below
 const story: Array[PackedScene] = [
-	NEW_002_COLORED_CAR_PACKING
+	_000_CUT_KIWI
 ]
 
 const repeat_levels: Array[PackedScene] = [
-	NEW_002_COLORED_CAR_PACKING	
+	_000_CUT_KIWI	
 ]
 
 # other constants
