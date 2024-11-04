@@ -22,7 +22,7 @@ resources_spreadsheet_view/fold_docks=false
 [application]
 
 config/name="The Scrapbook"
-run/main_scene="res://game/levels/level_templates/new/002_mustang_open_close.tscn"
+run/main_scene="res://game/levels/level_templates/new/003_mustang_lock_unlock.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 

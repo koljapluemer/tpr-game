@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://u7a483r1yxih"]
+[gd_scene load_steps=7 format=3 uid="uid://u7a483r1yxih"]
 
 [ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_32ref"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_dmmtd"]
 [ext_resource type="Texture2D" uid="uid://c3t3x4ob3k3sp" path="res://game/images/backgrounds/suburb_street.webp" id="3_u8bas"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_2aksw"]
-[ext_resource type="PackedScene" uid="uid://k5jqlfmglkse" path="res://game/scrapbook_objects/objects/keys_car.tscn" id="5_m31ut"]
 [ext_resource type="PackedScene" uid="uid://di2jocalcb2fq" path="res://game/scrapbook_objects/objects/car_mustang_openable.tscn" id="6_5dpbp"]
 [ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="7_rmxv6"]
 
@@ -28,13 +27,6 @@ texture = ExtResource("3_u8bas")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
-
-[node name="KeySpawner" type="Marker2D" parent="SpawnPoints"]
-z_index = 7
-position = Vector2(234, 265)
-script = ExtResource("4_2aksw")
-accepts = Array[PackedScene]([ExtResource("5_m31ut")])
-scale_factor = 0.4
 
 [node name="ObjectSpawner2" type="Marker2D" parent="SpawnPoints"]
 z_index = 7

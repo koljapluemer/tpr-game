@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://di2jocalcb2fq"]
+[gd_scene load_steps=12 format=3 uid="uid://di2jocalcb2fq"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_8f6jk"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_f1ubr"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://shmkynkq25ni" path="res://game/scrapbook_objects/affordances/actions_and_properties/res/is_storage_medium_size.tres" id="5_n8dxw"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_openable.gd" id="6_nwm3k"]
 [ext_resource type="Texture2D" uid="uid://bx6e0b4640abx" path="res://game/images/mustang-door-open-Photoroom.webp" id="7_y33qx"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_unlockable.gd" id="8_acm8n"]
+[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="9_7b70a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
@@ -43,3 +45,7 @@ abstract_property = ExtResource("5_n8dxw")
 script = ExtResource("6_nwm3k")
 texture_when_open = ExtResource("7_y33qx")
 texture_when_closed = ExtResource("3_2n414")
+
+[node name="AffordanceIsUnlockable" type="Node2D" parent="." index="8"]
+script = ExtResource("8_acm8n")
+lock_sound = ExtResource("9_7b70a")
