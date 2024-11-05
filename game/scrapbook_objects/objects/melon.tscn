@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://drtrr7yhrkbpi"]
+[gd_scene load_steps=8 format=3 uid="uid://drtrr7yhrkbpi"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_kxwj6"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="4_52nyp"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_jj80w"]
 [ext_resource type="Texture2D" uid="uid://bjlrlkxt7wea7" path="res://game/images/melon_whole.webp" id="5_gtllh"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="5_vix4y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
 resource_local_to_scene = true
@@ -12,45 +14,6 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
 radius = 69.0
 height = 182.0
-
-[sub_resource type="GDScript" id="GDScript_xko04"]
-script/source = "class_name AffordanceAbstractAction extends Affordance
-
-@export var allow_unspecific := true
-@export var abstract_action:AbstractAction
-
-func _ready() -> void:
-	super._ready()
-	if not abstract_action:
-		push_warning(name, \": has no abstract action defined\")
-
-
-func _on_object_dropped_on_parent(obj:ScrapbookObject):
-	print(\"am I going to act?\")
-	
-"
-
-[sub_resource type="GDScript" id="GDScript_dvoy6"]
-script/source = "class_name AbstractProperty extends Resource
-
-@export var name:String
-"
-
-[sub_resource type="Resource" id="Resource_cagvl"]
-script = SubResource("GDScript_dvoy6")
-name = "IS_STORAGE_MEDIUM_SIZE"
-
-[sub_resource type="GDScript" id="GDScript_uyj48"]
-script/source = "class_name AbstractAction extends Resource
-
-@export var name:String
-@export var acts_on_property:AbstractProperty
-"
-
-[sub_resource type="Resource" id="Resource_6ci0y"]
-script = SubResource("GDScript_uyj48")
-name = "STORES_IN_MEDIUM_SIZE_STORAGE"
-acts_on_property = SubResource("Resource_cagvl")
 
 [node name="ScapbookObject" instance=ExtResource("1_kxwj6")]
 position = Vector2(0, 4)
@@ -69,10 +32,10 @@ position = Vector2(1, -59)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_u7q7t")
 
-[node name="AffordanceAbstractAction" type="Node2D" parent="." index="5"]
-script = SubResource("GDScript_xko04")
-allow_unspecific = false
-abstract_action = SubResource("Resource_6ci0y")
-allow_unspecific_quest = null
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("4_52nyp")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("5_vix4y")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

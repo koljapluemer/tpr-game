@@ -1,7 +1,5 @@
 class_name AffordanceActive extends Affordance
 
-@export var is_independent := true
-
 var passive_objects_that_can_be_interacted_with : Array[ScrapbookObject] = []
 
 
