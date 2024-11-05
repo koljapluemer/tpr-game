@@ -15,6 +15,9 @@ func _do_interactions_with_objects_I_was_dropped_on(areas:Array[Area2D]):
 			if area is ScrapbookObject:
 				area.object_dropped_on_me.emit(parent)
 
+
+
+
 # replace with some scheme of abstracted quest templates, maybe?
 #func get_key_for_quest() -> KeyResult:
 	#var r = KeyResult.new()
@@ -28,6 +31,3 @@ func _on_object_list_changed(objects:Array[ScrapbookObject]):
 	Logger.log(1, "override function called", ["NEW-QUESTS", "USABLE"])
 	pass
 	
-# override!
-func get_verb_key() -> String:
-	return "AFFORD"

@@ -31,7 +31,7 @@ func _on_click() -> void:
 		Logger.log(1, "lock/unlock click registered", ["LOCK"])
 		is_open = !is_open 
 		get_tree().create_timer(0.2).connect(
-			"timeout", _report_affordance_based_interaction
+			"timeout", _report_action
 		)
 		adapt_texture()
 
@@ -41,7 +41,7 @@ func _on_click_released() -> void:
 		click_in_action = false
 	
 
-func get_key() -> String:
+func get_verb_key() -> String:
 	if is_open:
 		return "CLOSE"
 	else: 

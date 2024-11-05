@@ -15,9 +15,10 @@ func _on_click_started() -> void:
 	mouse_offset_when_moved = parent.global_position - get_global_mouse_position()
 	# delayed signal for the interaction, so that MOVE quests
 	# only succeed after the object was dragged around a bit
-	#get_tree().create_timer(0.4).connect(
-		#"timeout", _report_affordance_based_interaction
-	#)
+	print("click started")
+	get_tree().create_timer(0.4).connect(
+		"timeout", _report_action.bind(parent, null)
+	)
 
 func _on_click_released() -> void:
 	if is_moving:
@@ -30,5 +31,5 @@ func _process(delta: float) -> void:
 	if is_moving:
 		parent.global_position = get_global_mouse_position() + mouse_offset_when_moved
 	
-func get_key() -> String:
+func get_verb_key() -> String:
 	return "MOVE"

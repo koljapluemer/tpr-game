@@ -22,7 +22,7 @@ func _on_click_started() -> void:
 	# delayed signal for the interaction, so that MOVE quests
 	# only succeed after the object was dragged around a bit
 	get_tree().create_timer(0.4).connect(
-		"timeout", _report_affordance_based_interaction
+		"timeout", _report_action
 	)
 	
 func _on_click_released() -> void:
@@ -32,5 +32,5 @@ func _on_click_released() -> void:
 		_do_interactions_with_objects_I_was_dropped_on(areas)
 
 
-func get_key() -> String:
+func get_verb_key() -> String:
 	return "PUSH"	

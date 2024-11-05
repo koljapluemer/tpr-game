@@ -6,14 +6,22 @@ func _ready() -> void:
 	parent = get_parent()
 	parent.register_affordance(self)
 
+func _report_action(active_object:ScrapbookObject, passive_object:ScrapbookObject) -> void:
+	print("reporting action")
+	
+	var action:= Action.new()
+	action.active_object = active_object
+	# may be null, that's ok
+	action.passive_object = passive_object
+	action.identifiers_of_active_object = active_object.sensible_identifiers
+	if passive_object:
+		action.identifiers_of_passive_object = passive_object.sensible_identifiers
+	action.verb_key = get_verb_key()
+	MessageManager.action_done.emit(action)
+	# log:
+	Logger.log(1, str(action), ["NEW-AFFORDANCES"])
 
-# TODO: update all the following ones
-#func _report_affordance_based_interaction() -> void:
-	#var action:= Action.new()
-	#action.object_acted_upon = parent
-	#action.used_affordance_key = get_key()
-	#MessageManager.action_done.emit(action)
-#
-#class KeyResult:
-	#var is_valid_for_quest: bool
-	#var key: String
+
+# override!
+func get_verb_key() -> String:
+	return "AFFORD"

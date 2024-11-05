@@ -4,11 +4,6 @@ func _ready() -> void:
 	super._ready()
 	Logger.log(0, "Cuts Registered ", ["CUT-KIWI"])
 
-
-func _on_object_dropped_on_parent(obj:ScrapbookObject):
-	print("am I going to cut?")
-	
-
 func _on_object_list_changed(objects:Array[ScrapbookObject]):
 	# "duplicating" to a local var so that we don't temporarily
 	# disable the affordance even though later in the list 
@@ -21,3 +16,6 @@ func _on_object_list_changed(objects:Array[ScrapbookObject]):
 				break
 	is_usable_in_a_quest = new_value_for_is_usable_in_a_quest
 	Logger.log(1, name + " is now usable for quest: " + str(is_usable_in_a_quest), ["NEW-QUESTS", "USABLE"])
+
+func get_verb_key() -> String:
+	return "CUT"
