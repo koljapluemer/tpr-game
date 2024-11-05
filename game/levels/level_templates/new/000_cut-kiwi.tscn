@@ -36,13 +36,13 @@ shape = SubResource("RectangleShape2D_anpsh")
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Dog" type="Marker2D" parent="SpawnPoints"]
+[node name="KiwiSpawner" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(330, 205)
 script = ExtResource("4_ulm2d")
 accepts = Array[PackedScene]([ExtResource("5_ikrb2")])
 
-[node name="Dog2" type="Marker2D" parent="SpawnPoints"]
+[node name="KnifeSpawner" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(546, 221)
 script = ExtResource("4_ulm2d")

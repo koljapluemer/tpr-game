@@ -1,9 +1,9 @@
 class_name AffordanceActive extends Affordance
 
+@export var is_independent := true
 
-var is_usable_in_a_quest := false
+var passive_objects_that_can_be_interacted_with : Array[ScrapbookObject] = []
 
-@export var allow_quest_where_i_am_acting_without_a_specified_obj := true
 
 func _ready() -> void:
 	super()
@@ -16,18 +16,21 @@ func _do_interactions_with_objects_I_was_dropped_on(areas:Array[Area2D]):
 				area.object_dropped_on_me.emit(parent)
 
 
+func get_possible_passive_objects_that_affordance_can_interact_with() -> Array[ScrapbookObject]:
+	var objects: Array[ScrapbookObject] = []
+	if get_is_independent():
+		print("appending null")
+		objects.append(null)
+	for obj in passive_objects_that_can_be_interacted_with:
+		objects.append(obj)
+	
+	return objects
 
 
-# replace with some scheme of abstracted quest templates, maybe?
-#func get_key_for_quest() -> KeyResult:
-	#var r = KeyResult.new()
-	#r.is_valid_for_quest = is_usable_in_a_quest
-	#r.key = get_key()
-	#return r
-	#
-
-# override if needed
+# override (if partners are of interest)
 func _on_object_list_changed(objects:Array[ScrapbookObject]):
-	Logger.log(1, "override function called", ["NEW-QUESTS", "USABLE"])
 	pass
 	
+# override for stuff that need no partner, like mOVE or OPEN
+func get_is_independent() -> bool:
+	return false

@@ -27,6 +27,7 @@ var quests_done:= 0
 var last_quest: Quest
 var currently_waiting_for_next_quest_to_start := false
 
+var possible_actions: Array[Action] = []
 
 func _ready() -> void:
 	if debug_mode:
@@ -51,10 +52,25 @@ func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	
 func react_to_changed_object_list():
 	analyze_special_wording_opportunities()
+	update_possible_actions()
 	check_if_active_quest_is_still_possible()
 	if not currently_waiting_for_next_quest_to_start:
 		currently_waiting_for_next_quest_to_start = true
 		make_sure_that_there_is_an_active_quest()
+
+func update_possible_actions():
+	var action_list: Array[Action] = []
+	for obj in objects:
+		for affordance in obj.affordances:
+			if affordance is AffordanceActive:
+				var possible_partners = affordance.get_possible_passive_objects_that_affordance_can_interact_with()
+				for partner in possible_partners:
+					var action := Action.new()
+					action.active_object = obj
+					action.passive_object = partner
+					action.verb_key = affordance.get_verb_key()
+					action_list.append(action)
+	possible_actions = action_list
 
 # TODO: this is very likely completely outdated
 func check_if_active_quest_is_still_possible():
@@ -94,19 +110,62 @@ func update_possible_quest_list() -> void:
 		return
 	
 	possible_quests = []
-	for object:ScrapbookObject in objects:
-		Logger.log(0, "checking obj for quests", ["NEW-QUESTS"])
-		var affordance_keys = object.get_possible_quest_keys()
-		var obj_keys = object.sensible_identifiers
-		for obj_key in obj_keys:
-			for affordance_key in affordance_keys:
-				Logger.log(1, "possible quest: " + obj_key + " - " + affordance_key, ["NEW-QUESTS"])
-				var quest = Quest.new()
-				quest.key = obj_key + ":" + affordance_key
-				quest.affordance_key = affordance_key
-				quest.object_key = obj_key
-				if LanguageManager.check_for_matching_audio(quest.key):
-					possible_quests.append(quest)
+	for action in possible_actions:
+		var possible_keys_of_passive_object: Array[String] = []
+		var possible_keys_of_active_object := action.active_object.sensible_identifiers
+		
+		if action.passive_object:
+			possible_keys_of_passive_object = action.passive_object.sensible_identifiers
+			
+			# ex: ANY__CUT__ANY
+			var any_any_quest = Quest.new()
+			any_any_quest.required_verb = action.verb_key
+			if LanguageManager.check_for_matching_audio(str(any_any_quest)):
+				possible_quests.append(any_any_quest)
+				
+			for active_key in possible_keys_of_active_object:
+				# ex: THE__KNIFE__CUT__ANY	
+				var active_to_any_quest = Quest.new()
+				active_to_any_quest.required_active_object_key = active_key
+				active_to_any_quest.required_verb = action.verb_key
+				if LanguageManager.check_for_matching_audio(str(active_to_any_quest)):
+						possible_quests.append(active_to_any_quest)
+
+				
+			for passive_key in possible_keys_of_passive_object:
+				# ex: ANY__CUT__THE__KIWI
+				var q = Quest.new()
+				q.required_passive_object_key = passive_key
+				q.required_verb = action.verb_key
+				if LanguageManager.check_for_matching_audio(str(q)):
+					possible_quests.append(q)
+				for active_key in possible_keys_of_active_object:
+					# ex: THE__KNIFE__CUT__THE__KIWI	
+					var qu = Quest.new()
+					qu.required_active_object_key = active_key
+					qu.required_passive_object_key = passive_key
+					qu.required_verb = action.verb_key
+					if LanguageManager.check_for_matching_audio(str(qu)):
+						print("q:", str(qu))
+						possible_quests.append(qu)
+		else:
+			for active_key in possible_keys_of_active_object:
+				# ex: THE__KNIFE__MOVE	
+				var active_to_any_quest = Quest.new()
+				active_to_any_quest.required_active_object_key = active_key
+				active_to_any_quest.required_verb = action.verb_key
+				if LanguageManager.check_for_matching_audio(str(active_to_any_quest)):
+						possible_quests.append(active_to_any_quest)
+			
+				
+					
+			
+				
+			
+					
+					
+						
+				
 
 func start_random_quest():
 	# prevent picking the last quest again

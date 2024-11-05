@@ -71,8 +71,10 @@ allow_unspecific_quest = null
 
 [node name="AffordanceIsOpenable" type="Node2D" parent="." index="7"]
 script = ExtResource("6_nwm3k")
+is_open = null
 texture_when_open = ExtResource("7_y33qx")
 texture_when_closed = ExtResource("3_2n414")
+allow_quest_where_i_am_acting_without_a_specified_obj = null
 
 [node name="AffordanceIsUnlockable" type="Node2D" parent="." index="8"]
 script = ExtResource("8_acm8n")

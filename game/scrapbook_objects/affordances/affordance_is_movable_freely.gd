@@ -8,7 +8,6 @@ func _ready() -> void:
 	super._ready()
 	parent.click_was_started.connect(_on_click_started)
 	parent.click_was_released.connect(_on_click_released)
-	is_usable_in_a_quest = true
 
 func _on_click_started() -> void:
 	is_moving = true
@@ -33,3 +32,6 @@ func _process(delta: float) -> void:
 	
 func get_verb_key() -> String:
 	return "MOVE"
+	
+func get_is_independent() -> bool:
+	return true
