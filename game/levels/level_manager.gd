@@ -40,7 +40,7 @@ func _ready() -> void:
 
 func _on_quest_started(quest: Quest):
 	if audio_stream_player_2d:
-		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + quest.key + ".mp3"
+		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + str(quest) + ".mp3"
 		if ResourceLoader.exists(audio):
 			audio_stream_player_2d.stream = load(audio)
 			audio_stream_player_2d.play()

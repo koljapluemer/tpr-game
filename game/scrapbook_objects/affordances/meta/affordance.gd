@@ -13,9 +13,6 @@ func _report_action(active_object:ScrapbookObject, passive_object:ScrapbookObjec
 	action.active_object = active_object
 	# may be null, that's ok
 	action.passive_object = passive_object
-	action.identifiers_of_active_object = active_object.sensible_identifiers
-	if passive_object:
-		action.identifiers_of_passive_object = passive_object.sensible_identifiers
 	action.verb_key = get_verb_key()
 	MessageManager.action_done.emit(action)
 	# log:

@@ -283,12 +283,6 @@ func _on_unproductive_action_registered():
 		audio_player.play()
 
 func _on_action_done(action:Action):
-	if active_quest:
-		if active_quest.affordance_key == action.used_affordance_key and active_quest.object_key in action.object_acted_upon.sensible_identifiers:
-			Logger.log(1, "hey, quest success", ["NEW-QUESTS"])
-			_on_quest_finished()
-		else:
-			Logger.log(1, "nope, that wasn't it", ["NEW-QUESTS"])
-			_on_unproductive_action_registered()
+	pass
 			
 		
