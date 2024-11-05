@@ -61,6 +61,8 @@ func react_to_changed_object_list():
 func update_possible_actions():
 	var action_list: Array[Action] = []
 	for obj in objects:
+		if not is_instance_valid(obj):
+			continue
 		for affordance in obj.affordances:
 			if affordance is AffordanceActive:
 				var possible_partners = affordance.get_possible_passive_objects_that_affordance_can_interact_with()
@@ -172,7 +174,7 @@ func start_random_quest():
 	var quests_that_could_be_picked: Array[Quest] = possible_quests
 	if last_quest:
 		for q:Quest in quests_that_could_be_picked:
-			if last_quest.key == q.key:
+			if str(last_quest) == str(q):
 				quests_that_could_be_picked.erase(q)
 	if len(quests_that_could_be_picked) > 0:
 		var quest:Quest = quests_that_could_be_picked.pick_random()
@@ -187,6 +189,8 @@ func start_random_quest():
 ## checking for things like "go to the left bus"
 func analyze_special_wording_opportunities():
 	for obj:ScrapbookObject in objects:
+		if not is_instance_valid(obj):
+			continue
 		var sensible_identifiers:Array[String] = []
 		if not is_instance_valid(obj):
 			push_warning("warning: attempting to analyze begone object", obj)
@@ -209,6 +213,8 @@ func analyze_special_wording_opportunities():
 			for word in obj.word_list:
 				var color_count = {}
 				for comparison_obj:ScrapbookObject in objects:
+					if not is_instance_valid(comparison_obj):
+						continue
 					if comparison_obj.word_list.has(word):
 						if color_count.has(comparison_obj.color):
 							color_count[comparison_obj.color] += 1
@@ -283,6 +289,35 @@ func _on_unproductive_action_registered():
 		audio_player.play()
 
 func _on_action_done(action:Action):
-	pass
+	# if action happened while we were currently waiting for a quest
+	# we simply don't look at it
+	if not active_quest:
+		return
+		
+	var action_solved_the_quest := true
+	# check for active, passive and verb, dependent on whether that property was set in the quest
+	# if it wasn't set, it wasn't relevant, and we don't check for it
+	if active_quest.required_active_object_key:
+		# actions always come with an active object, even if it's not relevant
+		if not active_quest.required_active_object_key in action.active_object.sensible_identifiers:
+			action_solved_the_quest = false
+	
+	if active_quest.required_passive_object_key:
+		if action.passive_object:
+			if not active_quest.required_passive_object_key in action.passive_object.sensible_identifiers:
+				action_solved_the_quest = false
+		else:
+			action_solved_the_quest = false
+	
+	# verb is always set	
+	if not active_quest.required_verb == action.verb_key:
+		action_solved_the_quest = false
+	
+	if action_solved_the_quest:
+		_on_quest_finished()
+	else:
+		_on_unproductive_action_registered()
+	
+	
 			
 		
