@@ -46,11 +46,12 @@ func _ready() -> void:
 
 func get_possible_quest_keys() -> Array[String]:
 	var keys: Array[String] = []
-	for affordance in affordances:
-		var res = affordance.get_key_for_quest()
-		if res.is_valid_for_quest:
-			keys.append(res.key)
 	return keys
+	#for affordance in affordances:
+		#var res = affordance.get_key_for_quest()
+		#if res.is_valid_for_quest:
+			#keys.append(res.key)
+	#return keys
 			
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:

@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo5js6wn3t6ko"]
+[gd_scene load_steps=9 format=3 uid="uid://bo5js6wn3t6ko"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_n0fc4"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_7b8u8"]
 [ext_resource type="Texture2D" uid="uid://djfyswm342vdd" path="res://game/images/car_yellow-Photoroom.webp" id="4_4hdvn"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_abstract_property.gd" id="4_spvb2"]
-[ext_resource type="Resource" uid="uid://shmkynkq25ni" path="res://game/scrapbook_objects/affordances/actions_and_properties/res/is_storage_medium_size.tres" id="5_00bbu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
@@ -13,6 +11,34 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(2960, 1008)
+
+[sub_resource type="GDScript" id="GDScript_gm0yk"]
+script/source = "class_name AffordanceAbstractProperty extends Affordance
+
+@export var allow_unspecific := true
+@export var abstract_property:AbstractProperty
+
+func _ready() -> void:
+	super._ready()
+	if not abstract_property:
+		push_warning(name, \": has no abstract property defined\")
+
+
+
+func _on_object_dropped_on_parent(obj:ScrapbookObject):
+	print(\"am I going to be acted upon?\")
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_dvoy6"]
+script/source = "class_name AbstractProperty extends Resource
+
+@export var name:String
+"
+
+[sub_resource type="Resource" id="Resource_cagvl"]
+script = SubResource("GDScript_dvoy6")
+name = "IS_STORAGE_MEDIUM_SIZE"
 
 [node name="ScapbookObject" instance=ExtResource("1_n0fc4")]
 word_list = Array[String](["CAR"])
@@ -30,5 +56,7 @@ position = Vector2(382, -382)
 shape = SubResource("RectangleShape2D_14ond")
 
 [node name="AffordanceAbstractProperty" type="Node2D" parent="." index="5"]
-script = ExtResource("4_spvb2")
-abstract_property = ExtResource("5_00bbu")
+script = SubResource("GDScript_gm0yk")
+allow_unspecific = null
+abstract_property = SubResource("Resource_cagvl")
+allow_unspecific_quest = null

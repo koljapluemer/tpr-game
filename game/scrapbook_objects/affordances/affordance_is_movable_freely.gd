@@ -1,4 +1,4 @@
-class_name AffordanceIsMovableFreely extends Affordance
+class_name AffordanceIsMovableFreely extends AffordanceActive
 
 var is_moving := false
 var mouse_offset_when_moved: Vector2
@@ -15,9 +15,9 @@ func _on_click_started() -> void:
 	mouse_offset_when_moved = parent.global_position - get_global_mouse_position()
 	# delayed signal for the interaction, so that MOVE quests
 	# only succeed after the object was dragged around a bit
-	get_tree().create_timer(0.4).connect(
-		"timeout", _report_affordance_based_interaction
-	)
+	#get_tree().create_timer(0.4).connect(
+		#"timeout", _report_affordance_based_interaction
+	#)
 
 func _on_click_released() -> void:
 	if is_moving:

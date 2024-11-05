@@ -1,4 +1,4 @@
-class_name AffordanceIsPushable extends Affordance
+class_name AffordanceIsPushable extends AffordanceActive
 
 var is_moving := false
 var mouse_offset_when_moved: Vector2

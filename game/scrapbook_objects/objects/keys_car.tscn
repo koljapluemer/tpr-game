@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_c77kf"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_grwfb"]
 [ext_resource type="Texture2D" uid="uid://fv8mp5fnwtw5" path="res://game/images/car_keys.webp" id="3_vc7v7"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_unlocks.gd" id="4_3wfvj"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/backup/affordance_unlocks.gd" id="4_3wfvj"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="5_1on3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]

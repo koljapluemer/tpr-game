@@ -1,4 +1,4 @@
-class_name AffordanceUnlocks extends Affordance
+class_name AffordanceUnlocks extends AffordanceActive
 
 func _ready() -> void:
 	super._ready()

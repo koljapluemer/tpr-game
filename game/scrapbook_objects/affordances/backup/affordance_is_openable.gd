@@ -1,4 +1,4 @@
-class_name AffordanceIsOpenable extends Affordance
+class_name AffordanceIsOpenable extends AffordanceActive
 
 @export var is_open := false
 

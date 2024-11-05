@@ -1,4 +1,4 @@
-class_name AffordanceIsUnlockable extends Affordance
+class_name AffordanceIsUnlockable extends AffordancePassive
 
 @export var is_locked := true
 
