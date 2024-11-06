@@ -5,7 +5,4 @@
 
 ### Todo if game not fundamentally changed
 
-- take care of proper logging-to-file
-- scene (as in `level_template`) follow no clear inheritance
-- document how to name keys
-- make sure that scenes don't crash when loaded on their own (getting good @ godot)
+- make sure that only most likely click and hover interaction is interpreted
