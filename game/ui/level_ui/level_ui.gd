@@ -14,9 +14,9 @@ func add_active_quest(quest:Quest):
 	quest_label.show()
 	quest_label.text = str(quest)
 
-func remove_quest(quest:Quest):
+func remove_quest(_quest:Quest):
 	quest_label.hide()
-	quest_label.text = str(quest)
+	quest_label.text = ""
 
 func _on_restart_button_pressed() -> void:
 	SceneManager.reload_level()

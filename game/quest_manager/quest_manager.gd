@@ -158,16 +158,7 @@ func update_possible_quest_list() -> void:
 				active_to_any_quest.required_verb = action.verb_key
 				if LanguageManager.check_for_matching_audio(str(active_to_any_quest)):
 						possible_quests.append(active_to_any_quest)
-			
-				
-					
-			
-				
-			
-					
-					
-						
-				
+
 
 func start_random_quest():
 	# prevent picking the last quest again
