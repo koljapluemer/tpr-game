@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6awu42ij151a"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_3ix2f"]
+[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_p3ohw"]
+[ext_resource type="Texture2D" uid="uid://b8pu1uwdfwpua" path="res://game/images/mustang-door-closed-Photoroom.webp" id="3_87g75"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
+resource_local_to_scene = true
+shader = ExtResource("2_p3ohw")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
+size = Vector2(1869, 878)
+
+[node name="ScapbookObject" instance=ExtResource("1_3ix2f")]
+word_list = Array[String](["CAR"])
+color = "SILVER"
+metadata/_edit_vertical_guides_ = [150.0, 1536.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_q1fb8")
+position = Vector2(377.172, -342.685)
+scale = Vector2(2.57229, 2.57228)
+texture = ExtResource("3_87g75")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(990, -489)
+shape = SubResource("RectangleShape2D_14ond")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(-238, -198)
+shape = SubResource("RectangleShape2D_14ond")
+
+[node name="Progress" parent="." index="3"]
+texture_progress = null
