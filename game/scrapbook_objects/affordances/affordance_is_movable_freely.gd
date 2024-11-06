@@ -22,6 +22,7 @@ func _on_click_started() -> void:
 func _on_click_released() -> void:
 	if is_moving:
 		is_moving = false
+		print(parent.global_position.y)
 		var areas: Array[Area2D]= parent.get_overlapping_areas()
 		_do_interactions_with_objects_I_was_dropped_on(areas)
 				
@@ -29,7 +30,12 @@ func _on_click_released() -> void:
 func _process(delta: float) -> void:
 	if is_moving:
 		parent.global_position = get_global_mouse_position() + mouse_offset_when_moved
-	
+		#if parent.global_position.y > 290:
+			#parent.z_index = 3
+		#else:
+			#parent.z_index = 0
+			#
+			 
 func get_verb_key() -> String:
 	return "MOVE"
 	

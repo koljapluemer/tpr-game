@@ -8,7 +8,6 @@ func _ready() -> void:
 	super._ready()
 	parent.click_was_started.connect(_on_click_started)
 	parent.click_was_released.connect(_on_click_released)
-	is_usable_in_a_quest = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
