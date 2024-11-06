@@ -10,7 +10,6 @@
 resource_local_to_scene = true
 shader = ExtResource("2_c65fd")
 shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
 size = Vector2(249, 37)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://drtrr7yhrkbpi"]
+[gd_scene load_steps=8 format=3 uid="uid://drtrr7yhrkbpi"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_kxwj6"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="4_52nyp"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_jj80w"]
 [ext_resource type="Texture2D" uid="uid://bjlrlkxt7wea7" path="res://game/images/melon_whole.webp" id="5_gtllh"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="5_vix4y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
 resource_local_to_scene = true
@@ -29,5 +31,11 @@ texture = ExtResource("5_gtllh")
 position = Vector2(1, -59)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_u7q7t")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("4_52nyp")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("5_vix4y")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

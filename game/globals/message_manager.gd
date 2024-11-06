@@ -21,6 +21,5 @@ signal quest_started(quest: Quest)
 @warning_ignore("unused_signal")
 signal quest_ended(quest: Quest)
 
-
 @warning_ignore("unused_signal")
 signal action_done(action:Action)

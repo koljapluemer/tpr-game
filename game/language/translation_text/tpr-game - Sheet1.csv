@@ -1,157 +1,164 @@
-,de,en,ar,arz,it
-KNIFE:MOVE,Bewege das Messer!,Move the knife!,حرّك السكين!,,Muovete il coltello!
-KNIFE:TOUCH,Berühre das Messer!,,المس السكين!,,Toccate il coltello!
-COMBINE__KNIFE__KIWI,Schneide die Kiwi!,,اقطع الكيوي!,,Tagliare il kiwi!
-KIWI_HALVES:TOUCH,Berühre die Kiwihälften!,,المس أنصاف الكيوي!,,Toccare le metà del kiwi!
-KIWI_HALVES:MOVE,Bewege die Kiwihälften!,,حرّك أنصاف الكيوي!,,Muovete le metà del kiwi!
-PINEAPPLE:TOUCH,Berühre die Ananas!,,المس الأناناس!,,Toccare l'ananas!
-KIWI:MOVE,Bewege die Kiwi!,,حرّك الكيوي!,,Muovete il kiwi!
-KIWI:TOUCH,Berühre die Kiwi!,,المس الكيوي!,,Tocca il kiwi!
-A__BUS:TOUCH,Berühre einen Bus!,Touch a bus!,المس الحافلة!,,Tocca un autobus!
-A__BUS__BLUE:TOUCH,Berühre einen blauen Bus!,Touch a blue bus!,المس حافلة زرقاء!,,Tocca un autobus blu!
-A__BUS__RED_AND_YELLOW:TOUCH,Berühre einen rot-gelben Bus!,Touch a red and yellow bus!,المس حافلة حمراء وصفراء!,,Tocca un autobus rosso e giallo!
-A__CAR:TOUCH,Berühre ein Auto!,Touch a car!,المس سيارة!,,Tocca una macchina!
-A__FRUIT:MOVE,Bewege eine Frucht!,Move a fruit!,حرّك فاكهة!,,Muovi un frutto!
-A__FRUIT:TOUCH,Berühre eine Frucht!,Touch a fruit!,المس فاكهة!,,Tocca un frutto!
-A__PINEAPPLE:MOVE,Bewege eine Ananas!,Move a pineapple!,حرّك ثمرة أناناس!,,Muovi un ananas!
-A__PINEAPPLE:TOUCH,Berühre eine Ananas!,Touch a pineapple!,المس أناناس!,,Tocca un ananas!
-A__YOU:MOVE,Beweg dich!,Move around!,حرك نفسك!,,Muoviti da solo!
-COMBINE__THE__YOU__WITH__A__BUS,Steig in einen Bus!,Get on a bus!,اركب الحافلة!,,Salite su un autobus!
-COMBINE__THE__YOU__WITH__THE__BUS__AT_BACK,Steig in den hinteren Bus!,Get on the bus in the back!,اركبوا الحافلة الخلفية!,,Sali sull'autobus posteriore!
-COMBINE__THE__YOU__WITH__THE__BUS__AT_FRONT,Steig in den vorderen Bus!,Get on the bus in the front!,اركب الحافلة الأمامية!,,Sali sull'autobus anteriore!
-THE__BUS:TOUCH,Berühre den Bus!,Touch the bus!,المس الحافلة!,,Tocca l'autobus!
-THE__BUS__AT_BACK:TOUCH,Berühre den hinteren Bus!,Touch the bus at the back!,المس مؤخرة الحافلة!,,Toccate il retro dell'autobus!
-THE__BUS__AT_FRONT:TOUCH,Berühre den vorderen Bus!,Touch the bus at the front!,المس الحافلة الأمامية!,,Tocca l'autobus anteriore!
-THE__BUS__BLUE:TOUCH,Berühre den blauen Bus!,Touch the blue bus!,المس الحافلة الزرقاء!,,Tocca l'autobus blu!
-THE__BUS__IN_MIDDLE:TOUCH,Berühre den Bus in der Mitte!,Touch the bus in the middle!,المس الحافلة في المنتصف!,,Tocca l'autobus centrale!
-THE__BUS__RED_AND_YELLOW:TOUCH,Berühre den rot-gelben Bus!,Touch the red and yellow bus!,المس الحافلة الحمراء والصفراء!,,Tocca l'autobus rosso e giallo!
-THE__CAR:TOUCH,Berühre das Auto!,Touch the car!,المس السيارة!,,Tocca la macchina!
-THE__FRUIT:MOVE,Bewege die Fruch!,Move a fruit around!,حرّك الفاكهة!,,Muovi la frutta!
-THE__FRUIT__AT_FRONT:MOVE,Bewege die vordere Frucht!,Move the fruit at the front!,حرّك الفاكهة الأمامية!,,Muovi il frutto anteriore!
-THE__FRUIT__AT_FRONT:TOUCH,Berühre die vordere Fruch!,Move the fruit at the back!,المس الفاكهة الأمامية!,,Toccare la frutta anteriore!
-THE__KNIFE:MOVE,Bewege das Messer!,Move the knife!,حرّك السكين!,,Muovi il coltello!
-THE__ONION:MOVE,Bewege die Zwiebel!,Move the onion!,حرك البصل!,,Muovi la cipolla!
-THE__YOU:MOVE,Bewege dich!,Move around!,حرك نفسك!,,Muovi te stesso!
-QUESTS,Aufträge,Quests,الطلبات,مهمات,Ordini
-WELCOME,Willkommen!,Welcome!,مرحباً بكم!,اهلاّ,Benvenuti!
-COMBINE__THE__YOU__WITH__A__BUS__BLUE,Steig in den blauen Bus!,Get on a blue bus!,اركبوا الحافلة الزرقاء!,,Salite sull'autobus blu!
-COMBINE__THE__YOU__WITH__THE__BUS__IN_MIDDLE,Steig in den mittleren Bus!,Get on the bus in the middle!,اركبوا الحافلة الوسطى!,,Salite sull'autobus centrale!
-COMBINE__THE__YOU__WITH__THE__BUS__RED_AND_YELLOW,Steig in den rot-gelben Bus!,Get on the red and yellow bus!,اركبوا الحافلة الحمراء والصفراء!,,Sali sull'autobus rosso e giallo!
-THE__MELON:TOUCH,Berühre die Melone!,Touch the melon!,المس البطيخ!,,Tocca il melone!
-A__APPLE:MOVE,Bewege einen Apfel!,Move an apple!,حرك تفاحة!,,Muovi una mela!
-A__APPLE:TAKE,Nimm einen Apfel!,Take an apple!,خذ تفاحة!,,Prendi una mela!
-A__APPLE:TOUCH,Berühre einen Apfel!,Touch an apple!,المس تفاحة!,,Tocca una mela!
-A__BANANA:MOVE,Bewege eine Banane!,Move a banana!,حرك موزة!,,Muovi una banana!
-A__BANANA:TAKE,Nimm eine Banane!,Take a banana!,خذ موزة!,,Prendete una banana!
-A__BANANA:TOUCH,Berühre eine Banane!,Touch a banana!,المس موزة!,,Tocca una banana!
-A__COCONUT:MOVE,Bewege eine Kokosnuss!,Move a coconut!,حرّك جوزة هند!,,Muovi una noce di cocco!
-A__COCONUT:TOUCH,Berühre eine Kokusnuss!,Touch a coconut!,المس جوز الهند!,,Tocca una noce di cocco!
-A__FRUIT:TAKE,Nimm eine Frucht!,Take a fruit!,خذ فاكهة!,,Prendete un frutto!
-A__KIWI:MOVE,Bewege eine Kiwi!,Move a kiwi!,حرّك ثمرة كيوي!,,Muovi un kiwi!
-A__KIWI:TAKE,Nimm eine Kiwi!,Take a kiwi!,خذ ثمرة كيوي!,,Prendete un kiwi!
-A__KIWI:TOUCH,Berühre eine Kiwi!,Touch a kiwi!,المس ثمرة كيوي!,,Tocca un kiwi!
-A__MELON:MOVE,Bewege eine Melone!,Move a melon!,حرك بطيخة!,,Muovi un melone!
-A__MELON:TAKE,Nimm eine Melone!,Take a melon!,خذ بطيخة!,,Prendete un melone!
-A__MELON:TOUCH,Berühre eine Melone!,Touch a melon!,المس بطيخة!,,Tocca un melone!
-COMBINE__A__COCONUT__WITH__THE__BACKPACK,Pack eine Kokosnuss in den Rucksack!,Put a coconut in the backpack!,ضع جوزة هند في حقيبة ظهرك!,,Metti una noce di cocco nello zaino!
-COMBINE__A__FRUIT__WITH__THE__BACKPACK,Pack eine Frucht in den Rucksack!,Put a fruit in the backpack!,ضع فاكهة في حقيبة ظهرك!,,Metti un frutto nello zaino!
-COMBINE__A__KIWI__WITH__THE__BACKPACK,Pack eine Kiwi in den Rucksack!,Put a kiwi in the backpack!,ضع ثمرة كيوي في حقيبة ظهرك!,,Metti un kiwi nello zaino!
-COMBINE__A__MELON__WITH__THE__BACKPACK,Pack eine Melone in den Rucksack!,Put a melon in the backpack!,ضع بطيخة في حقيبة ظهرك!,,Mettete un melone nello zaino!
-COMBINE__THE__BANANA__WITH__THE__BACKPACK,Pack die Banane in den Rucksack!,Put the banana in the backpack,ضع موزة في حقيبة ظهرك!,,Metti una banana nello zaino!
-COMBINE__THE__COCONUT__WITH__THE__BACKPACK,Pack die Kokosnuss in den Rucksack!,Put the coconut in the backpack!,ضع جوز الهند في حقيبة الظهر!,,Mettete la noce di cocco nello zaino!
-COMBINE__THE__KNIFE__WITH__THE__FRUIT,Schneide die Frucht!,Cut the fruit!,قطع الفاكهة!,,Tagliate la frutta!
-COMBINE__THE__KNIFE__WITH__THE__KIWI,Schneide die Kiwi!,Cut the kiwi!,قطع الكيوي!,,Tagliare il kiwi!
-COMBINE__THE__MELON__WITH__THE__BACKPACK,Pack die Melone in den Rucksack!,Put the melon in the backpack!,ضع البطيخ في حقيبة الظهر!,,Metti il melone nello zaino!
-COMBINE__THE__PINEAPPLE__WITH__THE__BACKPACK,Pack die Ananas in den Rucksack!,Put the pineapple in the backpack!,ضع الأناناس في حقيبة الظهر!,,Metti l'ananas nello zaino!
-COMBINE__THE__YOU__WITH__A__BUS__RED_AND_YELLOW,Steig in den rot-gelben Bus!,Get on the red and yellow bus!,اركب الحافلة الحمراء والصفراء!,,Sali sull'autobus rosso e giallo!
-COMBINE__THE__YOU__WITH__THE__BUS,Steig in den Bus!,Get on the bus!,اركبوا الحافلة!,,Salite sull'autobus!
-COMBINE__THE__YOU__WITH__THE__BUS__BLUE,Steig in den blauen Bus!,Get on the blue bus!,اركب الحافلة الزرقاء!,,Sali sull'autobus blu!
-THE__APPLE:MOVE,Bewege den Apfel!,Move the apple!,حرك التفاحة!,,Sposta la mela!
-THE__APPLE:TAKE,Nimm den Apfel!,Take the apple!,خذ التفاحة!,,Prendi la mela!
-THE__APPLE:TOUCH,Berühre den Apfel!,Touch the apple!,المس التفاحة!,,Tocca la mela!
-THE__BACKPACK:TOUCH,Berühre den Rucksack!,Touch the backpack!,المس الحقيبة!,,Tocca lo zaino!
-THE__BANANA:MOVE,Bewege die Banane!,Move the banana!,حرّك الموزة!,,Muovi la banana!
-THE__BANANA:TAKE,Nimm die Banane!,Take the banana!,خذ الموزة!,,Prendi la banana!
-THE__BANANA:TOUCH,Berühre die Banane!,Touch the banana!,المس الموزة!,,Tocca la banana!
-THE__COCONUT:MOVE,Bewege die Kokosnuss!,Move the coconut!,حرّك جوز الهند!,,Muovi la noce di cocco!
-THE__COCONUT:TAKE,Nimm die Kokosnuss!,Take the coconut!,خذ جوز الهند!,,Prendete la noce di cocco!
-THE__COCONUT:TOUCH,Berühre die Kokosnuss!,Touch the coconut!,المس جوز الهند!,,Tocca la noce di cocco!
-THE__FRUIT:TOUCH,Berühre die Frucht!,Touch the fruit!,المس الفاكهة!,,Tocca la frutta!
-THE__KIWI:MOVE,Bewege die Kiwi!,Move the kiwi!,حرّك الكيوي!,,Muovi il kiwi!
-THE__KIWI:TAKE,Nimm die Kiwi!,Take the kiwi!,خذ الكيوي!,,Prendi il kiwi!
-THE__KIWI:TOUCH,Berühre die Kiwi!,Touch the kiwi!,المس الكيوي!,,Toccare il kiwi!
-THE__KNIFE:TOUCH,Berühre das Messer!,Touch the knife!,المس السكين!,,Tocca il coltello!
-THE__MELON:MOVE,Bewege die Melone!,Move the melon!,حرك البطيخ!,,Muovi il melone!
-THE__MELON:TAKE,Nimm die Melone!,Take the melon!,خذ البطيخة!,,Prendete il melone!
-THE__PINEAPPLE:MOVE,Bewege die Ananas!,Move the pineapple!,حرّك الأناناس!,,Muovete l'ananas!
-THE__PINEAPPLE:TOUCH,Berühre die Ananas!,Touch the pineapple!,المس الأناناس!,,Tocca l'ananas!
-THE__SHOPPING_CART:MOVE,Schiebe den Einkaufswagen!,Push the shopping cart!,ادفع عربة التسوق!,,Spingi il carrello della spesa!
-A__COCONUT:TAKE,Nimm eine Kokonuss!,,خذ جوز الهند!,,Prendi una noce di cocco!
-COMBINE__A__BANANA__WITH__THE__BACKPACK,Pack eine Banane in den Rucksack!,,ضع موزة في حقيبة الظهر!,,Metti una banana nello zaino!
-COMBINE__A__PINEAPPLE__WITH__THE__BACKPACK,Pack eine Ananas in den Rucksack!,,ضع الأناناس في حقيبة الظهر!,,Metti un ananas nello zaino!
-COMBINE__THE__APPLE__WITH__THE__BACKPACK,Pack den Apfel in den Rucksack!,,ضع التفاحة في حقيبة الظهر!,,Metti la mela nello zaino!
-COMBINE__THE__KIWI__WITH__THE__BACKPACK,Pack die Kiwi in den Rucksack!,,ضع الكيوي في حقيبة الظهر!,,Metti il kiwi nello zaino!
-COMBINE__THE__KNIFE__WITH__A__FRUIT,Schneide eine Frucht!,,قطع الفاكهة!,,Tagliare un frutto!
-THE__FRUIT:TAKE,Nimm die Frucht!,,خذ الفاكهة!,,Prendi il frutto!
-THE__KIWI_HALVES:MOVE,Bewege die Kiwihälften!,,انقل أنصاف الكيوي!,,Muovi le metà del kiwi!
-THE__KIWI_HALVES:TAKE,Nimm die Kiwihälften!,,خذ أنصاف الكيوي!,,Prendete le metà del kiwi!
-THE__KIWI_HALVES:TOUCH,Berühre die Kiwihälften!,,المس أنصاف الكيوي!,,Toccate le metà del kiwi!
-THE__PINEAPPLE:TAKE,Nimm die Ananas!,,خذ الأناناس!,,Prendete l'ananas!
-COMBINE__THE__BACKPACK__WITH__THE__HAMMER,Pack den Hammer in den Rucksack!,,ضع المطرقة في حقيبة ظهرك!,,
-COMBINE__A__FRUIT__WITH__A__BACKPACK,,,,,
-COMBINE__THE__COCONUT__WITH__A__BACKPACK,,,,,
-COMBINE__THE__FRUIT__WITH__A__BACKPACK,,,,,
-COMBINE__THE__FRUIT__WITH__THE__BACKPACK,,,,,
-COMBINE__THE__HAMMER__WITH__THE__BACKPACK,,,,,
-COMBINE__THE__MELON__WITH__A__BACKPACK,,,,,
-COMBINE__THE__PINEAPPLE__WITH__A__BACKPACK,,,,,
-PUT_IN__A__CAR__WITH__A__FRUIT,,,,,
-PUT_IN__A__CAR__WITH__A__PINEAPPLE,,,,,
-PUT_IN__A__CAR__WITH__THE__COCONUT,,,,,
-PUT_IN__A__CAR__WITH__THE__MELON,,,,,
-THE__CAR:LOCK,,,,,
-THE__CAR:LOCK_UNLOCK,,,,,
-THE__CAR:UNLOCK,,,,,
-THE__ONION:TAKE,,,,,
-THE__ONION:TOUCH,,,,,
-PUT_IN__A__COCONUT__WITH__A__CAR,Pack eine Kokosnuss in ein Auto!,Put a coconut in a car!,ضع جوز الهند في السيارة!,,
-PUT_IN__A__COCONUT__WITH__THE__CAR__BLUE,Pack eine Kokosnuss in das blaue Auto!,Put a coconut in the blue car!,ضع جوز الهند في السيارة الزرقاء!,,
-PUT_IN__A__COCONUT__WITH__THE__CAR__RED,Pack eine Kokosnuss in das rote Auto!,Put a coconut in the red car!,ضع جوز الهند في السيارة الحمراء!,,
-PUT_IN__A__COCONUT__WITH__THE__CAR__SILVER,Pack eine Kokosnuss in das silberne Auto!,Put a coconut in the silver car!,ضع جوز الهند في السيارة الفضية!,,
-PUT_IN__A__FRUIT__WITH__A__CAR,Pack eine Frucht in ein Auto!,Put a fruit in a car!,ضع فاكهة في السيارة!,,
-PUT_IN__A__FRUIT__WITH__THE__CAR__BLUE,Pack eine Frucht in das blaue Auto!,Put a fruit in the blue car!,ضع فاكهة في السيارة الزرقاء!,,
-PUT_IN__A__FRUIT__WITH__THE__CAR__PINK,Pack eine Frucht in das pinke Auto!,Put a fruit in the pink car!,ضع فاكهة في السيارة الوردية!,,
-PUT_IN__A__FRUIT__WITH__THE__CAR__RED,Pack eine Frucht in das rote Auto!,Put a fruit in the red car!,ضع فاكهة في السيارة الحمراء!,,
-PUT_IN__A__FRUIT__WITH__THE__CAR__SILVER,Pack eine Frucht in das silberne Auto!,Put a fruit in the silver car!,ضع فاكهة في السيارة الفضية!,,
-PUT_IN__A__FRUIT__WITH__THE__CAR__WHITE,Pack eine Frucht in das weiße Auto!,Put a fruit in the white car!,ضع فاكهة في السيارة البيضاء!,,
-PUT_IN__A__MELON__WITH__A__CAR,Pack eine Melone in ein Auto!,Put a melon in a car!,ضع بطيخة في السيارة!,,
-PUT_IN__A__MELON__WITH__THE__CAR__PINK,Pack eine Melone in das pinke Auto!,Put a melon in the pink car!,ضع بطيخة في السيارة الوردية!,,
-PUT_IN__A__MELON__WITH__THE__CAR__RED,Pack eine Melone in das rote Auto!,Put a melon in the red car!,ضع بطيخة في السيارة الحمراء!,,
-PUT_IN__A__PINEAPPLE__WITH__A__CAR,Pack eine Ananas in ein Auto!,Put a pineapple in a car!,ضع أناناس في سيارة!,,
-PUT_IN__A__PINEAPPLE__WITH__THE__CAR__PINK,Pack eine Ananas in das pinke Auto!,Put a pineapple in the pink car!,ضع أناناس في السيارة الوردية!,,
-PUT_IN__A__PINEAPPLE__WITH__THE__CAR__RED,Pack eine Ananas in das rote Auto!,Put a pineapple in the red car!,ضع أناناس في السيارة الحمراء!,,
-PUT_IN__A__PINEAPPLE__WITH__THE__CAR__WHITE,Pack eine Ananas in das weiße Auto!,Put a pineapple in the white car!,ضع أناناس في السيارة البيضاء!,,
-PUT_IN__THE__BACKPACK__WITH__A__CAR,Pack den Rucksack in ein Auto!,Put the rucksack in a car!,ضع حقيبة الظهر في سيارة!,,
-PUT_IN__THE__BACKPACK__WITH__THE__CAR__BLUE,Pack den Rucksack in das blaue Auto!,Put the rucksack in the blue car!,ضع حقيبة الظهر في السيارة الزرقاء!,,
-PUT_IN__THE__BACKPACK__WITH__THE__CAR__PINK,Pack den Rucksack in das pinke Auto!,Put the rucksack in the pink car!,ضع حقيبة الظهر في السيارة الوردية!,,
-PUT_IN__THE__BACKPACK__WITH__THE__CAR__RED,Pack den Rucksack in das rote Auto!,Put the rucksack in the red car!,ضع الحقيبة في السيارة الحمراء!,,
-PUT_IN__THE__BACKPACK__WITH__THE__CAR__SILVER,Pack den Rucksack in das silberne Auto!,Put the rucksack in the silver car!,ضع الحقيبة في السيارة الفضية!,,
-PUT_IN__THE__COCONUT__WITH__A__CAR,Pack die Kokosnuss in ein Auto!,Put the coconut in a car!,ضع جوز الهند في السيارة!,,
-PUT_IN__THE__COCONUT__WITH__THE__CAR__PINK,Pack die Kokosnuss in das pinke Auto!,Put the coconut in the pink car!,ضع جوز الهند في السيارة الوردية!,,
-PUT_IN__THE__COCONUT__WITH__THE__CAR__RED,Pack die Kokosnuss in das rote Auto!,Put the coconut in the red car!,ضع جوز الهند في السيارة الحمراء!,,
-PUT_IN__THE__COCONUT__WITH__THE__CAR__SILVER,Pack die Kokosnuss in das silberne Auto!,Put the coconut in the silver car!,ضع جوز الهند في السيارة الفضية!,,
-PUT_IN__THE__COCONUT__WITH__THE__CAR__WHITE,Pack die Kokosnuss in das weiße Auto!,Put the coconut in the white car!,ضع جوز الهند في السيارة البيضاء!,,
-PUT_IN__THE__FRUIT__WITH__A__CAR,Pack die Frucht in ein Auto!,Put the fruit in a car!,ضع الفاكهة في سيارة!,,
-PUT_IN__THE__FRUIT__WITH__THE__CAR__RED,Pack die Frucht in das rote Auto!,Put the fruit in the red car!,ضع الفاكهة في السيارة الحمراء!,,
-PUT_IN__THE__FRUIT__WITH__THE__CAR__SILVER,Pack die Frucht in das silberne Auto!,Put the fruit in the silver car!,ضع الفاكهة في السيارة الفضية!,,
-PUT_IN__THE__MELON__WITH__A__CAR,Pack die Melone in ein Auto!,Put the melon in a car!,ضع البطيخ في سيارة!,,
-PUT_IN__THE__MELON__WITH__THE__CAR__BLUE,Pack die Melone in das blaue Auto!,Put the melon in the blue car!,ضع البطيخ في السيارة الزرقاء!,,
-PUT_IN__THE__MELON__WITH__THE__CAR__PINK,Pack die Melone in das pinke Auto!,Put the melon in the pink car!,ضع البطيخ في السيارة الوردية!,,
-PUT_IN__THE__MELON__WITH__THE__CAR__RED,Pack die Melone in das rote Auto!,Put the melon in the red car!,ضع البطيخ في السيارة الحمراء!,,
-PUT_IN__THE__MELON__WITH__THE__CAR__WHITE,Pack die Melone in das weiße Auto!,Put the melon in the white car!,ضع البطيخ في السيارة البيضاء!,,
-PUT_IN__THE__PINEAPPLE__WITH__A__CAR,Pack die Ananas in ein Auto!,Put the pineapple in a car!,ضع الأناناس في سيارة!,,
-PUT_IN__THE__PINEAPPLE__WITH__THE__CAR__PINK,Pack die Ananas in das pinke Auto!,Put the pineapple in the pink car!,ضع الأناناس في السيارة الوردية!,,
-PUT_IN__THE__PINEAPPLE__WITH__THE__CAR__RED,Pack die Ananas in das rote Auto!,Put the pineapple in the red car!,ضع الأناناس في السيارة الحمراء!,,
-PUT_IN__THE__PINEAPPLE__WITH__THE__CAR__SILVER,Pack die Ananas in das silberne Auto!,Put the pineapple in the silver car!,ضع الأناناس في السيارة الفضية!,,
-,,,,,
-,,Translated with DeepL.com (free version),Translated with DeepL.com (free version),,
+,"de","en","ar","arz","it"
+"KNIFE:MOVE","Bewege das Messer!","Move the knife!","حرّك السكين!",,"Muovete il coltello!"
+"KNIFE:TOUCH","Berühre das Messer!",,"المس السكين!",,"Toccate il coltello!"
+"COMBINE__KNIFE__KIWI","Schneide die Kiwi!",,"اقطع الكيوي!",,"Tagliare il kiwi!"
+"KIWI_HALVES:TOUCH","Berühre die Kiwihälften!",,"المس أنصاف الكيوي!",,"Toccare le metà del kiwi!"
+"KIWI_HALVES:MOVE","Bewege die Kiwihälften!",,"حرّك أنصاف الكيوي!",,"Muovete le metà del kiwi!"
+"PINEAPPLE:TOUCH","Berühre die Ananas!",,"المس الأناناس!",,"Toccare l'ananas!"
+"KIWI:MOVE","Bewege die Kiwi!",,"حرّك الكيوي!",,"Muovete il kiwi!"
+"KIWI:TOUCH","Berühre die Kiwi!",,"المس الكيوي!",,"Tocca il kiwi!"
+"A__BUS:TOUCH","Berühre einen Bus!","Touch a bus!","المس الحافلة!",,"Tocca un autobus!"
+"A__BUS__BLUE:TOUCH","Berühre einen blauen Bus!","Touch a blue bus!","المس حافلة زرقاء!",,"Tocca un autobus blu!"
+"A__BUS__RED_AND_YELLOW:TOUCH","Berühre einen rot-gelben Bus!","Touch a red and yellow bus!","المس حافلة حمراء وصفراء!",,"Tocca un autobus rosso e giallo!"
+"A__CAR:TOUCH","Berühre ein Auto!","Touch a car!","المس سيارة!",,"Tocca una macchina!"
+"A__FRUIT:MOVE","Bewege eine Frucht!","Move a fruit!","حرّك فاكهة!",,"Muovi un frutto!"
+"A__FRUIT:TOUCH","Berühre eine Frucht!","Touch a fruit!","المس فاكهة!",,"Tocca un frutto!"
+"A__PINEAPPLE:MOVE","Bewege eine Ananas!","Move a pineapple!","حرّك ثمرة أناناس!",,"Muovi un ananas!"
+"A__PINEAPPLE:TOUCH","Berühre eine Ananas!","Touch a pineapple!","المس أناناس!",,"Tocca un ananas!"
+"A__YOU:MOVE","Beweg dich!","Move around!","حرك نفسك!",,"Muoviti da solo!"
+"COMBINE__THE__YOU__WITH__A__BUS","Steig in einen Bus!","Get on a bus!","اركب الحافلة!",,"Salite su un autobus!"
+"COMBINE__THE__YOU__WITH__THE__BUS__AT_BACK","Steig in den hinteren Bus!","Get on the bus in the back!","اركبوا الحافلة الخلفية!",,"Sali sull'autobus posteriore!"
+"COMBINE__THE__YOU__WITH__THE__BUS__AT_FRONT","Steig in den vorderen Bus!","Get on the bus in the front!","اركب الحافلة الأمامية!",,"Sali sull'autobus anteriore!"
+"THE__BUS:TOUCH","Berühre den Bus!","Touch the bus!","المس الحافلة!",,"Tocca l'autobus!"
+"THE__BUS__AT_BACK:TOUCH","Berühre den hinteren Bus!","Touch the bus at the back!","المس مؤخرة الحافلة!",,"Toccate il retro dell'autobus!"
+"THE__BUS__AT_FRONT:TOUCH","Berühre den vorderen Bus!","Touch the bus at the front!","المس الحافلة الأمامية!",,"Tocca l'autobus anteriore!"
+"THE__BUS__BLUE:TOUCH","Berühre den blauen Bus!","Touch the blue bus!","المس الحافلة الزرقاء!",,"Tocca l'autobus blu!"
+"THE__BUS__IN_MIDDLE:TOUCH","Berühre den Bus in der Mitte!","Touch the bus in the middle!","المس الحافلة في المنتصف!",,"Tocca l'autobus centrale!"
+"THE__BUS__RED_AND_YELLOW:TOUCH","Berühre den rot-gelben Bus!","Touch the red and yellow bus!","المس الحافلة الحمراء والصفراء!",,"Tocca l'autobus rosso e giallo!"
+"THE__CAR:TOUCH","Berühre das Auto!","Touch the car!","المس السيارة!",,"Tocca la macchina!"
+"THE__FRUIT:MOVE","Bewege die Fruch!","Move a fruit around!","حرّك الفاكهة!",,"Muovi la frutta!"
+"THE__FRUIT__AT_FRONT:MOVE","Bewege die vordere Frucht!","Move the fruit at the front!","حرّك الفاكهة الأمامية!",,"Muovi il frutto anteriore!"
+"THE__FRUIT__AT_FRONT:TOUCH","Berühre die vordere Fruch!","Move the fruit at the back!","المس الفاكهة الأمامية!",,"Toccare la frutta anteriore!"
+"THE__KNIFE:MOVE","Bewege das Messer!","Move the knife!","حرّك السكين!",,"Muovi il coltello!"
+"THE__ONION:MOVE","Bewege die Zwiebel!","Move the onion!","حرك البصل!",,"Muovi la cipolla!"
+"THE__YOU:MOVE","Bewege dich!","Move around!","حرك نفسك!",,"Muovi te stesso!"
+"QUESTS","Aufträge","Quests","الطلبات","مهمات","Ordini"
+"WELCOME","Willkommen!","Welcome!","مرحباً بكم!","اهلاّ","Benvenuti!"
+"COMBINE__THE__YOU__WITH__A__BUS__BLUE","Steig in den blauen Bus!","Get on a blue bus!","اركبوا الحافلة الزرقاء!",,"Salite sull'autobus blu!"
+"COMBINE__THE__YOU__WITH__THE__BUS__IN_MIDDLE","Steig in den mittleren Bus!","Get on the bus in the middle!","اركبوا الحافلة الوسطى!",,"Salite sull'autobus centrale!"
+"COMBINE__THE__YOU__WITH__THE__BUS__RED_AND_YELLOW","Steig in den rot-gelben Bus!","Get on the red and yellow bus!","اركبوا الحافلة الحمراء والصفراء!",,"Sali sull'autobus rosso e giallo!"
+"THE__MELON:TOUCH","Berühre die Melone!","Touch the melon!","المس البطيخ!",,"Tocca il melone!"
+"A__APPLE:MOVE","Bewege einen Apfel!","Move an apple!","حرك تفاحة!",,"Muovi una mela!"
+"A__APPLE:TAKE","Nimm einen Apfel!","Take an apple!","خذ تفاحة!",,"Prendi una mela!"
+"A__APPLE:TOUCH","Berühre einen Apfel!","Touch an apple!","المس تفاحة!",,"Tocca una mela!"
+"A__BANANA:MOVE","Bewege eine Banane!","Move a banana!","حرك موزة!",,"Muovi una banana!"
+"A__BANANA:TAKE","Nimm eine Banane!","Take a banana!","خذ موزة!",,"Prendete una banana!"
+"A__BANANA:TOUCH","Berühre eine Banane!","Touch a banana!","المس موزة!",,"Tocca una banana!"
+"A__COCONUT:MOVE","Bewege eine Kokosnuss!","Move a coconut!","حرّك جوزة هند!",,"Muovi una noce di cocco!"
+"A__COCONUT:TOUCH","Berühre eine Kokusnuss!","Touch a coconut!","المس جوز الهند!",,"Tocca una noce di cocco!"
+"A__FRUIT:TAKE","Nimm eine Frucht!","Take a fruit!","خذ فاكهة!",,"Prendete un frutto!"
+"A__KIWI:MOVE","Bewege eine Kiwi!","Move a kiwi!","حرّك ثمرة كيوي!",,"Muovi un kiwi!"
+"A__KIWI:TAKE","Nimm eine Kiwi!","Take a kiwi!","خذ ثمرة كيوي!",,"Prendete un kiwi!"
+"A__KIWI:TOUCH","Berühre eine Kiwi!","Touch a kiwi!","المس ثمرة كيوي!",,"Tocca un kiwi!"
+"A__MELON:MOVE","Bewege eine Melone!","Move a melon!","حرك بطيخة!",,"Muovi un melone!"
+"A__MELON:TAKE","Nimm eine Melone!","Take a melon!","خذ بطيخة!",,"Prendete un melone!"
+"A__MELON:TOUCH","Berühre eine Melone!","Touch a melon!","المس بطيخة!",,"Tocca un melone!"
+"COMBINE__A__COCONUT__WITH__THE__BACKPACK","Pack eine Kokosnuss in den Rucksack!","Put a coconut in the backpack!","ضع جوزة هند في حقيبة ظهرك!",,"Metti una noce di cocco nello zaino!"
+"COMBINE__A__FRUIT__WITH__THE__BACKPACK","Pack eine Frucht in den Rucksack!","Put a fruit in the backpack!","ضع فاكهة في حقيبة ظهرك!",,"Metti un frutto nello zaino!"
+"COMBINE__A__KIWI__WITH__THE__BACKPACK","Pack eine Kiwi in den Rucksack!","Put a kiwi in the backpack!","ضع ثمرة كيوي في حقيبة ظهرك!",,"Metti un kiwi nello zaino!"
+"COMBINE__A__MELON__WITH__THE__BACKPACK","Pack eine Melone in den Rucksack!","Put a melon in the backpack!","ضع بطيخة في حقيبة ظهرك!",,"Mettete un melone nello zaino!"
+"COMBINE__THE__BANANA__WITH__THE__BACKPACK","Pack die Banane in den Rucksack!","Put the banana in the backpack","ضع موزة في حقيبة ظهرك!",,"Metti una banana nello zaino!"
+"COMBINE__THE__COCONUT__WITH__THE__BACKPACK","Pack die Kokosnuss in den Rucksack!","Put the coconut in the backpack!","ضع جوز الهند في حقيبة الظهر!",,"Mettete la noce di cocco nello zaino!"
+"COMBINE__THE__KNIFE__WITH__THE__FRUIT","Schneide die Frucht!","Cut the fruit!","قطع الفاكهة!",,"Tagliate la frutta!"
+"COMBINE__THE__KNIFE__WITH__THE__KIWI","Schneide die Kiwi!","Cut the kiwi!","قطع الكيوي!",,"Tagliare il kiwi!"
+"COMBINE__THE__MELON__WITH__THE__BACKPACK","Pack die Melone in den Rucksack!","Put the melon in the backpack!","ضع البطيخ في حقيبة الظهر!",,"Metti il melone nello zaino!"
+"COMBINE__THE__PINEAPPLE__WITH__THE__BACKPACK","Pack die Ananas in den Rucksack!","Put the pineapple in the backpack!","ضع الأناناس في حقيبة الظهر!",,"Metti l'ananas nello zaino!"
+"COMBINE__THE__YOU__WITH__A__BUS__RED_AND_YELLOW","Steig in den rot-gelben Bus!","Get on the red and yellow bus!","اركب الحافلة الحمراء والصفراء!",,"Sali sull'autobus rosso e giallo!"
+"COMBINE__THE__YOU__WITH__THE__BUS","Steig in den Bus!","Get on the bus!","اركبوا الحافلة!",,"Salite sull'autobus!"
+"COMBINE__THE__YOU__WITH__THE__BUS__BLUE","Steig in den blauen Bus!","Get on the blue bus!","اركب الحافلة الزرقاء!",,"Sali sull'autobus blu!"
+"THE__APPLE:MOVE","Bewege den Apfel!","Move the apple!","حرك التفاحة!",,"Sposta la mela!"
+"THE__APPLE:TAKE","Nimm den Apfel!","Take the apple!","خذ التفاحة!",,"Prendi la mela!"
+"THE__APPLE:TOUCH","Berühre den Apfel!","Touch the apple!","المس التفاحة!",,"Tocca la mela!"
+"THE__BACKPACK:TOUCH","Berühre den Rucksack!","Touch the backpack!","المس الحقيبة!",,"Tocca lo zaino!"
+"THE__BANANA:MOVE","Bewege die Banane!","Move the banana!","حرّك الموزة!",,"Muovi la banana!"
+"THE__BANANA:TAKE","Nimm die Banane!","Take the banana!","خذ الموزة!",,"Prendi la banana!"
+"THE__BANANA:TOUCH","Berühre die Banane!","Touch the banana!","المس الموزة!",,"Tocca la banana!"
+"THE__COCONUT:MOVE","Bewege die Kokosnuss!","Move the coconut!","حرّك جوز الهند!",,"Muovi la noce di cocco!"
+"THE__COCONUT:TAKE","Nimm die Kokosnuss!","Take the coconut!","خذ جوز الهند!",,"Prendete la noce di cocco!"
+"THE__COCONUT:TOUCH","Berühre die Kokosnuss!","Touch the coconut!","المس جوز الهند!",,"Tocca la noce di cocco!"
+"THE__FRUIT:TOUCH","Berühre die Frucht!","Touch the fruit!","المس الفاكهة!",,"Tocca la frutta!"
+"THE__KIWI:MOVE","Bewege die Kiwi!","Move the kiwi!","حرّك الكيوي!",,"Muovi il kiwi!"
+"THE__KIWI:TAKE","Nimm die Kiwi!","Take the kiwi!","خذ الكيوي!",,"Prendi il kiwi!"
+"THE__KIWI:TOUCH","Berühre die Kiwi!","Touch the kiwi!","المس الكيوي!",,"Toccare il kiwi!"
+"THE__KNIFE:TOUCH","Berühre das Messer!","Touch the knife!","المس السكين!",,"Tocca il coltello!"
+"THE__MELON:MOVE","Bewege die Melone!","Move the melon!","حرك البطيخ!",,"Muovi il melone!"
+"THE__MELON:TAKE","Nimm die Melone!","Take the melon!","خذ البطيخة!",,"Prendete il melone!"
+"THE__PINEAPPLE:MOVE","Bewege die Ananas!","Move the pineapple!","حرّك الأناناس!",,"Muovete l'ananas!"
+"THE__PINEAPPLE:TOUCH","Berühre die Ananas!","Touch the pineapple!","المس الأناناس!",,"Tocca l'ananas!"
+"THE__SHOPPING_CART:MOVE","Schiebe den Einkaufswagen!","Push the shopping cart!","ادفع عربة التسوق!",,"Spingi il carrello della spesa!"
+"A__COCONUT:TAKE","Nimm eine Kokonuss!",,"خذ جوز الهند!",,"Prendi una noce di cocco!"
+"COMBINE__A__BANANA__WITH__THE__BACKPACK","Pack eine Banane in den Rucksack!",,"ضع موزة في حقيبة الظهر!",,"Metti una banana nello zaino!"
+"COMBINE__A__PINEAPPLE__WITH__THE__BACKPACK","Pack eine Ananas in den Rucksack!",,"ضع الأناناس في حقيبة الظهر!",,"Metti un ananas nello zaino!"
+"COMBINE__THE__APPLE__WITH__THE__BACKPACK","Pack den Apfel in den Rucksack!",,"ضع التفاحة في حقيبة الظهر!",,"Metti la mela nello zaino!"
+"COMBINE__THE__KIWI__WITH__THE__BACKPACK","Pack die Kiwi in den Rucksack!",,"ضع الكيوي في حقيبة الظهر!",,"Metti il kiwi nello zaino!"
+"COMBINE__THE__KNIFE__WITH__A__FRUIT","Schneide eine Frucht!",,"قطع الفاكهة!",,"Tagliare un frutto!"
+"THE__FRUIT:TAKE","Nimm die Frucht!",,"خذ الفاكهة!",,"Prendi il frutto!"
+"THE__KIWI_HALVES:MOVE","Bewege die Kiwihälften!",,"انقل أنصاف الكيوي!",,"Muovi le metà del kiwi!"
+"THE__KIWI_HALVES:TAKE","Nimm die Kiwihälften!",,"خذ أنصاف الكيوي!",,"Prendete le metà del kiwi!"
+"THE__KIWI_HALVES:TOUCH","Berühre die Kiwihälften!",,"المس أنصاف الكيوي!",,"Toccate le metà del kiwi!"
+"THE__PINEAPPLE:TAKE","Nimm die Ananas!",,"خذ الأناناس!",,"Prendete l'ananas!"
+"COMBINE__THE__BACKPACK__WITH__THE__HAMMER","Pack den Hammer in den Rucksack!",,"ضع المطرقة في حقيبة ظهرك!",,
+"COMBINE__A__FRUIT__WITH__A__BACKPACK",,,,,
+"COMBINE__THE__COCONUT__WITH__A__BACKPACK",,,,,
+"COMBINE__THE__FRUIT__WITH__A__BACKPACK",,,,,
+"COMBINE__THE__FRUIT__WITH__THE__BACKPACK",,,,,
+"COMBINE__THE__HAMMER__WITH__THE__BACKPACK",,,,,
+"COMBINE__THE__MELON__WITH__A__BACKPACK",,,,,
+"COMBINE__THE__PINEAPPLE__WITH__A__BACKPACK",,,,,
+"PUT_IN__A__CAR__WITH__A__FRUIT",,,,,
+"PUT_IN__A__CAR__WITH__A__PINEAPPLE",,,,,
+"PUT_IN__A__CAR__WITH__THE__COCONUT",,,,,
+"PUT_IN__A__CAR__WITH__THE__MELON",,,,,
+"THE__CAR:LOCK",,,,,
+"THE__CAR:LOCK_UNLOCK",,,,,
+"THE__CAR:UNLOCK",,,,,
+"THE__ONION:TAKE",,,,,
+"THE__ONION:TOUCH",,,,,
+"PUT_IN__A__COCONUT__WITH__A__CAR","Pack eine Kokosnuss in ein Auto!","Put a coconut in a car!","ضع جوز الهند في السيارة!",,
+"PUT_IN__A__COCONUT__WITH__THE__CAR__BLUE","Pack eine Kokosnuss in das blaue Auto!","Put a coconut in the blue car!","ضع جوز الهند في السيارة الزرقاء!",,
+"PUT_IN__A__COCONUT__WITH__THE__CAR__RED","Pack eine Kokosnuss in das rote Auto!","Put a coconut in the red car!","ضع جوز الهند في السيارة الحمراء!",,
+"PUT_IN__A__COCONUT__WITH__THE__CAR__SILVER","Pack eine Kokosnuss in das silberne Auto!","Put a coconut in the silver car!","ضع جوز الهند في السيارة الفضية!",,
+"PUT_IN__A__FRUIT__WITH__A__CAR","Pack eine Frucht in ein Auto!","Put a fruit in a car!","ضع فاكهة في السيارة!",,
+"PUT_IN__A__FRUIT__WITH__THE__CAR__BLUE","Pack eine Frucht in das blaue Auto!","Put a fruit in the blue car!","ضع فاكهة في السيارة الزرقاء!",,
+"PUT_IN__A__FRUIT__WITH__THE__CAR__PINK","Pack eine Frucht in das pinke Auto!","Put a fruit in the pink car!","ضع فاكهة في السيارة الوردية!",,
+"PUT_IN__A__FRUIT__WITH__THE__CAR__RED","Pack eine Frucht in das rote Auto!","Put a fruit in the red car!","ضع فاكهة في السيارة الحمراء!",,
+"PUT_IN__A__FRUIT__WITH__THE__CAR__SILVER","Pack eine Frucht in das silberne Auto!","Put a fruit in the silver car!","ضع فاكهة في السيارة الفضية!",,
+"PUT_IN__A__FRUIT__WITH__THE__CAR__WHITE","Pack eine Frucht in das weiße Auto!","Put a fruit in the white car!","ضع فاكهة في السيارة البيضاء!",,
+"PUT_IN__A__MELON__WITH__A__CAR","Pack eine Melone in ein Auto!","Put a melon in a car!","ضع بطيخة في السيارة!",,
+"PUT_IN__A__MELON__WITH__THE__CAR__PINK","Pack eine Melone in das pinke Auto!","Put a melon in the pink car!","ضع بطيخة في السيارة الوردية!",,
+"PUT_IN__A__MELON__WITH__THE__CAR__RED","Pack eine Melone in das rote Auto!","Put a melon in the red car!","ضع بطيخة في السيارة الحمراء!",,
+"PUT_IN__A__PINEAPPLE__WITH__A__CAR","Pack eine Ananas in ein Auto!","Put a pineapple in a car!","ضع أناناس في سيارة!",,
+"PUT_IN__A__PINEAPPLE__WITH__THE__CAR__PINK","Pack eine Ananas in das pinke Auto!","Put a pineapple in the pink car!","ضع أناناس في السيارة الوردية!",,
+"PUT_IN__A__PINEAPPLE__WITH__THE__CAR__RED","Pack eine Ananas in das rote Auto!","Put a pineapple in the red car!","ضع أناناس في السيارة الحمراء!",,
+"PUT_IN__A__PINEAPPLE__WITH__THE__CAR__WHITE","Pack eine Ananas in das weiße Auto!","Put a pineapple in the white car!","ضع أناناس في السيارة البيضاء!",,
+"PUT_IN__THE__BACKPACK__WITH__A__CAR","Pack den Rucksack in ein Auto!","Put the rucksack in a car!","ضع حقيبة الظهر في سيارة!",,
+"PUT_IN__THE__BACKPACK__WITH__THE__CAR__BLUE","Pack den Rucksack in das blaue Auto!","Put the rucksack in the blue car!","ضع حقيبة الظهر في السيارة الزرقاء!",,
+"PUT_IN__THE__BACKPACK__WITH__THE__CAR__PINK","Pack den Rucksack in das pinke Auto!","Put the rucksack in the pink car!","ضع حقيبة الظهر في السيارة الوردية!",,
+"PUT_IN__THE__BACKPACK__WITH__THE__CAR__RED","Pack den Rucksack in das rote Auto!","Put the rucksack in the red car!","ضع الحقيبة في السيارة الحمراء!",,
+"PUT_IN__THE__BACKPACK__WITH__THE__CAR__SILVER","Pack den Rucksack in das silberne Auto!","Put the rucksack in the silver car!","ضع الحقيبة في السيارة الفضية!",,
+"PUT_IN__THE__COCONUT__WITH__A__CAR","Pack die Kokosnuss in ein Auto!","Put the coconut in a car!","ضع جوز الهند في السيارة!",,
+"PUT_IN__THE__COCONUT__WITH__THE__CAR__PINK","Pack die Kokosnuss in das pinke Auto!","Put the coconut in the pink car!","ضع جوز الهند في السيارة الوردية!",,
+"PUT_IN__THE__COCONUT__WITH__THE__CAR__RED","Pack die Kokosnuss in das rote Auto!","Put the coconut in the red car!","ضع جوز الهند في السيارة الحمراء!",,
+"PUT_IN__THE__COCONUT__WITH__THE__CAR__SILVER","Pack die Kokosnuss in das silberne Auto!","Put the coconut in the silver car!","ضع جوز الهند في السيارة الفضية!",,
+"PUT_IN__THE__COCONUT__WITH__THE__CAR__WHITE","Pack die Kokosnuss in das weiße Auto!","Put the coconut in the white car!","ضع جوز الهند في السيارة البيضاء!",,
+"PUT_IN__THE__FRUIT__WITH__A__CAR","Pack die Frucht in ein Auto!","Put the fruit in a car!","ضع الفاكهة في سيارة!",,
+"PUT_IN__THE__FRUIT__WITH__THE__CAR__RED","Pack die Frucht in das rote Auto!","Put the fruit in the red car!","ضع الفاكهة في السيارة الحمراء!",,
+"PUT_IN__THE__FRUIT__WITH__THE__CAR__SILVER","Pack die Frucht in das silberne Auto!","Put the fruit in the silver car!","ضع الفاكهة في السيارة الفضية!",,
+"PUT_IN__THE__MELON__WITH__A__CAR","Pack die Melone in ein Auto!","Put the melon in a car!","ضع البطيخ في سيارة!",,
+"PUT_IN__THE__MELON__WITH__THE__CAR__BLUE","Pack die Melone in das blaue Auto!","Put the melon in the blue car!","ضع البطيخ في السيارة الزرقاء!",,
+"PUT_IN__THE__MELON__WITH__THE__CAR__PINK","Pack die Melone in das pinke Auto!","Put the melon in the pink car!","ضع البطيخ في السيارة الوردية!",,
+"PUT_IN__THE__MELON__WITH__THE__CAR__RED","Pack die Melone in das rote Auto!","Put the melon in the red car!","ضع البطيخ في السيارة الحمراء!",,
+"PUT_IN__THE__MELON__WITH__THE__CAR__WHITE","Pack die Melone in das weiße Auto!","Put the melon in the white car!","ضع البطيخ في السيارة البيضاء!",,
+"PUT_IN__THE__PINEAPPLE__WITH__A__CAR","Pack die Ananas in ein Auto!","Put the pineapple in a car!","ضع الأناناس في سيارة!",,
+"PUT_IN__THE__PINEAPPLE__WITH__THE__CAR__PINK","Pack die Ananas in das pinke Auto!","Put the pineapple in the pink car!","ضع الأناناس في السيارة الوردية!",,
+"PUT_IN__THE__PINEAPPLE__WITH__THE__CAR__RED","Pack die Ananas in das rote Auto!","Put the pineapple in the red car!","ضع الأناناس في السيارة الحمراء!",,
+"PUT_IN__THE__PINEAPPLE__WITH__THE__CAR__SILVER","Pack die Ananas in das silberne Auto!","Put the pineapple in the silver car!","ضع الأناناس في السيارة الفضية!",,
+"ANY__CUT__ANY","Schneide etwas!","Cut something!","اقطع شيئاً!",,
+"ANY__CUT__THE__FRUIT","Schneide die Frucht!","Cut the fruit!","اقطع الفاكهة!",,
+"ANY__CUT__THE__KIWI","Schneide die Kiwi!","Cut the kiwi!","اقطع الكيوي!",,
+"THE__FRUIT__MOVE__ANY","Bewege die Frucht!","Move the fruit!","حرّك الفاكهة!",,
+"THE__KIWI__MOVE__ANY","Bewege die Kiwi!","Move the kiwi!","حرّك الكيوي!",,
+"THE__KNIFE__CUT__ANY","Schneide etwas mit dem Messer!","Cut something with the knife!","اقطع شيئًا بالسكين!",,
+"THE__KNIFE__CUT__THE__FRUIT","Schneide die Frucht mit dem Messer!","Cut the fruit with the knife!","اقطع الفاكهة بالسكين!",,
+"THE__KNIFE__CUT__THE__KIWI","Schneide die Kiwi mit dem Messer!","Cut the kiwi with the knife!","اقطع الكيوي بالسكين!",,
+"THE__KNIFE__MOVE__ANY","Bewege das Messer!","Move the knife!","حرّك السكين!",,

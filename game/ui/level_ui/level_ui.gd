@@ -12,11 +12,11 @@ func _ready() -> void:
 
 func add_active_quest(quest:Quest):
 	quest_label.show()
-	quest_label.text = quest.key
+	quest_label.text = str(quest)
 
 func remove_quest(quest:Quest):
 	quest_label.hide()
-	quest_label.text = quest.key
+	quest_label.text = str(quest)
 
 func _on_restart_button_pressed() -> void:
 	SceneManager.reload_level()
