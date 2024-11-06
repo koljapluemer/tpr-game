@@ -14,7 +14,7 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(1869, 878)
 
-[node name="ScapbookObject" instance=ExtResource("1_x4ntn")]
+[node name="ScapbookObject2" instance=ExtResource("1_x4ntn")]
 word_list = Array[String](["CAR"])
 color = "SILVER"
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
