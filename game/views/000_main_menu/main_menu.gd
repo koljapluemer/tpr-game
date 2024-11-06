@@ -27,8 +27,6 @@ func _on_language_option_button_item_selected(index: int) -> void:
 			2:
 				TranslationServer.set_locale("it")
 				
-
-
 func _on_start_specific_level_button_pressed() -> void:
 	if level_select.selected != -1:
 		SceneManager.load_level_by_index(level_select.selected - 1)

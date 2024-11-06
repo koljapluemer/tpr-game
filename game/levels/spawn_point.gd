@@ -25,6 +25,9 @@ func spawn_in_random_object() -> ScrapbookObject:
 		return change_scene(scene_to_init)
 	
 
+func change_scene_to_path(path:String) -> void:
+	change_scene(load(path))
+
 func change_scene(scene_to_init:PackedScene) -> ScrapbookObject:
 	init_scene = scene_to_init.instantiate()
 	init_scene.scale = Vector2(scale_factor, scale_factor)

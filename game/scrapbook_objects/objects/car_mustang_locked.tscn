@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6awu42ij151a"]
+[gd_scene load_steps=8 format=3 uid="uid://b6awu42ij151a"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_3ix2f"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_p3ohw"]
 [ext_resource type="Texture2D" uid="uid://b8pu1uwdfwpua" path="res://game/images/mustang-door-closed-Photoroom.webp" id="3_87g75"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_unlockable.gd" id="4_cxv3j"]
+[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="5_4i484"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
@@ -33,3 +35,8 @@ shape = SubResource("RectangleShape2D_14ond")
 
 [node name="Progress" parent="." index="3"]
 texture_progress = null
+
+[node name="AffordanceIsUnlockable" type="Node2D" parent="." index="6"]
+script = ExtResource("4_cxv3j")
+unlock_sound = ExtResource("5_4i484")
+scene_path_to_load_in_on_unlock = "res://game/scrapbook_objects/objects/car_mustang_closed.tscn"

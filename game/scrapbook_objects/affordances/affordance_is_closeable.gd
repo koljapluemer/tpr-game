@@ -1,10 +1,7 @@
-class_name AffordanceIsOpenable extends AffordanceActive
+class_name AffordanceIsCloseable extends AffordanceActive
 
 var click_in_action := false
-
-# this is an array in answer to godot stupid problem
-# with cIrCuLaR rEfEreNcEs
-@export var scene_path_to_load_on_open := ""
+@export var scene_to_load_in_on_close: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,11 +14,12 @@ func _on_click() -> void:
 	if not click_in_action:
 		click_in_action = true
 		_report_action(parent, null)
-		if scene_path_to_load_on_open:
+		if scene_to_load_in_on_close:
+			print("loading close scene")
 			var spawn_point := parent.parent_spawn_point
 			MessageManager.object_disappeared.emit(parent)
 			parent.queue_free()
-			spawn_point.change_scene_to_path(scene_path_to_load_on_open)
+			spawn_point.change_scene(scene_to_load_in_on_close)
 
 
 # apparently can't use "just pressed" so here we go	
@@ -31,4 +29,4 @@ func _on_click_released() -> void:
 	
 
 func get_verb_key() -> String:
-	return "OPEN"
+	return "CLOSE"
