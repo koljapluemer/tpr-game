@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxwk2ua4k1e2n"]
+[gd_scene load_steps=8 format=3 uid="uid://dxwk2ua4k1e2n"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_ijs08"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="4_g4ccp"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_onfc8"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="5_e75of"]
 [ext_resource type="Texture2D" uid="uid://b5mf3yd3260j4" path="res://game/images/pineapple_crop.webp" id="5_tg0fh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
@@ -27,5 +29,11 @@ texture = ExtResource("5_tg0fh")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -59)
 shape = SubResource("CapsuleShape2D_u7q7t")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("4_g4ccp")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("5_e75of")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

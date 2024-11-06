@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://be7rouajjdfro"]
+[gd_scene load_steps=7 format=3 uid="uid://be7rouajjdfro"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_33loh"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_n7hf7"]
 [ext_resource type="Texture2D" uid="uid://cqxjehio4wvib" path="res://game/images/car_blue-Photoroom.webp" id="4_58qol"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_70vpb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
 shader = ExtResource("3_n7hf7")
 shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(2236, 940)
@@ -27,3 +27,6 @@ texture = ExtResource("4_58qol")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(127, -285)
 shape = SubResource("RectangleShape2D_14ond")
+
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="5"]
+script = ExtResource("4_70vpb")

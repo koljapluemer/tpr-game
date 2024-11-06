@@ -1,0 +1,97 @@
+[gd_scene load_steps=23 format=3 uid="uid://ck7yb645yumni"]
+
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_quucb"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_pf2og"]
+[ext_resource type="Texture2D" uid="uid://c3t3x4ob3k3sp" path="res://game/images/backgrounds/suburb_street.webp" id="3_s76w8"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_8ffja"]
+[ext_resource type="PackedScene" uid="uid://drtrr7yhrkbpi" path="res://game/scrapbook_objects/objects/melon.tscn" id="5_6ync8"]
+[ext_resource type="PackedScene" uid="uid://c5wu3ouq76tkj" path="res://game/scrapbook_objects/objects/backpack.tscn" id="6_t3xye"]
+[ext_resource type="PackedScene" uid="uid://bo5js6wn3t6ko" path="res://game/scrapbook_objects/objects/car_yellow_amg.tscn" id="6_tylt2"]
+[ext_resource type="PackedScene" uid="uid://007xgx1amvax" path="res://game/scrapbook_objects/objects/car_yellow.tscn" id="7_3svyn"]
+[ext_resource type="PackedScene" uid="uid://dc8hd3soy10u" path="res://game/scrapbook_objects/objects/tool_hammer.tscn" id="7_18l0t"]
+[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="7_jcsqa"]
+[ext_resource type="PackedScene" uid="uid://cscwj7ivn76pl" path="res://game/scrapbook_objects/objects/car_white.tscn" id="8_cjkow"]
+[ext_resource type="PackedScene" uid="uid://dxwk2ua4k1e2n" path="res://game/scrapbook_objects/objects/pineapple.tscn" id="8_k8kx8"]
+[ext_resource type="PackedScene" uid="uid://bkm8u37o2lab4" path="res://game/scrapbook_objects/objects/car_silver_amg.tscn" id="9_xxeok"]
+[ext_resource type="PackedScene" uid="uid://dt4nnyjjmh8yc" path="res://game/scrapbook_objects/objects/car_red_nissan.tscn" id="10_pkuyw"]
+[ext_resource type="PackedScene" uid="uid://depj45njkgbxp" path="res://game/scrapbook_objects/objects/car_red.tscn" id="11_46cvp"]
+[ext_resource type="PackedScene" uid="uid://bki2y1yhpjkr0" path="res://game/scrapbook_objects/objects/car_purple.tscn" id="12_hos81"]
+[ext_resource type="PackedScene" uid="uid://clxdvga8pva0q" path="res://game/scrapbook_objects/objects/car_pink.tscn" id="13_h5xbt"]
+[ext_resource type="PackedScene" uid="uid://de42m22au3klg" path="res://game/scrapbook_objects/objects/car_orange.tscn" id="14_oiqjg"]
+[ext_resource type="PackedScene" uid="uid://cm2w8nsa6ccd2" path="res://game/scrapbook_objects/objects/car_green.tscn" id="15_logm6"]
+[ext_resource type="PackedScene" uid="uid://cevjtvquv2hth" path="res://game/scrapbook_objects/objects/car_blue_old.tscn" id="16_kq6w1"]
+[ext_resource type="PackedScene" uid="uid://be7rouajjdfro" path="res://game/scrapbook_objects/objects/car_blue.tscn" id="17_xlutj"]
+[ext_resource type="PackedScene" uid="uid://lyko8vtsv50r" path="res://game/scrapbook_objects/objects/car_black.tscn" id="18_bd5y4"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_quucb")
+level_name = "Packing Fruits"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_pf2og")]
+unique_name_in_owner = true
+
+[node name="Background" type="Area2D" parent="." groups=["background"]]
+z_index = -100
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(400, 150)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_s76w8")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ObjectSpawner" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(154, 265)
+script = ExtResource("4_8ffja")
+accepts = Array[PackedScene]([ExtResource("5_6ync8"), ExtResource("6_t3xye"), ExtResource("7_18l0t"), ExtResource("8_k8kx8")])
+scale_factor = 0.4
+
+[node name="ObjectSpawner2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(274, 273)
+script = ExtResource("4_8ffja")
+accepts = Array[PackedScene]([ExtResource("5_6ync8"), ExtResource("6_t3xye"), ExtResource("7_18l0t"), ExtResource("8_k8kx8")])
+scale_factor = 0.4
+
+[node name="ObjectSpawner3" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(410, 268)
+script = ExtResource("4_8ffja")
+accepts = Array[PackedScene]([ExtResource("5_6ync8"), ExtResource("6_t3xye"), ExtResource("7_18l0t"), ExtResource("8_k8kx8")])
+scale_factor = 0.4
+
+[node name="ObjectSpawner4" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(522, 276)
+script = ExtResource("4_8ffja")
+accepts = Array[PackedScene]([ExtResource("5_6ync8"), ExtResource("6_t3xye"), ExtResource("7_18l0t"), ExtResource("8_k8kx8")])
+scale_factor = 0.4
+
+[node name="RightCar" type="Marker2D" parent="SpawnPoints"]
+z_index = 2
+position = Vector2(554, 193)
+script = ExtResource("4_8ffja")
+accepts = Array[PackedScene]([ExtResource("6_tylt2"), ExtResource("7_3svyn"), ExtResource("8_cjkow"), ExtResource("9_xxeok"), ExtResource("10_pkuyw"), ExtResource("11_46cvp"), ExtResource("12_hos81"), ExtResource("13_h5xbt"), ExtResource("14_oiqjg"), ExtResource("15_logm6"), ExtResource("16_kq6w1"), ExtResource("17_xlutj"), ExtResource("18_bd5y4")])
+scale_factor = 0.12
+
+[node name="LeftSpawn" type="Marker2D" parent="SpawnPoints"]
+z_index = 2
+position = Vector2(226, 169)
+script = ExtResource("4_8ffja")
+accepts = Array[PackedScene]([ExtResource("6_tylt2"), ExtResource("7_3svyn"), ExtResource("8_cjkow"), ExtResource("9_xxeok"), ExtResource("10_pkuyw"), ExtResource("11_46cvp"), ExtResource("12_hos81"), ExtResource("13_h5xbt"), ExtResource("14_oiqjg"), ExtResource("15_logm6"), ExtResource("16_kq6w1"), ExtResource("17_xlutj"), ExtResource("18_bd5y4")])
+scale_factor = 0.11
+
+[node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
+unique_name_in_owner = true
+script = ExtResource("7_jcsqa")
+audio_player = NodePath("../AudioStreamPlayer2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]

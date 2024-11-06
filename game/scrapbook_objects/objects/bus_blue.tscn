@@ -1,17 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ducm0jqonsnal"]
+[gd_scene load_steps=6 format=3 uid="uid://ducm0jqonsnal"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_6vf7c"]
 [ext_resource type="Texture2D" uid="uid://dv63d4365kuax" path="res://game/images/bus_blue.webp" id="4_xowic"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_interaction.gd" id="5_v8sj6"]
-[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="7_jhavj"]
-
-[sub_resource type="Resource" id="Resource_16jcy"]
-resource_local_to_scene = true
-script = ExtResource("5_v8sj6")
-key_word = "YOU"
-kill_sender = true
-kill_receiver = false
-objects_to_spawn = Array[PackedScene]([])
 
 [sub_resource type="Shader" id="Shader_1cm4w"]
 resource_local_to_scene = true
@@ -50,9 +40,6 @@ size = Vector2(4448, 2336)
 [node name="ScapbookObject" instance=ExtResource("1_6vf7c")]
 word_list = Array[String](["BUS"])
 color = "BLUE"
-is_movable = false
-scrapbook_interactions = Array[ExtResource("5_v8sj6")]([SubResource("Resource_16jcy")])
-lock_sound = ExtResource("7_jhavj")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]

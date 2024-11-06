@@ -1,15 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://bki2y1yhpjkr0"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_11wu6"]
-[ext_resource type="AudioStream" uid="uid://cldsltfa4o0xd" path="res://game/shared_assets/mechanical_lock_short.wav" id="2_46h6i"]
 [ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_ubq01"]
 [ext_resource type="Texture2D" uid="uid://bwsdcqt6yk2lc" path="res://game/images/car_purple-Photoroom.webp" id="4_e6wkp"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_wd52y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
 shader = ExtResource("3_ubq01")
 shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(3115, 834)
@@ -17,10 +16,6 @@ size = Vector2(3115, 834)
 [node name="ScapbookObject" instance=ExtResource("1_11wu6")]
 word_list = Array[String](["CAR"])
 color = "PURPLE"
-is_movable = false
-is_big_storage = true
-is_locked = false
-lock_sound = ExtResource("2_46h6i")
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]
@@ -32,3 +27,6 @@ texture = ExtResource("4_e6wkp")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(304.5, -328)
 shape = SubResource("RectangleShape2D_14ond")
+
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="5"]
+script = ExtResource("4_wd52y")
