@@ -73,7 +73,7 @@ accepts = Array[PackedScene]([ExtResource("5_6ync8"), ExtResource("6_t3xye"), Ex
 scale_factor = 0.4
 
 [node name="RightCar" type="Marker2D" parent="SpawnPoints"]
-z_index = 2
+z_index = 3
 position = Vector2(554, 193)
 script = ExtResource("4_8ffja")
 accepts = Array[PackedScene]([ExtResource("6_tylt2"), ExtResource("7_3svyn"), ExtResource("8_cjkow"), ExtResource("9_xxeok"), ExtResource("10_pkuyw"), ExtResource("11_46cvp"), ExtResource("12_hos81"), ExtResource("13_h5xbt"), ExtResource("14_oiqjg"), ExtResource("15_logm6"), ExtResource("16_kq6w1"), ExtResource("17_xlutj"), ExtResource("18_bd5y4")])
