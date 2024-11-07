@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://fyvk5b7uo0am"]
+[gd_scene load_steps=3 format=3 uid="uid://fyvk5b7uo0am"]
 
 [ext_resource type="Script" path="res://game/ui/level_ui/level_ui.gd" id="1_l3o34"]
+[ext_resource type="FontFile" uid="uid://c0dicoaa622k8" path="res://game/shared_assets/Tajawal-Medium.ttf" id="2_ofvvk"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_l3o34")
@@ -26,42 +27,64 @@ layout_mode = 2
 text = "Main Menu"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 45.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Header" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 alignment = 1
 
-[node name="QuestStuff" type="HBoxContainer" parent="MarginContainer/Header"]
-layout_mode = 2
-
-[node name="RepeatAudioButton" type="Button" parent="MarginContainer/Header/QuestStuff"]
-layout_mode = 2
-text = "R"
-
-[node name="QuestLabel" type="Label" parent="MarginContainer/Header/QuestStuff"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_type_variation = &"HeaderMedium"
-theme_override_font_sizes/font_size = 35
-text = "Pack den Apfel in die Tasche."
-
-[node name="Spacer" type="Control" parent="MarginContainer/Header"]
+[node name="QuestStuff" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MenuButton" type="Button" parent="MarginContainer/Header"]
+[node name="RepeatAudioButton" type="Button" parent="MarginContainer/VBoxContainer2/Header/QuestStuff"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.1
+text = "R"
+
+[node name="QuestLabel" type="Button" parent="MarginContainer/VBoxContainer2/Header/QuestStuff"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 100.0
+mouse_filter = 2
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("2_ofvvk")
+theme_override_font_sizes/font_size = 26
+disabled = true
+text = "Pack den Apfel in die Tasche. Ja, Pack den Apfel in die Tasche."
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.75
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
 
 [connection signal="pressed" from="Popup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Popup/VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
 [connection signal="pressed" from="Popup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Header/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

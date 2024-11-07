@@ -88,6 +88,7 @@ text = "Start Level"
 
 [node name="LoadCredits" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 8
 text = "Show Credits"
 

@@ -2,7 +2,7 @@
 extends CanvasLayer
 
 @onready var popup: Popup = %Popup
-@onready var quest_label: Label = %QuestLabel
+@onready var quest_label = %QuestLabel
 
 func _ready() -> void:
 	# TODO: decide and document whether
