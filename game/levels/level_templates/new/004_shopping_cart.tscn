@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd3cfkcgeyyhw"]
+[gd_scene load_steps=7 format=3 uid="uid://bd3cfkcgeyyhw"]
 
 [ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_axe1p"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_akkvl"]
@@ -6,9 +6,6 @@
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_o60xl"]
 [ext_resource type="PackedScene" uid="uid://coa7ncdq888tt" path="res://game/scrapbook_objects/objects/shopping_cart_red.tscn" id="5_t4r6j"]
 [ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="6_toeyv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
-size = Vector2(894, 350)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_axe1p")
@@ -24,18 +21,15 @@ unique_name_in_owner = true
 z_index = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(403.181, 37.411)
 scale = Vector2(0.94706, 0.94706)
 texture = ExtResource("3_8chs3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
-position = Vector2(408, 167)
-shape = SubResource("RectangleShape2D_anpsh")
-
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Dog" type="Marker2D" parent="SpawnPoints"]
+[node name="cart" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(482, 205)
 script = ExtResource("4_o60xl")
