@@ -33,3 +33,6 @@ func _on_click_released() -> void:
 
 func get_verb_key() -> String:
 	return "PUSH"	
+
+func get_is_independent() -> bool:
+	return true

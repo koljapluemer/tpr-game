@@ -34,7 +34,7 @@ z_index = 7
 position = Vector2(482, 205)
 script = ExtResource("4_o60xl")
 accepts = Array[PackedScene]([ExtResource("5_t4r6j")])
-scale_factor = 0.2
+scale_factor = 0.13
 
 [node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 unique_name_in_owner = true
