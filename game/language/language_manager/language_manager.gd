@@ -1,7 +1,11 @@
 extends Node
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D 
+
+
 func _ready() -> void:
 	TranslationServer.set_locale("ar")
+	audio_stream_player_2d = get_tree().get_first_node_in_group("audio_player")
 
 
 func check_for_matching_audio(key):
@@ -13,7 +17,6 @@ func check_for_matching_audio(key):
 		Logger.log(1,"audio path does not exist: " + path)
 		write_missing_key_to_file(key)
 		return null
-	
 
 # this is just for now to have an overview what sound/dialog i need	
 func write_missing_key_to_file(text):
@@ -27,3 +30,15 @@ func write_missing_key_to_file(text):
 	file.seek_end()
 	file.store_line(text)
 	file.close()
+	
+
+func play_audio_for_key(key:String):
+	if audio_stream_player_2d:
+		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + key + ".mp3"
+		if ResourceLoader.exists(audio):
+			audio_stream_player_2d.stream = load(audio)
+			audio_stream_player_2d.play()
+		else:
+			Logger.log(1,"audio does not exist: " + audio)
+	else:
+		push_warning("audio_player not found")

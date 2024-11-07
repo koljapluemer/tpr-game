@@ -16,8 +16,6 @@ var scrapbook_objects: Array[ScrapbookObject]
 
 
 func _ready() -> void:	
-	# quest listening (for audio)
-	MessageManager.quest_started.connect(_on_quest_started)
 	
 	# setup of spawnpoints and quests
 	if not spawn_points:
@@ -37,14 +35,3 @@ func _ready() -> void:
 		else:
 			push_warning("no quest_manager_found")
 	
-
-func _on_quest_started(quest: Quest):
-	if audio_stream_player_2d:
-		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + str(quest) + ".mp3"
-		if ResourceLoader.exists(audio):
-			audio_stream_player_2d.stream = load(audio)
-			audio_stream_player_2d.play()
-		else:
-			Logger.log(1,"audio does not exist: " + audio)
-	else:
-		push_warning("audio_player not found")

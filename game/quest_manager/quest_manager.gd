@@ -172,6 +172,8 @@ func start_random_quest():
 		MessageManager.quest_started.emit(quest)
 		active_quest = quest
 		last_quest = quest
+		
+		LanguageManager.play_audio_for_key(str(quest))
 	else:
 		if not debug_mode:
 			SceneManager.load_end_level_screen()
