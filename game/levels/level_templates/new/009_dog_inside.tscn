@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_vkffr"]
 [ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="22_e03gw"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["level_map"]]
 y_sort_enabled = true
 script = ExtResource("1_882on")
 level_name = "Packing Fruits"

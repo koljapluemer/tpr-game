@@ -14,6 +14,13 @@ signal hover_hint_state_changed_to(active_obj:ScrapbookObject, receiving_obj:Scr
 @export var color: String
 @export var default_outline_thickness:= 8
 
+const y_coord_upper_screen_edge = 0
+const y_coord_lower_screen_edge = 300 
+const scale_lower_bound = 0.5
+const scale_upper_bound = 2
+
+var original_position: Vector2
+
 # filled by affordances in tree registering themselves
 var affordances: Array[Affordance] = []
 
@@ -27,17 +34,33 @@ var mouse_offset_when_moved: Vector2
 var currently_overlapped_areas: Array[ScrapbookObject] = []
 var mainly_hovered_object: ScrapbookObject
 
+
 @onready var progress: TextureProgressBar = %Progress
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
 
 
 func _ready() -> void:
 	MessageManager.object_appeared.emit(self)
+	original_position = global_position
+	adapt_scale()
 
 func _process(delta: float) -> void:
 	if is_moving:
 		global_position = get_global_mouse_position() + mouse_offset_when_moved
+		#adapt_scale()
+		
+func adapt_scale():
+	var current_y := global_position.y
+	if current_y < original_position.y:
+		var t = (current_y - y_coord_upper_screen_edge) / (original_position.y - y_coord_upper_screen_edge)
+		scale.x = lerp(1, scale_lower_bound, t) * parent_spawn_point.scale_factor
+		scale.y = lerp(1, scale_lower_bound, t) * parent_spawn_point.scale_factor
+	else:
+		var t = (current_y - original_position.y) / (y_coord_lower_screen_edge - original_position.y)
+		scale.x = lerp(1, scale_upper_bound, t) * parent_spawn_point.scale_factor
+		scale.y = lerp(1, scale_upper_bound, t) * parent_spawn_point.scale_factor
 
+			
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		Logger.log(0, "Click on " + name)

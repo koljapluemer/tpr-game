@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bv12y6pd2rfex" path="res://game/scrapbook_objects/objects/building_parking_lot-1.tscn" id="5_ujrjr"]
 [ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="7_a8yy3"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["level_map"]]
 y_sort_enabled = true
 script = ExtResource("1_mchgc")
 level_name = "Packing Fruits"

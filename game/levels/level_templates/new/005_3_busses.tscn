@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="6_jp5hv"]
 [ext_resource type="PackedScene" uid="uid://ducm0jqonsnal" path="res://game/scrapbook_objects/objects/bus_blue.tscn" id="6_okm7p"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["level_map"]]
 script = ExtResource("1_i1bdx")
 level_name = "Packing Fruits"
 

@@ -76,23 +76,7 @@ func update_possible_actions():
 
 # TODO: this is very likely completely outdated
 func check_if_active_quest_is_still_possible():
-	Logger.log(1,"check_if_active_quest_is_still_possible()")
-	if not active_quest:
-		return
-	# get all the words currently available
-	var available_words: Array[String] = []
-	for obj in objects:
-		available_words.append_array(obj.get_identifiers())
-	
-	var quest_is_possible = true
-	for word in active_quest.required_words:
-		Logger.log(1,"checking word: " + word)
-		if not available_words.has(word):
-			quest_is_possible = false
-			break
-	if not quest_is_possible:
-		active_quest.set_aborted()
-				
+	return
 
 func make_sure_that_there_is_an_active_quest():	
 	if not active_quest:
