@@ -46,9 +46,15 @@ func _on_hover_hint_state_changed_to(active_obj:ScrapbookObject, passive_obj:Scr
 	print("hover state changed: ", active_obj, passive_obj)
 	for obj in scrapbook_objects:
 		if is_instance_valid(obj):
-			if not obj == active_obj and not obj == passive_obj:
-				obj.modulate.a = 0.5
-			else:
+			if not active_obj and not passive_obj:
+			# if this is the case, there is no hover happening rn
 				obj.modulate.a = 1
+			else:
+				# only fully show objects that are doing the hovering
+				# or are primarily hovered
+				if obj == active_obj or obj == passive_obj:
+					obj.modulate.a = 1
+				else:
+					obj.modulate.a = 0.5
 		else:
 			scrapbook_objects.erase(obj)
