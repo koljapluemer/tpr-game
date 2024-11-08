@@ -6,6 +6,7 @@ class_name ScrapbookObject extends Area2D
 signal click_was_started
 signal click_was_released
 signal object_dropped_on_me(obj:ScrapbookObject)
+signal hover_hint_state_changed_to(active_obj:ScrapbookObject, receiving_obj:ScrapbookObject)
 
 ## [Word] array with words that this concrete [Node2D] may stand for.
 ## Likely nouns, such as CAR, TAXI, VEHICLE
@@ -23,6 +24,8 @@ var parent_spawn_point: SpawnPoint
 
 var is_moving := false
 var mouse_offset_when_moved: Vector2
+var currently_overlapped_areas: Array[ScrapbookObject] = []
+var mainly_hovered_object: ScrapbookObject
 
 @onready var progress: TextureProgressBar = %Progress
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
@@ -45,12 +48,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 func _input(event):
 	if event.is_action_released("click"):
-		is_moving = false
-		MessageManager.object_stopped_moving.emit(self)
-		var areas: Array[Area2D]= get_overlapping_areas()
-		for area in areas:
-			if area is ScrapbookObject:
-				area.object_dropped_on_me.emit(self)
+		_stop_moving()
 
 
 func register_affordance(affordance:Affordance):
@@ -75,6 +73,29 @@ func get_identifiers() -> Array[String]:
 	return ids
 
 func _start_moving():
-	is_moving = true
-	MessageManager.object_started_moving.emit(self)
-	mouse_offset_when_moved = global_position - get_global_mouse_position()
+	if not is_moving:
+		is_moving = true
+		MessageManager.object_started_moving.emit(self)
+		mouse_offset_when_moved = global_position - get_global_mouse_position()
+		hover_hint_state_changed_to.emit(self, null)
+
+func _stop_moving():
+	if is_moving:
+		is_moving = false
+		hover_hint_state_changed_to.emit(null, null)
+		MessageManager.object_stopped_moving.emit(self)
+		var areas: Array[Area2D]= get_overlapping_areas()
+		for area in areas:
+			if area is ScrapbookObject:
+				area.object_dropped_on_me.emit(self)
+
+func _on_area_entered(area: Area2D) -> void:
+	if is_moving and area is ScrapbookObject:
+		currently_overlapped_areas.append(area)
+		hover_hint_state_changed_to.emit(self, area)
+
+
+func _on_area_exited(area: Area2D) -> void:
+	currently_overlapped_areas.erase(area)
+	if area == mainly_hovered_object:
+		hover_hint_state_changed_to.emit(self, null)

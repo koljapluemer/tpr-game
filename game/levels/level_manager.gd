@@ -16,7 +16,6 @@ var scrapbook_objects: Array[ScrapbookObject]
 
 
 func _ready() -> void:	
-	
 	# setup of spawnpoints and quests
 	if not spawn_points:
 		push_error("level has no spawn_points object")
@@ -25,8 +24,7 @@ func _ready() -> void:
 			if spawn_point.has_method("spawn_in_random_object"):
 				var spawned_obj := spawn_point.spawn_in_random_object()
 				if spawned_obj:
-					scrapbook_objects.append(spawned_obj)
-					MessageManager.object_list_changed.emit(scrapbook_objects)
+					_register_scrapbook_obj(spawned_obj)
 			else:
 				push_warning("spawn_point is missing method")
 		if quest_manager:
@@ -35,22 +33,22 @@ func _ready() -> void:
 		else:
 			push_warning("no quest_manager_found")
 			
-	MessageManager.object_stopped_moving.connect(_on_object_stopped_moving)
-	MessageManager.object_started_moving.connect(_on_object_started_moving)
-	
-	
-func _on_object_started_moving(moving_object:ScrapbookObject):
+	MessageManager.object_appeared.connect(_register_scrapbook_obj)
+
+func _register_scrapbook_obj(obj:ScrapbookObject):
+	if not obj in scrapbook_objects:
+		MessageManager.object_list_changed.emit(scrapbook_objects)
+		scrapbook_objects.append(obj)
+		obj.hover_hint_state_changed_to.connect(_on_hover_hint_state_changed_to)
+
+
+func _on_hover_hint_state_changed_to(active_obj:ScrapbookObject, passive_obj:ScrapbookObject):
+	print("hover state changed: ", active_obj, passive_obj)
 	for obj in scrapbook_objects:
 		if is_instance_valid(obj):
-			if not obj == moving_object:
-				obj.modulate.a = 0.7
+			if not obj == active_obj and not obj == passive_obj:
+				obj.modulate.a = 0.5
+			else:
+				obj.modulate.a = 1
 		else:
 			scrapbook_objects.erase(obj)
-	
-func _on_object_stopped_moving(moving_object:ScrapbookObject):
-	for obj in scrapbook_objects:
-		if is_instance_valid(obj):
-			obj.modulate.a = 1
-		else:
-			scrapbook_objects.erase(obj)
-		
