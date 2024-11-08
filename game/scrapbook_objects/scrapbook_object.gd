@@ -23,7 +23,6 @@ var parent_spawn_point: SpawnPoint
 
 @onready var progress: TextureProgressBar = %Progress
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
-@onready var sprite_2d: Sprite2D = %Sprite2D
 
 
 func _ready() -> void:

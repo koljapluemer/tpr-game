@@ -9,6 +9,9 @@ class_name SpawnPoint extends Marker2D
 @export var scale_factor: float = 1
 @export var grid_pos:Vector2
 
+@export var relative_position:String
+@export var relative_position_relates_to_spawn_point:SpawnPoint
+
 var init_scene: ScrapbookObject
 
 func _ready() -> void:

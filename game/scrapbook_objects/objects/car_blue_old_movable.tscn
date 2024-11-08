@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://iifbjtx7bs2o"]
+[gd_scene load_steps=7 format=3 uid="uid://iifbjtx7bs2o"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_nxowo"]
 [ext_resource type="Texture2D" uid="uid://cv4abotaisul4" path="res://game/images/car_blue_old_crop.webp" id="3_ui2ew"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_5kyjl"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/specific/travel/affordance_travels.gd" id="4_eb2bt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
@@ -28,3 +29,6 @@ shape = SubResource("RectangleShape2D_14ond")
 
 [node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="5"]
 script = ExtResource("4_5kyjl")
+
+[node name="AffordanceTravels" type="Node2D" parent="." index="6"]
+script = ExtResource("4_eb2bt")

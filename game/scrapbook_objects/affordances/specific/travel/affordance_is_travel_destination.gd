@@ -1,4 +1,4 @@
-class_name AffordanceHasTravelDestination extends AffordancePassive
+class_name AffordanceIsTravelDestination extends AffordancePassive
 
 @export var destination:Area2D
 
@@ -6,13 +6,11 @@ func _ready() -> void:
 	super()
 
 
-
-func _on_object_dropped(obj:ScrapbookObject):
+func _on_object_dropped_on_parent(obj:ScrapbookObject):
 	for affordance in obj.affordances:
 		if affordance is AffordanceTravels:
+			print("something traveled here")
 			_report_action(obj, parent)
-			MessageManager.object_disappeared.emit(obj)
-			obj.queue_free()
 
 
 func get_verb_key() -> String:

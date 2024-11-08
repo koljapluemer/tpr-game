@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj1pqo12cgdsi"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_n8q0l"]
+[ext_resource type="Texture2D" uid="uid://tkax55meancq" path="res://game/images/church.webp" id="2_pvlb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
+size = Vector2(7527, 8710.5)
+
+[node name="ScapbookObject" instance=ExtResource("1_n8q0l")]
+y_sort_enabled = true
+word_list = Array[String](["CHURCH"])
+metadata/_edit_vertical_guides_ = [150.0, 1536.0]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(27.1585, 27.1585)
+texture = ExtResource("2_pvlb1")
+offset = Vector2(0, -230)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1238.5, -2968.25)
+shape = SubResource("RectangleShape2D_14ond")
