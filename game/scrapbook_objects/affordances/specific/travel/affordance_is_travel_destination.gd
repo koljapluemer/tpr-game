@@ -1,6 +1,5 @@
 class_name AffordanceIsTravelDestination extends AffordancePassive
 
-@export var destination:Area2D
 
 func _ready() -> void:
 	super()

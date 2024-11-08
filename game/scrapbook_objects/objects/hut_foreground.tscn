@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cntwdqmdljw68"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_x3vcf"]
+[ext_resource type="Texture2D" uid="uid://clr3y4uvie5cy" path="res://game/images/hut_no_bg.webp" id="2_a23r6"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/specific/travel/affordance_is_travel_destination.gd" id="3_1an0u"]
+[ext_resource type="Texture2D" uid="uid://d3l0aqf3rvgab" path="res://game/images/hut.webp" id="3_7doak"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
+radius = 69.0
+height = 834.0
+
+[node name="ScapbookObject" instance=ExtResource("1_x3vcf")]
+position = Vector2(0, 4)
+word_list = Array[String](["HUT"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ii3d8")
+scale = Vector2(0.690324, 0.690324)
+texture = ExtResource("2_a23r6")
+offset = Vector2(0, -260)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
+modulate = Color(1, 1, 1, 0.470588)
+z_index = -2
+material = SubResource("ShaderMaterial_ii3d8")
+scale = Vector2(0.690324, 0.690324)
+texture = ExtResource("3_7doak")
+offset = Vector2(0, -260)
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-6, 47)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u7q7t")
+
+[node name="AffordanceIsTravelDestination" type="Node2D" parent="." index="6"]
+script = ExtResource("3_1an0u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
