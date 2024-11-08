@@ -1,39 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ducm0jqonsnal"]
+[gd_scene load_steps=5 format=3 uid="uid://ducm0jqonsnal"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_6vf7c"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_big_storage.gd" id="3_ik284"]
 [ext_resource type="Texture2D" uid="uid://dv63d4365kuax" path="res://game/images/bus_blue.webp" id="4_xowic"]
-
-[sub_resource type="Shader" id="Shader_1cm4w"]
-resource_local_to_scene = true
-code = "shader_type canvas_item;
-
-uniform vec4 line_color : source_color = vec4(1.0);
-uniform float line_thickness : hint_range(0, 20) = 1.0;
-
-const vec2 OFFSETS[8] = {
-	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1),
-	vec2(1, -1), vec2(1, 0), vec2(1, 1)
-};
-
-void fragment() {
-	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
-	float outline = 0.0;
-
-	for (int i = 0; i < OFFSETS.length(); i++) {
-		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
-	}
-	outline = min(outline, 1.0);
-
-	vec4 color = texture(TEXTURE, UV);
-	COLOR = mix(color, line_color, outline - color.a);
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6g3w"]
-resource_local_to_scene = true
-shader = SubResource("Shader_1cm4w")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkbg0"]
 size = Vector2(4448, 2336)
@@ -44,7 +13,6 @@ color = "BLUE"
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]
-material = SubResource("ShaderMaterial_q6g3w")
 position = Vector2(-360.874, -1093.9)
 scale = Vector2(4.44141, 4.44141)
 texture = ExtResource("4_xowic")

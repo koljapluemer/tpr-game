@@ -1,14 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://iifbjtx7bs2o"]
+[gd_scene load_steps=6 format=3 uid="uid://iifbjtx7bs2o"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_nxowo"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_8s0ya"]
 [ext_resource type="Texture2D" uid="uid://cv4abotaisul4" path="res://game/images/car_blue_old_crop.webp" id="3_ui2ew"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_5kyjl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
-shader = ExtResource("2_8s0ya")
-shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(2500, 1306)

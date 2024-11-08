@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp68ilrl0ki28"]
+[gd_scene load_steps=5 format=3 uid="uid://bp68ilrl0ki28"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_ueh6e"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_h1l05"]
 [ext_resource type="Texture2D" uid="uid://tkax55meancq" path="res://game/images/church.webp" id="3_tyo7m"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_ajp67"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
-resource_local_to_scene = true
-shader = ExtResource("2_h1l05")
-shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(9536, 7257)
@@ -20,7 +14,6 @@ color = "YELLOW"
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]
-material = SubResource("ShaderMaterial_q1fb8")
 scale = Vector2(27.1585, 27.1585)
 texture = ExtResource("3_tyo7m")
 offset = Vector2(0, -230)

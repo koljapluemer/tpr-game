@@ -34,6 +34,7 @@ func change_scene(scene_to_init:PackedScene) -> ScrapbookObject:
 	init_scene.z_index = 0
 	init_scene.grid_pos = grid_pos
 	init_scene.parent_spawn_point = self
-	add_child(init_scene)
+	owner.add_child(init_scene)
+	init_scene.global_position = global_position
 	Logger.log(1, name + ": set scene of spawnpoint to: " + init_scene.name, ["SPAWN", "NEW-QUESTS"])
 	return init_scene

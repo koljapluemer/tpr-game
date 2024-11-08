@@ -1,15 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://rqb0f2dk5qm1"]
+[gd_scene load_steps=7 format=3 uid="uid://rqb0f2dk5qm1"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_x4ntn"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_3pgo3"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_closeable.gd" id="4_lgc3y"]
 [ext_resource type="Texture2D" uid="uid://bx6e0b4640abx" path="res://game/images/mustang-door-open-Photoroom.webp" id="5_hpk6b"]
 [ext_resource type="PackedScene" uid="uid://di2jocalcb2fq" path="res://game/scrapbook_objects/objects/car_mustang_closed.tscn" id="5_t3p6n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
-shader = ExtResource("2_3pgo3")
-shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(1869, 878)

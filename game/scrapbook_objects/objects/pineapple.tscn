@@ -1,16 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxwk2ua4k1e2n"]
+[gd_scene load_steps=8 format=3 uid="uid://dxwk2ua4k1e2n"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_ijs08"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="4_g4ccp"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_onfc8"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="5_e75of"]
 [ext_resource type="Texture2D" uid="uid://b5mf3yd3260j4" path="res://game/images/pineapple_crop.webp" id="5_tg0fh"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="6_0vmcd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
 resource_local_to_scene = true
-shader = ExtResource("4_onfc8")
-shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
 radius = 54.0

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://buapgxqpegef1"]
+[gd_scene load_steps=5 format=3 uid="uid://buapgxqpegef1"]
 
 [ext_resource type="Script" path="res://game/scrapbook_objects/scrapbook_object.gd" id="1_sxqhy"]
 [ext_resource type="Texture2D" uid="uid://ds2wd4s251glh" path="res://icon_og.svg" id="2_06i08"]
-[ext_resource type="Material" uid="uid://ddkmrxbhp6alq" path="res://game/shared_assets/material_outline.tres" id="2_dios6"]
 [ext_resource type="Texture2D" uid="uid://clnsp35rdhftu" path="res://game/shared_assets/circle.png" id="4_3pa2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xvyt"]
@@ -13,7 +12,6 @@ script = ExtResource("1_sxqhy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("2_dios6")
 texture = ExtResource("2_06i08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

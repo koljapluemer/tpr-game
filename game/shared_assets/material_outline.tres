@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ddkmrxbhp6alq"]
-
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="1_418rf"]
-
-[resource]
-resource_local_to_scene = true
-shader = ExtResource("1_418rf")
-shader_parameter/line_color = Color(1, 1, 1, 1)

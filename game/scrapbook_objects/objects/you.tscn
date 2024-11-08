@@ -1,15 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpxkumjowe6r0"]
+[gd_scene load_steps=7 format=3 uid="uid://dpxkumjowe6r0"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_y3l2i"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="2_j4ypp"]
 [ext_resource type="Texture2D" uid="uid://bdfepfxs27tcg" path="res://game/images/you.webp" id="3_2lu1p"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_ca2fn"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_big.gd" id="5_tsyso"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
 resource_local_to_scene = true
-shader = ExtResource("2_j4ypp")
-shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
 size = Vector2(365, 1685)

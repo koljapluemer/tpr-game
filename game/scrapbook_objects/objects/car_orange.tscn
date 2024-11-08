@@ -1,14 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://de42m22au3klg"]
+[gd_scene load_steps=6 format=3 uid="uid://de42m22au3klg"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_7yojf"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="3_b40cr"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_4m1no"]
 [ext_resource type="Texture2D" uid="uid://crm5hpyrv3vcw" path="res://game/images/car_orange-Photoroom.webp" id="4_x80lp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
-shader = ExtResource("3_b40cr")
-shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
 size = Vector2(1728, 959)

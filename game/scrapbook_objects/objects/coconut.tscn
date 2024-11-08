@@ -1,14 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp5asi1clmrau"]
+[gd_scene load_steps=5 format=3 uid="uid://dp5asi1clmrau"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_m14fl"]
-[ext_resource type="Shader" path="res://game/shared_assets/shader_cutout_outline.gdshader" id="4_cj5ui"]
 [ext_resource type="Texture2D" uid="uid://dtf0602dbwvwg" path="res://game/images/coconut_crop.webp" id="5_3gqgh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1tohm"]
 resource_local_to_scene = true
-shader = ExtResource("4_cj5ui")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
 radius = 54.0
