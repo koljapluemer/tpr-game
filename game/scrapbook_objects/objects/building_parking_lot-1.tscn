@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_wvh8y"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/specific/travel/affordance_is_travel_destination.gd" id="2_gyp3y"]
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_27r15"]
-points = PackedVector2Array(1429, 1965, -3600, 780, -11035, 3294, 2578, 7173)
+[ext_resource type="Texture2D" uid="uid://cwrgsfy430fb5" path="res://game/images/ground1.webp" id="2_rsl58"]
 
 [node name="ScapbookObject" instance=ExtResource("1_wvh8y")]
 y_sort_enabled = true
@@ -12,16 +10,13 @@ word_list = Array[String](["PARKING_LOT"])
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]
-visible = false
-scale = Vector2(1e-05, 1e-05)
+position = Vector2(-41, 3271)
+scale = Vector2(14.7241, 14.7241)
+texture = ExtResource("2_rsl58")
 offset = Vector2(0, -230)
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource("ConvexPolygonShape2D_27r15")
+position = Vector2(-76, -131)
 
 [node name="AffordanceIsTravelDestination" type="Node2D" parent="." index="5"]
 script = ExtResource("2_gyp3y")
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="6"]
-color = Color(0.458405, 0.458405, 0.458405, 1)
-polygon = PackedVector2Array(1429, 1965, -3600, 780, -11035, 3294, 2578, 7173)

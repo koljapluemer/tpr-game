@@ -36,8 +36,9 @@ func play_audio_for_key(key:String):
 	if audio_stream_player_2d:
 		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + key + ".mp3"
 		if ResourceLoader.exists(audio):
-			audio_stream_player_2d.stream = load(audio)
-			audio_stream_player_2d.play()
+			if is_instance_valid(audio_stream_player_2d):
+				audio_stream_player_2d.stream = load(audio)
+				audio_stream_player_2d.play()
 		else:
 			Logger.log(1,"audio does not exist: " + audio)
 	else:

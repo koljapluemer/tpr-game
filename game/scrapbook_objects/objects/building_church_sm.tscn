@@ -8,7 +8,7 @@ size = Vector2(7527, 8710.5)
 
 [node name="ScapbookObject" instance=ExtResource("1_n8q0l")]
 y_sort_enabled = true
-word_list = Array[String](["CHURCH"])
+word_list = Array[String](["CHURCH", "BUILDING"])
 metadata/_edit_vertical_guides_ = [150.0, 1536.0]
 
 [node name="Sprite2D" parent="." index="0"]

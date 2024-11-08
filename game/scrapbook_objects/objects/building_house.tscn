@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byaj7uadlduet"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_b0ow1"]
+[ext_resource type="Texture2D" uid="uid://dcxwhmf1rdhx3" path="res://game/images/house_front.webp" id="2_sgjqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ond"]
+size = Vector2(6317, 4071.5)
+
+[node name="ScapbookObject" instance=ExtResource("1_b0ow1")]
+y_sort_enabled = true
+word_list = Array[String](["HOUSE", "BUILDING"])
+metadata/_edit_vertical_guides_ = [150.0, 1536.0]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(15.6571, 15.6571)
+texture = ExtResource("2_sgjqo")
+offset = Vector2(0, -120)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(148.5, -2065.25)
+shape = SubResource("RectangleShape2D_14ond")

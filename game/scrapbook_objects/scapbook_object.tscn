@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://clnsp35rdhftu" path="res://game/shared_assets/circle.png" id="4_3pa2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xvyt"]
-size = Vector2(57, 110)
+size = Vector2(11960, 3654)
 
 [node name="ScapbookObject" type="Area2D"]
 script = ExtResource("1_sxqhy")

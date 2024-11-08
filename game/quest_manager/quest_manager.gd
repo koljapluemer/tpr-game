@@ -82,7 +82,7 @@ func check_if_active_quest_is_still_possible():
 	# get all the words currently available
 	var available_words: Array[String] = []
 	for obj in objects:
-		available_words.append_array(obj.sensible_identifiers)
+		available_words.append_array(obj.get_identifiers())
 	
 	var quest_is_possible = true
 	for word in active_quest.required_words:
@@ -114,10 +114,10 @@ func update_possible_quest_list() -> void:
 	possible_quests = []
 	for action in possible_actions:
 		var possible_keys_of_passive_object: Array[String] = []
-		var possible_keys_of_active_object := action.active_object.sensible_identifiers
+		var possible_keys_of_active_object :Array[String]= action.active_object.get_identifiers()
 		
 		if action.passive_object:
-			possible_keys_of_passive_object = action.passive_object.sensible_identifiers
+			possible_keys_of_passive_object = action.passive_object.get_identifiers()
 			
 			# ex: ANY__CUT__ANY
 			var any_any_quest = Quest.new()
@@ -184,7 +184,7 @@ func analyze_special_wording_opportunities():
 	for obj:ScrapbookObject in objects:
 		if not is_instance_valid(obj):
 			continue
-		var sensible_identifiers:Array[String] = []
+		var ids:Array[String] = []
 		if not is_instance_valid(obj):
 			push_warning("warning: attempting to analyze begone object", obj)
 			continue
@@ -197,9 +197,9 @@ func analyze_special_wording_opportunities():
 					if comparison_obj.word_list.has(word):
 						object_is_the_only_one_using_this_word = false
 			if object_is_the_only_one_using_this_word:
-				sensible_identifiers.append(DEFINITE_ARTICLE+ word)
+				ids.append(DEFINITE_ARTICLE+ word)
 			else:
-				sensible_identifiers.append(INDEFINITE_ARTICLE+ word)
+				ids.append(INDEFINITE_ARTICLE+ word)
 		
 		# find objects that have the same word, but different color
 		if obj.color != "":
@@ -216,10 +216,10 @@ func analyze_special_wording_opportunities():
 				if len(color_count) > 1:
 					if color_count[obj.color] == 1:
 						# the object, with this word, is the only one with this color
-						sensible_identifiers.append(DEFINITE_ARTICLE+ word + "__" + obj.color)
+						ids.append(DEFINITE_ARTICLE+ word + "__" + obj.color)
 					else:
 						# the object, with this word, is one of several with this color
-						sensible_identifiers.append(INDEFINITE_ARTICLE + word + "__" + obj.color)
+						ids.append(INDEFINITE_ARTICLE + word + "__" + obj.color)
 		
 		# find objects in the same column
 		# TODO: this breaks when objects in the same column also have the same row
@@ -242,15 +242,15 @@ func analyze_special_wording_opportunities():
 				# in front, in the middle, in the back
 				if len(objects_on_same_column) == 3:
 					if obj.grid_pos.y == min_row_value:
-						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_FRONT")
+						ids.append(DEFINITE_ARTICLE + word + "__AT_FRONT")
 					elif obj.grid_pos.y == max_row_value:
-						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__AT_BACK")
+						ids.append(DEFINITE_ARTICLE + word + "__AT_BACK")
 					else:
-						sensible_identifiers.append(DEFINITE_ARTICLE + word + "__IN_MIDDLE")
+						ids.append(DEFINITE_ARTICLE + word + "__IN_MIDDLE")
 		
 		# crudely filter for unique values
 		obj.sensible_identifiers = []
-		for id in sensible_identifiers:
+		for id in ids:
 			if not obj.sensible_identifiers.has(id):
 				obj.sensible_identifiers.append(id)
 
@@ -292,12 +292,12 @@ func _on_action_done(action:Action):
 	# if it wasn't set, it wasn't relevant, and we don't check for it
 	if active_quest.required_active_object_key:
 		# actions always come with an active object, even if it's not relevant
-		if not active_quest.required_active_object_key in action.active_object.sensible_identifiers:
+		if not active_quest.required_active_object_key in action.active_object.get_identifiers():
 			action_solved_the_quest = false
 	
 	if active_quest.required_passive_object_key:
 		if action.passive_object:
-			if not active_quest.required_passive_object_key in action.passive_object.sensible_identifiers:
+			if not active_quest.required_passive_object_key in action.passive_object.get_identifiers():
 				action_solved_the_quest = false
 		else:
 			action_solved_the_quest = false
