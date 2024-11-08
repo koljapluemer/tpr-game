@@ -63,7 +63,6 @@ func adapt_scale():
 			
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
-		Logger.log(0, "Click on " + name)
 		click_was_started.emit()
 
 

@@ -11,6 +11,10 @@ func _on_object_dropped_on_parent(obj:ScrapbookObject):
 	for affordance in obj.affordances:
 		if affordance is AffordanceCuts:
 			_report_action(obj, parent)
+			var tween = get_tree().create_tween()
+			tween.tween_property(obj, "rotation", .1, .1)
+			tween.tween_property(obj, "rotation", -.1, .1)
+			tween.tween_property(obj, "rotation", 0, .1)
 			if scene_to_init_when_cut:
 				var spawn_point := parent.parent_spawn_point
 				MessageManager.object_disappeared.emit(parent)
