@@ -21,13 +21,21 @@ var sensible_identifiers: Array[String] = []
 var grid_pos:Vector2i ## position on an imagined coordinate grid, passed down from parent spawnpoint
 var parent_spawn_point: SpawnPoint
 
+var is_moving := false
+var mouse_offset_when_moved: Vector2
+
 @onready var progress: TextureProgressBar = %Progress
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
+
+
 
 
 func _ready() -> void:
 	MessageManager.object_appeared.emit(self)
 
+func _process(delta: float) -> void:
+	if is_moving:
+		global_position = get_global_mouse_position() + mouse_offset_when_moved
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
@@ -37,8 +45,12 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 func _input(event):
 	if event.is_action_released("click"):
-		Logger.log(0, "Input Event Click Ended on " + name)
-		click_was_released.emit()
+		is_moving = false
+		MessageManager.object_stopped_moving.emit(self)
+		var areas: Array[Area2D]= get_overlapping_areas()
+		for area in areas:
+			if area is ScrapbookObject:
+				area.object_dropped_on_me.emit(self)
 
 
 func register_affordance(affordance:Affordance):
@@ -61,3 +73,8 @@ func get_identifiers() -> Array[String]:
 		else:
 			ids.append(key)
 	return ids
+
+func _start_moving():
+	is_moving = true
+	MessageManager.object_started_moving.emit(self)
+	mouse_offset_when_moved = global_position - get_global_mouse_position()

@@ -34,4 +34,23 @@ func _ready() -> void:
 			quest_manager.initial_setup(scrapbook_objects)
 		else:
 			push_warning("no quest_manager_found")
+			
+	MessageManager.object_stopped_moving.connect(_on_object_stopped_moving)
+	MessageManager.object_started_moving.connect(_on_object_started_moving)
 	
+	
+func _on_object_started_moving(moving_object:ScrapbookObject):
+	for obj in scrapbook_objects:
+		if is_instance_valid(obj):
+			if not obj == moving_object:
+				obj.modulate.a = 0.7
+		else:
+			scrapbook_objects.erase(obj)
+	
+func _on_object_stopped_moving(moving_object:ScrapbookObject):
+	for obj in scrapbook_objects:
+		if is_instance_valid(obj):
+			obj.modulate.a = 1
+		else:
+			scrapbook_objects.erase(obj)
+		

@@ -8,12 +8,6 @@ func _ready() -> void:
 	MessageManager.object_list_changed.connect(_on_object_list_changed)
 
 
-func _do_interactions_with_objects_I_was_dropped_on(areas:Array[Area2D]):
-	for area in areas:
-			if area is ScrapbookObject:
-				area.object_dropped_on_me.emit(parent)
-
-
 func get_possible_passive_objects_that_affordance_can_interact_with() -> Array[ScrapbookObject]:
 	var objects: Array[ScrapbookObject] = []
 	if get_is_independent():
