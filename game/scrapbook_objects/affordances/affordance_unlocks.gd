@@ -16,5 +16,4 @@ func _on_object_list_changed(objects:Array[ScrapbookObject]):
 		for affordance in obj.affordances:
 			if affordance is AffordanceIsUnlockable:
 				new_passive_objects_that_can_be_interacted_with_arr.append(obj)
-				break
 	passive_objects_that_can_be_interacted_with = new_passive_objects_that_can_be_interacted_with_arr

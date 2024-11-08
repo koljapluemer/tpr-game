@@ -30,11 +30,6 @@ func _on_click_released() -> void:
 func _process(delta: float) -> void:
 	if is_moving:
 		parent.global_position = get_global_mouse_position() + mouse_offset_when_moved
-		#if parent.global_position.y > 290:
-			#parent.z_index = 3
-		#else:
-			#parent.z_index = 0
-			#
 			 
 func get_verb_key() -> String:
 	return "MOVE"
