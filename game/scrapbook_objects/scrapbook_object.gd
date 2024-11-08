@@ -75,7 +75,11 @@ func _start_moving():
 		is_moving = true
 		MessageManager.object_started_moving.emit(self)
 		mouse_offset_when_moved = global_position - get_global_mouse_position()
-		hover_hint_state_changed_to.emit(self, null)
+		# bit of a cheap hack but catches the "hey I'm already in the area" problem
+		for area in get_overlapping_areas():
+			if area is ScrapbookObject:
+				mainly_hovered_object = area
+		hover_hint_state_changed_to.emit(self, mainly_hovered_object)
 
 func _stop_moving():
 	if is_moving:
