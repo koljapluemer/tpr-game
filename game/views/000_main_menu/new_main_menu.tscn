@@ -92,8 +92,10 @@ layout_mode = 2
 text = "Show Credits"
 
 [node name="ChangeLangButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Switch Language"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/LoadCredits" to="." method="_on_load_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ChangeLangButton" to="." method="_on_change_lang_button_pressed"]

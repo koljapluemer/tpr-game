@@ -9,7 +9,6 @@ const _000_CUT_KIWI = preload("res://game/levels/level_templates/new/000_cut-kiw
 const story: Array[PackedScene] = [
 	_000_CUT_KIWI
 ]
-
 const repeat_levels: Array[PackedScene] = [
 	_000_CUT_KIWI	
 ]
@@ -18,6 +17,7 @@ const repeat_levels: Array[PackedScene] = [
 const END_LEVEL_SCREEN = preload("res://game/views/003_end_level_screen/end_level_screen.tscn")
 const MAIN_MENU = preload("res://game/views/000_main_menu/new_main_menu.tscn")
 const CREDITS = preload("res://game/views/002_credits/credits.tscn")
+const LANGUAGE_MENU = preload("res://game/views/000_main_menu/language_menu.tscn")
 
 var current_level_index:int = 0
 
@@ -60,4 +60,6 @@ func load_credits():
 func _load_scene(scene:PackedScene):
 	Input.set_custom_mouse_cursor(null)
 	get_tree().change_scene_to_packed(scene)
-	
+
+func load_language_change_screen():	
+	_load_scene(LANGUAGE_MENU)
