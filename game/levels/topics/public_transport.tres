@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=5 format=3 uid="uid://cotr4pfgx34hp"]
+
+[ext_resource type="Texture2D" uid="uid://dv63d4365kuax" path="res://game/images/bus_blue.webp" id="1_h51v0"]
+[ext_resource type="Script" path="res://game/levels/topic.gd" id="1_lauro"]
+[ext_resource type="PackedScene" uid="uid://brbvtap4nbywt" path="res://game/levels/level_templates/new/007_get_on_bus.tscn" id="2_78res"]
+[ext_resource type="PackedScene" uid="uid://ctjd27wlt2qag" path="res://game/levels/level_templates/new/005_3_busses.tscn" id="3_mny37"]
+
+[resource]
+script = ExtResource("1_lauro")
+demo_image = ExtResource("1_h51v0")
+level_rotation = Array[PackedScene]([ExtResource("2_78res"), ExtResource("3_mny37")])

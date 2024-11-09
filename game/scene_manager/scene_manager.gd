@@ -16,8 +16,7 @@ const repeat_levels: Array[PackedScene] = [
 
 # other constants
 const END_LEVEL_SCREEN = preload("res://game/views/003_end_level_screen/end_level_screen.tscn")
-
-const MAIN_MENU = preload("res://game/views/000_main_menu/main_menu.tscn")
+const MAIN_MENU = preload("res://game/views/000_main_menu/new_main_menu.tscn")
 const CREDITS = preload("res://game/views/002_credits/credits.tscn")
 
 var current_level_index:int = 0

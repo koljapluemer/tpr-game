@@ -62,6 +62,7 @@ texture_margin_top = 10.0349
 texture_margin_right = 8.78053
 texture_margin_bottom = 14.2161
 region_rect = Rect2(421, 4, 190, 45)
+modulate_color = Color(0.258824, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="6"]
 atlas = ExtResource("1")

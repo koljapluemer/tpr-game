@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5gsr0btdhwq6"]
+
+[ext_resource type="Texture2D" uid="uid://d1l3c60mdd1v8" path="res://game/images/banana_crop.webp" id="1_3hby0"]
+[ext_resource type="Script" path="res://game/ui/topic_renderer.gd" id="1_sj6qa"]
+
+[node name="TopicRenderer" type="VBoxContainer"]
+script = ExtResource("1_sj6qa")
+
+[node name="MainButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("1_3hby0")
+expand_icon = true
