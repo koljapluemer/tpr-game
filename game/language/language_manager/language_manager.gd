@@ -5,9 +5,17 @@ extends Node
 func _ready() -> void:
 	audio_stream_player_2d = get_tree().get_first_node_in_group("audio_player")
 
-
+func get_path_from_key(key:String) -> String:
+	return "res://game/language/translation_audio/" + PlayerPreferencesManager.get_pref_language_code() + "/" + key + ".mp3"
+	
 func check_for_matching_audio(key):
-	var path = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + key + ".mp3"
+	# also attack the weird case of no translation string (even if audio may exist)
+	if key == tr(key):
+		Logger.log(1,"translation does not exist: " + key)
+		write_missing_key_to_file(key)
+		#return null
+	
+	var path = get_path_from_key(key)
 	if ResourceLoader.exists(path):
 		Logger.log(1,"audio path exists")
 		return path
@@ -31,13 +39,15 @@ func write_missing_key_to_file(text):
 	
 
 func play_audio_for_key(key:String):
+	if not audio_stream_player_2d:
+		audio_stream_player_2d = get_tree().get_first_node_in_group("audio_player")
 	if audio_stream_player_2d:
-		var audio = "res://game/language/translation_audio/" + TranslationServer.get_locale() + "/" + key + ".mp3"
-		if ResourceLoader.exists(audio):
+		var path = get_path_from_key(key)
+		if ResourceLoader.exists(path):
 			if is_instance_valid(audio_stream_player_2d):
-				audio_stream_player_2d.stream = load(audio)
+				audio_stream_player_2d.stream = load(path)
 				audio_stream_player_2d.play()
 		else:
-			Logger.log(1,"audio does not exist: " + audio)
+			Logger.log(1,"audio does not exist: " + path)
 	else:
 		push_warning("audio_player not found")
