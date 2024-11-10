@@ -1,50 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7lp0ggrnmn2i"]
+[gd_scene load_steps=7 format=3 uid="uid://b7lp0ggrnmn2i"]
 
 [ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_ys01q"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_i7omw"]
 [ext_resource type="Texture2D" uid="uid://beubdqxa0fdfa" path="res://game/images/terminal.webp" id="3_t2pbt"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_qsbtm"]
 [ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="5_mfj8b"]
-[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="6_xeqyn"]
-
-[sub_resource type="GDScript" id="GDScript_qnkyu"]
-script/source = "class_name QuestUI extends HBoxContainer
-
-var quest:Quest
-var audio_player: AudioStreamPlayer2D
-
-@onready var label: Label = %Label
-
-
-func _ready() -> void:
-	audio_player = get_tree().get_first_node_in_group(\"audio_player\")
-
-func set_quest_data(_quest: Quest):
-	quest = _quest
-	var audio_path = LanguageManager.check_for_matching_audio(_quest.get_key())
-	if audio_path and audio_player:
-		audio_player.stream = load(audio_path)
-		audio_player.play()
-	
-	if label:
-		label.text =  _quest.get_key()
-	else:
-		push_warning(\"label not found\", label)
-	
-"
-
-[sub_resource type="PackedScene" id="PackedScene_fh3bk"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Quest", "script", "HBoxContainer", "TextureRect", "custom_minimum_size", "layout_mode", "expand_mode", "stretch_mode", "Label", "unique_name_in_owner", "size_flags_horizontal", "text", "autowrap_mode", "Button"),
-"node_count": 4,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 4, 4, 1, 5, 2, 6, 3, 7, 4, 0, 0, 0, 8, 8, -1, 6, 9, 5, 4, 6, 5, 2, 10, 7, 11, 8, 12, 2, 0, 0, 0, 13, 13, -1, 2, 5, 2, 11, 9, 0),
-"variants": [SubResource("GDScript_qnkyu"), Vector2(30, 30), 2, 1, 4, true, Vector2(100, 0), 3, "Streichel erst den Hund, dann die Katze", "???"],
-"version": 3
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
 size = Vector2(894, 350)
@@ -57,10 +17,6 @@ position = Vector2(400, 150)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_i7omw")]
 unique_name_in_owner = true
-
-[node name="QuestsHolder" parent="CanvasLayer/HBoxContainer/QuestWrapper/MarginContainer/QuestsMenu" index="1" node_paths=PackedStringArray("quest_manager")]
-quest_ui = SubResource("PackedScene_fh3bk")
-quest_manager = NodePath("../../../../../../QuestManager")
 
 [node name="Background" type="Area2D" parent="." groups=["background"]]
 z_index = -100
@@ -84,10 +40,8 @@ script = ExtResource("4_qsbtm")
 accepts = Array[PackedScene]([ExtResource("5_mfj8b")])
 scale_factor = 0.12
 
-[node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
+[node name="QuestManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("6_xeqyn")
-audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
 unique_name_in_owner = true

@@ -107,7 +107,11 @@ func _get_possible_actions() -> Array[Action]:
 				for partner in possible_partners:
 					var action := Action.new()
 					action.active_object = obj
+					if obj:
+						action.active_object_identifiers = obj.get_identifiers()
 					action.passive_object = partner
+					if partner:
+						action.passive_object_identifiers = partner.get_identifiers()
 					action.verb_key = affordance.get_verb_key()
 					action_list.append(action)
 	return action_list
@@ -140,6 +144,7 @@ func check_if_active_quest_is_still_possible():
 				break
 			
 	if not active_quest_is_possible:
+		print("QUEST DEEMED IMPOSSIBLE")
 		_on_quest_aborted()
 
 
@@ -148,11 +153,14 @@ func _get_possible_quest_list() -> Array[Quest]:
 	analyze_special_wording_opportunities()
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
+		print("as many quests done as planned")
 		SceneManager.load_end_level_screen()
 		return []
 	
 	var possible_quests:Array[Quest] = []
-	for action in _get_possible_actions():
+	var actions = _get_possible_actions()
+	print("about to generate quests, found actions: ", len(actions))
+	for action in actions:
 		var possible_keys_of_passive_object: Array[String] = []
 		var possible_keys_of_active_object :Array[String]= action.active_object_identifiers
 		
@@ -164,7 +172,7 @@ func _get_possible_quest_list() -> Array[Quest]:
 			any_any_quest.required_verb = action.verb_key
 			if LanguageManager.check_for_matching_audio(str(any_any_quest)):
 				possible_quests.append(any_any_quest)
-				
+			
 			for active_key in possible_keys_of_active_object:
 				# ex: THE__KNIFE__CUT__ANY	
 				var active_to_any_quest = Quest.new()
@@ -198,7 +206,10 @@ func _get_possible_quest_list() -> Array[Quest]:
 				active_to_any_quest.required_verb = action.verb_key
 				if LanguageManager.check_for_matching_audio(str(active_to_any_quest)):
 						possible_quests.append(active_to_any_quest)
-						
+	
+	# TODO: this returns 0, track down why!
+	# (probably to do with the action rework?)
+	print("found possible quests:", len(possible_quests))		
 	return possible_quests
 
 func request_new_quest():
@@ -219,12 +230,14 @@ func start_random_quest():
 				quests_that_could_be_picked.erase(q)
 	if len(quests_that_could_be_picked) > 0:
 		var quest:Quest = quests_that_could_be_picked.pick_random()
+		currently_waiting_for_next_quest_to_start = false
 		MessageManager.quest_started.emit(quest)
 		active_quest = quest
 		last_quest = quest
 		
 		LanguageManager.play_audio_for_key(str(quest))
 	else:
+		print("no quest found that could be started")
 		if not debug_mode:
 			SceneManager.load_end_level_screen()
 
