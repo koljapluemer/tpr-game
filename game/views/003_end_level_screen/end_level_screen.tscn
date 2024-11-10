@@ -24,7 +24,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "You finished the level!"
+text = "You finished the level!
+
++1 star
+"
 
 [node name="ButtonPlayNext" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -34,5 +37,10 @@ text = "Play Next"
 layout_mode = 2
 text = "Play Again"
 
+[node name="ButtonMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back To Menu"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonPlayNext" to="." method="_on_button_play_next_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonReplay" to="." method="_on_button_replay_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonMenu" to="." method="_on_button_menu_pressed"]

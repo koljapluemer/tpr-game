@@ -12,3 +12,7 @@ func _on_button_play_next_pressed() -> void:
 
 func _on_button_replay_pressed() -> void:
 	SceneManager.reload_level()
+
+
+func _on_button_menu_pressed() -> void:
+	SceneManager.load_main_menu()
