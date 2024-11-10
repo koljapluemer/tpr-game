@@ -22,5 +22,6 @@ func _on_change_lang_button_pressed() -> void:
 		TranslationServer.set_locale("de")
 	if language_select.selected == 2:
 		TranslationServer.set_locale("it")
-		
+	
+	PlayerPreferencesManager.set_pref_language_code(TranslationServer.get_locale())
 	SceneManager.load_main_menu()

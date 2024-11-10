@@ -5,6 +5,8 @@ possible_assets
 possible_assets/
 missing_keys.txt
 
+pref.res
+
 
 dist/
 dist
@@ -179,3 +181,5 @@ cython_debug/
 # API
 
 api.txt
+
+

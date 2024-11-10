@@ -1,3 +1,3 @@
 class_name PlayerPreferences extends Resource
 
-var language_code: String = "ar"
+@export var language_code: String 

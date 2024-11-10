@@ -58,7 +58,6 @@ func load_credits():
 	_load_scene(CREDITS)
 
 func _load_scene(scene:PackedScene):
-	Input.set_custom_mouse_cursor(null)
 	get_tree().change_scene_to_packed(scene)
 
 func load_language_change_screen():	

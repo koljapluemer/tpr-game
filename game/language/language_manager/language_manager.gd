@@ -4,7 +4,14 @@ extends Node
 
 
 func _ready() -> void:
-	TranslationServer.set_locale("ar")
+	var pref = PlayerPreferencesManager.get_pref()
+	if pref.language_code:
+		print("found pref lang", pref.language_code)
+		TranslationServer.set_locale(pref.language_code)
+	#else:
+		#
+		#SceneManager.load_language_change_screen()
+	
 	audio_stream_player_2d = get_tree().get_first_node_in_group("audio_player")
 
 
