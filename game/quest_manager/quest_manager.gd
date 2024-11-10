@@ -2,7 +2,7 @@
 class_name QuestManager extends Node
 
 
-@export var debug_mode:= true
+@export var debug_mode:= false
 @export var MAX_QUESTS_PER_LEVEL := 7
 @export var DELAY_UNTIL_FIRST_QUEST := 3
 @export var assume_there_is_a_grid:= false
@@ -76,7 +76,35 @@ func update_possible_actions():
 
 # TODO: this is very likely completely outdated
 func check_if_active_quest_is_still_possible():
-	return
+	if not active_quest:
+		return
+	var active_quest_is_possible := false
+	for action in possible_actions:
+		# check separately: 
+		# quests that only require a verb.
+		# quests that require a verb and an active object,
+		# quests that require a verb and a passive object,
+		# quests that require all three
+		if not active_quest.required_active_object_key and not active_quest.required_passive_object_key:
+			if action.verb_key == active_quest.required_verb:
+				active_quest_is_possible = true
+				break
+		if not active_quest.required_active_object_key:
+			if action.verb_key == active_quest.required_verb and active_quest.required_passive_object_key in action.passive_object.get_identifiers():
+				active_quest_is_possible = true
+				break
+		if not active_quest.required_passive_object_key:
+			if action.verb_key == active_quest.required_verb and active_quest.required_active_object_key in action.active_object.get_identifiers():
+				active_quest_is_possible = true
+				break
+		if action.verb_key == active_quest.required_verb and active_quest.required_active_object_key in action.active_object.get_identifiers() and active_quest.required_passive_object_key in action.passive_object.get_identifiers():
+				active_quest_is_possible = true
+				break
+			
+	if not active_quest_is_possible:
+		_on_quest_aborted()
+
+
 
 func make_sure_that_there_is_an_active_quest():	
 	if not active_quest:
@@ -250,7 +278,7 @@ func _on_quest_finished():
 	MessageManager.quest_ended.emit()
 	get_tree().create_timer(1.5).timeout.connect(react_to_changed_object_list)
 
-func _on_quest_aborted(quest:Quest):
+func _on_quest_aborted():
 	if audio_player:
 		audio_player.stream = SOUND_QUEST_FAILED
 		audio_player.play()
