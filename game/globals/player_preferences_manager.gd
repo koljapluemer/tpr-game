@@ -13,6 +13,8 @@ func get_pref() -> PlayerPreferences:
 			var _pref = ResourceLoader.load(SAVE_PATH)
 			if _pref is PlayerPreferences:
 				preferences = _pref
+				if preferences.language_code:
+					TranslationServer.set_locale(preferences.language_code)
 				print("loaded prefs with lang code:", preferences.language_code)
 			else:
 				print("wasn't player pref")
@@ -29,8 +31,12 @@ func _save_pref():
 	print("saved res")
 	
 func set_pref_language_code(code:String):
-	if not preferences:
-		get_pref()
+	get_pref()
 	preferences.language_code = code
-	print("set pref code to ", preferences.language_code)
+	TranslationServer.set_locale(code)
 	_save_pref()
+
+func get_pref_language_code() -> String:
+	get_pref()
+	return preferences.language_code	
+	

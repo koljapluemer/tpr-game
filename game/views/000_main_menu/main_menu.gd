@@ -12,7 +12,7 @@ var topic_renderers:Array[TopicRenderer]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	change_lang_button.text = "(" + TranslationServer.get_locale() + ") Change Language"
+	change_lang_button.text = "(" + PlayerPreferencesManager.get_pref_language_code() + ") Change Language"
 	for topic in topics:
 		var topic_renderer = TOPIC_RENDERER.instantiate()
 		level_container.add_child(topic_renderer)
