@@ -7,7 +7,7 @@ extends Control
 
 
 func _on_button_play_next_pressed() -> void:
-	SceneManager.load_next_story_level()
+	SceneManager.load_play_level()
 
 
 func _on_button_replay_pressed() -> void:

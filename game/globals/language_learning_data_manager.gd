@@ -61,3 +61,13 @@ func get_topic_data_by_name(topic_name:String) -> TopicData:
 	data_set.topic_data_sets.append(topic_data)
 	
 	return topic_data
+	
+func get_earned_stars() -> int:
+	var data_set:LanguageLearningData = get_data_for_language(TranslationServer.get_locale())
+	var nr_stars := 0
+	for topic_data_set in data_set.topic_data_sets:
+		nr_stars += topic_data_set.stars
+		
+	print("globally, player has stars: ", nr_stars)
+	return nr_stars
+	

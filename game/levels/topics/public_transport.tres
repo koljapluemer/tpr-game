@@ -9,4 +9,6 @@
 script = ExtResource("1_lauro")
 internal_name = "public_transport"
 demo_image = ExtResource("1_h51v0")
+stars_to_unlock = 5
+tutorial_levels = Array[PackedScene]([])
 level_rotation = Array[PackedScene]([ExtResource("2_78res"), ExtResource("3_mny37")])

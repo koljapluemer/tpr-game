@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnoh7ja2wmkxn"]
+[gd_scene load_steps=8 format=3 uid="uid://dnoh7ja2wmkxn"]
 
 [ext_resource type="Script" path="res://game/views/000_main_menu/main_menu.gd" id="1_df84k"]
 [ext_resource type="Script" path="res://game/levels/topic.gd" id="2_7mp11"]
+[ext_resource type="Resource" uid="uid://bvtob1p52liib" path="res://game/levels/topics/basic_fruits.tres" id="3_eapov"]
 [ext_resource type="Resource" uid="uid://cotr4pfgx34hp" path="res://game/levels/topics/public_transport.tres" id="3_mtlb8"]
 [ext_resource type="Resource" uid="uid://cwy8e46t3b3cf" path="res://game/levels/topics/travel_with_car.tres" id="4_1ggun"]
+[ext_resource type="Resource" uid="uid://cvohhxdwouhqm" path="res://game/levels/topics/packing.tres" id="6_cj1ni"]
+[ext_resource type="Resource" uid="uid://ch5ehqu430ww0" path="res://game/levels/topics/pets.tres" id="7_1ilwq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_df84k")
-topics = Array[ExtResource("2_7mp11")]([ExtResource("3_mtlb8"), ExtResource("4_1ggun")])
+topics = Array[ExtResource("2_7mp11")]([ExtResource("3_eapov"), ExtResource("4_1ggun"), ExtResource("3_mtlb8"), ExtResource("6_cj1ni"), ExtResource("7_1ilwq")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

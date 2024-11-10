@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=6 format=3 uid="uid://cvohhxdwouhqm"]
+
+[ext_resource type="Script" path="res://game/levels/topic.gd" id="1_6hoq0"]
+[ext_resource type="Texture2D" uid="uid://dppbskhf54xlb" path="res://game/images/backpack_blue_crop.webp" id="1_rn1ra"]
+[ext_resource type="PackedScene" uid="uid://cfbljw8k5nsrx" path="res://game/levels/level_templates/new/003_mustang_lock_unlock.tscn" id="2_5p364"]
+[ext_resource type="PackedScene" uid="uid://dfo07xtn0tqy7" path="res://game/levels/level_templates/new/001_car_packing_basic.tscn" id="3_c5632"]
+[ext_resource type="PackedScene" uid="uid://ck7yb645yumni" path="res://game/levels/level_templates/new/002_car_packing.tscn" id="4_70coh"]
+
+[resource]
+script = ExtResource("1_6hoq0")
+internal_name = "packing"
+demo_image = ExtResource("1_rn1ra")
+stars_to_unlock = 10
+tutorial_levels = Array[PackedScene]([])
+level_rotation = Array[PackedScene]([ExtResource("2_5p364"), ExtResource("3_c5632"), ExtResource("4_70coh")])

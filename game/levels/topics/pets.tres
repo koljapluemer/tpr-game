@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=4 format=3 uid="uid://ch5ehqu430ww0"]
+
+[ext_resource type="Script" path="res://game/levels/topic.gd" id="1_v4bbe"]
+[ext_resource type="Texture2D" uid="uid://dogq7wro1ycn3" path="res://game/images/cat_alt_crop.webp" id="1_yk3ch"]
+[ext_resource type="PackedScene" uid="uid://ddeyvqpm2kdt3" path="res://game/levels/level_templates/new/009_dog_inside.tscn" id="2_qkqqr"]
+
+[resource]
+script = ExtResource("1_v4bbe")
+internal_name = "pets"
+demo_image = ExtResource("1_yk3ch")
+stars_to_unlock = 20
+tutorial_levels = Array[PackedScene]([])
+level_rotation = Array[PackedScene]([ExtResource("2_qkqqr")])

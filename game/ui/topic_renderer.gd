@@ -2,6 +2,7 @@ class_name TopicRenderer extends VBoxContainer
 
 signal topic_changed_to(topic:Topic)
 
+const ICON_LOCK = preload("res://game/shared_assets/icon-lock.svg")
 var topic: Topic
 
 @onready var main_button: Button = %MainButton
@@ -10,7 +11,11 @@ var topic: Topic
 
 func set_topic(_topic:Topic):
 	topic = _topic
-	main_button.icon = _topic.demo_image
+	if topic.stars_to_unlock <= LanguageLearningDataManager.get_earned_stars():
+		main_button.icon = _topic.demo_image
+	else:
+		main_button.icon = ICON_LOCK
+		main_button.disabled = true
 
 
 func _on_main_button_pressed() -> void:
