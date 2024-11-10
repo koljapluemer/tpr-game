@@ -1,3 +1,4 @@
+# no class_name because it's autoloaded
 extends Node
 
 var preferences:PlayerPreferences

@@ -33,6 +33,7 @@ SceneManager="*res://game/scene_manager/scene_manager.gd"
 LanguageManager="*res://game/language/language_manager/language_manager.gd"
 Logger="*res://game/globals/logger.gd"
 PlayerPreferencesManager="*res://game/globals/player_preferences_manager.gd"
+LanguageLearningDataManager="*res://game/globals/language_learning_data_manager.gd"
 
 [display]
 

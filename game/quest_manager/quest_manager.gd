@@ -92,6 +92,7 @@ func make_sure_that_there_is_an_active_quest():
 func update_possible_quest_list() -> void:
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
+		LanguageLearningDataManager.earn_star_for_topic(SceneManager.current_topic)
 		SceneManager.load_end_level_screen()
 		return
 	

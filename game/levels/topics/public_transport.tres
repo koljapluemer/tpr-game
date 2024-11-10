@@ -7,5 +7,6 @@
 
 [resource]
 script = ExtResource("1_lauro")
+internal_name = "public_transport"
 demo_image = ExtResource("1_h51v0")
 level_rotation = Array[PackedScene]([ExtResource("2_78res"), ExtResource("3_mny37")])

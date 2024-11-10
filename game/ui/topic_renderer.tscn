@@ -13,3 +13,10 @@ layout_mode = 2
 toggle_mode = true
 icon = ExtResource("1_3hby0")
 expand_icon = true
+
+[node name="StarLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "*****"
+
+[connection signal="pressed" from="MainButton" to="." method="_on_main_button_pressed"]
