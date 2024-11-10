@@ -24,4 +24,9 @@ func _on_main_button_pressed() -> void:
 	SceneManager.change_topic_to(topic)
 
 func set_points(nr_of_points:int):
-	star_label.text = str(nr_of_points) + ' Points'
+	var global_points := LanguageLearningDataManager.get_earned_points()
+	if global_points >= topic.points_to_unlock:
+		star_label.text = str(nr_of_points) + ' Points'
+	else:
+		star_label.text = str(  topic.points_to_unlock - global_points ) + ' missing'
+		star_label.add_theme_color_override("font_color", "gray")
