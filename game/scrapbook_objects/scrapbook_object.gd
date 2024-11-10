@@ -119,7 +119,13 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_area_exited(area: Area2D) -> void:
-	currently_overlapped_areas.erase(area)
+	var overlapping_areas:= get_overlapping_areas()
+	var overlapping_objects: Array[ScrapbookObject] = []
+	for _area in overlapping_areas:
+		if _area is ScrapbookObject:
+			overlapping_objects.append(_area)
+	currently_overlapped_areas = overlapping_objects
+	
 	if area == mainly_hovered_object:
 		mainly_hovered_object = null
 		hover_hint_state_changed_to.emit(self, mainly_hovered_object)

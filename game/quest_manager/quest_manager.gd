@@ -51,14 +51,15 @@ func _on_object_list_changed(obj_list:Array[ScrapbookObject]):
 	
 	
 func react_to_changed_object_list():
-	analyze_special_wording_opportunities()
 	update_possible_actions()
 	check_if_active_quest_is_still_possible()
+	
 	if not currently_waiting_for_next_quest_to_start:
 		currently_waiting_for_next_quest_to_start = true
 		make_sure_that_there_is_an_active_quest()
 
 func update_possible_actions():
+	analyze_special_wording_opportunities()
 	var action_list: Array[Action] = []
 	for obj in objects:
 		if not is_instance_valid(obj):
@@ -118,6 +119,7 @@ func make_sure_that_there_is_an_active_quest():
 # so the first quest is always related to the first object
 # spawned and cannot involve interactions
 func update_possible_quest_list() -> void:
+	analyze_special_wording_opportunities()
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
 		LanguageLearningDataManager.earn_star_for_topic(SceneManager.current_topic)
@@ -273,16 +275,16 @@ func _on_quest_finished():
 		Logger.log(1,"playing audio")
 		audio_player.stream = SOUND_SUCCESS_SHORT
 		audio_player.play()
+	MessageManager.quest_ended.emit(active_quest)
 	active_quest = null
 	quests_done += 1
-	MessageManager.quest_ended.emit()
 	get_tree().create_timer(1.5).timeout.connect(react_to_changed_object_list)
 
 func _on_quest_aborted():
 	if audio_player:
 		audio_player.stream = SOUND_QUEST_FAILED
 		audio_player.play()
-	MessageManager.quest_ended.emit()
+	MessageManager.quest_ended.emit(active_quest)
 	
 	Logger.log(1,"Erasing aborted quest")
 	active_quest = null

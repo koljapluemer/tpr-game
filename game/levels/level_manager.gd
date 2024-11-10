@@ -56,5 +56,3 @@ func _on_hover_hint_state_changed_to(active_obj:ScrapbookObject, passive_obj:Scr
 					obj.modulate.a = 1
 				else:
 					obj.modulate.a = 0.5
-		else:
-			scrapbook_objects.erase(obj)

@@ -14,7 +14,8 @@ func get_possible_passive_objects_that_affordance_can_interact_with() -> Array[S
 		print("appending null")
 		objects.append(null)
 	for obj in passive_objects_that_can_be_interacted_with:
-		objects.append(obj)
+		if is_instance_valid(obj):
+			objects.append(obj)
 	
 	return objects
 
