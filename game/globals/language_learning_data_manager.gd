@@ -6,7 +6,7 @@ extends Node
 var learning_data_sets: Array[LanguageLearningData]
 const SAVE_PATH = 'user://'
 const SAVE_FILE_POSTFIX = '_learning_data.res'
-# ResourceSaver.FLAG_BUNDLE_RESOURCES
+
 
 func _get_path_for_lang_code(_language_code:String) -> String:
 	return SAVE_PATH + _language_code + SAVE_FILE_POSTFIX
@@ -33,16 +33,20 @@ func get_data_for_language(_language_code:String) -> LanguageLearningData:
 			relevant_data_res.language_code = _language_code
 			learning_data_sets.append(relevant_data_res)
 	
+	print("returning rel data set", relevant_data_res)
 	return relevant_data_res
 
 func _save_data():
 	for data_set in learning_data_sets:
 		var path = _get_path_for_lang_code(data_set.language_code)
+		# people say resources should be bundled, but instead this just breaks it
+		#var res = ResourceSaver.save(data_set, path, ResourceSaver.FLAG_BUNDLE_RESOURCES)
 		var res = ResourceSaver.save(data_set, path)
 		assert(res == OK)
 
 func earn_star_for_topic(topic:Topic):
 	# find matching TopicData, and iterate there
+	print("earned a star!")
 	var topic_data := get_topic_data_by_name(topic.internal_name)
 	topic_data.stars += 1
 	
@@ -65,8 +69,9 @@ func get_topic_data_by_name(topic_name:String) -> TopicData:
 func get_earned_stars() -> int:
 	var data_set:LanguageLearningData = get_data_for_language(TranslationServer.get_locale())
 	var nr_stars := 0
-	for topic_data_set in data_set.topic_data_sets:
-		nr_stars += topic_data_set.stars
+	if data_set.topic_data_sets:
+		for topic_data_set in data_set.topic_data_sets:
+			nr_stars += topic_data_set.stars
 		
 	print("globally, player has stars: ", nr_stars)
 	return nr_stars

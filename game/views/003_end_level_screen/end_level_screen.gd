@@ -5,6 +5,9 @@
 ## Right now, it just gives a very very simple UI allowing to go to the next level.
 extends Control
 
+func _ready() -> void:
+	LanguageLearningDataManager.earn_star_for_topic(SceneManager.current_topic)
+
 
 func _on_button_play_next_pressed() -> void:
 	SceneManager.load_play_level()

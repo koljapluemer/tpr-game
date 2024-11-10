@@ -73,6 +73,7 @@ grid_pos = Vector2(0, 3)
 [node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 unique_name_in_owner = true
 script = ExtResource("7_a8yy3")
+MAX_QUESTS_PER_LEVEL = 3
 audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
