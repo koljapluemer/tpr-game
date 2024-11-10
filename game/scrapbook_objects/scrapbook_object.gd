@@ -11,7 +11,6 @@ signal hover_hint_state_changed_to(active_obj:ScrapbookObject, receiving_obj:Scr
 ## Likely nouns, such as CAR, TAXI, VEHICLE
 @export var word_list: Array[String]
 @export var color: String
-@export var default_outline_thickness:= 8
 
 const y_coord_upper_screen_edge = 0
 const y_coord_lower_screen_edge = 300 
@@ -25,7 +24,6 @@ var affordances: Array[Affordance] = []
 
 ## the base words, like CAR and VEHICLE, but also CAR__LEFT and CAR__BLUE depending on what we can compare to
 var sensible_identifiers: Array[String] = []
-var grid_pos:Vector2i ## position on an imagined coordinate grid, passed down from parent spawnpoint
 var parent_spawn_point: SpawnPoint
 
 var is_moving := false
@@ -76,6 +74,7 @@ func register_affordance(affordance:Affordance):
 	
 
 func get_identifiers() -> Array[String]:
+	# also a bit of an awkward split with the id generation happening in level_manager
 	var ids: Array[String] = []
 	for id in sensible_identifiers:
 		var key := id

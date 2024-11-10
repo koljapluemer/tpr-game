@@ -1,16 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddeyvqpm2kdt3"]
+[gd_scene load_steps=6 format=3 uid="uid://ddeyvqpm2kdt3"]
 
 [ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_882on"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_iaxht"]
 [ext_resource type="PackedScene" uid="uid://cntwdqmdljw68" path="res://game/scrapbook_objects/objects/hut_foreground.tscn" id="4_dmnky"]
 [ext_resource type="PackedScene" uid="uid://74bbr5pqcfhx" path="res://game/scrapbook_objects/objects/dog.tscn" id="4_jm634"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_vkffr"]
-[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="22_e03gw"]
 
 [node name="Level" type="Node2D" groups=["level_map"]]
 y_sort_enabled = true
 script = ExtResource("1_882on")
-level_name = "Packing Fruits"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 150)
@@ -35,10 +33,8 @@ script = ExtResource("4_vkffr")
 accepts = Array[PackedScene]([ExtResource("4_jm634")])
 scale_factor = 0.3
 
-[node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
+[node name="QuestManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("22_e03gw")
-audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
 unique_name_in_owner = true

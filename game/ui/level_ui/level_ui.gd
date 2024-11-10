@@ -9,6 +9,8 @@ func _ready() -> void:
 	# message_manager or quest_manager sends this...
 	MessageManager.quest_started.connect(add_active_quest)
 	MessageManager.quest_ended.connect(remove_quest)
+	quest_label.hide()
+	quest_label.text = ""
 
 func add_active_quest(quest:Quest):
 	quest_label.show()

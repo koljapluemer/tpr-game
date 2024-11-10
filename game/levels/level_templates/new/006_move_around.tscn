@@ -1,18 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2tpqosai0vok"]
+[gd_scene load_steps=7 format=3 uid="uid://b2tpqosai0vok"]
 
 [ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_7g4mj"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_827xq"]
 [ext_resource type="Texture2D" uid="uid://p675ghf7on41" path="res://game/images/street.webp" id="3_ktv7v"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_d0edd"]
 [ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="5_u48ho"]
-[ext_resource type="Script" path="res://game/quest_manager/quest_manager.gd" id="6_qhg2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
 size = Vector2(894, 350)
 
 [node name="Level2" type="Node2D" groups=["level_map"]]
 script = ExtResource("1_7g4mj")
-level_name = "Moving around"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 150)
@@ -42,10 +40,8 @@ script = ExtResource("4_d0edd")
 accepts = Array[PackedScene]([ExtResource("5_u48ho")])
 scale_factor = 0.15
 
-[node name="QuestManager" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
+[node name="QuestManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("6_qhg2m")
-audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
 unique_name_in_owner = true

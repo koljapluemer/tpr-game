@@ -7,7 +7,6 @@ class_name SpawnPoint extends Marker2D
 
 @export var accepts: Array[PackedScene] = []
 @export var scale_factor: float = 1
-@export var grid_pos:Vector2
 
 @export var relative_position:String
 @export var relative_position_relates_to_spawn_point:SpawnPoint
@@ -35,7 +34,6 @@ func change_scene(scene_to_init:PackedScene) -> ScrapbookObject:
 	init_scene = scene_to_init.instantiate()
 	#init_scene.scale = Vector2(scale_factor, scale_factor)
 	init_scene.z_index = z_index
-	init_scene.grid_pos = grid_pos
 	init_scene.parent_spawn_point = self
 	owner.add_child(init_scene)
 	init_scene.global_position = global_position
