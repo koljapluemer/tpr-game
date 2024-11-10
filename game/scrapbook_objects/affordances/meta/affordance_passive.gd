@@ -6,5 +6,5 @@ func _ready() -> void:
 	
 
 # override if needed (likely needed :D)
-func _on_object_dropped_on_parent(obj:ScrapbookObject):
+func _on_object_dropped_on_parent(_obj:ScrapbookObject):
 	pass

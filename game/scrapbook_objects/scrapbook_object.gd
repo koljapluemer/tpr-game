@@ -4,7 +4,6 @@ class_name ScrapbookObject extends Area2D
 ## Must be an [Area2D] to fluently allow any kind of clicking, dragging and dropping, etc.
 
 signal click_was_started
-signal click_was_released
 signal object_dropped_on_me(obj:ScrapbookObject)
 signal hover_hint_state_changed_to(active_obj:ScrapbookObject, receiving_obj:ScrapbookObject)
 
@@ -44,7 +43,7 @@ func _ready() -> void:
 	original_position = global_position
 	adapt_scale()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_moving:
 		global_position = get_global_mouse_position() + mouse_offset_when_moved
 		#adapt_scale()

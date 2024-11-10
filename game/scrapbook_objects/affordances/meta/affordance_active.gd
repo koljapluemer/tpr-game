@@ -20,7 +20,7 @@ func get_possible_passive_objects_that_affordance_can_interact_with() -> Array[S
 
 
 # override (if partners are of interest)
-func _on_object_list_changed(objects:Array[ScrapbookObject]):
+func _on_object_list_changed(_objects:Array[ScrapbookObject]):
 	pass
 	
 # override for stuff that need no partner, like mOVE or OPEN

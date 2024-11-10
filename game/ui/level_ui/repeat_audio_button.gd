@@ -11,7 +11,7 @@ func _ready() -> void:
 func _on_quest_started(quest:Quest):
 	active_quest = quest
 	
-func _on_quest_ended(quest:Quest):
+func _on_quest_ended(_quest:Quest):
 	active_quest = null
 
 
