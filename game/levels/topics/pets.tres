@@ -8,6 +8,6 @@
 script = ExtResource("1_v4bbe")
 internal_name = "pets"
 demo_image = ExtResource("1_yk3ch")
-stars_to_unlock = 20
+points_to_unlock = 0
 tutorial_levels = Array[PackedScene]([])
 level_rotation = Array[PackedScene]([ExtResource("2_qkqqr")])

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://74bbr5pqcfhx" path="res://game/scrapbook_objects/objects/dog.tscn" id="4_jm634"]
 [ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_vkffr"]
 
-[node name="Level" type="Node2D" groups=["level_map"]]
+[node name="Level2" type="Node2D" groups=["level_map"]]
 y_sort_enabled = true
 script = ExtResource("1_882on")
 

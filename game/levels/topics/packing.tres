@@ -10,6 +10,6 @@
 script = ExtResource("1_6hoq0")
 internal_name = "packing"
 demo_image = ExtResource("1_rn1ra")
-stars_to_unlock = 10
+points_to_unlock = 0
 tutorial_levels = Array[PackedScene]([])
 level_rotation = Array[PackedScene]([ExtResource("2_5p364"), ExtResource("3_c5632"), ExtResource("4_70coh")])

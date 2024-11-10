@@ -19,7 +19,7 @@ func _ready() -> void:
 		var topic_renderer = TOPIC_RENDERER.instantiate()
 		level_container.add_child(topic_renderer)
 		topic_renderer.set_topic(topic)
-		topic_renderer.set_stars(LanguageLearningDataManager.get_topic_data_by_name(topic.internal_name).stars)
+		topic_renderer.set_points(LanguageLearningDataManager.get_topic_data_by_name(topic.internal_name).points)
 		topic_renderers.append(topic_renderer)
 		if not topic_renderer.is_locked:
 			unlocked_topics.append(topic)

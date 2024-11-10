@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://byaj7uadlduet" path="res://game/scrapbook_objects/objects/building_house.tscn" id="5_oj5yf"]
 [ext_resource type="PackedScene" uid="uid://bv12y6pd2rfex" path="res://game/scrapbook_objects/objects/building_parking_lot-1.tscn" id="5_ujrjr"]
 
-[node name="Level" type="Node2D" groups=["level_map"]]
+[node name="Level2" type="Node2D" groups=["level_map"]]
 y_sort_enabled = true
 script = ExtResource("1_mchgc")
 

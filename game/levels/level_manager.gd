@@ -313,10 +313,9 @@ func _on_quest_aborted():
 	
 	
 ## react to actions not fulfilling a quest goal
-func _on_unproductive_action_registered():
-	if audio_player:
-		audio_player.stream = SOUND_WRONG_SHORT
-		audio_player.play()
+func _check_if_action_unproductive(action:Action):
+	# not sure if sound isn't just annoying
+	pass
 
 func _on_action_done(action:Action):
 	# if action happened while we were currently waiting for a quest
@@ -346,6 +345,6 @@ func _on_action_done(action:Action):
 	if action_solved_the_quest:
 		_on_quest_finished()
 	else:
-		_on_unproductive_action_registered()
+		_check_if_action_unproductive(action)
 	
 	

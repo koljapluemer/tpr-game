@@ -8,6 +8,6 @@
 script = ExtResource("1_bwnxf")
 internal_name = "basic_fruits"
 demo_image = ExtResource("1_7hyk0")
-stars_to_unlock = 0
+points_to_unlock = 0
 tutorial_levels = Array[PackedScene]([])
 level_rotation = Array[PackedScene]([ExtResource("2_ydjpy")])

@@ -11,7 +11,7 @@ var is_locked := false
 
 func set_topic(_topic:Topic):
 	topic = _topic
-	if topic.stars_to_unlock <= LanguageLearningDataManager.get_earned_stars():
+	if topic.points_to_unlock <= LanguageLearningDataManager.get_earned_points():
 		main_button.icon = _topic.demo_image
 		is_locked = false
 	else:
@@ -23,8 +23,5 @@ func set_topic(_topic:Topic):
 func _on_main_button_pressed() -> void:
 	SceneManager.change_topic_to(topic)
 
-func set_stars(nr_of_stars:int):
-	var stars_string = ""
-	for i in range(nr_of_stars):
-		stars_string += "*"
-	star_label.text = stars_string
+func set_points(nr_of_points:int):
+	star_label.text = str(nr_of_points) + ' Points'

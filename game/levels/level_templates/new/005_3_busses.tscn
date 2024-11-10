@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="5_cop3u"]
 [ext_resource type="PackedScene" uid="uid://ducm0jqonsnal" path="res://game/scrapbook_objects/objects/bus_blue.tscn" id="6_okm7p"]
 
-[node name="Level" type="Node2D" groups=["level_map"]]
+[node name="Level2" type="Node2D" groups=["level_map"]]
 script = ExtResource("1_i1bdx")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -24,9 +24,12 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "You finished the level!
+text = "You finished the level!"
 
-+1 star
+[node name="PointsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+1 star
 "
 
 [node name="ButtonPlayNext" type="Button" parent="CenterContainer/VBoxContainer"]

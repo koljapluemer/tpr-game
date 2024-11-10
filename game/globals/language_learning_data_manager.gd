@@ -44,11 +44,11 @@ func _save_data():
 		var res = ResourceSaver.save(data_set, path)
 		assert(res == OK)
 
-func earn_star_for_topic(topic:Topic):
+func earn_points_for_topic(topic:Topic, points:int):
 	# find matching TopicData, and iterate there
 	print("earned a star!")
 	var topic_data := get_topic_data_by_name(topic.internal_name)
-	topic_data.stars += 1
+	topic_data.points += points
 	
 	_save_data()
 	
@@ -66,13 +66,13 @@ func get_topic_data_by_name(topic_name:String) -> TopicData:
 	
 	return topic_data
 	
-func get_earned_stars() -> int:
+func get_earned_points() -> int:
 	var data_set:LanguageLearningData = get_data_for_language(TranslationServer.get_locale())
-	var nr_stars := 0
+	var nr_points := 0
 	if data_set.topic_data_sets:
 		for topic_data_set in data_set.topic_data_sets:
-			nr_stars += topic_data_set.stars
+			nr_points += topic_data_set.points
 		
-	print("globally, player has stars: ", nr_stars)
-	return nr_stars
+	print("globally, player has points: ", nr_points)
+	return nr_points
 	

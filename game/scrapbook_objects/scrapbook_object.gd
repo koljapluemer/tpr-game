@@ -4,6 +4,7 @@ class_name ScrapbookObject extends Area2D
 ## Must be an [Area2D] to fluently allow any kind of clicking, dragging and dropping, etc.
 
 signal click_was_started
+signal click_was_released
 signal object_dropped_on_me(obj:ScrapbookObject)
 signal hover_hint_state_changed_to(active_obj:ScrapbookObject, receiving_obj:ScrapbookObject)
 
@@ -66,6 +67,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 func _input(event):
 	if event.is_action_released("click"):
 		_stop_moving()
+		click_was_released.emit()
 
 
 func register_affordance(affordance:Affordance):

@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
 size = Vector2(894, 350)
 
-[node name="Level" type="Node2D" groups=["level_map"]]
+[node name="Level2" type="Node2D" groups=["level_map"]]
 script = ExtResource("1_o2rrk")
 
 [node name="Camera2D" type="Camera2D" parent="."]

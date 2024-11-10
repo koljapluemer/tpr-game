@@ -9,9 +9,10 @@ func _on_object_list_changed(objects:Array[ScrapbookObject]):
 	# a suitable object exists
 	var new_passive_objects_that_can_be_interacted_with_arr : Array[ScrapbookObject] = []
 	for obj in objects:
-		for affordance in obj.affordances:
-			if affordance is AffordanceIsMediumStorage:
-				new_passive_objects_that_can_be_interacted_with_arr.append(obj)
+		if is_instance_valid(obj):
+			for affordance in obj.affordances:
+				if affordance is AffordanceIsMediumStorage:
+					new_passive_objects_that_can_be_interacted_with_arr.append(obj)
 	passive_objects_that_can_be_interacted_with = new_passive_objects_that_can_be_interacted_with_arr
 
 func get_verb_key() -> String:

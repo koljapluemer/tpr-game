@@ -4,10 +4,12 @@
 ## At a later point, it may show statistics, etc.
 ## Right now, it just gives a very very simple UI allowing to go to the next level.
 extends Control
+@onready var points_label: Label = %PointsLabel
 
 func _ready() -> void:
-	LanguageLearningDataManager.earn_star_for_topic(SceneManager.current_topic)
-
+	var score = randi_range(3, 10)
+	LanguageLearningDataManager.earn_points_for_topic(SceneManager.current_topic, score)
+	points_label.text = '+' + str(score) + ' points'
 
 func _on_button_play_next_pressed() -> void:
 	SceneManager.load_play_level()

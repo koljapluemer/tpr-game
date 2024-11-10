@@ -8,6 +8,6 @@
 script = ExtResource("3_kvuxs")
 internal_name = "travel_with_car"
 demo_image = ExtResource("1_52i2m")
-stars_to_unlock = 1
+points_to_unlock = 0
 tutorial_levels = Array[PackedScene]([])
 level_rotation = Array[PackedScene]([ExtResource("1_khilo")])
