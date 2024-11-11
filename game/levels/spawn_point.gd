@@ -32,7 +32,7 @@ func change_scene_to_path(path:String) -> void:
 
 func change_scene(scene_to_init:PackedScene) -> ScrapbookObject:
 	init_scene = scene_to_init.instantiate()
-	#init_scene.scale = Vector2(scale_factor, scale_factor)
+	init_scene.scale = Vector2(scale_factor, scale_factor)
 	init_scene.z_index = z_index
 	init_scene.parent_spawn_point = self
 	owner.add_child(init_scene)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://brgh246c4iiqv"]
+[gd_scene load_steps=8 format=3 uid="uid://brgh246c4iiqv"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_8i6an"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_x1xry"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="5_5gh2n"]
 [ext_resource type="Texture2D" uid="uid://d1l3c60mdd1v8" path="res://game/images/banana_crop.webp" id="5_8yyh7"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_cutable.gd" id="5_h2tk0"]
 
@@ -34,5 +35,8 @@ script = ExtResource("4_x1xry")
 
 [node name="AffordanceIsCutable" type="Node2D" parent="." index="6"]
 script = ExtResource("5_h2tk0")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="7"]
+script = ExtResource("5_5gh2n")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -40,23 +40,23 @@ var mainly_hovered_object: ScrapbookObject
 func _ready() -> void:
 	MessageManager.object_appeared.emit(self)
 	original_position = global_position
-	adapt_scale()
+	#adapt_scale()
 
 func _process(_delta: float) -> void:
 	if is_moving:
 		global_position = get_global_mouse_position() + mouse_offset_when_moved
 		#adapt_scale()
 		
-func adapt_scale():
-	var current_y := global_position.y
-	if current_y < original_position.y:
-		var t = (current_y - y_coord_upper_screen_edge) / (original_position.y - y_coord_upper_screen_edge)
-		scale.x = lerp(1, scale_lower_bound, t) * parent_spawn_point.scale_factor
-		scale.y = lerp(1, scale_lower_bound, t) * parent_spawn_point.scale_factor
-	else:
-		var t = (current_y - original_position.y) / (y_coord_lower_screen_edge - original_position.y)
-		scale.x = lerp(1, scale_upper_bound, t) * parent_spawn_point.scale_factor
-		scale.y = lerp(1, scale_upper_bound, t) * parent_spawn_point.scale_factor
+#func adapt_scale():
+	#var current_y := global_position.y
+	#if current_y < original_position.y:
+		#var t = (current_y - y_coord_upper_screen_edge) / (original_position.y - y_coord_upper_screen_edge)
+		#scale.x = lerp(1, scale_lower_bound, t) * parent_spawn_point.scale_factor
+		#scale.y = lerp(1, scale_lower_bound, t) * parent_spawn_point.scale_factor
+	#else:
+		#var t = (current_y - original_position.y) / (y_coord_lower_screen_edge - original_position.y)
+		#scale.x = lerp(1, scale_upper_bound, t) * parent_spawn_point.scale_factor
+		#scale.y = lerp(1, scale_upper_bound, t) * parent_spawn_point.scale_factor
 
 			
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
