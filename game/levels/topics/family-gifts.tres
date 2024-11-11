@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfyce57hx5rca" path="res://game/images/gift1.png" id="1_iyxo8"]
 [ext_resource type="Script" path="res://game/levels/topic.gd" id="1_wj18j"]
-[ext_resource type="PackedScene" uid="uid://b8dk8tousd8vg" path="res://game/levels/level_templates/new/010_family.tscn" id="2_27rg3"]
+[ext_resource type="PackedScene" uid="uid://b8dk8tousd8vg" path="res://game/levels/level_templates/new/010_family-man-woman.tscn" id="2_27rg3"]
 
 [resource]
 script = ExtResource("1_wj18j")
