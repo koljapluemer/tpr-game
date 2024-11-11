@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://drgqw3uq65e6j"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_526q3"]
+[ext_resource type="Texture2D" uid="uid://cfyce57hx5rca" path="res://game/images/gift1.png" id="2_l6gba"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="3_tc0cv"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_big.gd" id="4_shl8t"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="5_eht6b"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="6_oo278"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhxh6"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqa0u"]
+size = Vector2(138, 121)
+
+[node name="ScapbookObject" instance=ExtResource("1_526q3")]
+position = Vector2(0, 4)
+word_list = Array[String](["GIFT"])
+metadata/_edit_horizontal_guides_ = [-62.0]
+metadata/_edit_vertical_guides_ = [-39.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_xhxh6")
+scale = Vector2(0.340602, 0.340602)
+texture = ExtResource("2_l6gba")
+offset = Vector2(0, -70)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-7.5, -24)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_jqa0u")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="5"]
+script = ExtResource("3_tc0cv")
+
+[node name="AffordanceStoresInBig" type="Node2D" parent="." index="6"]
+script = ExtResource("4_shl8t")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="7"]
+script = ExtResource("5_eht6b")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="8"]
+script = ExtResource("6_oo278")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

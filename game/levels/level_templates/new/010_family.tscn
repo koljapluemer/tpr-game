@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8dk8tousd8vg"]
+
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_qd8sq"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_eupij"]
+[ext_resource type="PackedScene" uid="uid://dw468otxbj4tl" path="res://game/scrapbook_objects/objects/person_woman.tscn" id="4_2hotw"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_bdfyt"]
+[ext_resource type="PackedScene" uid="uid://crd76dn7x7kk8" path="res://game/scrapbook_objects/objects/person_man.tscn" id="5_tthe2"]
+[ext_resource type="PackedScene" uid="uid://drgqw3uq65e6j" path="res://game/scrapbook_objects/objects/gift.tscn" id="6_0yiri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
+size = Vector2(894, 350)
+
+[node name="Level2" type="Node2D" groups=["level_map"]]
+script = ExtResource("1_qd8sq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_eupij")]
+unique_name_in_owner = true
+
+[node name="Background" type="Area2D" parent="." groups=["background"]]
+z_index = -100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
+position = Vector2(408, 165)
+shape = SubResource("RectangleShape2D_anpsh")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Mother" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(378, 224)
+script = ExtResource("4_bdfyt")
+accepts = Array[PackedScene]([ExtResource("4_2hotw")])
+scale_factor = 0.15
+
+[node name="Father" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(578, 224)
+script = ExtResource("4_bdfyt")
+accepts = Array[PackedScene]([ExtResource("5_tthe2")])
+scale_factor = 0.15
+
+[node name="Stuff1" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(74, 248)
+script = ExtResource("4_bdfyt")
+accepts = Array[PackedScene]([ExtResource("6_0yiri")])
+scale_factor = 0.4
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]

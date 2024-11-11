@@ -5,7 +5,7 @@
 ## be abstracted in the future.
 class_name LevelManager extends Node2D
 
-@export var debug_mode:= false
+@export var debug_mode:= true
 @export var MAX_QUESTS_PER_LEVEL := 7
 @export var DELAY_UNTIL_FIRST_QUEST := 3
 @export var audio_player:AudioStreamPlayer2D

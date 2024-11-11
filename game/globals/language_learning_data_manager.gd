@@ -45,6 +45,8 @@ func _save_data():
 		assert(res == OK)
 
 func earn_points_for_topic(topic:Topic, points:int):
+	if not topic:
+		return
 	# find matching TopicData, and iterate there
 	print("earned a star!")
 	var topic_data := get_topic_data_by_name(topic.internal_name)

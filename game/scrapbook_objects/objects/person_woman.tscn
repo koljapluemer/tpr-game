@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw468otxbj4tl"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_gqiuj"]
+[ext_resource type="Texture2D" uid="uid://bu6vmtd5agmlb" path="res://game/images/family/woman_full_sittin-1.png" id="2_ydx3b"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_small_storage.gd" id="3_bxywi"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_l2xm0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrfg6"]
+radius = 164.0
+height = 1117.0
+
+[node name="ScapbookObject" instance=ExtResource("1_gqiuj")]
+word_list = Array[String](["WOMAN"])
+metadata/_edit_vertical_guides_ = [150.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ey13n")
+scale = Vector2(2.37748, 2.37748)
+texture = ExtResource("2_ydx3b")
+offset = Vector2(0, -145)
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-78, -376)
+rotation = -0.354225
+shape = SubResource("CapsuleShape2D_nrfg6")
+
+[node name="AffordanceIsSmallStorage" type="Node2D" parent="." index="5"]
+script = ExtResource("3_bxywi")
+
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="6"]
+script = ExtResource("4_l2xm0")

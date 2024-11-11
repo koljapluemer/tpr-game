@@ -1,4 +1,6 @@
 class_name TopicRenderer extends VBoxContainer
+## Renders a single topic in the main menu.
+## Essentially a level select.
 
 const ICON_LOCK = preload("res://game/shared_assets/icon-lock.svg")
 var topic: Topic
