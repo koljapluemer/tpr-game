@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce2io2wmtgypk"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_4785q"]
+[ext_resource type="Texture2D" uid="uid://jsy5nh0tqta5" path="res://game/images/family/boy_full_2.png" id="2_17mls"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_small_storage.gd" id="3_mjs28"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_l4lau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
+size = Vector2(345, 1011.25)
+
+[node name="ScapbookObject" instance=ExtResource("1_4785q")]
+word_list = Array[String](["BOY", "CHILD"])
+metadata/_edit_vertical_guides_ = [150.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ey13n")
+scale = Vector2(1.40134, 1.40134)
+texture = ExtResource("2_17mls")
+offset = Vector2(0.68, -220)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-26.5, -305.375)
+shape = SubResource("RectangleShape2D_qg620")
+
+[node name="AffordanceIsSmallStorage" type="Node2D" parent="." index="5"]
+script = ExtResource("3_mjs28")
+
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="6"]
+script = ExtResource("4_l4lau")
