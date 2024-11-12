@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsi0f4tk2xb3h"]
+[gd_scene load_steps=7 format=3 uid="uid://bsi0f4tk2xb3h"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_v1i1r"]
 [ext_resource type="Texture2D" uid="uid://cpun13xbyov58" path="res://game/images/family/siblings1-sister.webp" id="2_5rxvd"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_small_storage.gd" id="3_jxnms"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_1itvi"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="5_78mvi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
 resource_local_to_scene = true
@@ -26,11 +25,8 @@ offset = Vector2(0.68, -220)
 position = Vector2(-155, -177)
 shape = SubResource("RectangleShape2D_qg620")
 
-[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="5"]
-script = ExtResource("5_78mvi")
-
-[node name="AffordanceIsSmallStorage" type="Node2D" parent="." index="6"]
+[node name="AffordanceIsSmallStorage" type="Node2D" parent="." index="5"]
 script = ExtResource("3_jxnms")
 
-[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="7"]
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="6"]
 script = ExtResource("4_1itvi")
