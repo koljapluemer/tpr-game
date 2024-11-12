@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu6vmtd5agmlb"
-path="res://.godot/imported/woman_full_sittin-1.png-46ead4e80e293ea100e21c8bcf719c24.ctex"
+uid="uid://gry68asaguol"
+path="res://.godot/imported/woman_semi_1.webp-40cbbf0824eb49adf96d54ab8fc423ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/family/woman_full_sittin-1.png"
-dest_files=["res://.godot/imported/woman_full_sittin-1.png-46ead4e80e293ea100e21c8bcf719c24.ctex"]
+source_file="res://game/images/family/woman_semi_1.webp"
+dest_files=["res://.godot/imported/woman_semi_1.webp-40cbbf0824eb49adf96d54ab8fc423ee.ctex"]
 
 [params]
 

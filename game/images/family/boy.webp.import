@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhc1dwowls4v0"
-path="res://.godot/imported/boy_full_4.png-3400f67edc5a004037751555ef02429c.ctex"
+uid="uid://dv05ulsjvsoc0"
+path="res://.godot/imported/boy.webp-abc4b39177dd9738102e091d8dbd3956.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/family/boy_full_4.png"
-dest_files=["res://.godot/imported/boy_full_4.png-3400f67edc5a004037751555ef02429c.ctex"]
+source_file="res://game/images/family/boy.webp"
+dest_files=["res://.godot/imported/boy.webp-abc4b39177dd9738102e091d8dbd3956.ctex"]
 
 [params]
 

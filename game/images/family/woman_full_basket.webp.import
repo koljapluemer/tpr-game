@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bashkw4dxpap6"
-path="res://.godot/imported/woman_full_basket.png-a03bfea8ba01184cc9e55823093cf590.ctex"
+uid="uid://c1adx07b57sya"
+path="res://.godot/imported/woman_full_basket.webp-c8b197a6b4f52c5e3e263412068cf105.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/family/woman_full_basket.png"
-dest_files=["res://.godot/imported/woman_full_basket.png-a03bfea8ba01184cc9e55823093cf590.ctex"]
+source_file="res://game/images/family/woman_full_basket.webp"
+dest_files=["res://.godot/imported/woman_full_basket.webp-c8b197a6b4f52c5e3e263412068cf105.ctex"]
 
 [params]
 

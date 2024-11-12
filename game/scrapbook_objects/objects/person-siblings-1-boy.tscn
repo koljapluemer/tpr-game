@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://coqhmn07b0rdg"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_64ope"]
+[ext_resource type="Texture2D" uid="uid://cgeqj6hswcwcb" path="res://game/images/family/siblings1-brother.webp" id="2_t18d5"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_small_storage.gd" id="3_3a0am"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_2ddw5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
+size = Vector2(360, 700)
+
+[node name="ScapbookObject" instance=ExtResource("1_64ope")]
+word_list = Array[String](["BROTHER"])
+metadata/_edit_vertical_guides_ = [150.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ey13n")
+scale = Vector2(1.14834, 1.14834)
+texture = ExtResource("2_t18d5")
+offset = Vector2(0.68, -220)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(142, -246)
+shape = SubResource("RectangleShape2D_qg620")
+
+[node name="AffordanceIsSmallStorage" type="Node2D" parent="." index="5"]
+script = ExtResource("3_3a0am")
+
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="6"]
+script = ExtResource("4_2ddw5")

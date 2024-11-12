@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bih50p460opct"
-path="res://.godot/imported/woman_semi_1.png-70627ff8e901dd1c4624de65efab362b.ctex"
+uid="uid://ms2fdb6txi6r"
+path="res://.godot/imported/girl.webp-71d664ef88221690f8266b0cc67f384d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/family/woman_semi_1.png"
-dest_files=["res://.godot/imported/woman_semi_1.png-70627ff8e901dd1c4624de65efab362b.ctex"]
+source_file="res://game/images/family/girl.webp"
+dest_files=["res://.godot/imported/girl.webp-71d664ef88221690f8266b0cc67f384d.ctex"]
 
 [params]
 

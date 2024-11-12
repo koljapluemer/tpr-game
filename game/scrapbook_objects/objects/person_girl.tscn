@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dr8ldn2wftues"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_x8w81"]
-[ext_resource type="Texture2D" uid="uid://ck7opjqdlx16i" path="res://game/images/family/girl.png" id="2_cl8pd"]
+[ext_resource type="Texture2D" uid="uid://ms2fdb6txi6r" path="res://game/images/family/girl.webp" id="2_55ubl"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_small_storage.gd" id="3_hkwss"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_73qbx"]
 
@@ -18,7 +18,7 @@ metadata/_edit_vertical_guides_ = [150.0]
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_ey13n")
 scale = Vector2(1.50094, 1.50093)
-texture = ExtResource("2_cl8pd")
+texture = ExtResource("2_55ubl")
 offset = Vector2(0.68, -150)
 
 [node name="CollisionShape2D" parent="." index="1"]

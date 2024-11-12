@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ilb50jh6rxbm"
-path="res://.godot/imported/man_semi_1.png-ad98e53fafffee8af33bf2e35abaabf1.ctex"
+uid="uid://pbpmedtqwidg"
+path="res://.godot/imported/man_full_1.webp-816eec9040030963e13cbfabff06e253.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/family/man_semi_1.png"
-dest_files=["res://.godot/imported/man_semi_1.png-ad98e53fafffee8af33bf2e35abaabf1.ctex"]
+source_file="res://game/images/family/man_full_1.webp"
+dest_files=["res://.godot/imported/man_full_1.webp-816eec9040030963e13cbfabff06e253.ctex"]
 
 [params]
 

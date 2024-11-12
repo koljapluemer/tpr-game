@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jsy5nh0tqta5"
-path="res://.godot/imported/boy_full_2.png-64993a5da923f98893f97ad4e71d8a61.ctex"
+uid="uid://cpun13xbyov58"
+path="res://.godot/imported/siblings1-sister.webp-beb5740fd697c7a449fe160a94038a76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/family/boy_full_2.png"
-dest_files=["res://.godot/imported/boy_full_2.png-64993a5da923f98893f97ad4e71d8a61.ctex"]
+source_file="res://game/images/family/siblings1-sister.webp"
+dest_files=["res://.godot/imported/siblings1-sister.webp-beb5740fd697c7a449fe160a94038a76.ctex"]
 
 [params]
 

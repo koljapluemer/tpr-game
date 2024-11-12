@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://crd76dn7x7kk8"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_swpyi"]
-[ext_resource type="Texture2D" uid="uid://bmvc6gjxxfim2" path="res://game/images/family/man_full_1.png" id="2_bvgsa"]
+[ext_resource type="Texture2D" uid="uid://pbpmedtqwidg" path="res://game/images/family/man_full_1.webp" id="2_ffmne"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_small_storage.gd" id="3_u63kc"]
 [ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_u3qfh"]
 
@@ -18,7 +18,7 @@ metadata/_edit_vertical_guides_ = [150.0]
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_ey13n")
 scale = Vector2(2.66366, 2.66366)
-texture = ExtResource("2_bvgsa")
+texture = ExtResource("2_ffmne")
 offset = Vector2(0.68, -220)
 
 [node name="CollisionShape2D" parent="." index="1"]

@@ -1,3 +1,4 @@
+## allows fitting objects to disappear on drop on this object
 class_name AffordanceIsBigStorage extends AffordancePassive
 
 
