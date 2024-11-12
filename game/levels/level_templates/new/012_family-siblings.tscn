@@ -19,20 +19,6 @@ unique_name_in_owner = true
 [node name="SpawnPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Stuff1" type="Marker2D" parent="SpawnPoints"]
-z_index = 7
-position = Vector2(74, 248)
-script = ExtResource("3_vih5k")
-accepts = Array[PackedScene]([ExtResource("6_7hiad")])
-scale_factor = 0.4
-
-[node name="Stuff2" type="Marker2D" parent="SpawnPoints"]
-z_index = 7
-position = Vector2(133, 265)
-script = ExtResource("3_vih5k")
-accepts = Array[PackedScene]([ExtResource("6_7hiad")])
-scale_factor = 0.4
-
 [node name="sibling" type="Marker2D" parent="SpawnPoints"]
 z_index = 7
 position = Vector2(541, 258)
@@ -45,6 +31,20 @@ z_index = 7
 position = Vector2(542, 258)
 script = ExtResource("3_vih5k")
 accepts = Array[PackedScene]([ExtResource("6_vwfys")])
+scale_factor = 0.4
+
+[node name="Stuff1" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(74, 248)
+script = ExtResource("3_vih5k")
+accepts = Array[PackedScene]([ExtResource("6_7hiad")])
+scale_factor = 0.4
+
+[node name="Stuff2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(133, 265)
+script = ExtResource("3_vih5k")
+accepts = Array[PackedScene]([ExtResource("6_7hiad")])
 scale_factor = 0.4
 
 [node name="QuestManager" type="Node" parent="."]
