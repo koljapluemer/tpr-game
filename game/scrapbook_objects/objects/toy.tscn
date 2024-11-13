@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1eo851jcb83q"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_5y2m7"]
+[ext_resource type="Texture2D" uid="uid://bjq22kb8h6gsu" path="res://game/images/toy1.webp" id="2_oxqhn"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="3_hfsbr"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_31075"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="5_elui0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
+radius = 35.0135
+height = 94.1952
+
+[node name="ScapbookObject" instance=ExtResource("1_5y2m7")]
+position = Vector2(0, 4)
+word_list = Array[String](["TOY"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_08ks4")
+scale = Vector2(0.166282, 0.166282)
+texture = ExtResource("2_oxqhn")
+offset = Vector2(0, -130)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-2, -14)
+rotation = 3.11985
+shape = SubResource("CapsuleShape2D_6fcro")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("3_hfsbr")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("4_31075")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="7"]
+script = ExtResource("5_elui0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
