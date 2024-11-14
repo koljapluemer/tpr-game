@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhsluhd15h3fi"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_n7pm3"]
+[ext_resource type="Texture2D" uid="uid://b0sn3paiew7hf" path="res://game/images/wedding-rings.webp" id="2_otf88"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="3_arpy3"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_big.gd" id="4_gg5pp"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="5_oxbpa"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="6_s8dbj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhxh6"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqa0u"]
+size = Vector2(14.9999, 20.0001)
+
+[node name="ScapbookObject" instance=ExtResource("1_n7pm3")]
+position = Vector2(0, 4)
+word_list = Array[String](["WEDDING_RINGS"])
+metadata/_edit_horizontal_guides_ = [-62.0]
+metadata/_edit_vertical_guides_ = [-39.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_xhxh6")
+scale = Vector2(0.164883, 0.164883)
+texture = ExtResource("2_otf88")
+offset = Vector2(0, -30)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -4.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_jqa0u")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="5"]
+script = ExtResource("3_arpy3")
+
+[node name="AffordanceStoresInBig" type="Node2D" parent="." index="6"]
+script = ExtResource("4_gg5pp")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="7"]
+script = ExtResource("5_oxbpa")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="8"]
+script = ExtResource("6_s8dbj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
