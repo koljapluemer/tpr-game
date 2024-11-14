@@ -94,4 +94,4 @@ locale/translations=PackedStringArray("res://game/language/translation_text/tpr-
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.973535, 0.973535, 0.973535, 1)
+environment/defaults/default_clear_color=Color(0.881935, 0.881937, 0.881937, 1)

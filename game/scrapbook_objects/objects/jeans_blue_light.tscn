@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://ino1pkd6ed4m"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_pfvg0"]
+[ext_resource type="Texture2D" uid="uid://m1ykcu3bfdj" path="res://game/images/coat_rack/jeans-blue-light.webp" id="2_i5s2p"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="3_rseux"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_cm1ok"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_hangable.gd" id="5_hibgi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
+radius = 16.0
+height = 78.0
+
+[node name="ScapbookObject" instance=ExtResource("1_pfvg0")]
+word_list = Array[String](["JEANS"])
+color = "LIGHT_BLUE"
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ii3d8")
+scale = Vector2(0.206629, 0.206629)
+texture = ExtResource("2_i5s2p")
+offset = Vector2(0, 197)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2, 43)
+shape = SubResource("CapsuleShape2D_u7q7t")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("3_rseux")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("4_cm1ok")
+
+[node name="AffordanceHangable" type="Node2D" parent="." index="7"]
+script = ExtResource("5_hibgi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5qej8r8npt7q"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_u14cb"]
+[ext_resource type="Texture2D" uid="uid://b3ome42awny3p" path="res://game/images/coat_rack/clothes_line.webp" id="2_1lqpa"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_can_hang_things.gd" id="3_fmkn7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2h0w5"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
+size = Vector2(459, 37)
+
+[node name="ScapbookObject" instance=ExtResource("1_u14cb")]
+word_list = Array[String](["CLOTHES_LINE"])
+metadata/_edit_vertical_guides_ = [150.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_2h0w5")
+scale = Vector2(0.512902, 0.512902)
+texture = ExtResource("2_1lqpa")
+offset = Vector2(-20, 0)
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2(-5, -30)
+shape = SubResource("RectangleShape2D_qg620")
+
+[node name="HangPoint" type="Marker2D" parent="." index="5"]
+position = Vector2(-72, -37)
+
+[node name="HangPoint2" type="Marker2D" parent="." index="6"]
+position = Vector2(-38, -40)
+
+[node name="HangPoint3" type="Marker2D" parent="." index="7"]
+position = Vector2(41, -43)
+
+[node name="HangPoint4" type="Marker2D" parent="." index="8"]
+position = Vector2(-12, -41)
+
+[node name="HangPoint5" type="Marker2D" parent="." index="9"]
+position = Vector2(16, -42)
+
+[node name="HangPoint6" type="Marker2D" parent="." index="10"]
+position = Vector2(-72, -22)
+
+[node name="HangPoint7" type="Marker2D" parent="." index="11"]
+position = Vector2(-38, -25)
+
+[node name="HangPoint8" type="Marker2D" parent="." index="12"]
+position = Vector2(41, -28)
+
+[node name="HangPoint9" type="Marker2D" parent="." index="13"]
+position = Vector2(-12, -26)
+
+[node name="HangPoint10" type="Marker2D" parent="." index="14"]
+position = Vector2(16, -27)
+
+[node name="HangPoint11" type="Marker2D" parent="." index="15"]
+position = Vector2(72, -41)
+
+[node name="HangPoint12" type="Marker2D" parent="." index="16"]
+position = Vector2(106, -44)
+
+[node name="HangPoint13" type="Marker2D" parent="." index="17"]
+position = Vector2(185, -47)
+
+[node name="HangPoint14" type="Marker2D" parent="." index="18"]
+position = Vector2(132, -45)
+
+[node name="HangPoint15" type="Marker2D" parent="." index="19"]
+position = Vector2(160, -46)
+
+[node name="HangPoint16" type="Marker2D" parent="." index="20"]
+position = Vector2(72, -26)
+
+[node name="HangPoint17" type="Marker2D" parent="." index="21"]
+position = Vector2(106, -29)
+
+[node name="HangPoint18" type="Marker2D" parent="." index="22"]
+position = Vector2(185, -32)
+
+[node name="HangPoint19" type="Marker2D" parent="." index="23"]
+position = Vector2(132, -30)
+
+[node name="HangPoint20" type="Marker2D" parent="." index="24"]
+position = Vector2(160, -31)
+
+[node name="AffordanceCanHangThings" type="Node2D" parent="." index="25" node_paths=PackedStringArray("points")]
+script = ExtResource("3_fmkn7")
+points = [NodePath("../HangPoint"), NodePath("../HangPoint2"), NodePath("../HangPoint3"), NodePath("../HangPoint4"), NodePath("../HangPoint5"), NodePath("../HangPoint6"), NodePath("../HangPoint7"), NodePath("../HangPoint8"), NodePath("../HangPoint9"), NodePath("../HangPoint10"), NodePath("../HangPoint11"), NodePath("../HangPoint12"), NodePath("../HangPoint13"), NodePath("../HangPoint14"), NodePath("../HangPoint15"), NodePath("../HangPoint16"), NodePath("../HangPoint17"), NodePath("../HangPoint18"), NodePath("../HangPoint19"), NodePath("../HangPoint20")]
