@@ -8,22 +8,32 @@ class_name SpawnPoint extends Marker2D
 @export var accepts: Array[PackedScene] = []
 @export var scale_factor: float = 1
 
+
+@export var uniqueness_id:String
 @export var relative_position:String
 @export var relative_position_relates_to_spawn_point:SpawnPoint
 
 var init_scene: ScrapbookObject
+var used_packed_scene: PackedScene
 
 func _ready() -> void:
 	pass
 
 
 func spawn_in_random_object() -> ScrapbookObject:
-	var scene_to_init:PackedScene = accepts.pick_random()
+	var acceptable_scenes := accepts
+	if len(uniqueness_id) > 0:
+		add_to_group(uniqueness_id)
+		for other_spawn_point_with_same_id : SpawnPoint in get_tree().get_nodes_in_group(uniqueness_id):
+			acceptable_scenes.erase(other_spawn_point_with_same_id.used_packed_scene)
+	
+	var scene_to_init:PackedScene = acceptable_scenes.pick_random()
 	Logger.log(0, name + ": randomly selected scene to init: " + str(scene_to_init), ["SPAWN"])
 	if not scene_to_init:
 		push_warning(name, ": no scenes set to spawn")
 		return null
 	else:
+		used_packed_scene = scene_to_init
 		return change_scene(scene_to_init)
 	
 

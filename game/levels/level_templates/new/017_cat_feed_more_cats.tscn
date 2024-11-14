@@ -28,6 +28,7 @@ position = Vector2(321, 182)
 script = ExtResource("3_knluw")
 accepts = Array[PackedScene]([ExtResource("4_btsr8"), ExtResource("5_vbppv"), ExtResource("6_pev4n"), ExtResource("7_02yev")])
 scale_factor = 3.5
+uniqueness_id = "cat"
 
 [node name="dog3" type="Marker2D" parent="SpawnPoints"]
 z_index = 1
@@ -35,6 +36,7 @@ position = Vector2(593, 182)
 script = ExtResource("3_knluw")
 accepts = Array[PackedScene]([ExtResource("4_btsr8"), ExtResource("5_vbppv"), ExtResource("6_pev4n"), ExtResource("7_02yev")])
 scale_factor = 3.5
+uniqueness_id = "cat"
 
 [node name="dog2" type="Marker2D" parent="SpawnPoints"]
 z_index = 1
@@ -42,6 +44,7 @@ position = Vector2(457, 182)
 script = ExtResource("3_knluw")
 accepts = Array[PackedScene]([ExtResource("4_btsr8"), ExtResource("5_vbppv"), ExtResource("6_pev4n"), ExtResource("7_02yev")])
 scale_factor = 3.5
+uniqueness_id = "cat"
 
 [node name="feed" type="Marker2D" parent="SpawnPoints"]
 z_index = 3
