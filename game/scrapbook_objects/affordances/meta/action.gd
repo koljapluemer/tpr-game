@@ -9,6 +9,7 @@ var active_object_identifiers: Array[String] = []
 var passive_object_identifiers: Array[String] = []
 
 var verb_key: String
+var usable_for_quest:bool
 
 
 func _to_string() -> String:

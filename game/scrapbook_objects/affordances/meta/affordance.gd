@@ -1,6 +1,7 @@
 class_name Affordance extends Node2D
 
 var parent:ScrapbookObject
+@export var can_be_used_for_quests:= true
 
 func _ready() -> void:
 	parent = get_parent()

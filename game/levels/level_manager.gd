@@ -106,6 +106,7 @@ func _get_possible_actions() -> Array[Action]:
 				var possible_partners = affordance.get_possible_passive_objects_that_affordance_can_interact_with()
 				for partner in possible_partners:
 					var action := Action.new()
+					action.usable_for_quest = affordance.can_be_used_for_quests
 					action.active_object = obj
 					if obj:
 						action.active_object_identifiers = obj.get_identifiers()
@@ -161,6 +162,8 @@ func _get_possible_quest_list() -> Array[Quest]:
 	var actions = _get_possible_actions()
 	print("about to generate quests, found actions: ", len(actions))
 	for action in actions:
+		if not action.usable_for_quest:
+			continue
 		var possible_keys_of_passive_object: Array[String] = []
 		var possible_keys_of_active_object :Array[String]= action.active_object_identifiers
 		

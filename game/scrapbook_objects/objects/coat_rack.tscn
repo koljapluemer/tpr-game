@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://drh6mhxynauk4"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_py22y"]
+[ext_resource type="Texture2D" uid="uid://be6ewe5eu2jlm" path="res://game/images/coat_rack/coat_rack.webp" id="2_6mnv3"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_can_hang_things.gd" id="3_hckwv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2h0w5"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg620"]
+size = Vector2(249, 37)
+
+[node name="ScapbookObject" instance=ExtResource("1_py22y")]
+word_list = Array[String](["COAT_RACK"])
+metadata/_edit_vertical_guides_ = [150.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_2h0w5")
+scale = Vector2(0.512902, 0.512902)
+texture = ExtResource("2_6mnv3")
+offset = Vector2(-20, 0)
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2(6.5, -11.5)
+shape = SubResource("RectangleShape2D_qg620")
+
+[node name="HangPoint" type="Marker2D" parent="." index="5"]
+position = Vector2(-41, 3)
+
+[node name="HangPoint2" type="Marker2D" parent="." index="6"]
+position = Vector2(-19, 3)
+
+[node name="HangPoint3" type="Marker2D" parent="." index="7"]
+position = Vector2(3, 3)
+
+[node name="HangPoint4" type="Marker2D" parent="." index="8"]
+position = Vector2(26, 4)
+
+[node name="HangPoint5" type="Marker2D" parent="." index="9"]
+position = Vector2(49, 3)
+
+[node name="AffordanceCanHangThings" type="Node2D" parent="." index="10" node_paths=PackedStringArray("points")]
+script = ExtResource("3_hckwv")
+points = [NodePath("../HangPoint"), NodePath("../HangPoint2"), NodePath("../HangPoint3"), NodePath("../HangPoint4"), NodePath("../HangPoint5")]

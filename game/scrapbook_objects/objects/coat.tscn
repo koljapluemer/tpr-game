@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://bm7hml3hri2v"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_1j75j"]
+[ext_resource type="Texture2D" uid="uid://djqr2wjlteia5" path="res://game/images/coat_rack/coat_hanging.webp" id="2_8kypp"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="3_g4kb4"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_0u8kn"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="5_7pr2u"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_hangable.gd" id="6_nlswp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
+radius = 28.0
+height = 126.0
+
+[node name="ScapbookObject" instance=ExtResource("1_1j75j")]
+word_list = Array[String](["COAT"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ii3d8")
+scale = Vector2(0.318039, 0.318039)
+texture = ExtResource("2_8kypp")
+offset = Vector2(45, 200)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(6, 62)
+shape = SubResource("CapsuleShape2D_u7q7t")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("3_g4kb4")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("4_0u8kn")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="7"]
+script = ExtResource("5_7pr2u")
+
+[node name="AffordanceHangable" type="Node2D" parent="." index="8"]
+script = ExtResource("6_nlswp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
