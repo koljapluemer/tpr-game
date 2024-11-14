@@ -15,7 +15,7 @@ func _on_click() -> void:
 		click_in_action = true
 		_report_action(parent, null)
 		if scene_to_load_in_on_close:
-			print("loading close scene")
+
 			var spawn_point := parent.parent_spawn_point
 			MessageManager.object_disappeared.emit(parent)
 			parent.queue_free()

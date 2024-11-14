@@ -11,7 +11,7 @@ func _ready() -> void:
 func get_possible_passive_objects_that_affordance_can_interact_with() -> Array[ScrapbookObject]:
 	var objects: Array[ScrapbookObject] = []
 	if get_is_independent():
-		print("appending null")
+
 		objects.append(null)
 	for obj in passive_objects_that_can_be_interacted_with:
 		if is_instance_valid(obj):

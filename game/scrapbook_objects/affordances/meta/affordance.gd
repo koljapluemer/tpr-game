@@ -8,7 +8,7 @@ func _ready() -> void:
 	parent.register_affordance(self)
 
 func _report_action(active_object:ScrapbookObject, passive_object:ScrapbookObject) -> void:
-	print("reporting action")
+
 	
 	var action:= Action.new()
 	action.active_object = active_object

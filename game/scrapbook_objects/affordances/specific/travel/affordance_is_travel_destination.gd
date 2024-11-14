@@ -8,7 +8,7 @@ func _ready() -> void:
 func _on_object_dropped_on_parent(obj:ScrapbookObject):
 	for affordance in obj.affordances:
 		if affordance is AffordanceTravels:
-			print("something traveled here")
+
 			_report_action(obj, parent)
 
 

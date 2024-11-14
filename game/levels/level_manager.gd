@@ -60,7 +60,7 @@ func _register_scrapbook_obj(obj:ScrapbookObject):
 
 
 func _on_hover_hint_state_changed_to(active_obj:ScrapbookObject, passive_obj:ScrapbookObject):
-	print("hover state changed: ", active_obj, passive_obj)
+
 	for obj in scrapbook_objects:
 		if is_instance_valid(obj):
 			if not active_obj and not passive_obj:
@@ -145,7 +145,7 @@ func check_if_active_quest_is_still_possible():
 				break
 			
 	if not active_quest_is_possible:
-		print("QUEST DEEMED IMPOSSIBLE")
+
 		_on_quest_aborted()
 
 
@@ -154,13 +154,13 @@ func _get_possible_quest_list() -> Array[Quest]:
 	analyze_special_wording_opportunities()
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
-		print("as many quests done as planned")
+
 		SceneManager.load_end_level_screen()
 		return []
 	
 	var possible_quests:Array[Quest] = []
 	var actions = _get_possible_actions()
-	print("about to generate quests, found actions: ", len(actions))
+
 	for action in actions:
 		if not action.usable_for_quest:
 			continue
@@ -199,7 +199,7 @@ func _get_possible_quest_list() -> Array[Quest]:
 					qu.required_passive_object_key = passive_key
 					qu.required_verb = action.verb_key
 					if LanguageManager.check_for_matching_audio(str(qu)):
-						print("q:", str(qu))
+
 						possible_quests.append(qu)
 		else:
 			for active_key in possible_keys_of_active_object:
@@ -212,16 +212,13 @@ func _get_possible_quest_list() -> Array[Quest]:
 	
 	# TODO: this returns 0, track down why!
 	# (probably to do with the action rework?)
-	print("found possible quests:", len(possible_quests))		
+
 	return possible_quests
 
 func request_new_quest():
 	if not currently_waiting_for_next_quest_to_start and not active_quest:
 		currently_waiting_for_next_quest_to_start = true
 		get_tree().create_timer(1.5).timeout.connect(start_random_quest)
-	else:
-		print("something requested next quest, but we already have one or are waiting for one")
-	
 
 
 func start_random_quest():
@@ -240,7 +237,7 @@ func start_random_quest():
 		
 		LanguageManager.play_audio_for_key(str(quest))
 	else:
-		print("no quest found that could be started")
+
 		if not debug_mode:
 			SceneManager.load_end_level_screen()
 

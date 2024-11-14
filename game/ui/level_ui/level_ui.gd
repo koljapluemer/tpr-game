@@ -15,7 +15,7 @@ func _ready() -> void:
 func add_active_quest(quest:Quest):
 	quest_label.show()
 	var translation = TranslationServer.translate(str(quest))
-	print("translation ", translation, TranslationServer.get_locale())
+
 	quest_label.text = translation
 
 func remove_quest(_quest:Quest):

@@ -37,7 +37,7 @@ func _on_change_lang_button_pressed() -> void:
 	SceneManager.load_language_change_screen()
 
 func _on_topic_changed(topic:Topic):
-	print('reacting to topic change')
+
 	for topic_renderer in topic_renderers:
 		if SceneManager.current_topic == topic_renderer.topic:
 			topic_renderer.main_button.button_pressed = true

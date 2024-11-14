@@ -17,7 +17,7 @@ func get_data_for_language(_language_code:String) -> LanguageLearningData:
 	for data_set in learning_data_sets:
 		if data_set.language_code == _language_code:
 			relevant_data_res = data_set
-			print("found dataset already loaded")
+
 			break
 	# if that hasn't happened, see if we have a saved file
 	if not relevant_data_res:
@@ -27,13 +27,13 @@ func get_data_for_language(_language_code:String) -> LanguageLearningData:
 			if _data_set is LanguageLearningData:
 				relevant_data_res = _data_set
 				learning_data_sets.append(_data_set)
-				print("loaded dataset from disk")
+
 		else:
 			relevant_data_res = LanguageLearningData.new()
 			relevant_data_res.language_code = _language_code
 			learning_data_sets.append(relevant_data_res)
 	
-	print("returning rel data set", relevant_data_res)
+
 	return relevant_data_res
 
 func _save_data():
@@ -48,7 +48,7 @@ func earn_points_for_topic(topic:Topic, points:int):
 	if not topic:
 		return
 	# find matching TopicData, and iterate there
-	print("earned a star!")
+
 	var topic_data := get_topic_data_by_name(topic.internal_name)
 	topic_data.points += points
 	
@@ -75,6 +75,6 @@ func get_earned_points() -> int:
 		for topic_data_set in data_set.topic_data_sets:
 			nr_points += topic_data_set.points
 		
-	print("globally, player has points: ", nr_points)
+
 	return nr_points
 	

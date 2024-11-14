@@ -1,6 +1,6 @@
 extends Node
 
-const log_level := 1
+const log_level := 5
 
 func log(level: int, message:String, tags:=[]):
 	if level >= log_level:
@@ -11,4 +11,3 @@ func log(level: int, message:String, tags:=[]):
 		var tags_printed = ""
 		for tag in tags:
 			tags_printed += tag + " "
-		print(1,timestamp + " — " + line + " — " + function  + " — " + message + " — " + tags_printed)
