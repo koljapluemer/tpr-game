@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://2u02ps8an526"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_21rs7"]
+[ext_resource type="Texture2D" uid="uid://lmded4mmjqia" path="res://game/images/hair/woman-hair-blonde.webp" id="2_bfv8g"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_small_storage.gd" id="3_3ik87"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="4_d0mul"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_dryable.gd" id="5_itbwk"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_brushable.gd" id="6_01axy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey13n"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrfg6"]
+radius = 206.0
+height = 466.0
+
+[node name="ScapbookObject" instance=ExtResource("1_21rs7")]
+word_list = Array[String](["WOMAN_HAIR_BLONDE", "WOMAN"])
+metadata/_edit_vertical_guides_ = [150.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ey13n")
+scale = Vector2(0.85582, 0.85582)
+texture = ExtResource("2_bfv8g")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(17, -180)
+shape = SubResource("CapsuleShape2D_nrfg6")
+
+[node name="AffordanceIsSmallStorage" type="Node2D" parent="." index="5"]
+script = ExtResource("3_3ik87")
+
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="6"]
+script = ExtResource("4_d0mul")
+
+[node name="AffordanceDryable" type="Node2D" parent="." index="7"]
+script = ExtResource("5_itbwk")
+
+[node name="AffordanceBrushable" type="Node2D" parent="." index="8"]
+script = ExtResource("6_01axy")

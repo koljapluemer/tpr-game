@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7t0mewe2l2kg"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_s5xbk"]
+[ext_resource type="Texture2D" uid="uid://y1yvts4wq0pj" path="res://game/images/hair/towels-folded.webp" id="2_hcagh"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="3_nuv71"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_k3aw5"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="5_t2bli"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_dries.gd" id="6_7xauw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
+radius = 11.0
+height = 36.0
+
+[node name="ScapbookObject" instance=ExtResource("1_s5xbk")]
+position = Vector2(0, 4)
+word_list = Array[String](["HAIR_DRYER"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_08ks4")
+scale = Vector2(0.102823, 0.102823)
+texture = ExtResource("2_hcagh")
+offset = Vector2(0, -100)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6fcro")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("3_nuv71")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("4_k3aw5")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="7"]
+script = ExtResource("5_t2bli")
+
+[node name="AffordanceDries" type="Node2D" parent="." index="8"]
+script = ExtResource("6_7xauw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

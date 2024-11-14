@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://clf8mmo02isxg"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_jm21v"]
+[ext_resource type="Texture2D" uid="uid://bb263wr4tqnkc" path="res://game/images/hair/comb.webp" id="2_o5ory"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="3_tseth"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_bnl35"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="5_1wydv"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_brushes.gd" id="6_nhexb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
+radius = 7.0681
+height = 30.9234
+
+[node name="ScapbookObject" instance=ExtResource("1_jm21v")]
+position = Vector2(0, 4)
+word_list = Array[String](["COMB"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_08ks4")
+scale = Vector2(0.166282, 0.166282)
+texture = ExtResource("2_o5ory")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 1)
+rotation = 1.39995
+shape = SubResource("CapsuleShape2D_6fcro")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("3_tseth")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("4_bnl35")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="7"]
+script = ExtResource("5_1wydv")
+
+[node name="AffordanceBrushes" type="Node2D" parent="." index="8"]
+script = ExtResource("6_nhexb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

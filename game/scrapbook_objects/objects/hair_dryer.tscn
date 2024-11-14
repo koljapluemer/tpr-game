@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://ce4e1png6xss1"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_7um1l"]
+[ext_resource type="Texture2D" uid="uid://b2f5h8wimhbo2" path="res://game/images/hair/hair-dryer.webp" id="2_quuih"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="3_vfv07"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_wrgoy"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="5_w5b3q"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_dries.gd" id="6_rfqyt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08ks4"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcro"]
+radius = 24.0
+height = 58.0
+
+[node name="ScapbookObject" instance=ExtResource("1_7um1l")]
+position = Vector2(0, 4)
+word_list = Array[String](["HAIR_DRYER"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_08ks4")
+rotation = 1.12768
+scale = Vector2(0.0703389, 0.0703389)
+texture = ExtResource("2_quuih")
+offset = Vector2(0, -100)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(3, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6fcro")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("3_vfv07")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("4_wrgoy")
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="7"]
+script = ExtResource("5_w5b3q")
+
+[node name="AffordanceDries" type="Node2D" parent="." index="8"]
+script = ExtResource("6_rfqyt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
