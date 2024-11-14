@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6wg44kgxl2qj"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_a4vbd"]
+[ext_resource type="Texture2D" uid="uid://orxamh2chkeb" path="res://game/images/cats-eyes/cat_eyes_green.webp" id="2_kbldt"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_feedable.gd" id="3_7vtxg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
+radius = 17.0
+height = 38.0
+
+[node name="ScapbookObject" instance=ExtResource("1_a4vbd")]
+position = Vector2(0, 4)
+word_list = Array[String](["CAT"])
+color = "BLACK_WHITE"
+secondary_color = "GREEN"
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ii3d8")
+scale = Vector2(0.111, 0.111)
+texture = ExtResource("2_kbldt")
+offset = Vector2(0, -130)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(3, -12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u7q7t")
+
+[node name="AffordanceIsFeedable" type="Node2D" parent="." index="5"]
+script = ExtResource("3_7vtxg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
