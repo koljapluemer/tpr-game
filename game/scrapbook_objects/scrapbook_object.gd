@@ -12,6 +12,7 @@ signal hover_hint_state_changed_to(active_obj:ScrapbookObject, receiving_obj:Scr
 ## Likely nouns, such as CAR, TAXI, VEHICLE
 @export var word_list: Array[String]
 @export var color: String
+@export var secondary_color: String
 
 const y_coord_upper_screen_edge = 0
 const y_coord_lower_screen_edge = 300 

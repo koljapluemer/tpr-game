@@ -265,6 +265,7 @@ func analyze_special_wording_opportunities():
 				ids.append(INDEFINITE_ARTICLE+ word)
 		
 		# find objects that have the same word, but different color
+		# TODO: kill it when there is another object with same name that doesn't have the prop
 		if obj.color != "":
 			for word in obj.word_list:
 				var color_count = {}
@@ -283,6 +284,26 @@ func analyze_special_wording_opportunities():
 					else:
 						# the object, with this word, is one of several with this color
 						ids.append(INDEFINITE_ARTICLE + word + "__" + obj.color)
+						
+		# secondary color: e.g. eye color etc, let's see if useful to keep this abstract
+		if obj.secondary_color != "":
+			for word in obj.word_list:
+				var color_count = {}
+				for comparison_obj:ScrapbookObject in scrapbook_objects:
+					if not is_instance_valid(comparison_obj):
+						continue
+					if comparison_obj.word_list.has(word):
+						if color_count.has(comparison_obj.secondary_color):
+							color_count[comparison_obj.secondary_color] += 1
+						else:
+							color_count[comparison_obj.secondary_color] = 1
+				if len(color_count) > 1:
+					if color_count[obj.secondary_color] == 1:
+						# the object, with this word, is the only one with this color
+						ids.append(DEFINITE_ARTICLE+ word + "__SECONDARY_" + obj.secondary_color)
+					else:
+						# the object, with this word, is one of several with this color
+						ids.append(INDEFINITE_ARTICLE + word + "__SECONDARY_" + obj.secondary_color)
 		
 		# crudely filter for unique values
 		obj.sensible_identifiers = []
