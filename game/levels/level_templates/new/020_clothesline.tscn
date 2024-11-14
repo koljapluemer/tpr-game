@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo4lsh601x68k"]
+[gd_scene load_steps=11 format=3 uid="uid://bo4lsh601x68k"]
 
 [ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_sh5t0"]
 [ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_kyuw3"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cf3kusnd8fift" path="res://game/scrapbook_objects/objects/jeans_blue_dark.tscn" id="5_t5utd"]
 [ext_resource type="PackedScene" uid="uid://ino1pkd6ed4m" path="res://game/scrapbook_objects/objects/jeans_blue_light.tscn" id="6_kbtkb"]
 [ext_resource type="PackedScene" uid="uid://hry8ajw6v2bf" path="res://game/scrapbook_objects/objects/shirt.tscn" id="7_lc7gb"]
-[ext_resource type="PackedScene" uid="uid://cut2n8iehe2v5" path="res://game/scrapbook_objects/objects/jacked_sakko.tscn" id="8_sdi2p"]
+[ext_resource type="PackedScene" uid="uid://cut2n8iehe2v5" path="res://game/scrapbook_objects/objects/jacket_sakko.tscn" id="8_sdi2p"]
+[ext_resource type="PackedScene" uid="uid://b6nyd511ur4ek" path="res://game/scrapbook_objects/objects/kuffiyyeh.tscn" id="9_24pl5"]
+[ext_resource type="PackedScene" uid="uid://dnai3by72rmhg" path="res://game/scrapbook_objects/objects/dress.tscn" id="10_y1lgj"]
 
 [node name="Level2" type="Node2D" groups=["level_map"]]
 script = ExtResource("1_sh5t0")
@@ -22,7 +24,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="hanger" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(373, 128)
+position = Vector2(373, 93)
 script = ExtResource("3_b655f")
 accepts = Array[PackedScene]([ExtResource("4_skygw")])
 scale_factor = 1.2
@@ -31,28 +33,42 @@ scale_factor = 1.2
 z_index = 1
 position = Vector2(588, 228)
 script = ExtResource("3_b655f")
-accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p")])
+accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p"), ExtResource("9_24pl5"), ExtResource("10_y1lgj")])
 scale_factor = 1.8
 
 [node name="stuff2" type="Marker2D" parent="SpawnPoints"]
 z_index = 1
-position = Vector2(500, 228)
+position = Vector2(508, 244)
 script = ExtResource("3_b655f")
-accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p")])
+accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p"), ExtResource("9_24pl5"), ExtResource("10_y1lgj")])
 scale_factor = 1.8
 
 [node name="stuff3" type="Marker2D" parent="SpawnPoints"]
 z_index = 1
-position = Vector2(540, 196)
+position = Vector2(388, 228)
 script = ExtResource("3_b655f")
-accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p")])
+accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p"), ExtResource("9_24pl5"), ExtResource("10_y1lgj")])
 scale_factor = 1.8
 
 [node name="stuff4" type="Marker2D" parent="SpawnPoints"]
 z_index = 1
-position = Vector2(660, 196)
+position = Vector2(308, 244)
 script = ExtResource("3_b655f")
-accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p")])
+accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p"), ExtResource("9_24pl5"), ExtResource("10_y1lgj")])
+scale_factor = 1.8
+
+[node name="stuff5" type="Marker2D" parent="SpawnPoints"]
+z_index = 1
+position = Vector2(180, 228)
+script = ExtResource("3_b655f")
+accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p"), ExtResource("9_24pl5"), ExtResource("10_y1lgj")])
+scale_factor = 1.8
+
+[node name="stuff6" type="Marker2D" parent="SpawnPoints"]
+z_index = 1
+position = Vector2(100, 244)
+script = ExtResource("3_b655f")
+accepts = Array[PackedScene]([ExtResource("5_t5utd"), ExtResource("6_kbtkb"), ExtResource("7_lc7gb"), ExtResource("8_sdi2p"), ExtResource("9_24pl5"), ExtResource("10_y1lgj")])
 scale_factor = 1.8
 
 [node name="QuestManager" type="Node" parent="."]
