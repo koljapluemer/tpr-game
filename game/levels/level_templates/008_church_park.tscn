@@ -11,6 +11,7 @@
 [node name="Level2" type="Node2D" groups=["level_map"]]
 y_sort_enabled = true
 script = ExtResource("1_srl5o")
+MAX_QUESTS_PER_LEVEL = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 150)

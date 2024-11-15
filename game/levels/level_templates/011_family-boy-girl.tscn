@@ -62,7 +62,7 @@ scale_factor = 0.4
 z_index = 7
 position = Vector2(212, 253)
 script = ExtResource("3_gkno6")
-accepts = Array[PackedScene]([ExtResource("6_vddah")])
+accepts = Array[PackedScene]([ExtResource("6_vddah"), ExtResource("7_wl1ev")])
 scale_factor = 0.4
 
 [node name="QuestManager" type="Node" parent="."]
@@ -70,10 +70,5 @@ unique_name_in_owner = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
 unique_name_in_owner = true
-
-[node name="ScapbookObject" parent="." instance=ExtResource("7_wl1ev")]
-z_index = 10
-position = Vector2(265, 278)
-scale = Vector2(0.4, 0.4)
 
 [editable path="CanvasLayer"]

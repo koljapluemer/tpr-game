@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelsList" load_steps=15 format=3 uid="uid://wl4a7htjtko7"]
+[gd_resource type="Resource" script_class="LevelsList" load_steps=43 format=3 uid="uid://wl4a7htjtko7"]
 
 [ext_resource type="Script" path="res://game/levels/level.gd" id="1_7jjv4"]
 [ext_resource type="PackedScene" uid="uid://man8sextdloo" path="res://game/levels/level_templates/000_cut-kiwi.tscn" id="2_xsujx"]
@@ -8,6 +8,20 @@
 [ext_resource type="Script" path="res://game/globals/scene_manager_levels.gd" id="5_i0yaf"]
 [ext_resource type="PackedScene" uid="uid://ctjd27wlt2qag" path="res://game/levels/level_templates/005_3_busses.tscn" id="6_85qft"]
 [ext_resource type="PackedScene" uid="uid://b2tpqosai0vok" path="res://game/levels/level_templates/006_move_around.tscn" id="7_fk6sr"]
+[ext_resource type="PackedScene" uid="uid://brbvtap4nbywt" path="res://game/levels/level_templates/007_get_on_bus.tscn" id="8_d6d23"]
+[ext_resource type="PackedScene" uid="uid://cvovkixcvel4f" path="res://game/levels/level_templates/008_church_park.tscn" id="9_3mroc"]
+[ext_resource type="PackedScene" uid="uid://ddeyvqpm2kdt3" path="res://game/levels/level_templates/009_dog_inside.tscn" id="10_ta4s0"]
+[ext_resource type="PackedScene" uid="uid://b8dk8tousd8vg" path="res://game/levels/level_templates/010_family-man-woman.tscn" id="11_80skk"]
+[ext_resource type="PackedScene" uid="uid://fatmpwecyo1u" path="res://game/levels/level_templates/011_family-boy-girl.tscn" id="12_5nb1b"]
+[ext_resource type="PackedScene" uid="uid://bvhtswy4fxvud" path="res://game/levels/level_templates/012_family-siblings.tscn" id="13_0orjm"]
+[ext_resource type="PackedScene" uid="uid://bvijd01yw5qxg" path="res://game/levels/level_templates/013_toddler_toy.tscn" id="14_k6kap"]
+[ext_resource type="PackedScene" uid="uid://dwnairesoywsp" path="res://game/levels/level_templates/014_couple_give_ring.tscn" id="15_l5lmk"]
+[ext_resource type="PackedScene" uid="uid://clm230h25gc7o" path="res://game/levels/level_templates/015_hair_colors_dry_etc.tscn" id="16_wti7a"]
+[ext_resource type="PackedScene" uid="uid://cldr70yy2v328" path="res://game/levels/level_templates/016_cat_feed.tscn" id="17_bth1h"]
+[ext_resource type="PackedScene" uid="uid://drylgunp07dmx" path="res://game/levels/level_templates/017_cat_feed_more_cats.tscn" id="18_2wnkm"]
+[ext_resource type="PackedScene" uid="uid://bfj2jgaraijhl" path="res://game/levels/level_templates/018_hang_coat.tscn" id="19_1uufa"]
+[ext_resource type="PackedScene" uid="uid://blaay6au2qg32" path="res://game/levels/level_templates/019_hang_clothes.tscn" id="20_1jhkt"]
+[ext_resource type="PackedScene" uid="uid://bo4lsh601x68k" path="res://game/levels/level_templates/020_clothesline.tscn" id="21_feq6u"]
 
 [sub_resource type="Resource" id="Resource_vo261"]
 script = ExtResource("1_7jjv4")
@@ -42,7 +56,7 @@ script = ExtResource("1_7jjv4")
 internal_name = "3-busses"
 scene = ExtResource("6_85qft")
 is_repeatable_level = true
-level_names_that_have_to_be_played_first = Array[String]([])
+level_names_that_have_to_be_played_first = Array[String](["get-on-bus"])
 
 [sub_resource type="Resource" id="Resource_wltjm"]
 script = ExtResource("1_7jjv4")
@@ -51,6 +65,104 @@ scene = ExtResource("7_fk6sr")
 is_repeatable_level = true
 level_names_that_have_to_be_played_first = Array[String]([])
 
+[sub_resource type="Resource" id="Resource_g83nq"]
+script = ExtResource("1_7jjv4")
+internal_name = "get-on-bus"
+scene = ExtResource("8_d6d23")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String](["move-around"])
+
+[sub_resource type="Resource" id="Resource_cy3p5"]
+script = ExtResource("1_7jjv4")
+internal_name = "park-near-building"
+scene = ExtResource("9_3mroc")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_f0qld"]
+script = ExtResource("1_7jjv4")
+internal_name = "dog-inside-outside"
+scene = ExtResource("10_ta4s0")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_xe2kj"]
+script = ExtResource("1_7jjv4")
+internal_name = "give-man-woman"
+scene = ExtResource("11_80skk")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_2ooxq"]
+script = ExtResource("1_7jjv4")
+internal_name = "give-boy-girl"
+scene = ExtResource("12_5nb1b")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_360ll"]
+script = ExtResource("1_7jjv4")
+internal_name = "give-siblings"
+scene = ExtResource("13_0orjm")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_tcnfc"]
+script = ExtResource("1_7jjv4")
+internal_name = "give-toddler"
+scene = ExtResource("14_k6kap")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_tmvom"]
+script = ExtResource("1_7jjv4")
+internal_name = "give-couple"
+scene = ExtResource("15_l5lmk")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_6skfp"]
+script = ExtResource("1_7jjv4")
+internal_name = "hair-colors-3"
+scene = ExtResource("16_wti7a")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_0vt5q"]
+script = ExtResource("1_7jjv4")
+internal_name = "feed-cat"
+scene = ExtResource("17_bth1h")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_i0qsm"]
+script = ExtResource("1_7jjv4")
+internal_name = "feed-more-cats"
+scene = ExtResource("18_2wnkm")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String](["feed-cat"])
+
+[sub_resource type="Resource" id="Resource_b7an6"]
+script = ExtResource("1_7jjv4")
+internal_name = "hang-coat"
+scene = ExtResource("19_1uufa")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_7mkhh"]
+script = ExtResource("1_7jjv4")
+internal_name = "hang-clothes"
+scene = ExtResource("20_1jhkt")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String](["hang-coat"])
+
+[sub_resource type="Resource" id="Resource_l2mob"]
+script = ExtResource("1_7jjv4")
+internal_name = "clothesline"
+scene = ExtResource("21_feq6u")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String](["hang-coat"])
+
 [resource]
 script = ExtResource("5_i0yaf")
-levels = Array[ExtResource("1_7jjv4")]([SubResource("Resource_vo261"), SubResource("Resource_tl5t4"), SubResource("Resource_5u5rh"), SubResource("Resource_af0g3"), SubResource("Resource_ci0k8"), SubResource("Resource_wltjm")])
+levels = Array[ExtResource("1_7jjv4")]([SubResource("Resource_vo261"), SubResource("Resource_tl5t4"), SubResource("Resource_5u5rh"), SubResource("Resource_af0g3"), SubResource("Resource_ci0k8"), SubResource("Resource_wltjm"), SubResource("Resource_g83nq"), SubResource("Resource_cy3p5"), SubResource("Resource_f0qld"), SubResource("Resource_xe2kj"), SubResource("Resource_2ooxq"), SubResource("Resource_360ll"), SubResource("Resource_tcnfc"), SubResource("Resource_tmvom"), SubResource("Resource_6skfp"), SubResource("Resource_0vt5q"), SubResource("Resource_i0qsm"), SubResource("Resource_b7an6"), SubResource("Resource_7mkhh"), SubResource("Resource_l2mob")])
