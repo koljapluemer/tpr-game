@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://man8sextdloo"]
+
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_klw6q"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_7hftb"]
+[ext_resource type="Texture2D" uid="uid://t4wegaptav1b" path="res://game/images/backgrounds/table.webp0001.webp" id="3_ojhxn"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_1pb2w"]
+[ext_resource type="PackedScene" uid="uid://pj7aiibt3drw" path="res://game/scrapbook_objects/objects/kiwi.tscn" id="5_mswl7"]
+[ext_resource type="PackedScene" uid="uid://dqi7bnfpqweg" path="res://game/scrapbook_objects/objects/knife.tscn" id="6_qgdls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
+size = Vector2(894, 350)
+
+[node name="Level2" type="Node2D" groups=["level_map"]]
+script = ExtResource("1_klw6q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_7hftb")]
+unique_name_in_owner = true
+
+[node name="Background" type="Area2D" parent="." groups=["background"]]
+z_index = -100
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(400, 150)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ojhxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
+position = Vector2(408, 167)
+shape = SubResource("RectangleShape2D_anpsh")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="KiwiSpawner" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(330, 205)
+script = ExtResource("4_1pb2w")
+accepts = Array[PackedScene]([ExtResource("5_mswl7")])
+
+[node name="KnifeSpawner" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(546, 221)
+script = ExtResource("4_1pb2w")
+accepts = Array[PackedScene]([ExtResource("6_qgdls")])
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]

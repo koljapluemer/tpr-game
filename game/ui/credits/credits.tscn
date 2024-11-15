@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwlsy41i2pxsw"]
+
+[ext_resource type="Script" path="res://game/ui/credits/credits.gd" id="1_uhg8b"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhg8b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Game developed by Kolja Sam Pluemer
+
+[i]Many thanks to all the people who playtested the game and gave input and advice.[/i]
+
+## Sound
+- success sound: success.wav by grunz -- https://freesound.org/s/109662/ -- License: Attribution 3.0
+- car lock: car lock.mp3 by hawabaz -- https://freesound.org/s/91358/ -- License: Creative Commons 0
+- car lock mechanical: Lock car.wav by greatsoundstube -- https://freesound.org/s/629303/ -- License: Creative Commons 0
+
+
+- paper rip: Paper Rip by dj997 -- https://freesound.org/s/485647/ -- License: Attribution 3.0
+- sound wrong: Game Sound Wrong.wav by Bertrof -- https://freesound.org/s/131657/ -- License: Attribution 3.0
+- sound wrong gentle: SFX_MASSIVELYINCORREKT_07.wav by MrFossy -- https://freesound.org/s/590038/ -- License: Creative Commons 0
+- sound correct: Success Jingle.ogg by TitanKaempfer -- https://freesound.org/s/689903/ -- License: Attribution 4.0
+
+## Language
+
+- Speech Generation: https://speechgen.io/
+- Translations: author's own, DeepL, Google Translate
+
+
+## Visuals
+
+- Many license-free stock photos from Unsplash and Pexels
+- Character-model screenshots from Mixamo 
+
+## Icons
+
+- Expander https://game-icons.net/1x1/sbed/expander.html by [url=http://opengameart.org/content/95-game-icons]sbed[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Click https://game-icons.net/1x1/skoll/click.html by [url=https://game-icons.net/]Skoll[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Snatch: https://game-icons.net/1x1/lorc/snatch.html by [url=https://lorcblog.blogspot.com/]Lorc[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Kitchen Knives https://game-icons.net/1x1/lorc/kitchen-knives.html by [url=https://lorcblog.blogspot.com/]Lorc[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Mountain Climbing https://game-icons.net/1x1/caro-asercion/mountain-climbing.html by [url=https://game-icons.net/]Caro Asercion[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Power Button https://game-icons.net/1x1/lord-berandas/power-button.html by [url=http://berandas.deviantart.com/]Lord Berandas[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Usable https://game-icons.net/1x1/sbed/usable.html by [url=http://opengameart.org/content/95-game-icons]sbed[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+
+
+- Split Arrows: https://game-icons.net/1x1/delapouite/split-arrows.html#download, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Push: https://game-icons.net/1x1/delapouite/push.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Blacksmith https://game-icons.net/1x1/delapouite/blacksmith.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Clockwise Rotation https://game-icons.net/1x1/delapouite/clockwise-rotation.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Closed Doors https://game-icons.net/1x1/delapouite/closed-doors.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Crafting https://game-icons.net/1x1/delapouite/crafting.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Entry Door https://game-icons.net/1x1/delapouite/entry-door.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Exit Door https://game-icons.net/1x1/delapouite/exit-door.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Key Lock https://game-icons.net/1x1/delapouite/key-lock.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Open Gate https://game-icons.net/1x1/delapouite/open-gate.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Push https://game-icons.net/1x1/delapouite/push.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]
+- Walk https://game-icons.net/1x1/delapouite/walk.html, [url=https://delapouite.com/]Delapoutie[/url], [url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0[/url]"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back To Main"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

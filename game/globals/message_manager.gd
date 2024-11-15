@@ -29,7 +29,3 @@ signal action_done(action:Action)
 signal object_started_moving(object:ScrapbookObject)
 @warning_ignore("unused_signal")
 signal object_stopped_moving(object:ScrapbookObject)
-
-
-@warning_ignore("unused_signal")
-signal topic_changed_to(topic:Topic)

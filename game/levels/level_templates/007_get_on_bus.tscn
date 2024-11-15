@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://brbvtap4nbywt"]
+
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_4vu68"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_q1x0k"]
+[ext_resource type="Texture2D" uid="uid://c63vdkowu5ut0" path="res://game/images/bus_top.webp" id="3_0nvmx"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_n4jsy"]
+[ext_resource type="PackedScene" uid="uid://bj0s44imfdpms" path="res://game/scrapbook_objects/objects/big_bus_1.tscn" id="5_m5s2m"]
+[ext_resource type="PackedScene" uid="uid://dpxkumjowe6r0" path="res://game/scrapbook_objects/objects/you.tscn" id="6_sdsgn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anpsh"]
+size = Vector2(894, 350)
+
+[node name="Level2" type="Node2D" groups=["level_map"]]
+script = ExtResource("1_4vu68")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_q1x0k")]
+unique_name_in_owner = true
+
+[node name="Background" type="Area2D" parent="." groups=["background"]]
+z_index = -100
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(408.181, 46.411)
+scale = Vector2(0.94706, 0.94706)
+texture = ExtResource("3_0nvmx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
+position = Vector2(408, 165)
+shape = SubResource("RectangleShape2D_anpsh")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="DefaultSpawn" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(90, 297)
+script = ExtResource("4_n4jsy")
+accepts = Array[PackedScene]([ExtResource("5_m5s2m")])
+scale_factor = 0.12
+
+[node name="DefaultSpawn2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(706, 217)
+script = ExtResource("4_n4jsy")
+accepts = Array[PackedScene]([ExtResource("6_sdsgn")])
+scale_factor = 0.16
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]

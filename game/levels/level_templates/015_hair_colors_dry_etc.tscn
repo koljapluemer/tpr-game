@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://clm230h25gc7o"]
+
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_2ayd7"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_qmjaq"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="3_7e7y2"]
+[ext_resource type="PackedScene" uid="uid://2u02ps8an526" path="res://game/scrapbook_objects/objects/person_woman_hair_blonde.tscn" id="4_worne"]
+[ext_resource type="PackedScene" uid="uid://gc23b78fk0j" path="res://game/scrapbook_objects/objects/person_woman_hair_black.tscn" id="5_0pp4q"]
+[ext_resource type="PackedScene" uid="uid://c0mp8eh5mwq06" path="res://game/scrapbook_objects/objects/person_woman_hair_brunette.tscn" id="6_qn0aj"]
+[ext_resource type="PackedScene" uid="uid://b8dctij6djvrc" path="res://game/scrapbook_objects/objects/hair_brush.tscn" id="7_ain3w"]
+[ext_resource type="PackedScene" uid="uid://clf8mmo02isxg" path="res://game/scrapbook_objects/objects/hair_comb.tscn" id="8_n0vp8"]
+[ext_resource type="PackedScene" uid="uid://ce4e1png6xss1" path="res://game/scrapbook_objects/objects/hair_dryer.tscn" id="9_fp0vw"]
+[ext_resource type="PackedScene" uid="uid://c7t0mewe2l2kg" path="res://game/scrapbook_objects/objects/hair_towel.tscn" id="10_2i7k2"]
+
+[node name="Level2" type="Node2D" groups=["level_map"]]
+script = ExtResource("1_2ayd7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_qmjaq")]
+unique_name_in_owner = true
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Father" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(699, 320)
+script = ExtResource("3_7e7y2")
+accepts = Array[PackedScene]([ExtResource("4_worne"), ExtResource("5_0pp4q"), ExtResource("6_qn0aj")])
+scale_factor = 0.6
+uniqueness_id = "woman"
+
+[node name="Father2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(475, 320)
+script = ExtResource("3_7e7y2")
+accepts = Array[PackedScene]([ExtResource("4_worne"), ExtResource("5_0pp4q"), ExtResource("6_qn0aj")])
+scale_factor = 0.6
+uniqueness_id = "woman"
+
+[node name="Stuff6" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(41, 272)
+script = ExtResource("3_7e7y2")
+accepts = Array[PackedScene]([ExtResource("7_ain3w"), ExtResource("8_n0vp8"), ExtResource("9_fp0vw"), ExtResource("10_2i7k2")])
+scale_factor = 1.6
+
+[node name="Stuff7" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(145, 272)
+script = ExtResource("3_7e7y2")
+accepts = Array[PackedScene]([ExtResource("7_ain3w"), ExtResource("8_n0vp8"), ExtResource("9_fp0vw"), ExtResource("10_2i7k2")])
+scale_factor = 1.6
+
+[node name="Stuff8" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(273, 272)
+script = ExtResource("3_7e7y2")
+accepts = Array[PackedScene]([ExtResource("7_ain3w"), ExtResource("8_n0vp8"), ExtResource("9_fp0vw"), ExtResource("10_2i7k2")])
+scale_factor = 1.6
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]

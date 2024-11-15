@@ -5,10 +5,11 @@
 ## be abstracted in the future.
 class_name LevelManager extends Node2D
 
-@export var debug_mode:= true
+
+@export var debug_mode:= false
 @export var MAX_QUESTS_PER_LEVEL := 7
-@export var DELAY_UNTIL_FIRST_QUEST := 3
-@export var audio_player:AudioStreamPlayer2D
+
+
 const DEFINITE_ARTICLE := "THE__" 
 const INDEFINITE_ARTICLE := "A__"
 
@@ -23,11 +24,11 @@ var currently_waiting_for_next_quest_to_start := false
 
 var scrapbook_objects: Array[ScrapbookObject]
 
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = %AudioStreamPlayer2D
+@onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
 @onready var spawn_points: Node2D = %SpawnPoints
 
 
-func _ready() -> void:	
+func _ready() -> void:
 	# setup of spawnpoints and quests
 	if not spawn_points:
 		push_error("level has no spawn_points object")

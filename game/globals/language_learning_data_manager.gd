@@ -13,26 +13,26 @@ func _get_path_for_lang_code(_language_code:String) -> String:
 
 func get_data_for_language(_language_code:String) -> LanguageLearningData:
 	var relevant_data_res : LanguageLearningData
-	# first, try to find already loaded ones
-	for data_set in learning_data_sets:
-		if data_set.language_code == _language_code:
-			relevant_data_res = data_set
+	## first, try to find already loaded ones
+	#for data_set in learning_data_sets:
+		#if data_set.language_code == _language_code:
+			#relevant_data_res = data_set
+#
+			#break
+	## if that hasn't happened, see if we have a saved file
+	#if not relevant_data_res:
+		#var path = _get_path_for_lang_code(_language_code)
+		#if ResourceLoader.exists(path):
+			#var _data_set = ResourceLoader.load(path)
+			#if _data_set is LanguageLearningData:
+				#relevant_data_res = _data_set
+				#learning_data_sets.append(_data_set)
+#
+		#else:
+	relevant_data_res = LanguageLearningData.new()
+	relevant_data_res.language_code = _language_code
+	learning_data_sets.append(relevant_data_res)
 
-			break
-	# if that hasn't happened, see if we have a saved file
-	if not relevant_data_res:
-		var path = _get_path_for_lang_code(_language_code)
-		if ResourceLoader.exists(path):
-			var _data_set = ResourceLoader.load(path)
-			if _data_set is LanguageLearningData:
-				relevant_data_res = _data_set
-				learning_data_sets.append(_data_set)
-
-		else:
-			relevant_data_res = LanguageLearningData.new()
-			relevant_data_res.language_code = _language_code
-			learning_data_sets.append(relevant_data_res)
-	
 
 	return relevant_data_res
 
@@ -44,37 +44,21 @@ func _save_data():
 		var res = ResourceSaver.save(data_set, path)
 		assert(res == OK)
 
-func earn_points_for_topic(topic:Topic, points:int):
-	if not topic:
-		return
-	# find matching TopicData, and iterate there
-
-	var topic_data := get_topic_data_by_name(topic.internal_name)
-	topic_data.points += points
-	
+func earn_points_for_level(level_name:String, points:int):
+	# essentially a getset
+	var data_set:LanguageLearningData = get_data_for_language(TranslationServer.get_locale())
+	if level_name in data_set:
+		data_set.level_data[level_name] += points
+	else:
+		data_set.level_data[level_name] = points
 	_save_data()
 	
-func get_topic_data_by_name(topic_name:String) -> TopicData:
-	var data_set:LanguageLearningData = get_data_for_language(TranslationServer.get_locale())
-	var topic_data:TopicData 
-	for existing_data_set in data_set.topic_data_sets:
-		if existing_data_set.topic_name == topic_name:
-			return existing_data_set
-	
-	# if not already returned, we need to create a new one
-	topic_data = TopicData.new()
-	topic_data.topic_name = topic_name
-	data_set.topic_data_sets.append(topic_data)
-	
-	return topic_data
 	
 func get_earned_points() -> int:
 	var data_set:LanguageLearningData = get_data_for_language(TranslationServer.get_locale())
 	var nr_points := 0
-	if data_set.topic_data_sets:
-		for topic_data_set in data_set.topic_data_sets:
-			nr_points += topic_data_set.points
-		
+	for points in data_set.level_data:
+		nr_points += points 
 
 	return nr_points
 	

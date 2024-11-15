@@ -22,14 +22,14 @@ resources_spreadsheet_view/fold_docks=false
 [application]
 
 config/name="The Scrapbook"
-run/main_scene="res://game/views/000_main_menu/new_main_menu.tscn"
+run/main_scene="res://game/ui/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 MessageManager="*res://game/globals/message_manager.gd"
-SceneManager="*res://game/scene_manager/scene_manager.gd"
+SceneManager="*res://game/globals/scene_manager.gd"
 LanguageManager="*res://game/language/language_manager/language_manager.gd"
 Logger="*res://game/globals/logger.gd"
 PlayerPreferencesManager="*res://game/globals/player_preferences_manager.gd"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwnairesoywsp"]
+
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_8rwmn"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_yeyeu"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="3_jymev"]
+[ext_resource type="PackedScene" uid="uid://dfvhgcruniyej" path="res://game/scrapbook_objects/objects/people_couple.tscn" id="4_skhiu"]
+[ext_resource type="PackedScene" uid="uid://bbi3mgrlmrtcx" path="res://game/scrapbook_objects/objects/wedding-ring.tscn" id="5_qv1y4"]
+
+[node name="Level2" type="Node2D" groups=["level_map"]]
+script = ExtResource("1_8rwmn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_yeyeu")]
+unique_name_in_owner = true
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Father" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(531, 296)
+script = ExtResource("3_jymev")
+accepts = Array[PackedScene]([ExtResource("4_skhiu")])
+scale_factor = 0.25
+
+[node name="Stuff2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(225, 231)
+script = ExtResource("3_jymev")
+accepts = Array[PackedScene]([ExtResource("5_qv1y4")])
+scale_factor = 0.5
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]
