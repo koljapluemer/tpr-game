@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ino0s116srx0"
+path="res://.godot/imported/المس الحافلة!.mp3-e96171404f89a23ea4196962bc2a4a75.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس الحافلة!.mp3"
+dest_files=["res://.godot/imported/المس الحافلة!.mp3-e96171404f89a23ea4196962bc2a4a75.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

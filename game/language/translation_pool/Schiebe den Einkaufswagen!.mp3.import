@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d25e8v074ua1g"
+path="res://.godot/imported/Schiebe den Einkaufswagen!.mp3-98b5bf8b87c00d52623c69d29e75fd2c.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Schiebe den Einkaufswagen!.mp3"
+dest_files=["res://.godot/imported/Schiebe den Einkaufswagen!.mp3-98b5bf8b87c00d52623c69d29e75fd2c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

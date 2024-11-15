@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dck5g08v4nccu"
+path="res://.godot/imported/خذ البطيخة!.mp3-aec9e8709ec91e575be0790eb47b20d0.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/خذ البطيخة!.mp3"
+dest_files=["res://.godot/imported/خذ البطيخة!.mp3-aec9e8709ec91e575be0790eb47b20d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

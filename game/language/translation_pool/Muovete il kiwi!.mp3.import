@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3vdv4fqyoe1u"
+path="res://.godot/imported/Muovete il kiwi!.mp3-d6c6347d290c957a73c432d6fbcad6c0.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovete il kiwi!.mp3"
+dest_files=["res://.godot/imported/Muovete il kiwi!.mp3-d6c6347d290c957a73c432d6fbcad6c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chsrnrnc3wihr"
+path="res://.godot/imported/المس أنصاف الكيوي!.mp3-8346485d74f16fcecf9ce184fa2a5d33.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس أنصاف الكيوي!.mp3"
+dest_files=["res://.godot/imported/المس أنصاف الكيوي!.mp3-8346485d74f16fcecf9ce184fa2a5d33.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

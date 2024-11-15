@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmdxbshr0w3gv"
+path="res://.godot/imported/Beweg dich!.mp3-863562571a4cec99aa12c1fd0e8d2304.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Beweg dich!.mp3"
+dest_files=["res://.godot/imported/Beweg dich!.mp3-863562571a4cec99aa12c1fd0e8d2304.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

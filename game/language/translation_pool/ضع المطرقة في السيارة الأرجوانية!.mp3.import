@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnj8o2dumln7g"
+path="res://.godot/imported/ضع المطرقة في السيارة الأرجوانية!.mp3-4c70b2181a1e53b2585115d45fd70e00.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع المطرقة في السيارة الأرجوانية!.mp3"
+dest_files=["res://.godot/imported/ضع المطرقة في السيارة الأرجوانية!.mp3-4c70b2181a1e53b2585115d45fd70e00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

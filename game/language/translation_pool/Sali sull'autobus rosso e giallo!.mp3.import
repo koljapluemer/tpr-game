@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m87sngdugr2y"
+path="res://.godot/imported/Sali sull'autobus rosso e giallo!.mp3-c563d3522f8cf2dd56278a427e4d7c4c.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Sali sull'autobus rosso e giallo!.mp3"
+dest_files=["res://.godot/imported/Sali sull'autobus rosso e giallo!.mp3-c563d3522f8cf2dd56278a427e4d7c4c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

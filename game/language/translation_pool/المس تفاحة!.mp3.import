@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fabhn730gg7g"
+path="res://.godot/imported/المس تفاحة!.mp3-039a5ca7aefd375970a25e2ebd99e1d9.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس تفاحة!.mp3"
+dest_files=["res://.godot/imported/المس تفاحة!.mp3-039a5ca7aefd375970a25e2ebd99e1d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

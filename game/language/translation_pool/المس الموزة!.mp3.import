@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7hx5am76birt"
+path="res://.godot/imported/المس الموزة!.mp3-7d944d4d9e34fcf13079ab30a11c4c7a.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس الموزة!.mp3"
+dest_files=["res://.godot/imported/المس الموزة!.mp3-7d944d4d9e34fcf13079ab30a11c4c7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

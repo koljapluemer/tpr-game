@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckf6ct6idj8es"
+path="res://.godot/imported/Muovete le metà del kiwi!.mp3-e62c39389da1028f222e4650575eac57.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovete le metà del kiwi!.mp3"
+dest_files=["res://.godot/imported/Muovete le metà del kiwi!.mp3-e62c39389da1028f222e4650575eac57.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

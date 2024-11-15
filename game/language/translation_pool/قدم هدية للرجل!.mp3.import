@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpf4oj4v1yxrb"
+path="res://.godot/imported/قدم هدية للرجل!.mp3-3ae7ebbf46eabcd1ea82593cb0db8093.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/قدم هدية للرجل!.mp3"
+dest_files=["res://.godot/imported/قدم هدية للرجل!.mp3-3ae7ebbf46eabcd1ea82593cb0db8093.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

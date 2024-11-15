@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4hydbuys7ejx"
+path="res://.godot/imported/Touch the bus at the front!.mp3-2d3955c7fb9163f379191301683d7805.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Touch the bus at the front!.mp3"
+dest_files=["res://.godot/imported/Touch the bus at the front!.mp3-2d3955c7fb9163f379191301683d7805.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

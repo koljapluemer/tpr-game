@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5mjc7oo4em0s"
+path="res://.godot/imported/المس التفاحة!.mp3-b12014c37408c3fcfa7bdeb44bc8a0f6.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس التفاحة!.mp3"
+dest_files=["res://.godot/imported/المس التفاحة!.mp3-b12014c37408c3fcfa7bdeb44bc8a0f6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

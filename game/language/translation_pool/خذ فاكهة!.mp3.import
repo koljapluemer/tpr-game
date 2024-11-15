@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beqyddmwcjrqe"
+path="res://.godot/imported/خذ فاكهة!.mp3-7f46ccc4d4e943a329f8e3d186e9b011.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/خذ فاكهة!.mp3"
+dest_files=["res://.godot/imported/خذ فاكهة!.mp3-7f46ccc4d4e943a329f8e3d186e9b011.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ceq03wktkpgej"
+path="res://.godot/imported/ضع موزة في حقيبة ظهرك!.mp3-4a8a5a109496edb39eb209c48d5e9965.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع موزة في حقيبة ظهرك!.mp3"
+dest_files=["res://.godot/imported/ضع موزة في حقيبة ظهرك!.mp3-4a8a5a109496edb39eb209c48d5e9965.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckbdesi2hujdg"
+path="res://.godot/imported/اركب حافلة زرقاء!.mp3-60b7e140b736bcd84a02b37e01004001.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/اركب حافلة زرقاء!.mp3"
+dest_files=["res://.godot/imported/اركب حافلة زرقاء!.mp3-60b7e140b736bcd84a02b37e01004001.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

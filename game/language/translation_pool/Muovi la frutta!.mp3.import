@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djvklcoqlbnga"
+path="res://.godot/imported/Muovi la frutta!.mp3-5a4d0e5bc22a5fd74fe8e40d705d0adf.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovi la frutta!.mp3"
+dest_files=["res://.godot/imported/Muovi la frutta!.mp3-5a4d0e5bc22a5fd74fe8e40d705d0adf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3r1l71xoebgo"
+path="res://.godot/imported/ضع جوز الهند في حقيبة الظهر!.mp3-14d4fae13d5919e23bedf7a3cec49595.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع جوز الهند في حقيبة الظهر!.mp3"
+dest_files=["res://.godot/imported/ضع جوز الهند في حقيبة الظهر!.mp3-14d4fae13d5919e23bedf7a3cec49595.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

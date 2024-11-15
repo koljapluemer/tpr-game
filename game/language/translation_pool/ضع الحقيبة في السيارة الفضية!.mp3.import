@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7xw8hfcgi48x"
+path="res://.godot/imported/ضع الحقيبة في السيارة الفضية!.mp3-49780f13fcf7431ee4f4f38115c57318.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع الحقيبة في السيارة الفضية!.mp3"
+dest_files=["res://.godot/imported/ضع الحقيبة في السيارة الفضية!.mp3-49780f13fcf7431ee4f4f38115c57318.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

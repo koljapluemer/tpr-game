@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc8kobgm032lw"
+path="res://.godot/imported/أعط هدية للمرأة!.mp3-f141d413a54f2d3864865a91649d558b.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/أعط هدية للمرأة!.mp3"
+dest_files=["res://.godot/imported/أعط هدية للمرأة!.mp3-f141d413a54f2d3864865a91649d558b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

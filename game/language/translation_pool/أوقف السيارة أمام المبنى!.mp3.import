@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ila6uowj5qtf"
+path="res://.godot/imported/أوقف السيارة أمام المبنى!.mp3-3cf38d8343483229d94a8082d05bdc0f.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/أوقف السيارة أمام المبنى!.mp3"
+dest_files=["res://.godot/imported/أوقف السيارة أمام المبنى!.mp3-3cf38d8343483229d94a8082d05bdc0f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

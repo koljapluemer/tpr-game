@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e2f3h4wuvldj"
+path="res://.godot/imported/Berühre den Rucksack!.mp3-dfffbfa421491c9daf25e854d9a5c939.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Berühre den Rucksack!.mp3"
+dest_files=["res://.godot/imported/Berühre den Rucksack!.mp3-dfffbfa421491c9daf25e854d9a5c939.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

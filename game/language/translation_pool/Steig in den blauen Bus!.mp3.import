@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bivvkir22l623"
+path="res://.godot/imported/Steig in den blauen Bus!.mp3-379d91ba58ff7b9ab9672aeb462cb7be.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Steig in den blauen Bus!.mp3"
+dest_files=["res://.godot/imported/Steig in den blauen Bus!.mp3-379d91ba58ff7b9ab9672aeb462cb7be.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

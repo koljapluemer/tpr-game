@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxkif5hxm5k1e"
+path="res://.godot/imported/ضع فاكهة في حقيبة ظهرك!.mp3-44ccf8104866f6e47ad994160ca7cd55.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع فاكهة في حقيبة ظهرك!.mp3"
+dest_files=["res://.godot/imported/ضع فاكهة في حقيبة ظهرك!.mp3-44ccf8104866f6e47ad994160ca7cd55.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

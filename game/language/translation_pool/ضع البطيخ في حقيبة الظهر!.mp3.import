@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8yh74k4uer8n"
+path="res://.godot/imported/ضع البطيخ في حقيبة الظهر!.mp3-4be80204363f259ebd4a7729921cad24.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع البطيخ في حقيبة الظهر!.mp3"
+dest_files=["res://.godot/imported/ضع البطيخ في حقيبة الظهر!.mp3-4be80204363f259ebd4a7729921cad24.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

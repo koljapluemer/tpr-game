@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2scgyeua3mlu"
+path="res://.godot/imported/Pack die Kiwi in den Rucksack!.mp3-81fd8927a815c56b9f96994113404337.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack die Kiwi in den Rucksack!.mp3"
+dest_files=["res://.godot/imported/Pack die Kiwi in den Rucksack!.mp3-81fd8927a815c56b9f96994113404337.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dn2blc8u2mmpg"
+path="res://.godot/imported/Move a fruit around!.mp3-61a818520427b6631ed449ca1c024681.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Move a fruit around!.mp3"
+dest_files=["res://.godot/imported/Move a fruit around!.mp3-61a818520427b6631ed449ca1c024681.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

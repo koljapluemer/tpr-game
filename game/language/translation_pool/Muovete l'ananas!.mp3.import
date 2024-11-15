@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cn0vwysq84j4"
+path="res://.godot/imported/Muovete l'ananas!.mp3-959cba71407d60302a9d6ca40d84de4f.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovete l'ananas!.mp3"
+dest_files=["res://.godot/imported/Muovete l'ananas!.mp3-959cba71407d60302a9d6ca40d84de4f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4i06y1v6mqh4"
+path="res://.godot/imported/Berühre die vordere Fruch!.mp3-c8e85699f0be9609f0e6090ebd95ff31.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Berühre die vordere Fruch!.mp3"
+dest_files=["res://.godot/imported/Berühre die vordere Fruch!.mp3-c8e85699f0be9609f0e6090ebd95ff31.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

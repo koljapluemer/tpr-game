@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dky7s18syv1fl"
+path="res://.godot/imported/قطع الفاكهة!.mp3-3719de3a86f4b99ea509de280acc7b86.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/قطع الفاكهة!.mp3"
+dest_files=["res://.godot/imported/قطع الفاكهة!.mp3-3719de3a86f4b99ea509de280acc7b86.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

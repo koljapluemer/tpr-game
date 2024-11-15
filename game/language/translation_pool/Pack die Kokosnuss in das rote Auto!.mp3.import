@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd35pcg22t4gs"
+path="res://.godot/imported/Pack die Kokosnuss in das rote Auto!.mp3-920ed01f969fe1aa16a562cf825d4a6d.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack die Kokosnuss in das rote Auto!.mp3"
+dest_files=["res://.godot/imported/Pack die Kokosnuss in das rote Auto!.mp3-920ed01f969fe1aa16a562cf825d4a6d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

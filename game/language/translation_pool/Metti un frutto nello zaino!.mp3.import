@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3dwe3w623321"
+path="res://.godot/imported/Metti un frutto nello zaino!.mp3-1f44163faeaa5419f9d2384333ba19d3.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Metti un frutto nello zaino!.mp3"
+dest_files=["res://.godot/imported/Metti un frutto nello zaino!.mp3-1f44163faeaa5419f9d2384333ba19d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

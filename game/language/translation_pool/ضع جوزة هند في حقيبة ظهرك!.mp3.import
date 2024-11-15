@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bllb3nbowkhah"
+path="res://.godot/imported/ضع جوزة هند في حقيبة ظهرك!.mp3-88e78889c23e650ca8cd4746940b6640.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع جوزة هند في حقيبة ظهرك!.mp3"
+dest_files=["res://.godot/imported/ضع جوزة هند في حقيبة ظهرك!.mp3-88e78889c23e650ca8cd4746940b6640.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

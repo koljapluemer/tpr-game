@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk1on86jagyxb"
+path="res://.godot/imported/Salite sull'autobus!.mp3-15641021277656aa25c431e8362e656e.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Salite sull'autobus!.mp3"
+dest_files=["res://.godot/imported/Salite sull'autobus!.mp3-15641021277656aa25c431e8362e656e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

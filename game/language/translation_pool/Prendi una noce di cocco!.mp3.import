@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cilgeu055snax"
+path="res://.godot/imported/Prendi una noce di cocco!.mp3-4bb96c4ad53f7c2b8171f75e85314e3e.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Prendi una noce di cocco!.mp3"
+dest_files=["res://.godot/imported/Prendi una noce di cocco!.mp3-4bb96c4ad53f7c2b8171f75e85314e3e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

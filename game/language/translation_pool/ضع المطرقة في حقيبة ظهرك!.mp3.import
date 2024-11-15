@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcgflobtpfu5w"
+path="res://.godot/imported/ضع المطرقة في حقيبة ظهرك!.mp3-1ed9bb4d53e40bb5c79508e9edd40187.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع المطرقة في حقيبة ظهرك!.mp3"
+dest_files=["res://.godot/imported/ضع المطرقة في حقيبة ظهرك!.mp3-1ed9bb4d53e40bb5c79508e9edd40187.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ep37ny84aeik"
+path="res://.godot/imported/Tocca il kiwi!.mp3-bc57cecfd25bd1ca11d78b9e2c96559b.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Tocca il kiwi!.mp3"
+dest_files=["res://.godot/imported/Tocca il kiwi!.mp3-bc57cecfd25bd1ca11d78b9e2c96559b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

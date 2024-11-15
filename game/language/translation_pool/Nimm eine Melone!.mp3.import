@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fefejbrgpum8"
+path="res://.godot/imported/Nimm eine Melone!.mp3-39cd85d2c927603f02e304acd1f3b5ca.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Nimm eine Melone!.mp3"
+dest_files=["res://.godot/imported/Nimm eine Melone!.mp3-39cd85d2c927603f02e304acd1f3b5ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

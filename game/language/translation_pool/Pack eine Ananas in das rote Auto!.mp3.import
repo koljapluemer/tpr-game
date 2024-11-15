@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hu0ghub2cdgv"
+path="res://.godot/imported/Pack eine Ananas in das rote Auto!.mp3-84a5fbda6cb75e14fac1dc9916f6ba56.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack eine Ananas in das rote Auto!.mp3"
+dest_files=["res://.godot/imported/Pack eine Ananas in das rote Auto!.mp3-84a5fbda6cb75e14fac1dc9916f6ba56.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

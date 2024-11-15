@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqtjl51g330ye"
+path="res://.godot/imported/حرك البصل!.mp3-ceb0629484374da25a96ed881409ab65.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/حرك البصل!.mp3"
+dest_files=["res://.godot/imported/حرك البصل!.mp3-ceb0629484374da25a96ed881409ab65.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

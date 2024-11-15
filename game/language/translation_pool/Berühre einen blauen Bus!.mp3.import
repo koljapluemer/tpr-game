@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vnf4xvygyg2i"
+path="res://.godot/imported/Berühre einen blauen Bus!.mp3-4d48c29f04d8a1920cc298c67e6b0741.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Berühre einen blauen Bus!.mp3"
+dest_files=["res://.godot/imported/Berühre einen blauen Bus!.mp3-4d48c29f04d8a1920cc298c67e6b0741.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

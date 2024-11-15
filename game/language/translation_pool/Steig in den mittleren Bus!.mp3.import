@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnq21jctkskvm"
+path="res://.godot/imported/Steig in den mittleren Bus!.mp3-dd7b567af1ffa60edc61b4af47199042.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Steig in den mittleren Bus!.mp3"
+dest_files=["res://.godot/imported/Steig in den mittleren Bus!.mp3-dd7b567af1ffa60edc61b4af47199042.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dau0vcbdl3o0x"
+path="res://.godot/imported/حرّك فاكهة!.mp3-4d889b24a75a473097e4e486860a7488.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/حرّك فاكهة!.mp3"
+dest_files=["res://.godot/imported/حرّك فاكهة!.mp3-4d889b24a75a473097e4e486860a7488.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

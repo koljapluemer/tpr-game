@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6in7xemjp64y"
+path="res://.godot/imported/حرّك الفاكهة الأمامية!.mp3-5dae5b3cd49854403954d369f41e54ab.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/حرّك الفاكهة الأمامية!.mp3"
+dest_files=["res://.godot/imported/حرّك الفاكهة الأمامية!.mp3-5dae5b3cd49854403954d369f41e54ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

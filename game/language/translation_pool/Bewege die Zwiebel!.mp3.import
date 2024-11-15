@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://br703g70kjlxu"
+path="res://.godot/imported/Bewege die Zwiebel!.mp3-41a36e6ff47f7f2b93e2707a85c4fd81.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Bewege die Zwiebel!.mp3"
+dest_files=["res://.godot/imported/Bewege die Zwiebel!.mp3-41a36e6ff47f7f2b93e2707a85c4fd81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

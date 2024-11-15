@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bilwrhr8klk0i"
+path="res://.godot/imported/Nimm die Kiwi!.mp3-ff8edee2b7ee5821a971b8bca687a307.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Nimm die Kiwi!.mp3"
+dest_files=["res://.godot/imported/Nimm die Kiwi!.mp3-ff8edee2b7ee5821a971b8bca687a307.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

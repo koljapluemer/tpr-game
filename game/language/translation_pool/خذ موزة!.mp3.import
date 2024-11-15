@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwdylrq4ot6l2"
+path="res://.godot/imported/خذ موزة!.mp3-9ecde675031ad2d413e65c65dec8e4f7.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/خذ موزة!.mp3"
+dest_files=["res://.godot/imported/خذ موزة!.mp3-9ecde675031ad2d413e65c65dec8e4f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

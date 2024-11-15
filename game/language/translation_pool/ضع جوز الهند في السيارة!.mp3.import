@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dehr1j6alrriy"
+path="res://.godot/imported/ضع جوز الهند في السيارة!.mp3-3c6222b50c757115a56d0c935e4ca951.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع جوز الهند في السيارة!.mp3"
+dest_files=["res://.godot/imported/ضع جوز الهند في السيارة!.mp3-3c6222b50c757115a56d0c935e4ca951.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy06s15qm401b"
+path="res://.godot/imported/Berühre einen Bus!.mp3-9ad51f099875ce8aec099e2e83d0e6c3.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Berühre einen Bus!.mp3"
+dest_files=["res://.godot/imported/Berühre einen Bus!.mp3-9ad51f099875ce8aec099e2e83d0e6c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

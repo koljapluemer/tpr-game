@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hmh70fd7gu18"
+path="res://.godot/imported/Bewege die Kiwihälften!.mp3-8a6c539a97f1311c950f1d83ccdbfd84.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Bewege die Kiwihälften!.mp3"
+dest_files=["res://.godot/imported/Bewege die Kiwihälften!.mp3-8a6c539a97f1311c950f1d83ccdbfd84.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

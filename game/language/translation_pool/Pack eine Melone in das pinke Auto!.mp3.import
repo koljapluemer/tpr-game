@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwnh4o4rfcj7q"
+path="res://.godot/imported/Pack eine Melone in das pinke Auto!.mp3-e936fdad240a993cb8f9e8322b266382.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack eine Melone in das pinke Auto!.mp3"
+dest_files=["res://.godot/imported/Pack eine Melone in das pinke Auto!.mp3-e936fdad240a993cb8f9e8322b266382.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -41,12 +41,5 @@ def from_string_to_filename(dirty):
     return dirty
 
 
-def from_filename_to_string(dirty):
-    dirty = dirty.replace("﹖", "?")
-    dirty = dirty.replace("﹕", ":")
-    dirty = dirty.replace("ⵌ", "#")
-    return dirty
-
-
 if __name__ == "__main__":
     main()

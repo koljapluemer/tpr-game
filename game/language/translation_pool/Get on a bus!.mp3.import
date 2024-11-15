@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dttxpm807s8j0"
+path="res://.godot/imported/Get on a bus!.mp3-53ba80e862a8b2103452f4dec30241e5.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Get on a bus!.mp3"
+dest_files=["res://.godot/imported/Get on a bus!.mp3-53ba80e862a8b2103452f4dec30241e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcs4qctjt6cf6"
+path="res://.godot/imported/Nimm einen Apfel!.mp3-c8ce66bad9b397f5c8fb07fb7f30c9f4.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Nimm einen Apfel!.mp3"
+dest_files=["res://.godot/imported/Nimm einen Apfel!.mp3-c8ce66bad9b397f5c8fb07fb7f30c9f4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

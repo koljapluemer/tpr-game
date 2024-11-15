@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmovnla8q5p0n"
+path="res://.godot/imported/Tocca l'autobus rosso e giallo!.mp3-564a8d4e03a13ed7567ca6c47fb4016c.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Tocca l'autobus rosso e giallo!.mp3"
+dest_files=["res://.godot/imported/Tocca l'autobus rosso e giallo!.mp3-564a8d4e03a13ed7567ca6c47fb4016c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

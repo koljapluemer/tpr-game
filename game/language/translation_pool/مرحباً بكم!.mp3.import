@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dovhngwbcsx8y"
+path="res://.godot/imported/مرحباً بكم!.mp3-e629a113076f3d1a8d4a0e061b5c16c0.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/مرحباً بكم!.mp3"
+dest_files=["res://.godot/imported/مرحباً بكم!.mp3-e629a113076f3d1a8d4a0e061b5c16c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

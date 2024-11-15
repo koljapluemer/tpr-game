@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8ahe64xovgvh"
+path="res://.godot/imported/ضع الأناناس في حقيبة الظهر!.mp3-929b602a5f4da21824d98f873fb95684.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع الأناناس في حقيبة الظهر!.mp3"
+dest_files=["res://.godot/imported/ضع الأناناس في حقيبة الظهر!.mp3-929b602a5f4da21824d98f873fb95684.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

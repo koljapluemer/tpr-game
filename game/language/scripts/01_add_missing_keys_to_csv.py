@@ -28,7 +28,6 @@ with open(CSV_FILE, 'r') as f:
 
         if key not in keys:
             rows.append([key, ''])
-        else:
 
 
 

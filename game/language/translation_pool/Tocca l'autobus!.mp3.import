@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bblm0kvxvw7eg"
+path="res://.godot/imported/Tocca l'autobus!.mp3-8b9a3a6d0ef018a94a4d0075357163d1.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Tocca l'autobus!.mp3"
+dest_files=["res://.godot/imported/Tocca l'autobus!.mp3-8b9a3a6d0ef018a94a4d0075357163d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

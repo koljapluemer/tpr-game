@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwb8e4g1koe23"
+path="res://.godot/imported/Mettete la noce di cocco nello zaino!.mp3-142c189729941fc4e3747748a4dd63d5.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Mettete la noce di cocco nello zaino!.mp3"
+dest_files=["res://.godot/imported/Mettete la noce di cocco nello zaino!.mp3-142c189729941fc4e3747748a4dd63d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

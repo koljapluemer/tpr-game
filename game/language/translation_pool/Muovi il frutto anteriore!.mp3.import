@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nu2u6re7ctu"
+path="res://.godot/imported/Muovi il frutto anteriore!.mp3-d959e801cd1cd0848ae00fd91f99b429.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovi il frutto anteriore!.mp3"
+dest_files=["res://.godot/imported/Muovi il frutto anteriore!.mp3-d959e801cd1cd0848ae00fd91f99b429.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

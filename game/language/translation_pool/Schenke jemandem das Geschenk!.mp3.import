@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvmuuhl0c04kk"
+path="res://.godot/imported/Schenke jemandem das Geschenk!.mp3-4a28f89e662898ab1e34d672a3e70e11.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Schenke jemandem das Geschenk!.mp3"
+dest_files=["res://.godot/imported/Schenke jemandem das Geschenk!.mp3-4a28f89e662898ab1e34d672a3e70e11.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

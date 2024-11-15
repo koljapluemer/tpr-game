@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvr6qb7mmto8h"
+path="res://.godot/imported/اركب الحافلة الحمراء والصفراء!.mp3-b6c1d471ca51ddb111f945c93807472f.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/اركب الحافلة الحمراء والصفراء!.mp3"
+dest_files=["res://.godot/imported/اركب الحافلة الحمراء والصفراء!.mp3-b6c1d471ca51ddb111f945c93807472f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

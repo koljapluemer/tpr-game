@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvrnqwn648dfh"
+path="res://.godot/imported/Pack die Melone in den Rucksack!.mp3-f1f602bafe5b39e89401a572d5841264.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack die Melone in den Rucksack!.mp3"
+dest_files=["res://.godot/imported/Pack die Melone in den Rucksack!.mp3-f1f602bafe5b39e89401a572d5841264.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

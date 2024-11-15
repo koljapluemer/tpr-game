@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjkmnhnd4uiit"
+path="res://.godot/imported/Pack den Rucksack in das rote Auto!.mp3-610ee877ac94e950e0f8dddf898e02c2.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack den Rucksack in das rote Auto!.mp3"
+dest_files=["res://.godot/imported/Pack den Rucksack in das rote Auto!.mp3-610ee877ac94e950e0f8dddf898e02c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hubem8vncwa"
+path="res://.godot/imported/Touch a car!.mp3-ca7b487e5f027d192589ee20db09aaea.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Touch a car!.mp3"
+dest_files=["res://.godot/imported/Touch a car!.mp3-ca7b487e5f027d192589ee20db09aaea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

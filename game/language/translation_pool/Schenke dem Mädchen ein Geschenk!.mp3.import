@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ds2dn3rptwl6b"
+path="res://.godot/imported/Schenke dem Mädchen ein Geschenk!.mp3-0df05e73affaa42327e6c87998af3320.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Schenke dem Mädchen ein Geschenk!.mp3"
+dest_files=["res://.godot/imported/Schenke dem Mädchen ein Geschenk!.mp3-0df05e73affaa42327e6c87998af3320.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

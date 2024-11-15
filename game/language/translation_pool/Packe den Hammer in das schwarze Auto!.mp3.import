@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b400djlrb4nbk"
+path="res://.godot/imported/Packe den Hammer in das schwarze Auto!.mp3-d2ca72e9ef72e51a37dfb41164acab7b.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Packe den Hammer in das schwarze Auto!.mp3"
+dest_files=["res://.godot/imported/Packe den Hammer in das schwarze Auto!.mp3-d2ca72e9ef72e51a37dfb41164acab7b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

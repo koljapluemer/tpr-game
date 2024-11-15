@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://baaqq6k8e84km"
+path="res://.godot/imported/Metti il kiwi nello zaino!.mp3-bf5564cf3d89c3f884d9f019c3b51518.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Metti il kiwi nello zaino!.mp3"
+dest_files=["res://.godot/imported/Metti il kiwi nello zaino!.mp3-bf5564cf3d89c3f884d9f019c3b51518.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

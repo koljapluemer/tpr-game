@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8kdq1iumic7e"
+path="res://.godot/imported/Pack die Kokosnuss in ein Auto!.mp3-d15de6ffd7ddc26f68f63c3e6d0b1f5a.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack die Kokosnuss in ein Auto!.mp3"
+dest_files=["res://.godot/imported/Pack die Kokosnuss in ein Auto!.mp3-d15de6ffd7ddc26f68f63c3e6d0b1f5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbrjfg0cq6b6l"
+path="res://.godot/imported/ضع الأناناس في السيارة الوردية!.mp3-9feb8604b2a10a5e96b23df28beeaa1e.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع الأناناس في السيارة الوردية!.mp3"
+dest_files=["res://.godot/imported/ضع الأناناس في السيارة الوردية!.mp3-9feb8604b2a10a5e96b23df28beeaa1e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

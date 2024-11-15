@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deg222f5u1hny"
+path="res://.godot/imported/المس ثمرة كيوي!.mp3-5b4a7beb19c6e70e08b9cef738d20496.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس ثمرة كيوي!.mp3"
+dest_files=["res://.godot/imported/المس ثمرة كيوي!.mp3-5b4a7beb19c6e70e08b9cef738d20496.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

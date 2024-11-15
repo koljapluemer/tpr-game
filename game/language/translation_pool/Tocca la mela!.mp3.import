@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://t3ip0ysrf808"
+path="res://.godot/imported/Tocca la mela!.mp3-47b137337d218f493b02e91b5d9c910f.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Tocca la mela!.mp3"
+dest_files=["res://.godot/imported/Tocca la mela!.mp3-47b137337d218f493b02e91b5d9c910f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

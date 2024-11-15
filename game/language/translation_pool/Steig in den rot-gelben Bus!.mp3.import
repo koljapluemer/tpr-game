@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxdrinhyr0l5o"
+path="res://.godot/imported/Steig in den rot-gelben Bus!.mp3-883764bb2f48a41b6dffb2a8f3903b24.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Steig in den rot-gelben Bus!.mp3"
+dest_files=["res://.godot/imported/Steig in den rot-gelben Bus!.mp3-883764bb2f48a41b6dffb2a8f3903b24.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

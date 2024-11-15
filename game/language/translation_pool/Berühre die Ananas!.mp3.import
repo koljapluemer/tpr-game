@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chg6p2327xjvw"
+path="res://.godot/imported/Berühre die Ananas!.mp3-6c5c4772b54ad33a601ba5bfdf7ecdff.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Berühre die Ananas!.mp3"
+dest_files=["res://.godot/imported/Berühre die Ananas!.mp3-6c5c4772b54ad33a601ba5bfdf7ecdff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

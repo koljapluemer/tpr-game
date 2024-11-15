@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5s1bapq474kd"
+path="res://.godot/imported/Nimm die Frucht!.mp3-962bfd9a7087bbe2fe858a1769010fef.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Nimm die Frucht!.mp3"
+dest_files=["res://.godot/imported/Nimm die Frucht!.mp3-962bfd9a7087bbe2fe858a1769010fef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

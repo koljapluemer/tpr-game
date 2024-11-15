@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ciab4g6ke8ws5"
+path="res://.godot/imported/أوقف السيارة أمام الكنيسة!.mp3-3e79af7a9103da326e10566fcaa48d52.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/أوقف السيارة أمام الكنيسة!.mp3"
+dest_files=["res://.godot/imported/أوقف السيارة أمام الكنيسة!.mp3-3e79af7a9103da326e10566fcaa48d52.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

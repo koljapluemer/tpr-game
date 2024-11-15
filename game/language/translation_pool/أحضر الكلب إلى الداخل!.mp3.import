@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b62g0jomn2xhb"
+path="res://.godot/imported/أحضر الكلب إلى الداخل!.mp3-a099c21ca53857b424d57f45ba0b73fc.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/أحضر الكلب إلى الداخل!.mp3"
+dest_files=["res://.godot/imported/أحضر الكلب إلى الداخل!.mp3-a099c21ca53857b424d57f45ba0b73fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

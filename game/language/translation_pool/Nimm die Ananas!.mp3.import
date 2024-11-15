@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1vem43nievfs"
+path="res://.godot/imported/Nimm die Ananas!.mp3-a8bd818b180594c50bf487e78c22f474.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Nimm die Ananas!.mp3"
+dest_files=["res://.godot/imported/Nimm die Ananas!.mp3-a8bd818b180594c50bf487e78c22f474.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8lqkmuou5idi"
+path="res://.godot/imported/حرّك ثمرة كيوي!.mp3-676ebc9868b7d086acc3e8ec0075f814.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/حرّك ثمرة كيوي!.mp3"
+dest_files=["res://.godot/imported/حرّك ثمرة كيوي!.mp3-676ebc9868b7d086acc3e8ec0075f814.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

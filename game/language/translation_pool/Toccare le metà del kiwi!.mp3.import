@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://und8cjypw85s"
+path="res://.godot/imported/Toccare le metà del kiwi!.mp3-801a2774be5ee7a2bd125863b8561675.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Toccare le metà del kiwi!.mp3"
+dest_files=["res://.godot/imported/Toccare le metà del kiwi!.mp3-801a2774be5ee7a2bd125863b8561675.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

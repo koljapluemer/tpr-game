@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj2rj176ike8p"
+path="res://.godot/imported/Pack die Frucht in das silberne Auto!.mp3-29f33af4dd313510f1a3c358244873a0.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack die Frucht in das silberne Auto!.mp3"
+dest_files=["res://.godot/imported/Pack die Frucht in das silberne Auto!.mp3-29f33af4dd313510f1a3c358244873a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

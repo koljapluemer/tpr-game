@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1j2r1etad56i"
+path="res://.godot/imported/المس البطيخ!.mp3-b30e6e5bbf28ffc9601eb7a43cba44e7.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس البطيخ!.mp3"
+dest_files=["res://.godot/imported/المس البطيخ!.mp3-b30e6e5bbf28ffc9601eb7a43cba44e7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

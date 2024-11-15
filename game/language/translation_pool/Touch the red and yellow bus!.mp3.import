@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xc6up8uwmp75"
+path="res://.godot/imported/Touch the red and yellow bus!.mp3-9dd6f4bbcffd38109dbfe16793337736.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Touch the red and yellow bus!.mp3"
+dest_files=["res://.godot/imported/Touch the red and yellow bus!.mp3-9dd6f4bbcffd38109dbfe16793337736.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cup70xoou835k"
+path="res://.godot/imported/حرّك أنصاف الكيوي!.mp3-b5a43686260c06dc7814a326fa0c0716.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/حرّك أنصاف الكيوي!.mp3"
+dest_files=["res://.godot/imported/حرّك أنصاف الكيوي!.mp3-b5a43686260c06dc7814a326fa0c0716.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -11,3 +11,5 @@ func log(level: int, message:String, tags:=[]):
 		var tags_printed = ""
 		for tag in tags:
 			tags_printed += tag + " "
+
+		print(timestamp, stack, line, function, tags_printed)

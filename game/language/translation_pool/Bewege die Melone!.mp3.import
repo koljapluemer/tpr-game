@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://barbtihblsjgg"
+path="res://.godot/imported/Bewege die Melone!.mp3-6e0a86cd3855623a3a6593a3c35916df.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Bewege die Melone!.mp3"
+dest_files=["res://.godot/imported/Bewege die Melone!.mp3-6e0a86cd3855623a3a6593a3c35916df.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

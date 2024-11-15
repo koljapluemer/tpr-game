@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfnxauq2bikog"
+path="res://.godot/imported/ضع الفاكهة في السيارة الفضية!.mp3-c35958a3d9cee1182ddefe843a71f39a.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع الفاكهة في السيارة الفضية!.mp3"
+dest_files=["res://.godot/imported/ضع الفاكهة في السيارة الفضية!.mp3-c35958a3d9cee1182ddefe843a71f39a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

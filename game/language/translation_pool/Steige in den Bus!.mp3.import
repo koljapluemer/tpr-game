@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df8s2hghutm8v"
+path="res://.godot/imported/Steige in den Bus!.mp3-9e7153c683fefeb143f7fa8fe95cee21.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Steige in den Bus!.mp3"
+dest_files=["res://.godot/imported/Steige in den Bus!.mp3-9e7153c683fefeb143f7fa8fe95cee21.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

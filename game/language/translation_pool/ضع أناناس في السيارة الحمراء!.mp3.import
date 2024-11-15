@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy00d0st81mut"
+path="res://.godot/imported/ضع أناناس في السيارة الحمراء!.mp3-8a1ff30ac6168cba5daad1761dd26ce2.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع أناناس في السيارة الحمراء!.mp3"
+dest_files=["res://.godot/imported/ضع أناناس في السيارة الحمراء!.mp3-8a1ff30ac6168cba5daad1761dd26ce2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cy72twptqk8xx"
+path="res://.godot/imported/Nimm eine Banane!.mp3-86f55c399dd283c4f18b4a7ac6095413.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Nimm eine Banane!.mp3"
+dest_files=["res://.godot/imported/Nimm eine Banane!.mp3-86f55c399dd283c4f18b4a7ac6095413.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

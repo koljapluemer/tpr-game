@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp4vngyknv8vc"
+path="res://.godot/imported/Tocca una banana!.mp3-c489dfb0cad518d3324d5f35081911d0.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Tocca una banana!.mp3"
+dest_files=["res://.godot/imported/Tocca una banana!.mp3-c489dfb0cad518d3324d5f35081911d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

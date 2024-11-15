@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clf5880orwmux"
+path="res://.godot/imported/Tocca la banana!.mp3-fb9a6b2bd1f0e4cd6e56a0f56230c761.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Tocca la banana!.mp3"
+dest_files=["res://.godot/imported/Tocca la banana!.mp3-fb9a6b2bd1f0e4cd6e56a0f56230c761.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

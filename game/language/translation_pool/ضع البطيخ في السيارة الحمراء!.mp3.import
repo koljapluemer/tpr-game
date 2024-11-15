@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chyfj38ns60rr"
+path="res://.godot/imported/ضع البطيخ في السيارة الحمراء!.mp3-10d36d198890a1509aa70fe6d271621f.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع البطيخ في السيارة الحمراء!.mp3"
+dest_files=["res://.godot/imported/ضع البطيخ في السيارة الحمراء!.mp3-10d36d198890a1509aa70fe6d271621f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

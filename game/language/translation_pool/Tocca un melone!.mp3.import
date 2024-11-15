@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bixfv07fpc1m2"
+path="res://.godot/imported/Tocca un melone!.mp3-3f2b73523bc29ddd3bdf3bfb466c5a6a.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Tocca un melone!.mp3"
+dest_files=["res://.godot/imported/Tocca un melone!.mp3-3f2b73523bc29ddd3bdf3bfb466c5a6a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

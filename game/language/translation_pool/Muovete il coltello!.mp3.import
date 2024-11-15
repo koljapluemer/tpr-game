@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deu3ocdg745lb"
+path="res://.godot/imported/Muovete il coltello!.mp3-3e5037bb99cb968eb5608ade2efce9f5.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovete il coltello!.mp3"
+dest_files=["res://.godot/imported/Muovete il coltello!.mp3-3e5037bb99cb968eb5608ade2efce9f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5mkmybt15w5r"
+path="res://.godot/imported/Muovi te stesso!.mp3-5f7844325fe7effcbb123bac570a44d9.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovi te stesso!.mp3"
+dest_files=["res://.godot/imported/Muovi te stesso!.mp3-5f7844325fe7effcbb123bac570a44d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cabrvygx8ock2"
+path="res://.godot/imported/Nimm die Kiwihälften!.mp3-aab5ea4855de0179fc45eaa613c5292c.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Nimm die Kiwihälften!.mp3"
+dest_files=["res://.godot/imported/Nimm die Kiwihälften!.mp3-aab5ea4855de0179fc45eaa613c5292c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

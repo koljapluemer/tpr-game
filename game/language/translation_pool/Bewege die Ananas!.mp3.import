@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ulc1lcjbaop5"
+path="res://.godot/imported/Bewege die Ananas!.mp3-963af8c298df6b5f83e25ad7ae455dc4.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Bewege die Ananas!.mp3"
+dest_files=["res://.godot/imported/Bewege die Ananas!.mp3-963af8c298df6b5f83e25ad7ae455dc4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

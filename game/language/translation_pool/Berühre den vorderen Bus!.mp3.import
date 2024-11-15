@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1xb1rlvofbcw"
+path="res://.godot/imported/Berühre den vorderen Bus!.mp3-df5dc4fae7dd7a722d6058993a6cacde.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Berühre den vorderen Bus!.mp3"
+dest_files=["res://.godot/imported/Berühre den vorderen Bus!.mp3-df5dc4fae7dd7a722d6058993a6cacde.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://u4uyqk21vtxb"
+path="res://.godot/imported/Take a fruit!.mp3-7d28e63a4d90c601b24f6a2c2a62241a.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Take a fruit!.mp3"
+dest_files=["res://.godot/imported/Take a fruit!.mp3-7d28e63a4d90c601b24f6a2c2a62241a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

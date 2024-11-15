@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8ljsxs47fxp8"
+path="res://.godot/imported/حرّك جوز الهند!.mp3-425b71fd5d58d74f0b072a78f3006ddd.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/حرّك جوز الهند!.mp3"
+dest_files=["res://.godot/imported/حرّك جوز الهند!.mp3-425b71fd5d58d74f0b072a78f3006ddd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

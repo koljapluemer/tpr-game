@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2f4gp1ks3b3p"
+path="res://.godot/imported/Berühre einen Apfel!.mp3-ce853abd889586b13c8cc920b7b7af3e.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Berühre einen Apfel!.mp3"
+dest_files=["res://.godot/imported/Berühre einen Apfel!.mp3-ce853abd889586b13c8cc920b7b7af3e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

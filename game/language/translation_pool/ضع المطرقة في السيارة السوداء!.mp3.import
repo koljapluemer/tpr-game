@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://y1u0dpgy74ju"
+path="res://.godot/imported/ضع المطرقة في السيارة السوداء!.mp3-0daf8721729fc46fd1972b4764c54deb.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/ضع المطرقة في السيارة السوداء!.mp3"
+dest_files=["res://.godot/imported/ضع المطرقة في السيارة السوداء!.mp3-0daf8721729fc46fd1972b4764c54deb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

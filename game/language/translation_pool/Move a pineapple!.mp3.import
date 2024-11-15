@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pb4ltvgevjck"
+path="res://.godot/imported/Move a pineapple!.mp3-0db05ad9fdc66b4aab6ba44f27aa79a7.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Move a pineapple!.mp3"
+dest_files=["res://.godot/imported/Move a pineapple!.mp3-0db05ad9fdc66b4aab6ba44f27aa79a7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

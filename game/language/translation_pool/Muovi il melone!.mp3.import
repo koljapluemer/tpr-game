@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi18580q8b8up"
+path="res://.godot/imported/Muovi il melone!.mp3-7e25923f045c064736e4ccff6cec3c1d.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Muovi il melone!.mp3"
+dest_files=["res://.godot/imported/Muovi il melone!.mp3-7e25923f045c064736e4ccff6cec3c1d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

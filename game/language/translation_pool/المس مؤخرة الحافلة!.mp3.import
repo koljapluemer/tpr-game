@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2ss5tqcjosv3"
+path="res://.godot/imported/المس مؤخرة الحافلة!.mp3-09a6d09f20a83e3ceca54b3a15f08d04.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس مؤخرة الحافلة!.mp3"
+dest_files=["res://.godot/imported/المس مؤخرة الحافلة!.mp3-09a6d09f20a83e3ceca54b3a15f08d04.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

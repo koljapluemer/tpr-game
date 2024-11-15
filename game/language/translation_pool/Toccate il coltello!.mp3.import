@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cx7xrxbqgiwf5"
+path="res://.godot/imported/Toccate il coltello!.mp3-1fe7afa90a7c8d97b56b4e6d522f475e.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Toccate il coltello!.mp3"
+dest_files=["res://.godot/imported/Toccate il coltello!.mp3-1fe7afa90a7c8d97b56b4e6d522f475e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

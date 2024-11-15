@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o472a8eddloa"
+path="res://.godot/imported/المس حافلة حمراء وصفراء!.mp3-0cc5aa982b77c0a0fa4591c76a50b05a.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/المس حافلة حمراء وصفراء!.mp3"
+dest_files=["res://.godot/imported/المس حافلة حمراء وصفراء!.mp3-0cc5aa982b77c0a0fa4591c76a50b05a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

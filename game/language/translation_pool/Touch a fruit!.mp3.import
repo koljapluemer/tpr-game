@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbedidtj0tgsj"
+path="res://.godot/imported/Touch a fruit!.mp3-c78ad1e61556f06016a977015d4dc650.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Touch a fruit!.mp3"
+dest_files=["res://.godot/imported/Touch a fruit!.mp3-c78ad1e61556f06016a977015d4dc650.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

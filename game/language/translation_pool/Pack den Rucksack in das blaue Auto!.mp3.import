@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh6ulclnt8ue5"
+path="res://.godot/imported/Pack den Rucksack in das blaue Auto!.mp3-5e5956e8c3e57122cf99709c6d01fca8.mp3str"
+
+[deps]
+
+source_file="res://game/language/translation_pool/Pack den Rucksack in das blaue Auto!.mp3"
+dest_files=["res://.godot/imported/Pack den Rucksack in das blaue Auto!.mp3-5e5956e8c3e57122cf99709c6d01fca8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
