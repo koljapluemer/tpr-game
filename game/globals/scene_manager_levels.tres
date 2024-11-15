@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="LevelsList" load_steps=9 format=3 uid="uid://wl4a7htjtko7"]
+[gd_resource type="Resource" script_class="LevelsList" load_steps=15 format=3 uid="uid://wl4a7htjtko7"]
 
 [ext_resource type="Script" path="res://game/levels/level.gd" id="1_7jjv4"]
 [ext_resource type="PackedScene" uid="uid://man8sextdloo" path="res://game/levels/level_templates/000_cut-kiwi.tscn" id="2_xsujx"]
 [ext_resource type="PackedScene" uid="uid://dfo07xtn0tqy7" path="res://game/levels/level_templates/001_car_packing_basic.tscn" id="3_yho5r"]
 [ext_resource type="PackedScene" uid="uid://ck7yb645yumni" path="res://game/levels/level_templates/002_car_packing.tscn" id="4_ys6ow"]
+[ext_resource type="PackedScene" uid="uid://cfbljw8k5nsrx" path="res://game/levels/level_templates/003_mustang_lock_unlock.tscn" id="5_23wl3"]
 [ext_resource type="Script" path="res://game/globals/scene_manager_levels.gd" id="5_i0yaf"]
+[ext_resource type="PackedScene" uid="uid://ctjd27wlt2qag" path="res://game/levels/level_templates/005_3_busses.tscn" id="6_85qft"]
+[ext_resource type="PackedScene" uid="uid://b2tpqosai0vok" path="res://game/levels/level_templates/006_move_around.tscn" id="7_fk6sr"]
 
 [sub_resource type="Resource" id="Resource_vo261"]
 script = ExtResource("1_7jjv4")
@@ -27,6 +30,27 @@ scene = ExtResource("4_ys6ow")
 is_repeatable_level = true
 level_names_that_have_to_be_played_first = Array[String](["car-packing-basic"])
 
+[sub_resource type="Resource" id="Resource_af0g3"]
+script = ExtResource("1_7jjv4")
+internal_name = "mustang-lock"
+scene = ExtResource("5_23wl3")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_ci0k8"]
+script = ExtResource("1_7jjv4")
+internal_name = "3-busses"
+scene = ExtResource("6_85qft")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_wltjm"]
+script = ExtResource("1_7jjv4")
+internal_name = "move-around"
+scene = ExtResource("7_fk6sr")
+is_repeatable_level = true
+level_names_that_have_to_be_played_first = Array[String]([])
+
 [resource]
 script = ExtResource("5_i0yaf")
-levels = Array[ExtResource("1_7jjv4")]([SubResource("Resource_vo261"), SubResource("Resource_tl5t4"), SubResource("Resource_5u5rh")])
+levels = Array[ExtResource("1_7jjv4")]([SubResource("Resource_vo261"), SubResource("Resource_tl5t4"), SubResource("Resource_5u5rh"), SubResource("Resource_af0g3"), SubResource("Resource_ci0k8"), SubResource("Resource_wltjm")])
