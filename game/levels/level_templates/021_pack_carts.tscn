@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://b53w0nqchuo36"]
+
+[ext_resource type="Script" path="res://game/levels/level_manager.gd" id="1_slho2"]
+[ext_resource type="PackedScene" uid="uid://fyvk5b7uo0am" path="res://game/ui/level_ui/level_ui.tscn" id="2_1dpl3"]
+[ext_resource type="Script" path="res://game/levels/spawn_point.gd" id="4_pv0wa"]
+[ext_resource type="PackedScene" uid="uid://b8nwtik0u8g35" path="res://game/scrapbook_objects/objects/supermarket_no_move_quests/melon_no_mov.tscn" id="5_2i4br"]
+[ext_resource type="PackedScene" uid="uid://coa7ncdq888tt" path="res://game/scrapbook_objects/objects/shopping_cart_red.tscn" id="5_kpyi4"]
+
+[node name="Level2" type="Node2D" groups=["level_map"]]
+script = ExtResource("1_slho2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_1dpl3")]
+unique_name_in_owner = true
+
+[node name="Background" type="Area2D" parent="." groups=["background"]]
+z_index = -100
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Fruit" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(370, 265)
+script = ExtResource("4_pv0wa")
+accepts = Array[PackedScene]([ExtResource("5_2i4br")])
+scale_factor = 0.4
+
+[node name="Cart" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(554, 177)
+script = ExtResource("4_pv0wa")
+accepts = Array[PackedScene]([ExtResource("5_kpyi4")])
+scale_factor = 0.12
+relative_position = "RIGHT"
+
+[node name="Cart2" type="Marker2D" parent="SpawnPoints"]
+z_index = 7
+position = Vector2(218, 169)
+script = ExtResource("4_pv0wa")
+accepts = Array[PackedScene]([ExtResource("5_kpyi4")])
+scale_factor = 0.12
+relative_position = "LEFT"
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["audio_player"]]
+unique_name_in_owner = true
+
+[editable path="CanvasLayer"]

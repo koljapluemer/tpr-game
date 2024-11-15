@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://coa7ncdq888tt"]
 
 [ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_cb6sl"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_medium_storage.gd" id="3_3bia4"]
 [ext_resource type="Texture2D" uid="uid://d0a68mm8dh6ea" path="res://game/images/shopping_cart.webp" id="3_yq3lb"]
-[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_pushable.gd" id="4_1u3qh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fb8"]
 resource_local_to_scene = true
@@ -25,5 +25,5 @@ texture = ExtResource("3_yq3lb")
 position = Vector2(-6, -599)
 shape = SubResource("RectangleShape2D_14ond")
 
-[node name="AffordanceIsPushable" type="Node2D" parent="." index="5"]
-script = ExtResource("4_1u3qh")
+[node name="AffordanceIsMediumStorage" type="Node2D" parent="." index="5"]
+script = ExtResource("3_3bia4")

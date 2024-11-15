@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8nwtik0u8g35"]
+
+[ext_resource type="PackedScene" uid="uid://buapgxqpegef1" path="res://game/scrapbook_objects/scapbook_object.tscn" id="1_co37v"]
+[ext_resource type="Texture2D" uid="uid://bjlrlkxt7wea7" path="res://game/images/melon_whole.webp" id="2_ar2p8"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_medium.gd" id="3_hdosf"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_is_movable_freely.gd" id="4_m5xu8"]
+[ext_resource type="Script" path="res://game/scrapbook_objects/affordances/affordance_stores_in_small.gd" id="5_3b5sl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii3d8"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7q7t"]
+radius = 69.0
+height = 182.0
+
+[node name="ScapbookObject" instance=ExtResource("1_co37v")]
+position = Vector2(0, 4)
+word_list = Array[String](["MELON", "FRUIT"])
+metadata/_edit_horizontal_guides_ = [-50.0]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ii3d8")
+position = Vector2(14, -61)
+rotation = 1.5708
+scale = Vector2(0.463829, 0.463829)
+texture = ExtResource("2_ar2p8")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -59)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u7q7t")
+
+[node name="AffordanceStoresInMedium" type="Node2D" parent="." index="5"]
+script = ExtResource("3_hdosf")
+
+[node name="AffordanceIsMovableFreely" type="Node2D" parent="." index="6"]
+script = ExtResource("4_m5xu8")
+can_be_used_for_quests = false
+
+[node name="AffordanceStoresInSmall" type="Node2D" parent="." index="7"]
+script = ExtResource("5_3b5sl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

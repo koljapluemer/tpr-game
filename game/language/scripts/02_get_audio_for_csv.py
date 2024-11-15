@@ -19,7 +19,7 @@ def main():
     with open(CSV_FILE, 'r') as f:
         reader = csv.reader(f)
         header = next(reader)
-        language_codes = header[1:]
+        language_codes = header[2:]
 
     # get api data from api.txt
     with open('./game/language/scripts/api.txt', 'r') as f:
