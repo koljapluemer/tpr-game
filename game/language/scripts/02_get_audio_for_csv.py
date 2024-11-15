@@ -94,11 +94,7 @@ for language_code in language_codes:
                             with open(file_path, 'wb') as file:
                                 # write file to correct path:
                                 file.write(file_content)
-                        else:
-
-                    else:
 
 
-                else:
-
-            else:
+if __name__ == "__main__":
+    main()
