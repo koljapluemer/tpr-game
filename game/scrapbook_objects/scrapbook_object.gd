@@ -77,21 +77,7 @@ func register_affordance(affordance:Affordance):
 	
 
 func get_identifiers() -> Array[String]:
-	# also a bit of an awkward split with the id generation happening in level_manager
-	var ids: Array[String] = []
-	for id in sensible_identifiers:
-		var key := id
-		if parent_spawn_point.relative_position:
-			key += "__" + parent_spawn_point.relative_position
-			if parent_spawn_point.relative_position_relates_to_spawn_point:
-				if parent_spawn_point.relative_position_relates_to_spawn_point.init_scene:
-					for related_id in parent_spawn_point.relative_position_relates_to_spawn_point.init_scene.get_identifiers():
-						ids.append(key + "__" + related_id)
-			else:
-				ids.append(key)
-		else:
-			ids.append(key)
-	return ids
+	return sensible_identifiers
 
 func _start_moving():
 	if not is_moving:

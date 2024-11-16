@@ -312,6 +312,22 @@ func analyze_special_wording_opportunities():
 			if not obj.sensible_identifiers.has(id):
 				obj.sensible_identifiers.append(id)
 
+		# relative position stuff
+		var _ids: Array[String] = []
+		for id in obj.sensible_identifiers:
+			var key := id
+			var parent_spawn_point := obj.parent_spawn_point
+			if parent_spawn_point.relative_position:
+				key += "__" + parent_spawn_point.relative_position
+				if parent_spawn_point.relative_position_relates_to_spawn_point:
+					if parent_spawn_point.relative_position_relates_to_spawn_point.init_scene:
+						for related_id in parent_spawn_point.relative_position_relates_to_spawn_point.init_scene.get_identifiers():
+							_ids.append(key + "__" + related_id)
+				else:
+					_ids.append(key)
+			else:
+				_ids.append(key)
+		obj.sensible_identifiers.append_array(_ids)
 
 func _on_quest_finished():
 	if audio_player:
