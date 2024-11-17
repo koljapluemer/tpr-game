@@ -1,19 +1,12 @@
 extends Control
 @onready var language_select: OptionButton = %LanguageSelect
 
-const CODES = {
-	0: "ar",
-	1: "de",
-	2: "it"
-}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	var language_code = PlayerPreferencesManager.get_pref_language_code()
-	for i in CODES:
-		if CODES[i] == language_code:
-			language_select.selected = i
+func _on_btn_ar_pressed() -> void:
+	PlayerPreferencesManager.set_pref_language_code("ar")
+	SceneManager.load_main_menu()
 
-func _on_change_lang_button_pressed() -> void:
-	PlayerPreferencesManager.set_pref_language_code(CODES[language_select.selected])
+
+func _on_btn_de_pressed() -> void:
+	PlayerPreferencesManager.set_pref_language_code("de")
 	SceneManager.load_main_menu()

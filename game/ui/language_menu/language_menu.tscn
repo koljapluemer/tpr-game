@@ -23,52 +23,48 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 10.34
-
-[node name="Spacer4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Spacer5" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_type_variation = &"TooltipLabel"
-text = "Set target language:"
+text = "Which language do you want to learn?"
 horizontal_alignment = 1
 
-[node name="LanguageSelect" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-item_count = 3
-popup/item_0/text = "Arabic"
-popup/item_1/text = "German"
-popup/item_1/id = 1
-popup/item_2/text = "Italian"
-popup/item_2/id = 2
+text = "Welche Sprache möchtest du lernen?"
+horizontal_alignment = 1
 
-[node name="Spacer3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ما هي اللغة التي تريد تعلمها؟"
+horizontal_alignment = 1
+
+[node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="btn_ar" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+text = "Arabic | Arabisch | اللغة العربية"
 
-[node name="ChangeLangButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="btn_de" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save"
+text = "German | Deutsch | اللغة الألمانية"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ChangeLangButton" to="." method="_on_change_lang_button_pressed"]
+[node name="Spacer4" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 6
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_ar" to="." method="_on_btn_ar_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_de" to="." method="_on_btn_de_pressed"]
