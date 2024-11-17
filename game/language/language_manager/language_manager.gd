@@ -11,7 +11,7 @@ func get_path_from_key(key:String) -> String:
 func check_for_matching_audio(key):
 	# also attack the weird case of no translation string (even if audio may exist)
 	if key == tr(key):
-		Logger.log(1,"translation does not exist: " + key)
+		Logger.log(1,"locale" + TranslationServer.get_locale() + "translation does not exist: " + key)
 		write_missing_key_to_file(key)
 		#return null
 	
