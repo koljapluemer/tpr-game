@@ -11,11 +11,16 @@ const SCENE_MANAGER_LEVELS = preload("res://game/globals/scene_manager_levels.tr
 
 var current_level:PackedScene
 var current_level_name:String
+var current_level_started_at_tick:int
 
 func load_scene(scene:PackedScene):
 	_load_scene(scene)
 
-func load_end_level_screen():
+func load_end_level_screen(actions_and_quests:Array[Dictionary] = []):
+	LanguageLearningDataManager.write_to_firebase({
+		'playtime_ms': Time.get_ticks_msec() - current_level_started_at_tick,
+		'actions_and_quests': actions_and_quests
+		})
 	_load_scene(END_LEVEL_SCREEN)
 
 func reload_level():
@@ -36,4 +41,7 @@ func load_language_change_screen():
 	
 func load_play_level():
 	var random_level: Level = SCENE_MANAGER_LEVELS.levels.pick_random()
+	current_level = random_level.scene
+	current_level_name = random_level.internal_name
+	current_level_started_at_tick = Time.get_ticks_msec()
 	load_scene(random_level.scene)

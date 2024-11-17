@@ -34,6 +34,7 @@ LanguageManager="*res://game/language/language_manager/language_manager.gd"
 Logger="*res://game/globals/logger.gd"
 PlayerPreferencesManager="*res://game/globals/player_preferences_manager.gd"
 LanguageLearningDataManager="*res://game/learning_data/language_learning_data_manager.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
@@ -44,7 +45,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
 
 [global_group]
 

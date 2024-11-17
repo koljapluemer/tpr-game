@@ -24,8 +24,13 @@ var currently_waiting_for_next_quest_to_start := false
 
 var scrapbook_objects: Array[ScrapbookObject]
 
+var actions_and_quests: Array[Dictionary] = []
+var level_ended := false
+
+
 @onready var audio_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
 @onready var spawn_points: Node2D = %SpawnPoints
+
 
 
 func _ready() -> void:
@@ -155,8 +160,9 @@ func _get_possible_quest_list() -> Array[Quest]:
 	analyze_special_wording_opportunities()
 	# a bit of an awkward place to check whether we should just end but hey
 	if quests_done >= MAX_QUESTS_PER_LEVEL:
-
-		SceneManager.load_end_level_screen()
+		if not level_ended:
+			SceneManager.load_end_level_screen(actions_and_quests)
+			level_ended = true
 		return []
 	
 	var possible_quests:Array[Quest] = []
@@ -246,12 +252,15 @@ func start_random_quest():
 		MessageManager.quest_started.emit(quest)
 		active_quest = quest
 		last_quest = quest
+		actions_and_quests.append({'quest-key': str(active_quest), 'nr_of_actions': 0})
 		
 		LanguageManager.play_audio_for_key(str(quest))
 	else:
 
 		if not debug_mode:
-			SceneManager.load_end_level_screen()
+			if not level_ended:
+				SceneManager.load_end_level_screen(actions_and_quests)
+				level_ended = true
 
 
 ## checking for things like "go to the left bus"
@@ -372,6 +381,8 @@ func _on_action_done(action:Action):
 	# we simply don't look at it
 	if not active_quest:
 		return
+		
+	actions_and_quests[-1]['nr_of_actions'] += 1
 		
 	var action_solved_the_quest := true
 	# check for active, passive and verb, dependent on whether that property was set in the quest

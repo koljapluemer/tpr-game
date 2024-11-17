@@ -1,11 +1,34 @@
 # no class_name because it's autoloaded
 extends Node
 
+
+const SAVE_PATH = 'user://'
+const SAVE_FILE_POSTFIX = '_learning_data.res'
+
 # array b/c we're saving one per language
 # (for those annoyhing people learning more than one
 var learning_data_sets: Array[LanguageLearningData]
-const SAVE_PATH = 'user://'
-const SAVE_FILE_POSTFIX = '_learning_data.res'
+
+var firestore_collection : FirestoreCollection
+
+func _ready() -> void:
+	call_deferred("connect_to_firebase")
+	
+
+func connect_to_firebase() -> void:
+	firestore_collection = Firebase.Firestore.collection('learning-data')
+	print("COLLECTION: ", firestore_collection)
+	Firebase.Auth.login_anonymous()
+
+
+func write_to_firebase(data:={}) -> void:
+	var _document = await firestore_collection.add("", {
+		'language-code': TranslationServer.get_locale(), 
+		'level-name': SceneManager.current_level_name,
+		'player-code': PlayerPreferencesManager.get_pref().uuid,
+		'data': data,
+		'timestamp': Time.get_unix_time_from_system()
+		})
 
 
 func _get_path_for_lang_code(_language_code:String) -> String:

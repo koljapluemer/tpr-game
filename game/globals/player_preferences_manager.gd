@@ -1,14 +1,14 @@
 # no class_name because it's autoloaded
 extends Node
 
-var preferences:PlayerPreferences
 const SAVE_PATH = 'user://pref.res'
+const CHARS = 'abcdefghijklmnopqrstuvwxyz'
+
+var preferences:PlayerPreferences
 
 
 func get_pref() -> PlayerPreferences:
-	if preferences:
-		return preferences
-	else:
+	if not preferences:
 		if ResourceLoader.exists(SAVE_PATH):
 			var _pref = ResourceLoader.load(SAVE_PATH)
 			if _pref is PlayerPreferences:
@@ -19,12 +19,18 @@ func get_pref() -> PlayerPreferences:
 
 		else:
 			preferences = PlayerPreferences.new()
-		return preferences
+			
+	if not preferences.uuid:
+		preferences.uuid = 'PLAYER_'
+		for i in range(12):
+			preferences.uuid += CHARS[randi() % len(CHARS)]
+		preferences.uuid += Time.get_time_string_from_system()
+		_save_pref()
+	return preferences
 			
 		
 	
 func _save_pref():
-
 	var res = ResourceSaver.save(preferences, SAVE_PATH)
 	assert(res == OK)
 
