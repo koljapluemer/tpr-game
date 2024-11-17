@@ -13,7 +13,7 @@ func check_for_matching_audio(key):
 	if key == tr(key):
 		Logger.log(1,"locale" + TranslationServer.get_locale() + "translation does not exist: " + key)
 		write_missing_key_to_file(key)
-		#return null
+		return null
 	
 	var path = get_path_from_key(key)
 	if ResourceLoader.exists(path):
@@ -41,13 +41,15 @@ func write_missing_key_to_file(text):
 func play_audio_for_key(key:String):
 	if not audio_stream_player_2d:
 		audio_stream_player_2d = get_tree().get_first_node_in_group("audio_player")
-	if audio_stream_player_2d:
-		var path = get_path_from_key(key)
-		if ResourceLoader.exists(path):
-			if is_instance_valid(audio_stream_player_2d):
-				audio_stream_player_2d.stream = load(path)
-				audio_stream_player_2d.play()
-		else:
-			Logger.log(1,"audio does not exist: " + path)
+		if not (is_instance_valid(audio_stream_player_2d) and is_inside_tree()):
+			audio_stream_player_2d = AudioStreamPlayer2D.new()
+			get_tree().root.add_child(audio_stream_player_2d)
+		if not audio_stream_player_2d:
+			audio_stream_player_2d = AudioStreamPlayer2D.new()
+			get_tree().root.add_child(audio_stream_player_2d)
+	var path = get_path_from_key(key)
+	if ResourceLoader.exists(path):
+		audio_stream_player_2d.stream = load(path)
+		audio_stream_player_2d.play()
 	else:
-		push_warning("audio_player not found")
+		Logger.log(1,"audio does not exist: " + path)

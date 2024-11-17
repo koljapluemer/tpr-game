@@ -175,7 +175,8 @@ func _get_possible_quest_list() -> Array[Quest]:
 			var any_any_quest = Quest.new()
 			any_any_quest.required_verb = action.verb_key
 			if LanguageManager.check_for_matching_audio(str(any_any_quest)):
-				possible_quests.append(any_any_quest)
+				append_quest_if_not_same_as_last(possible_quests, any_any_quest)
+
 			
 			for active_key in possible_keys_of_active_object:
 				# ex: THE__KNIFE__CUT__ANY	
@@ -183,7 +184,8 @@ func _get_possible_quest_list() -> Array[Quest]:
 				active_to_any_quest.required_active_object_key = active_key
 				active_to_any_quest.required_verb = action.verb_key
 				if LanguageManager.check_for_matching_audio(str(active_to_any_quest)):
-						possible_quests.append(active_to_any_quest)
+					append_quest_if_not_same_as_last(possible_quests, active_to_any_quest)
+
 
 				
 			for passive_key in possible_keys_of_passive_object:
@@ -192,7 +194,7 @@ func _get_possible_quest_list() -> Array[Quest]:
 				q.required_passive_object_key = passive_key
 				q.required_verb = action.verb_key
 				if LanguageManager.check_for_matching_audio(str(q)):
-					possible_quests.append(q)
+					append_quest_if_not_same_as_last(possible_quests, q)
 				for active_key in possible_keys_of_active_object:
 					# ex: THE__KNIFE__CUT__THE__KIWI	
 					var qu = Quest.new()
@@ -200,8 +202,9 @@ func _get_possible_quest_list() -> Array[Quest]:
 					qu.required_passive_object_key = passive_key
 					qu.required_verb = action.verb_key
 					if LanguageManager.check_for_matching_audio(str(qu)):
+						append_quest_if_not_same_as_last(possible_quests, qu)
 
-						possible_quests.append(qu)
+
 		else:
 			for active_key in possible_keys_of_active_object:
 				# ex: THE__KNIFE__MOVE	
@@ -209,12 +212,24 @@ func _get_possible_quest_list() -> Array[Quest]:
 				active_to_any_quest.required_active_object_key = active_key
 				active_to_any_quest.required_verb = action.verb_key
 				if LanguageManager.check_for_matching_audio(str(active_to_any_quest)):
-						possible_quests.append(active_to_any_quest)
-	
-	# TODO: this returns 0, track down why!
-	# (probably to do with the action rework?)
+					append_quest_if_not_same_as_last(possible_quests, active_to_any_quest)
 
 	return possible_quests
+
+func append_quest_if_not_same_as_last(quest_arr:Array[Quest], quest:Quest):
+	var append_quest:=false
+	if not last_quest:
+		append_quest = true
+	else:
+		if str(quest) != str(last_quest):
+			append_quest = true
+	
+	if append_quest:
+		quest_arr.append(quest)
+		return quest_arr
+	else:
+		return quest_arr
+
 
 func request_new_quest():
 	if not currently_waiting_for_next_quest_to_start and not active_quest:
@@ -225,10 +240,6 @@ func request_new_quest():
 func start_random_quest():
 	# prevent picking the last quest again
 	var quests_that_could_be_picked: Array[Quest] = _get_possible_quest_list()
-	if last_quest:
-		for q:Quest in quests_that_could_be_picked:
-			if str(last_quest) == str(q):
-				quests_that_could_be_picked.erase(q)
 	if len(quests_that_could_be_picked) > 0:
 		var quest:Quest = quests_that_could_be_picked.pick_random()
 		currently_waiting_for_next_quest_to_start = false
