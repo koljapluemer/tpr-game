@@ -22,8 +22,9 @@ resources_spreadsheet_view/fold_docks=false
 [application]
 
 config/name="The Scrapbook"
-run/main_scene="res://game/ui/main_menu/main_menu.tscn"
+run/main_scene="res://game/ui/language_menu/language_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/image="res://game/shared_assets/splash.png"
 config/icon="res://icon.svg"
 
 [autoload]
