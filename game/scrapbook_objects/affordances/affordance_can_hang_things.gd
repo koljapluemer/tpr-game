@@ -13,7 +13,7 @@ func _on_object_dropped_on_parent(obj:ScrapbookObject):
 		if affordance is AffordanceHangable:
 			_report_action(obj, parent)
 			obj.global_position = find_closest_point_to(obj).global_position
-			obj.rotate(randi_range(-.1, .1))
+			obj.rotate(randf_range(-.1, .1))
 			affordance.can_be_used_for_quests = false
 			
 

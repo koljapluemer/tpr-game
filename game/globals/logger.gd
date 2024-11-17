@@ -12,4 +12,4 @@ func log(level: int, message:String, tags:=[]):
 		for tag in tags:
 			tags_printed += tag + " "
 
-		print(timestamp, stack, line, function, tags_printed)
+		print(timestamp, stack, line, function, message, tags_printed)

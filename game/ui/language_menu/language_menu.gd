@@ -1,6 +1,4 @@
 extends Control
-@onready var language_select: OptionButton = %LanguageSelect
-
 
 func _on_btn_ar_pressed() -> void:
 	PlayerPreferencesManager.set_pref_language_code("ar")

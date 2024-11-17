@@ -352,8 +352,9 @@ func _on_quest_aborted():
 	
 ## react to actions not fulfilling a quest goal
 func _check_if_action_unproductive(action:Action):
+	Logger.log(0, "unproductive action")
 	# not sure if sound isn't just annoying
-	pass
+
 
 func _on_action_done(action:Action):
 	# if action happened while we were currently waiting for a quest
