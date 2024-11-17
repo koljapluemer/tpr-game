@@ -41,7 +41,7 @@ func write_missing_key_to_file(text):
 func play_audio_for_key(key:String):
 	if not audio_stream_player_2d:
 		audio_stream_player_2d = get_tree().get_first_node_in_group("audio_player")
-		if not (is_instance_valid(audio_stream_player_2d) and is_inside_tree()):
+		if not (is_instance_valid(audio_stream_player_2d) and audio_stream_player_2d.is_inside_tree()):
 			audio_stream_player_2d = AudioStreamPlayer2D.new()
 			get_tree().root.add_child(audio_stream_player_2d)
 		if not audio_stream_player_2d:
