@@ -6,10 +6,10 @@ uid="uid://wdtlnvoxcnbb"
 
 [deps]
 
-files=["res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.en.translation", "res://game/language/translation_text/tpr-game - Sheet1.ar.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.it.translation"]
+files=["res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.ar.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.it.translation"]
 
 source_file="res://game/language/translation_text/tpr-game - Sheet1.csv"
-dest_files=["res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.en.translation", "res://game/language/translation_text/tpr-game - Sheet1.ar.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.it.translation"]
+dest_files=["res://game/language/translation_text/tpr-game - Sheet1.de.translation", "res://game/language/translation_text/tpr-game - Sheet1.ar.translation", "res://game/language/translation_text/tpr-game - Sheet1.arz.translation", "res://game/language/translation_text/tpr-game - Sheet1.it.translation"]
 
 [params]
 
